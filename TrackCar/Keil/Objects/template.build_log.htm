@@ -1,0 +1,187 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Tool Versions:</h2>
+IDE-Version: ¦ÌVision V5.26.2.0
+Copyright (C) 2018 ARM Ltd and ARM Germany GmbH. All rights reserved.
+License Information: Ziang 1940918445@qq.com, WHU, LIC=EXJT4-FR8DN-EVM1R-KY4ZX-UFX8Y-EQIVY
+ 
+Tool Versions:
+Toolchain:       MDK-ARM Plus  Version: 5.26.2.0
+Toolchain Path:  D:\Environment\keil\ARM\ARMCC\Bin
+C Compiler:      Armcc.exe V5.06 update 6 (build 750)
+Assembler:       Armasm.exe V5.06 update 6 (build 750)
+Linker/Locator:  ArmLink.exe V5.06 update 6 (build 750)
+Library Manager: ArmAr.exe V5.06 update 6 (build 750)
+Hex Converter:   FromElf.exe V5.06 update 6 (build 750)
+CPU DLL:         SARMCM3.DLL V5.26.2.0
+Dialog DLL:      DCM.DLL V1.17.2.0
+Target DLL:      CMSIS_AGDI.dll V1.30.6.0
+Dialog DLL:      TCM.DLL V1.36.1.0
+ 
+<h2>Project:</h2>
+D:\code\stm32\msp\infrared\Keil\template.uvprojx
+Project File Date:  05/14/2023
+
+<h2>Output:</h2>
+*** Using Compiler 'V5.06 update 6 (build 750)', folder: 'D:\Environment\keil\ARM\ARMCC\Bin'
+Rebuild target 'template'
+compiling adc14.c...
+compiling aes256.c...
+compiling cs.c...
+compiling main.c...
+..\User\Drivers\Serial/Serial.h(6): warning:  #1295-D: Deprecated declaration initSerial - give arg types
+  void initSerial();
+..\User\Drivers\Serial/Serial.h(9): warning:  #1-D: last line of file ends without a newline
+  #endif
+..\User\Threads\serial_entry.h(4): warning:  #1295-D: Deprecated declaration serial_entry - give arg types
+  void serial_entry();
+..\User\Threads\tcrt_entry.h(4): warning:  #1295-D: Deprecated declaration tcrt_entry - give arg types
+  void tcrt_entry();
+..\User\Threads\tcrt_entry.h(5): warning:  #1295-D: Deprecated declaration sampleVoltage - give arg types
+  void sampleVoltage();
+..\User\Threads\tcrt_entry.h(7): warning:  #1-D: last line of file ends without a newline
+  #endif
+..\User\main.c: 6 warnings, 0 errors
+compiling fpu.c...
+compiling cpu.c...
+compiling flash.c...
+compiling dma.c...
+compiling flash_a.c...
+compiling crc32.c...
+compiling comp_e.c...
+compiling gpio.c...
+..\Lib\ti\devices\msp432p4xx\driverlib\gpio.c(52): warning:  #1296-D: extended constant initialiser used
+      (uint32_t)P1,
+..\Lib\ti\devices\msp432p4xx\driverlib\gpio.c(53): warning:  #1296-D: extended constant initialiser used
+      (uint32_t)P1+1,
+..\Lib\ti\devices\msp432p4xx\driverlib\gpio.c(54): warning:  #1296-D: extended constant initialiser used
+      (uint32_t)P3,
+..\Lib\ti\devices\msp432p4xx\driverlib\gpio.c(55): warning:  #1296-D: extended constant initialiser used
+      (uint32_t)P3+1,
+..\Lib\ti\devices\msp432p4xx\driverlib\gpio.c(56): warning:  #1296-D: extended constant initialiser used
+      (uint32_t)P5,
+..\Lib\ti\devices\msp432p4xx\driverlib\gpio.c(57): warning:  #1296-D: extended constant initialiser used
+      (uint32_t)P5+1,
+..\Lib\ti\devices\msp432p4xx\driverlib\gpio.c(58): warning:  #1296-D: extended constant initialiser used
+      (uint32_t)P7,
+..\Lib\ti\devices\msp432p4xx\driverlib\gpio.c(59): warning:  #1296-D: extended constant initialiser used
+      (uint32_t)P7+1,
+..\Lib\ti\devices\msp432p4xx\driverlib\gpio.c(60): warning:  #1296-D: extended constant initialiser used
+      (uint32_t)P9,
+..\Lib\ti\devices\msp432p4xx\driverlib\gpio.c(61): warning:  #1296-D: extended constant initialiser used
+      (uint32_t)P9+1,
+..\Lib\ti\devices\msp432p4xx\driverlib\gpio.c(62): warning:  #1296-D: extended constant initialiser used
+      (uint32_t)PJ
+..\Lib\ti\devices\msp432p4xx\driverlib\gpio.c: 11 warnings, 0 errors
+compiling i2c.c...
+compiling interrupt.c...
+compiling lcd_f.c...
+compiling pmap.c...
+compiling reset.c...
+compiling mpu.c...
+compiling ref_a.c...
+compiling pss.c...
+compiling rtc_c.c...
+compiling sysctl.c...
+compiling spi.c...
+assembling startup_msp432p401r_uvision.s...
+compiling sysctl_a.c...
+compiling pcm.c...
+assembling context_rvds.S...
+compiling board.c...
+compiling cpuport.c...
+compiling clock.c...
+compiling components.c...
+compiling ipc.c...
+compiling idle.c...
+compiling kservice.c...
+compiling irq.c...
+compiling cpu.c...
+compiling object.c...
+compiling scheduler.c...
+compiling memheap.c...
+compiling mempool.c...
+compiling timer_a.c...
+compiling mem.c...
+compiling wdt_a.c...
+compiling system_msp432p401r.c...
+compiling systick.c...
+compiling uart.c...
+compiling timer32.c...
+compiling slab.c...
+compiling thread.c...
+compiling timer.c...
+compiling tcrt_entry.c...
+..\User\Threads\tcrt_entry.h(4): warning:  #1295-D: Deprecated declaration tcrt_entry - give arg types
+  void tcrt_entry();
+..\User\Threads\tcrt_entry.h(5): warning:  #1295-D: Deprecated declaration sampleVoltage - give arg types
+  void sampleVoltage();
+..\User\Threads\tcrt_entry.h(7): warning:  #1-D: last line of file ends without a newline
+  #endif
+..\User\Drivers\TCRT5000/TCRT5000.h(11): warning:  #1295-D: Deprecated declaration init_TCRT - give arg types
+  void init_TCRT();
+..\User\Drivers\TCRT5000/TCRT5000.h(12): warning:  #1295-D: Deprecated declaration read_TCRT - give arg types
+  float read_TCRT();
+..\User\Drivers\TCRT5000/TCRT5000.h(14): warning:  #1-D: last line of file ends without a newline
+  #endif // !__TCRT5000.h
+..\User\Threads\tcrt_entry.c(34): warning:  #1-D: last line of file ends without a newline
+  }
+..\User\Threads\tcrt_entry.c: 7 warnings, 0 errors
+compiling serial_entry.c...
+..\User\Drivers\Serial/Serial.h(6): warning:  #1295-D: Deprecated declaration initSerial - give arg types
+  void initSerial();
+..\User\Drivers\Serial/Serial.h(9): warning:  #1-D: last line of file ends without a newline
+  #endif
+..\User\Threads\serial_entry.h(4): warning:  #1295-D: Deprecated declaration serial_entry - give arg types
+  void serial_entry();
+..\User\Drivers\TCRT5000/TCRT5000.h(11): warning:  #1295-D: Deprecated declaration init_TCRT - give arg types
+  void init_TCRT();
+..\User\Drivers\TCRT5000/TCRT5000.h(12): warning:  #1295-D: Deprecated declaration read_TCRT - give arg types
+  float read_TCRT();
+..\User\Drivers\TCRT5000/TCRT5000.h(14): warning:  #1-D: last line of file ends without a newline
+  #endif // !__TCRT5000.h
+..\User\Threads\serial_entry.c(22): warning:  #1035-D: single-precision operand implicitly converted to double-precision
+  			Voltage=Voltage/BITS*3.3;
+..\User\Threads\serial_entry.c(29): warning:  #1-D: last line of file ends without a newline
+  }
+..\User\Threads\serial_entry.c(15): warning:  #177-D: variable "e"  was declared but never referenced
+  	rt_uint32_t e;
+..\User\Threads\serial_entry.c: 9 warnings, 0 errors
+compiling TCRT5000.c...
+..\User\Drivers\TCRT5000\TCRT5000.h(11): warning:  #1295-D: Deprecated declaration init_TCRT - give arg types
+  void init_TCRT();
+..\User\Drivers\TCRT5000\TCRT5000.h(12): warning:  #1295-D: Deprecated declaration read_TCRT - give arg types
+  float read_TCRT();
+..\User\Drivers\TCRT5000\TCRT5000.h(14): warning:  #1-D: last line of file ends without a newline
+  #endif // !__TCRT5000.h
+..\User\Drivers\TCRT5000\TCRT5000.c(30): warning:  #1-D: last line of file ends without a newline
+  }
+..\User\Drivers\TCRT5000\TCRT5000.c: 4 warnings, 0 errors
+compiling Serial.c...
+..\User\Drivers\Serial\Serial.h(6): warning:  #1295-D: Deprecated declaration initSerial - give arg types
+  void initSerial();
+..\User\Drivers\Serial\Serial.h(9): warning:  #1-D: last line of file ends without a newline
+  #endif
+..\User\Drivers\Serial\Serial.c: 2 warnings, 0 errors
+linking...
+Program Size: Code=14376 RO-data=908 RW-data=200 ZI-data=6216  
+".\Objects\template.axf" - 0 Error(s), 39 Warning(s).
+
+<h2>Software Packages used:</h2>
+
+Package Vendor: TexasInstruments
+                http://software-dl.ti.com/msp430/msp430_public_sw/mcu/msp430/msp432cmsis/latest/exports/TexasInstruments.MSP432P4xx_DFP.3.2.6.pack
+                TexasInstruments.MSP432P4xx_DFP.3.2.6
+                Device Family Pack for Texas Instruments SimpleLink(TM) MSP432 Series
+
+<h2>Collection of Component include folders:</h2>
+  .\RTE\_template
+  D:\Environment\keil\ARM\PACK\TexasInstruments\MSP432P4xx_DFP\3.2.6\Device\Include
+
+<h2>Collection of Component Files used:</h2>
+Build Time Elapsed:  00:00:10
+</pre>
+</body>
+</html>

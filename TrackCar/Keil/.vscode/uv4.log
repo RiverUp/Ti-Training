@@ -1,0 +1,10 @@
+*** Using Compiler 'V5.06 update 6 (build 750)', folder: 'D:\Environment\keil\ARM\ARMCC\Bin'
+Build target 'template'
+compiling TCRT5000.c...
+..\User\Drivers\TCRT5000\TCRT5000.c(1): warning:  #1-D: last line of file ends without a newline
+  #include "TCRT5000.h"
+..\User\Drivers\TCRT5000\TCRT5000.c: 1 warning, 0 errors
+linking...
+Program Size: Code=8336 RO-data=740 RW-data=156 ZI-data=6204  
+".\Objects\template.axf" - 0 Error(s), 1 Warning(s).
+Build Time Elapsed:  00:00:01
