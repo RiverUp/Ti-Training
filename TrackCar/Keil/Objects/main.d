@@ -51,3 +51,4 @@
 .\objects\main.o: ..\User\Drivers\Serial/Serial.h
 .\objects\main.o: ..\User\Threads\serial_entry.h
 .\objects\main.o: ..\User\Threads\tcrt_entry.h
+.\objects\main.o: ..\User\Threads\motor_entry.h

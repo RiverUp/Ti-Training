@@ -3,12 +3,15 @@
 #include "Serial/Serial.h"
 #include "serial_entry.h"
 #include "tcrt_entry.h"
+#include "motor_entry.h"
 #include "stdbool.h"
 
 //rt_thread_t blink_thread = RT_NULL;
 
+#define DEBUG 1
+
 float Voltage;
-bool sendTextTrigger;
+float Voltage_filted;
 rt_event_t SendVoltageEvent;
 
 //static void blink_entry()
@@ -31,15 +34,28 @@ int main(void)
   MAP_FPU_enableLazyStacking();
 //	initSerial();
 	rt_thread_t tcrt_thread=rt_thread_create("tcrt",tcrt_entry,RT_NULL,1024,20,5);
+	#if DEBUG
 	rt_thread_t serial_thread=rt_thread_create("serial",serial_entry,RT_NULL,1024,20,25);
+	#else
+	rt_thread_t motor_thread=rt_thread_create("motor",motor_entry,RT_NULL,1024,20,25);
+	#endif
+	
+	
 	if(tcrt_thread!=RT_NULL)
 	{
 		rt_thread_startup(tcrt_thread);
 	}
+	#if DEBUG
 	if(serial_thread!=RT_NULL)
 	{
 		rt_thread_startup(serial_thread);
 	}
+	#else
+	if(motor_thread!=RT_NULL)
+	{
+		rt_thread_startup(motor_thread);
+	}
+	#endif
 	while(1)
 	{}
 //	blink_thread=rt_thread_create("blink",blink_entry,RT_NULL,1024,25,5);

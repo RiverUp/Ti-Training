@@ -51,8 +51,11 @@
 ".\objects\timer.o"
 ".\objects\tcrt5000.o"
 ".\objects\serial.o"
+".\objects\filter.o"
+".\objects\motor.o"
 ".\objects\serial_entry.o"
 ".\objects\tcrt_entry.o"
+".\objects\motor_entry.o"
 --library_type=microlib --strict --scatter ".\Objects\template.sct"
 --summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
 --info sizes --info totals --info unused --info veneers

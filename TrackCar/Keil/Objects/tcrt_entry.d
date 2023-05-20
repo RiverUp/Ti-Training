@@ -50,3 +50,4 @@
 .\objects\tcrt_entry.o: ..\RTthread\include\rtdef.h
 .\objects\tcrt_entry.o: D:\Environment\keil\ARM\ARMCC\Bin\..\include\stdarg.h
 .\objects\tcrt_entry.o: ..\RTthread\include\rtservice.h
+.\objects\tcrt_entry.o: ..\User\Drivers\Filter/Filter.h

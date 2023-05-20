@@ -7,6 +7,8 @@
 #include <ti/devices/msp432p4xx/driverlib/driverlib.h>
 
 #define BITS  16384          //2^13
+#define THRESHOLD1 1
+#define THRESHOLD2 2
 
 void init_TCRT();
 float read_TCRT();
