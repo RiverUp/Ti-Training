@@ -1,5 +1,5 @@
-.\objects\filter.o: ..\User\Drivers\Filter\Filter.c
-.\objects\filter.o: ..\User\Drivers\Filter\Filter.h
+.\objects\filter.o: ..\User\Drivers\Filter.c
+.\objects\filter.o: ..\User\Drivers\Filter.h
 .\objects\filter.o: ..\Lib\ti/devices/msp432p4xx/driverlib/driverlib.h
 .\objects\filter.o: ..\Lib\ti/devices/msp432p4xx/driverlib/adc14.h
 .\objects\filter.o: D:\Environment\keil\ARM\ARMCC\Bin\..\include\stdint.h
@@ -42,4 +42,3 @@
 .\objects\filter.o: ..\Lib\ti/devices/msp432p4xx/driverlib/wdt_a.h
 .\objects\filter.o: ..\Lib\ti/devices/msp432p4xx/driverlib/sysctl.h
 .\objects\filter.o: ..\Lib\ti/devices/msp432p4xx/driverlib/flash.h
-.\objects\filter.o: ..\User\Threads\tcrt_entry.h

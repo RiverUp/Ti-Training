@@ -1,5 +1,5 @@
-.\objects\motor.o: ..\User\Drivers\Motor\Motor.c
-.\objects\motor.o: ..\User\Drivers\Motor\Motor.h
+.\objects\motor.o: ..\User\Drivers\Motor.c
+.\objects\motor.o: ..\User\Drivers\Motor.h
 .\objects\motor.o: ..\Lib\ti/devices/msp432p4xx/driverlib/driverlib.h
 .\objects\motor.o: ..\Lib\ti/devices/msp432p4xx/driverlib/adc14.h
 .\objects\motor.o: D:\Environment\keil\ARM\ARMCC\Bin\..\include\stdint.h
@@ -42,3 +42,5 @@
 .\objects\motor.o: ..\Lib\ti/devices/msp432p4xx/driverlib/wdt_a.h
 .\objects\motor.o: ..\Lib\ti/devices/msp432p4xx/driverlib/sysctl.h
 .\objects\motor.o: ..\Lib\ti/devices/msp432p4xx/driverlib/flash.h
+.\objects\motor.o: D:\Environment\keil\ARM\ARMCC\Bin\..\include\math.h
+.\objects\motor.o: D:\Environment\keil\ARM\ARMCC\Bin\..\include\stdlib.h

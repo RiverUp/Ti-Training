@@ -1,5 +1,5 @@
-.\objects\tcrt5000.o: ..\User\Drivers\TCRT5000\TCRT5000.c
-.\objects\tcrt5000.o: ..\User\Drivers\TCRT5000\TCRT5000.h
+.\objects\tcrt5000.o: ..\User\Drivers\TCRT5000.c
+.\objects\tcrt5000.o: ..\User\Drivers\TCRT5000.h
 .\objects\tcrt5000.o: D:\Environment\keil\ARM\ARMCC\Bin\..\include\stdint.h
 .\objects\tcrt5000.o: D:\Environment\keil\ARM\ARMCC\Bin\..\include\stdbool.h
 .\objects\tcrt5000.o: ..\Lib\ti/devices/msp432p4xx/driverlib/driverlib.h

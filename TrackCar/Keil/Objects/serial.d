@@ -1,5 +1,5 @@
-.\objects\serial.o: ..\User\Drivers\Serial\Serial.c
-.\objects\serial.o: ..\User\Drivers\Serial\Serial.h
+.\objects\serial.o: ..\User\Drivers\Serial.c
+.\objects\serial.o: ..\User\Drivers\Serial.h
 .\objects\serial.o: ..\Lib\ti/devices/msp432p4xx/driverlib/driverlib.h
 .\objects\serial.o: ..\Lib\ti/devices/msp432p4xx/driverlib/adc14.h
 .\objects\serial.o: D:\Environment\keil\ARM\ARMCC\Bin\..\include\stdint.h

@@ -48,7 +48,11 @@
 .\objects\main.o: ..\RTthread\include\rtdef.h
 .\objects\main.o: D:\Environment\keil\ARM\ARMCC\Bin\..\include\stdarg.h
 .\objects\main.o: ..\RTthread\include\rtservice.h
-.\objects\main.o: ..\User\Drivers\Serial/Serial.h
-.\objects\main.o: ..\User\Threads\serial_entry.h
-.\objects\main.o: ..\User\Threads\tcrt_entry.h
-.\objects\main.o: ..\User\Threads\motor_entry.h
+.\objects\main.o: ..\User\Drivers\Delay.h
+.\objects\main.o: ..\User\Threads\control_entry.h
+.\objects\main.o: ..\User\Drivers\Motor.h
+.\objects\main.o: ..\User\Drivers\Encoder.h
+.\objects\main.o: ..\User\Threads\display_entry.h
+.\objects\main.o: ..\User\Drivers\oled.h
+.\objects\main.o: D:\Environment\keil\ARM\ARMCC\Bin\..\include\stdio.h
+.\objects\main.o: ..\User\Drivers\Encoder.h

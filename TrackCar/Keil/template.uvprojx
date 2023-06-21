@@ -653,44 +653,69 @@
           <GroupName>Drivers</GroupName>
           <Files>
             <File>
-              <FileName>TCRT5000.c</FileName>
+              <FileName>Delay.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\User\Drivers\TCRT5000\TCRT5000.c</FilePath>
+              <FilePath>..\User\Drivers\Delay.c</FilePath>
             </File>
             <File>
-              <FileName>Serial.c</FileName>
+              <FileName>Encoder.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\User\Drivers\Serial\Serial.c</FilePath>
+              <FilePath>..\User\Drivers\Encoder.c</FilePath>
             </File>
             <File>
               <FileName>Filter.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\User\Drivers\Filter\Filter.c</FilePath>
+              <FilePath>..\User\Drivers\Filter.c</FilePath>
+            </File>
+            <File>
+              <FileName>HC-05.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\User\Drivers\HC-05.c</FilePath>
+            </File>
+            <File>
+              <FileName>HC-SR04.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\User\Drivers\HC-SR04.c</FilePath>
+            </File>
+            <File>
+              <FileName>Interrupt.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\User\Drivers\Interrupt.c</FilePath>
             </File>
             <File>
               <FileName>Motor.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\User\Drivers\Motor\Motor.c</FilePath>
+              <FilePath>..\User\Drivers\Motor.c</FilePath>
+            </File>
+            <File>
+              <FileName>oled.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\User\Drivers\oled.c</FilePath>
+            </File>
+            <File>
+              <FileName>Serial.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\User\Drivers\Serial.c</FilePath>
+            </File>
+            <File>
+              <FileName>TCRT5000.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\User\Drivers\TCRT5000.c</FilePath>
             </File>
           </Files>
         </Group>
         <Group>
-          <GroupName>Threads</GroupName>
+          <GroupName>Thread</GroupName>
           <Files>
             <File>
-              <FileName>serial_entry.c</FileName>
+              <FileName>control_entry.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\User\Threads\serial_entry.c</FilePath>
+              <FilePath>..\User\Threads\control_entry.c</FilePath>
             </File>
             <File>
-              <FileName>tcrt_entry.c</FileName>
+              <FileName>display_entry.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\User\Threads\tcrt_entry.c</FilePath>
-            </File>
-            <File>
-              <FileName>motor_entry.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\User\Threads\motor_entry.c</FilePath>
+              <FilePath>..\User\Threads\display_entry.c</FilePath>
             </File>
           </Files>
         </Group>

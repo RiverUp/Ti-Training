@@ -22,180 +22,48 @@ Dialog DLL:      TCM.DLL V1.36.1.0
  
 <h2>Project:</h2>
 D:\code\stm32\msp\project\TrackCar\Keil\template.uvprojx
-Project File Date:  05/20/2023
+Project File Date:  06/21/2023
 
 <h2>Output:</h2>
 *** Using Compiler 'V5.06 update 6 (build 750)', folder: 'D:\Environment\keil\ARM\ARMCC\Bin'
-Rebuild target 'template'
-compiling cs.c...
-compiling fpu.c...
-compiling crc32.c...
-compiling comp_e.c...
-compiling aes256.c...
-compiling flash_a.c...
-compiling cpu.c...
-compiling dma.c...
-compiling adc14.c...
-compiling flash.c...
-compiling main.c...
-..\User\Drivers\Serial/Serial.h(6): warning:  #1295-D: Deprecated declaration initSerial - give arg types
-  void initSerial();
-..\User\Drivers\Serial/Serial.h(9): warning:  #1-D: last line of file ends without a newline
-  #endif
-..\User\Threads\serial_entry.h(4): warning:  #1295-D: Deprecated declaration serial_entry - give arg types
-  void serial_entry();
-..\User\Threads\tcrt_entry.h(6): warning:  #1295-D: Deprecated declaration tcrt_entry - give arg types
-  void tcrt_entry();
-..\User\Threads\tcrt_entry.h(7): warning:  #1295-D: Deprecated declaration sampleVoltage - give arg types
-  void sampleVoltage();
-..\User\Threads\tcrt_entry.h(9): warning:  #1-D: last line of file ends without a newline
-  #endif
-..\User\Threads\motor_entry.h(4): warning:  #1295-D: Deprecated declaration motor_entry - give arg types
-  void motor_entry();
-..\User\main.c: 7 warnings, 0 errors
-compiling gpio.c...
-..\Lib\ti\devices\msp432p4xx\driverlib\gpio.c(52): warning:  #1296-D: extended constant initialiser used
-      (uint32_t)P1,
-..\Lib\ti\devices\msp432p4xx\driverlib\gpio.c(53): warning:  #1296-D: extended constant initialiser used
-      (uint32_t)P1+1,
-..\Lib\ti\devices\msp432p4xx\driverlib\gpio.c(54): warning:  #1296-D: extended constant initialiser used
-      (uint32_t)P3,
-..\Lib\ti\devices\msp432p4xx\driverlib\gpio.c(55): warning:  #1296-D: extended constant initialiser used
-      (uint32_t)P3+1,
-..\Lib\ti\devices\msp432p4xx\driverlib\gpio.c(56): warning:  #1296-D: extended constant initialiser used
-      (uint32_t)P5,
-..\Lib\ti\devices\msp432p4xx\driverlib\gpio.c(57): warning:  #1296-D: extended constant initialiser used
-      (uint32_t)P5+1,
-..\Lib\ti\devices\msp432p4xx\driverlib\gpio.c(58): warning:  #1296-D: extended constant initialiser used
-      (uint32_t)P7,
-..\Lib\ti\devices\msp432p4xx\driverlib\gpio.c(59): warning:  #1296-D: extended constant initialiser used
-      (uint32_t)P7+1,
-..\Lib\ti\devices\msp432p4xx\driverlib\gpio.c(60): warning:  #1296-D: extended constant initialiser used
-      (uint32_t)P9,
-..\Lib\ti\devices\msp432p4xx\driverlib\gpio.c(61): warning:  #1296-D: extended constant initialiser used
-      (uint32_t)P9+1,
-..\Lib\ti\devices\msp432p4xx\driverlib\gpio.c(62): warning:  #1296-D: extended constant initialiser used
-      (uint32_t)PJ
-..\Lib\ti\devices\msp432p4xx\driverlib\gpio.c: 11 warnings, 0 errors
-compiling i2c.c...
-compiling lcd_f.c...
-compiling mpu.c...
-compiling interrupt.c...
-compiling pmap.c...
-compiling ref_a.c...
-compiling pcm.c...
-compiling reset.c...
-compiling pss.c...
-compiling rtc_c.c...
-compiling spi.c...
-compiling board.c...
-assembling startup_msp432p401r_uvision.s...
-compiling sysctl.c...
-compiling cpuport.c...
-compiling components.c...
-compiling cpu.c...
-compiling systick.c...
-compiling timer_a.c...
-compiling clock.c...
-compiling sysctl_a.c...
-assembling context_rvds.S...
-compiling timer32.c...
-compiling uart.c...
-compiling system_msp432p401r.c...
-compiling wdt_a.c...
-compiling mempool.c...
-compiling kservice.c...
-compiling ipc.c...
-compiling memheap.c...
-compiling mem.c...
-compiling irq.c...
-compiling idle.c...
-compiling scheduler.c...
-compiling object.c...
-compiling slab.c...
-compiling thread.c...
-compiling timer.c...
-compiling Serial.c...
-..\User\Drivers\Serial\Serial.h(6): warning:  #1295-D: Deprecated declaration initSerial - give arg types
-  void initSerial();
-..\User\Drivers\Serial\Serial.h(9): warning:  #1-D: last line of file ends without a newline
-  #endif
-..\User\Drivers\Serial\Serial.c: 2 warnings, 0 errors
-compiling TCRT5000.c...
-..\User\Drivers\TCRT5000\TCRT5000.h(13): warning:  #1295-D: Deprecated declaration init_TCRT - give arg types
-  void init_TCRT();
-..\User\Drivers\TCRT5000\TCRT5000.h(14): warning:  #1295-D: Deprecated declaration read_TCRT - give arg types
-  float read_TCRT();
-..\User\Drivers\TCRT5000\TCRT5000.h(16): warning:  #1-D: last line of file ends without a newline
-  #endif // !__TCRT5000.h
-..\User\Drivers\TCRT5000\TCRT5000.c(30): warning:  #1-D: last line of file ends without a newline
-  }
-..\User\Drivers\TCRT5000\TCRT5000.c: 4 warnings, 0 errors
-compiling motor_entry.c...
-..\User\Threads\motor_entry.h(4): warning:  #1295-D: Deprecated declaration motor_entry - give arg types
-  void motor_entry();
-..\User\Drivers\Motor/Motor.h(6): warning:  #1295-D: Deprecated declaration init_motor - give arg types
+Build target 'template'
+compiling control_entry.c...
+..\User\Drivers\Motor.h(12): warning:  #1295-D: Deprecated declaration init_motor - give arg types
   void init_motor();
-..\User\Threads\motor_entry.c(18): warning:  #1-D: last line of file ends without a newline
-  }
-..\User\Threads\motor_entry.c: 3 warnings, 0 errors
-compiling serial_entry.c...
-..\User\Drivers\Serial/Serial.h(6): warning:  #1295-D: Deprecated declaration initSerial - give arg types
-  void initSerial();
-..\User\Drivers\Serial/Serial.h(9): warning:  #1-D: last line of file ends without a newline
+..\User\Drivers\Motor.h(13): warning:  #1295-D: Deprecated declaration set_pwm_trail - give arg types
+  void set_pwm_trail();
+..\User\Drivers\Encoder.h(14): warning:  #1295-D: Deprecated declaration init_encoder_left - give arg types
+  void init_encoder_left();
+..\User\Drivers\Encoder.h(15): warning:  #1295-D: Deprecated declaration init_encoder_right - give arg types
+  void init_encoder_right();
+..\User\Drivers\Encoder.h(17): warning:  #1-D: last line of file ends without a newline
+  int read_encoder(uint8_t side);
+..\User\Threads\control_entry.h(10): warning:  #1295-D: Deprecated declaration control_entry - give arg types
+  void control_entry();
+..\User\Threads\control_entry.h(11): warning:  #1295-D: Deprecated declaration control - give arg types
+  void control();
+..\User\Threads\control_entry.h(12): warning:  #1295-D: Deprecated declaration veloity_left - give arg types
+  int veloity_left();
+..\User\Threads\control_entry.h(13): warning:  #1295-D: Deprecated declaration veloity_right - give arg types
+  int veloity_right();
+..\User\Threads\control_entry.h(14): warning:  #1295-D: Deprecated declaration turn - give arg types
+  int turn();
+..\User\Threads\control_entry.h(16): warning:  #1-D: last line of file ends without a newline
   #endif
-..\User\Threads\serial_entry.h(4): warning:  #1295-D: Deprecated declaration serial_entry - give arg types
-  void serial_entry();
-..\User\Drivers\TCRT5000/TCRT5000.h(13): warning:  #1295-D: Deprecated declaration init_TCRT - give arg types
-  void init_TCRT();
-..\User\Drivers\TCRT5000/TCRT5000.h(14): warning:  #1295-D: Deprecated declaration read_TCRT - give arg types
-  float read_TCRT();
-..\User\Drivers\TCRT5000/TCRT5000.h(16): warning:  #1-D: last line of file ends without a newline
-  #endif // !__TCRT5000.h
-..\User\Threads\serial_entry.c(27): warning:  #1-D: last line of file ends without a newline
+..\User\Threads\control_entry.c(35): warning:  #1035-D: single-precision operand implicitly converted to double-precision
+  	encoder_bias=0.84*encoder_bias+0.16*current_bias;
+..\User\Threads\control_entry.c(35): warning:  #1035-D: single-precision operand implicitly converted to double-precision
+  	encoder_bias=0.84*encoder_bias+0.16*current_bias;
+..\User\Threads\control_entry.c(56): warning:  #1035-D: single-precision operand implicitly converted to double-precision
+  	encoder_bias=0.84*encoder_bias+0.16*current_bias;
+..\User\Threads\control_entry.c(56): warning:  #1035-D: single-precision operand implicitly converted to double-precision
+  	encoder_bias=0.84*encoder_bias+0.16*current_bias;
+..\User\Threads\control_entry.c(75): warning:  #1-D: last line of file ends without a newline
   }
-..\User\Threads\serial_entry.c(15): warning:  #177-D: variable "e"  was declared but never referenced
-  	rt_uint32_t e;
-..\User\Threads\serial_entry.c: 8 warnings, 0 errors
-compiling Filter.c...
-..\User\Threads\tcrt_entry.h(6): warning:  #1295-D: Deprecated declaration tcrt_entry - give arg types
-  void tcrt_entry();
-..\User\Threads\tcrt_entry.h(7): warning:  #1295-D: Deprecated declaration sampleVoltage - give arg types
-  void sampleVoltage();
-..\User\Threads\tcrt_entry.h(9): warning:  #1-D: last line of file ends without a newline
-  #endif
-..\User\Drivers\Filter\Filter.c(27): warning:  #1-D: last line of file ends without a newline
-  }
-..\User\Drivers\Filter\Filter.c: 4 warnings, 0 errors
-compiling tcrt_entry.c...
-..\User\Threads\tcrt_entry.h(6): warning:  #1295-D: Deprecated declaration tcrt_entry - give arg types
-  void tcrt_entry();
-..\User\Threads\tcrt_entry.h(7): warning:  #1295-D: Deprecated declaration sampleVoltage - give arg types
-  void sampleVoltage();
-..\User\Threads\tcrt_entry.h(9): warning:  #1-D: last line of file ends without a newline
-  #endif
-..\User\Drivers\TCRT5000/TCRT5000.h(13): warning:  #1295-D: Deprecated declaration init_TCRT - give arg types
-  void init_TCRT();
-..\User\Drivers\TCRT5000/TCRT5000.h(14): warning:  #1295-D: Deprecated declaration read_TCRT - give arg types
-  float read_TCRT();
-..\User\Drivers\TCRT5000/TCRT5000.h(16): warning:  #1-D: last line of file ends without a newline
-  #endif // !__TCRT5000.h
-..\User\Threads\tcrt_entry.c(33): warning:  #1035-D: single-precision operand implicitly converted to double-precision
-  			Voltage=Voltage/BITS*3.3;
-..\User\Threads\tcrt_entry.c(22): warning:  #550-D: variable "state"  was set but never used
-  	enum Car_State state;
-..\User\Threads\tcrt_entry.c(68): warning:  #1-D: last line of file ends without a newline
-  }
-..\User\Threads\tcrt_entry.c: 9 warnings, 0 errors
-compiling Motor.c...
-..\User\Drivers\Motor\Motor.h(6): warning:  #1295-D: Deprecated declaration init_motor - give arg types
-  void init_motor();
-..\User\Drivers\Motor\Motor.c(3): warning:  #1-D: last line of file ends without a newline
-  void init_motor(){}
-..\User\Drivers\Motor\Motor.c: 2 warnings, 0 errors
+..\User\Threads\control_entry.c: 16 warnings, 0 errors
 linking...
-Program Size: Code=14632 RO-data=908 RW-data=212 ZI-data=6212  
-".\Objects\template.axf" - 0 Error(s), 50 Warning(s).
+Program Size: Code=14460 RO-data=4556 RW-data=304 ZI-data=6232  
+".\Objects\template.axf" - 0 Error(s), 16 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -209,7 +77,7 @@ Package Vendor: TexasInstruments
   D:\Environment\keil\ARM\PACK\TexasInstruments\MSP432P4xx_DFP\3.2.6\Device\Include
 
 <h2>Collection of Component Files used:</h2>
-Build Time Elapsed:  00:00:09
+Build Time Elapsed:  00:00:02
 </pre>
 </body>
 </html>

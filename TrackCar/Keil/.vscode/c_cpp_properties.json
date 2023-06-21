@@ -3,20 +3,20 @@
         {
             "name": "template",
             "includePath": [
-                "d:\\code\\stm32\\msp\\infrared\\User",
-                "d:\\code\\stm32\\msp\\infrared\\Lib",
-                "d:\\code\\stm32\\msp\\infrared\\Lib\\CMSIS\\include",
-                "d:\\code\\stm32\\msp\\infrared\\RTthread\\bsp",
-                "d:\\code\\stm32\\msp\\infrared\\RTthread\\include",
+                "d:\\code\\stm32\\msp\\project\\TrackCar\\User",
+                "d:\\code\\stm32\\msp\\project\\TrackCar\\Lib",
+                "d:\\code\\stm32\\msp\\project\\TrackCar\\Lib\\CMSIS\\include",
+                "d:\\code\\stm32\\msp\\project\\TrackCar\\RTthread\\bsp",
+                "d:\\code\\stm32\\msp\\project\\TrackCar\\RTthread\\include",
+                "d:\\code\\stm32\\msp\\project\\TrackCar\\User\\Drivers",
+                "d:\\code\\stm32\\msp\\project\\TrackCar\\User\\Threads",
                 "D:\\Environment\\keil\\ARM\\ARMCC\\include",
                 "D:\\Environment\\keil\\ARM\\ARMCC\\include\\rw",
-                "d:\\code\\stm32\\msp\\infrared\\Lib\\ti\\devices\\msp432p4xx\\driverlib",
-                "d:\\code\\stm32\\msp\\infrared\\Lib\\ti\\devices\\msp432p4xx\\startup_system_files",
-                "d:\\code\\stm32\\msp\\infrared\\Lib\\ti\\devices\\msp432p4xx\\startup_system_files\\keil",
-                "d:\\code\\stm32\\msp\\infrared\\RTthread\\libcpu\\arm\\cortex-m4",
-                "d:\\code\\stm32\\msp\\infrared\\RTthread\\src",
-                "d:\\code\\stm32\\msp\\infrared\\User\\Drivers\\TCRT5000",
-                "d:\\code\\stm32\\msp\\infrared\\User\\Drivers\\Serial"
+                "d:\\code\\stm32\\msp\\project\\TrackCar\\Lib\\ti\\devices\\msp432p4xx\\driverlib",
+                "d:\\code\\stm32\\msp\\project\\TrackCar\\Lib\\ti\\devices\\msp432p4xx\\startup_system_files",
+                "d:\\code\\stm32\\msp\\project\\TrackCar\\Lib\\ti\\devices\\msp432p4xx\\startup_system_files\\keil",
+                "d:\\code\\stm32\\msp\\project\\TrackCar\\RTthread\\libcpu\\arm\\cortex-m4",
+                "d:\\code\\stm32\\msp\\project\\TrackCar\\RTthread\\src"
             ],
             "defines": [
                 "__CC_ARM",
