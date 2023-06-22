@@ -21,6 +21,7 @@ void display_entry()
 		sprintf(text2,"l:%2d ",encoder_left);
 		OLED_ShowString(0,0,(unsigned char *)text1);
 		OLED_ShowString(0,2,(unsigned char *)text2);
+		//rt_thread_mdelay(1);
 	}
 	
 }

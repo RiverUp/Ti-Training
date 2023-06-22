@@ -3,7 +3,7 @@
 <title>Static Call Graph - [.\Objects\template.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\Objects\template.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060750: Last Updated: Wed Jun 21 17:29:24 2023
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060750: Last Updated: Thu Jun 22 15:19:21 2023
 <BR><P>
 <H3>Maximum Stack Usage =        300 bytes + Unknown(Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -291,7 +291,7 @@ Global Symbols
 <P><STRONG><a name="[8b]"></a>rt_hw_interrupt_disable</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, context_rvds.o(.text))
 <BR><BR>[Called By]<UL><LI><a href="#[a8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rt_exit_critical
 <LI><a href="#[a7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rt_enter_critical
-<LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rt_timer_start
+<LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rt_timer_start
 <LI><a href="#[cf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rt_timer_control
 <LI><a href="#[b9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rt_thread_suspend
 <LI><a href="#[b7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rt_thread_resume
@@ -319,7 +319,7 @@ Global Symbols
 <P><STRONG><a name="[8c]"></a>rt_hw_interrupt_enable</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, context_rvds.o(.text))
 <BR><BR>[Called By]<UL><LI><a href="#[a8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rt_exit_critical
 <LI><a href="#[a7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rt_enter_critical
-<LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rt_timer_start
+<LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rt_timer_start
 <LI><a href="#[cf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rt_timer_control
 <LI><a href="#[b9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rt_thread_suspend
 <LI><a href="#[b7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rt_thread_resume
@@ -377,8 +377,8 @@ Global Symbols
 </UL>
 <BR>[Called By]<UL><LI><a href="#[4b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_drsub
 <LI><a href="#[4a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dsub
-<LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;veloity_right
-<LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;veloity_left
+<LI><a href="#[90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;veloity_right
+<LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;veloity_left
 </UL>
 
 <P><STRONG><a name="[4a]"></a>__aeabi_dsub</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, dadd.o(.text), UNUSED)
@@ -394,13 +394,13 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[48]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_double_epilogue
 </UL>
-<BR>[Called By]<UL><LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;veloity_right
-<LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;veloity_left
+<BR>[Called By]<UL><LI><a href="#[90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;veloity_right
+<LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;veloity_left
 </UL>
 
 <P><STRONG><a name="[e7]"></a>__aeabi_f2d</STRONG> (Thumb, 38 bytes, Stack size 0 bytes, f2d.o(.text))
-<BR><BR>[Called By]<UL><LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;veloity_right
-<LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;veloity_left
+<BR><BR>[Called By]<UL><LI><a href="#[90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;veloity_right
+<LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;veloity_left
 </UL>
 
 <P><STRONG><a name="[4d]"></a>__aeabi_d2f</STRONG> (Thumb, 56 bytes, Stack size 8 bytes, d2f.o(.text))
@@ -408,8 +408,8 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[4e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_float_round
 </UL>
-<BR>[Called By]<UL><LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;veloity_right
-<LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;veloity_left
+<BR>[Called By]<UL><LI><a href="#[90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;veloity_right
+<LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;veloity_left
 </UL>
 
 <P><STRONG><a name="[f4]"></a>__aeabi_uidiv</STRONG> (Thumb, 0 bytes, Stack size 12 bytes, uidiv.o(.text), UNUSED)
@@ -501,13 +501,13 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[30]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PORT4_IRQHandler
 <LI><a href="#[2f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PORT3_IRQHandler
 <LI><a href="#[2e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PORT2_IRQHandler
-<LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;init_encoder_right
-<LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;init_encoder_left
+<LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;init_encoder_right
+<LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;init_encoder_left
 </UL>
 
 <P><STRONG><a name="[9c]"></a>GPIO_enableInterrupt</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, gpio.o(i.GPIO_enableInterrupt))
-<BR><BR>[Called By]<UL><LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;init_encoder_right
-<LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;init_encoder_left
+<BR><BR>[Called By]<UL><LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;init_encoder_right
+<LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;init_encoder_left
 </UL>
 
 <P><STRONG><a name="[57]"></a>GPIO_getEnabledInterruptStatus</STRONG> (Thumb, 80 bytes, Stack size 16 bytes, gpio.o(i.GPIO_getEnabledInterruptStatus))
@@ -536,12 +536,12 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[9b]"></a>GPIO_setAsInputPinWithPullUpResistor</STRONG> (Thumb, 40 bytes, Stack size 0 bytes, gpio.o(i.GPIO_setAsInputPinWithPullUpResistor))
-<BR><BR>[Called By]<UL><LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;init_encoder_right
-<LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;init_encoder_left
+<BR><BR>[Called By]<UL><LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;init_encoder_right
+<LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;init_encoder_left
 </UL>
 
 <P><STRONG><a name="[9e]"></a>GPIO_setAsOutputPin</STRONG> (Thumb, 28 bytes, Stack size 0 bytes, gpio.o(i.GPIO_setAsOutputPin))
-<BR><BR>[Called By]<UL><LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;init_motor
+<BR><BR>[Called By]<UL><LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;init_motor
 </UL>
 
 <P><STRONG><a name="[6f]"></a>GPIO_setAsPeripheralModuleFunctionInputPin</STRONG> (Thumb, 76 bytes, Stack size 8 bytes, gpio.o(i.GPIO_setAsPeripheralModuleFunctionInputPin))
@@ -553,16 +553,16 @@ Global Symbols
 <P><STRONG><a name="[9d]"></a>GPIO_setAsPeripheralModuleFunctionOutputPin</STRONG> (Thumb, 76 bytes, Stack size 8 bytes, gpio.o(i.GPIO_setAsPeripheralModuleFunctionOutputPin))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = GPIO_setAsPeripheralModuleFunctionOutputPin
 </UL>
-<BR>[Called By]<UL><LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;init_motor
+<BR>[Called By]<UL><LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;init_motor
 </UL>
 
 <P><STRONG><a name="[9f]"></a>GPIO_setOutputHighOnPin</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, gpio.o(i.GPIO_setOutputHighOnPin))
-<BR><BR>[Called By]<UL><LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;set_pwm
-<LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;init_motor
+<BR><BR>[Called By]<UL><LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;set_pwm
+<LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;init_motor
 </UL>
 
 <P><STRONG><a name="[e6]"></a>GPIO_setOutputLowOnPin</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, gpio.o(i.GPIO_setOutputLowOnPin))
-<BR><BR>[Called By]<UL><LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;set_pwm
+<BR><BR>[Called By]<UL><LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;set_pwm
 </UL>
 
 <P><STRONG><a name="[6e]"></a>Interrupt_disableInterrupt</STRONG> (Thumb, 108 bytes, Stack size 0 bytes, interrupt.o(i.Interrupt_disableInterrupt))
@@ -572,8 +572,8 @@ Global Symbols
 
 <P><STRONG><a name="[6d]"></a>Interrupt_enableInterrupt</STRONG> (Thumb, 108 bytes, Stack size 0 bytes, interrupt.o(i.Interrupt_enableInterrupt))
 <BR><BR>[Called By]<UL><LI><a href="#[2e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PORT2_IRQHandler
-<LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;init_encoder_right
-<LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;init_encoder_left
+<LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;init_encoder_right
+<LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;init_encoder_left
 </UL>
 
 <P><STRONG><a name="[59]"></a>Interrupt_enableMaster</STRONG> (Thumb, 16 bytes, Stack size 8 bytes, interrupt.o(i.Interrupt_enableMaster))
@@ -786,7 +786,7 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[7b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;privateTimer_AProcessClockSourceDivider
 </UL>
-<BR>[Called By]<UL><LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;set_pwm
+<BR>[Called By]<UL><LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;set_pwm
 </UL>
 
 <P><STRONG><a name="[76]"></a>Timer_A_getCaptureCompareCount</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, timer_a.o(i.Timer_A_getCaptureCompareCount))
@@ -853,59 +853,60 @@ Global Symbols
 
 <P><STRONG><a name="[100]"></a>__scatterload_zeroinit</STRONG> (Thumb, 14 bytes, Stack size unknown bytes, handlers.o(i.__scatterload_zeroinit), UNUSED)
 
-<P><STRONG><a name="[39]"></a>control</STRONG> (Thumb, 68 bytes, Stack size 16 bytes, control_entry.o(i.control))
-<BR><BR>[Stack]<UL><LI>Max Depth = 144<LI>Call Chain = control &rArr; veloity_right &rArr; __aeabi_dmul &rArr; _double_epilogue &rArr; _double_round
+<P><STRONG><a name="[39]"></a>control</STRONG> (Thumb, 84 bytes, Stack size 24 bytes, control_entry.o(i.control))
+<BR><BR>[Stack]<UL><LI>Max Depth = 152<LI>Call Chain = control &rArr; veloity_right &rArr; __aeabi_dmul &rArr; _double_epilogue &rArr; _double_round
 </UL>
-<BR>[Calls]<UL><LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;set_pwm
-<LI><a href="#[90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;limit_pwm
-<LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;veloity_right
-<LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;veloity_left
-<LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;turn
+<BR>[Calls]<UL><LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;set_pwm
+<LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;limit_pwm
+<LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;read_encoder
+<LI><a href="#[90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;veloity_right
+<LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;veloity_left
+<LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;turn
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> control_entry.o(i.control_entry)
 </UL>
-<P><STRONG><a name="[3a]"></a>control_entry</STRONG> (Thumb, 42 bytes, Stack size 16 bytes, control_entry.o(i.control_entry))
-<BR><BR>[Stack]<UL><LI>Max Depth = 192<LI>Call Chain = control_entry &rArr; rt_timer_create &rArr; rt_object_allocate &rArr; rt_malloc &rArr; rt_sem_take &rArr; rt_ipc_list_suspend &rArr; rt_thread_suspend &rArr; rt_timer_stop &rArr; _rt_timer_remove
+<P><STRONG><a name="[3a]"></a>control_entry</STRONG> (Thumb, 44 bytes, Stack size 8 bytes, control_entry.o(i.control_entry))
+<BR><BR>[Stack]<UL><LI>Max Depth = 184<LI>Call Chain = control_entry &rArr; rt_timer_create &rArr; rt_object_allocate &rArr; rt_malloc &rArr; rt_sem_take &rArr; rt_ipc_list_suspend &rArr; rt_thread_suspend &rArr; rt_timer_stop &rArr; _rt_timer_remove
 </UL>
-<BR>[Calls]<UL><LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rt_timer_start
-<LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;init_motor
-<LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;init_encoder_right
-<LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;init_encoder_left
-<LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rt_timer_create
+<BR>[Calls]<UL><LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rt_timer_start
+<LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;init_motor
+<LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;init_encoder_right
+<LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;init_encoder_left
+<LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rt_timer_create
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> main.o(i.main)
 </UL>
 <P><STRONG><a name="[5f]"></a>delay_ms</STRONG> (Thumb, 28 bytes, Stack size 12 bytes, delay.o(i.delay_ms))
 <BR><BR>[Stack]<UL><LI>Max Depth = 12<LI>Call Chain = delay_ms
 </UL>
-<BR>[Calls]<UL><LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay_us
+<BR>[Calls]<UL><LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay_us
 </UL>
 <BR>[Called By]<UL><LI><a href="#[5d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_Init
 </UL>
 
-<P><STRONG><a name="[97]"></a>delay_us</STRONG> (Thumb, 72 bytes, Stack size 0 bytes, delay.o(i.delay_us))
+<P><STRONG><a name="[98]"></a>delay_us</STRONG> (Thumb, 72 bytes, Stack size 0 bytes, delay.o(i.delay_us))
 <BR><BR>[Called By]<UL><LI><a href="#[5f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay_ms
 </UL>
 
 <P><STRONG><a name="[3b]"></a>display_entry</STRONG> (Thumb, 76 bytes, Stack size 40 bytes, display_entry.o(i.display_entry))
 <BR><BR>[Stack]<UL><LI>Max Depth = 128<LI>Call Chain = display_entry &rArr; OLED_ShowString &rArr; OLED_ShowChar &rArr; OLED_Set_Pos &rArr; OLED_WR_Byte &rArr; OLED_SDIN_Set
 </UL>
-<BR>[Calls]<UL><LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;init
+<BR>[Calls]<UL><LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;init
 <LI><a href="#[63]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_ShowString
 <LI><a href="#[5d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_Init
 <LI><a href="#[5b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_Clear
-<LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;read_encoder
+<LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;read_encoder
 <LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2sprintf
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> main.o(i.main)
 </UL>
-<P><STRONG><a name="[98]"></a>init</STRONG> (Thumb, 64 bytes, Stack size 8 bytes, oled.o(i.init))
+<P><STRONG><a name="[99]"></a>init</STRONG> (Thumb, 64 bytes, Stack size 8 bytes, oled.o(i.init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = init
 </UL>
 <BR>[Called By]<UL><LI><a href="#[3b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;display_entry
 </UL>
 
-<P><STRONG><a name="[92]"></a>init_encoder_left</STRONG> (Thumb, 34 bytes, Stack size 8 bytes, encoder.o(i.init_encoder_left))
+<P><STRONG><a name="[93]"></a>init_encoder_left</STRONG> (Thumb, 34 bytes, Stack size 8 bytes, encoder.o(i.init_encoder_left))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = init_encoder_left
 </UL>
 <BR>[Calls]<UL><LI><a href="#[6d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Interrupt_enableInterrupt
@@ -916,7 +917,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[3a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;control_entry
 </UL>
 
-<P><STRONG><a name="[93]"></a>init_encoder_right</STRONG> (Thumb, 34 bytes, Stack size 8 bytes, encoder.o(i.init_encoder_right))
+<P><STRONG><a name="[94]"></a>init_encoder_right</STRONG> (Thumb, 34 bytes, Stack size 8 bytes, encoder.o(i.init_encoder_right))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = init_encoder_right
 </UL>
 <BR>[Calls]<UL><LI><a href="#[6d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Interrupt_enableInterrupt
@@ -927,7 +928,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[3a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;control_entry
 </UL>
 
-<P><STRONG><a name="[94]"></a>init_motor</STRONG> (Thumb, 62 bytes, Stack size 8 bytes, motor.o(i.init_motor))
+<P><STRONG><a name="[95]"></a>init_motor</STRONG> (Thumb, 62 bytes, Stack size 8 bytes, motor.o(i.init_motor))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = init_motor &rArr; GPIO_setAsPeripheralModuleFunctionOutputPin
 </UL>
 <BR>[Calls]<UL><LI><a href="#[9f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_setOutputHighOnPin
@@ -937,7 +938,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[3a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;control_entry
 </UL>
 
-<P><STRONG><a name="[90]"></a>limit_pwm</STRONG> (Thumb, 22 bytes, Stack size 0 bytes, motor.o(i.limit_pwm))
+<P><STRONG><a name="[91]"></a>limit_pwm</STRONG> (Thumb, 22 bytes, Stack size 0 bytes, motor.o(i.limit_pwm))
 <BR><BR>[Called By]<UL><LI><a href="#[39]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;control
 </UL>
 
@@ -961,8 +962,9 @@ Global Symbols
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> components.o(i.rt_application_init)
 </UL>
-<P><STRONG><a name="[99]"></a>read_encoder</STRONG> (Thumb, 30 bytes, Stack size 0 bytes, encoder.o(i.read_encoder))
+<P><STRONG><a name="[8d]"></a>read_encoder</STRONG> (Thumb, 30 bytes, Stack size 0 bytes, encoder.o(i.read_encoder))
 <BR><BR>[Called By]<UL><LI><a href="#[3b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;display_entry
+<LI><a href="#[39]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;control
 </UL>
 
 <P><STRONG><a name="[a6]"></a>rt_application_init</STRONG> (Thumb, 34 bytes, Stack size 16 bytes, components.o(i.rt_application_init))
@@ -1117,7 +1119,7 @@ Global Symbols
 <LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rt_hw_interrupt_disable
 </UL>
 <BR>[Called By]<UL><LI><a href="#[a3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rt_thread_create
-<LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rt_timer_create
+<LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rt_timer_create
 </UL>
 
 <P><STRONG><a name="[c4]"></a>rt_object_delete</STRONG> (Thumb, 36 bytes, Stack size 16 bytes, object.o(i.rt_object_delete))
@@ -1233,7 +1235,7 @@ Global Symbols
 <P><STRONG><a name="[ab]"></a>rt_sem_take</STRONG> (Thumb, 116 bytes, Stack size 24 bytes, ipc.o(i.rt_sem_take))
 <BR><BR>[Stack]<UL><LI>Max Depth = 96<LI>Call Chain = rt_sem_take &rArr; rt_ipc_list_suspend &rArr; rt_thread_suspend &rArr; rt_timer_stop &rArr; _rt_timer_remove
 </UL>
-<BR>[Calls]<UL><LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rt_timer_start
+<BR>[Calls]<UL><LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rt_timer_start
 <LI><a href="#[cf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rt_timer_control
 <LI><a href="#[a9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rt_schedule
 <LI><a href="#[b8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rt_ipc_list_suspend
@@ -1419,7 +1421,7 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[e0]"></a>rt_tick_get</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, clock.o(i.rt_tick_get))
-<BR><BR>[Called By]<UL><LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rt_timer_start
+<BR><BR>[Called By]<UL><LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rt_timer_start
 <LI><a href="#[df]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rt_timer_check
 </UL>
 
@@ -1436,7 +1438,7 @@ Global Symbols
 <P><STRONG><a name="[df]"></a>rt_timer_check</STRONG> (Thumb, 160 bytes, Stack size 24 bytes, timer.o(i.rt_timer_check))
 <BR><BR>[Stack]<UL><LI>Max Depth = 72<LI>Call Chain = rt_timer_check &rArr; rt_timer_start &rArr; _rt_timer_remove
 </UL>
-<BR>[Calls]<UL><LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rt_timer_start
+<BR>[Calls]<UL><LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rt_timer_start
 <LI><a href="#[e0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rt_tick_get
 <LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rt_hw_interrupt_enable
 <LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rt_hw_interrupt_disable
@@ -1458,7 +1460,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[ab]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rt_sem_take
 </UL>
 
-<P><STRONG><a name="[95]"></a>rt_timer_create</STRONG> (Thumb, 54 bytes, Stack size 32 bytes, timer.o(i.rt_timer_create))
+<P><STRONG><a name="[96]"></a>rt_timer_create</STRONG> (Thumb, 54 bytes, Stack size 32 bytes, timer.o(i.rt_timer_create))
 <BR><BR>[Stack]<UL><LI>Max Depth = 176<LI>Call Chain = rt_timer_create &rArr; rt_object_allocate &rArr; rt_malloc &rArr; rt_sem_take &rArr; rt_ipc_list_suspend &rArr; rt_thread_suspend &rArr; rt_timer_stop &rArr; _rt_timer_remove
 </UL>
 <BR>[Calls]<UL><LI><a href="#[c0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rt_object_allocate
@@ -1487,7 +1489,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[82]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_rt_thread_init
 </UL>
 
-<P><STRONG><a name="[96]"></a>rt_timer_start</STRONG> (Thumb, 226 bytes, Stack size 32 bytes, timer.o(i.rt_timer_start))
+<P><STRONG><a name="[97]"></a>rt_timer_start</STRONG> (Thumb, 226 bytes, Stack size 32 bytes, timer.o(i.rt_timer_start))
 <BR><BR>[Stack]<UL><LI>Max Depth = 48<LI>Call Chain = rt_timer_start &rArr; _rt_timer_remove
 </UL>
 <BR>[Calls]<UL><LI><a href="#[e0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rt_tick_get
@@ -1537,7 +1539,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[33]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[91]"></a>set_pwm</STRONG> (Thumb, 140 bytes, Stack size 24 bytes, motor.o(i.set_pwm))
+<P><STRONG><a name="[92]"></a>set_pwm</STRONG> (Thumb, 140 bytes, Stack size 24 bytes, motor.o(i.set_pwm))
 <BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = set_pwm &rArr; Timer_A_generatePWM
 </UL>
 <BR>[Calls]<UL><LI><a href="#[e6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_setOutputLowOnPin
@@ -1547,11 +1549,11 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[39]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;control
 </UL>
 
-<P><STRONG><a name="[8e]"></a>turn</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, control_entry.o(i.turn))
+<P><STRONG><a name="[8f]"></a>turn</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, control_entry.o(i.turn))
 <BR><BR>[Called By]<UL><LI><a href="#[39]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;control
 </UL>
 
-<P><STRONG><a name="[8d]"></a>veloity_left</STRONG> (Thumb, 240 bytes, Stack size 40 bytes, control_entry.o(i.veloity_left))
+<P><STRONG><a name="[8e]"></a>veloity_left</STRONG> (Thumb, 240 bytes, Stack size 40 bytes, control_entry.o(i.veloity_left))
 <BR><BR>[Stack]<UL><LI>Max Depth = 128<LI>Call Chain = veloity_left &rArr; __aeabi_dmul &rArr; _double_epilogue &rArr; _double_round
 </UL>
 <BR>[Calls]<UL><LI><a href="#[4c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dmul
@@ -1562,7 +1564,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[39]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;control
 </UL>
 
-<P><STRONG><a name="[8f]"></a>veloity_right</STRONG> (Thumb, 240 bytes, Stack size 40 bytes, control_entry.o(i.veloity_right))
+<P><STRONG><a name="[90]"></a>veloity_right</STRONG> (Thumb, 240 bytes, Stack size 40 bytes, control_entry.o(i.veloity_right))
 <BR><BR>[Stack]<UL><LI>Max Depth = 128<LI>Call Chain = veloity_right &rArr; __aeabi_dmul &rArr; _double_epilogue &rArr; _double_round
 </UL>
 <BR>[Calls]<UL><LI><a href="#[4c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dmul
@@ -1705,7 +1707,7 @@ Local Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rt_list_init
 </UL>
-<BR>[Called By]<UL><LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rt_timer_create
+<BR>[Called By]<UL><LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rt_timer_create
 <LI><a href="#[85]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rt_timer_init
 </UL>
 
@@ -1714,7 +1716,7 @@ Local Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rt_list_remove
 </UL>
-<BR>[Called By]<UL><LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rt_timer_start
+<BR>[Called By]<UL><LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rt_timer_start
 <LI><a href="#[df]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rt_timer_check
 <LI><a href="#[dd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rt_timer_stop
 <LI><a href="#[d6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rt_timer_detach
@@ -1727,7 +1729,7 @@ Local Symbols
 </UL>
 
 <P><STRONG><a name="[e1]"></a>rt_list_insert_after</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, timer.o(i.rt_list_insert_after))
-<BR><BR>[Called By]<UL><LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rt_timer_start
+<BR><BR>[Called By]<UL><LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rt_timer_start
 <LI><a href="#[df]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rt_timer_check
 </UL>
 

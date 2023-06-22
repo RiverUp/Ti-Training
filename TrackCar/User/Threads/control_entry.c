@@ -15,11 +15,15 @@ void control_entry()
 	{
 		rt_timer_start(control_timer);
 	}
+	while(1){}
 }
 
 
 void control()
 {
+	int encoder_left,encoder_right;
+	encoder_left=read_encoder(1); 
+	encoder_right=read_encoder(0);	
 	int pwma=veloity_left(encoder_left)+turn();
 	int pwmb=veloity_right(encoder_right)-turn();
 	pwma=limit_pwm(pwma,8000,-8000);

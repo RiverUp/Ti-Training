@@ -1,0 +1,9 @@
+.\objects\semaphore.o: ..\User\Drivers\Semaphore.c
+.\objects\semaphore.o: ..\User\Drivers\Semaphore.h
+.\objects\semaphore.o: ..\RTthread\include\rtthread.h
+.\objects\semaphore.o: ..\RTthread\bsp\rtconfig.h
+.\objects\semaphore.o: ..\RTthread\include\rtthread.h
+.\objects\semaphore.o: ..\RTthread\include\rtdebug.h
+.\objects\semaphore.o: ..\RTthread\include\rtdef.h
+.\objects\semaphore.o: D:\Environment\keil\ARM\ARMCC\Bin\..\include\stdarg.h
+.\objects\semaphore.o: ..\RTthread\include\rtservice.h
