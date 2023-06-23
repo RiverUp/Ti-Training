@@ -1,9 +1,0 @@
-.\objects\slab.o: ..\RTthread\src\slab.c
-.\objects\slab.o: ..\RTthread\include\rthw.h
-.\objects\slab.o: ..\RTthread\include\rtthread.h
-.\objects\slab.o: ..\RTthread\bsp\rtconfig.h
-.\objects\slab.o: ..\RTthread\include\rtthread.h
-.\objects\slab.o: ..\RTthread\include\rtdebug.h
-.\objects\slab.o: ..\RTthread\include\rtdef.h
-.\objects\slab.o: D:\Environment\keil\ARM\ARMCC\Bin\..\include\stdarg.h
-.\objects\slab.o: ..\RTthread\include\rtservice.h

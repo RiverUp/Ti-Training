@@ -1,9 +1,0 @@
-.\objects\cpu_1.o: ..\RTthread\src\cpu.c
-.\objects\cpu_1.o: ..\RTthread\include\rtthread.h
-.\objects\cpu_1.o: ..\RTthread\bsp\rtconfig.h
-.\objects\cpu_1.o: ..\RTthread\include\rtthread.h
-.\objects\cpu_1.o: ..\RTthread\include\rtdebug.h
-.\objects\cpu_1.o: ..\RTthread\include\rtdef.h
-.\objects\cpu_1.o: D:\Environment\keil\ARM\ARMCC\Bin\..\include\stdarg.h
-.\objects\cpu_1.o: ..\RTthread\include\rtservice.h
-.\objects\cpu_1.o: ..\RTthread\include\rthw.h

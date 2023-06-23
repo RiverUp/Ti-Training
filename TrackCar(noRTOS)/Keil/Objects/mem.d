@@ -1,9 +1,0 @@
-.\objects\mem.o: ..\RTthread\src\mem.c
-.\objects\mem.o: ..\RTthread\include\rthw.h
-.\objects\mem.o: ..\RTthread\include\rtthread.h
-.\objects\mem.o: ..\RTthread\bsp\rtconfig.h
-.\objects\mem.o: ..\RTthread\include\rtthread.h
-.\objects\mem.o: ..\RTthread\include\rtdebug.h
-.\objects\mem.o: ..\RTthread\include\rtdef.h
-.\objects\mem.o: D:\Environment\keil\ARM\ARMCC\Bin\..\include\stdarg.h
-.\objects\mem.o: ..\RTthread\include\rtservice.h

@@ -1,9 +1,0 @@
-.\objects\idle.o: ..\RTthread\src\idle.c
-.\objects\idle.o: ..\RTthread\include\rthw.h
-.\objects\idle.o: ..\RTthread\include\rtthread.h
-.\objects\idle.o: ..\RTthread\bsp\rtconfig.h
-.\objects\idle.o: ..\RTthread\include\rtthread.h
-.\objects\idle.o: ..\RTthread\include\rtdebug.h
-.\objects\idle.o: ..\RTthread\include\rtdef.h
-.\objects\idle.o: D:\Environment\keil\ARM\ARMCC\Bin\..\include\stdarg.h
-.\objects\idle.o: ..\RTthread\include\rtservice.h

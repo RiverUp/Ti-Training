@@ -1,9 +1,0 @@
-.\objects\irq.o: ..\RTthread\src\irq.c
-.\objects\irq.o: ..\RTthread\include\rthw.h
-.\objects\irq.o: ..\RTthread\include\rtthread.h
-.\objects\irq.o: ..\RTthread\bsp\rtconfig.h
-.\objects\irq.o: ..\RTthread\include\rtthread.h
-.\objects\irq.o: ..\RTthread\include\rtdebug.h
-.\objects\irq.o: ..\RTthread\include\rtdef.h
-.\objects\irq.o: D:\Environment\keil\ARM\ARMCC\Bin\..\include\stdarg.h
-.\objects\irq.o: ..\RTthread\include\rtservice.h
