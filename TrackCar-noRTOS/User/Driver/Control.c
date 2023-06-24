@@ -5,6 +5,10 @@
 #define ChangeIntervalTurn1 300
 #define ChangeIntervalTurn2 600
 
+#define StraightV 80
+#define TurnV1 60
+#define TurnV2 20
+
 float target_encoder_value=40;
 float Velocity_Kp=100,Velocity_Ki;
 //float Velocity_Kp=10,Velocity_Ki=3000;
@@ -12,14 +16,16 @@ int turnPwm=0;
 float adc;
 bool t1,t2,t3,t4,t5;
 
-
+int sum_EnL,sum_EnR,EnCounter;
 
 void Control()
 {
+	
+		
 	int left=read_encoder(1);
 	int right=read_encoder(0);
 	
-	int velocity_value=velocity(encoder_left,encoder_right);
+	int velocity_value=velocity(left,right);
 	int turn_value=turn();
 	
 	//adc=read_TCRT();
@@ -31,7 +37,8 @@ void Control()
 	int pwmb=velocity_value-turn_value;
 	pwma=limit_pwm(pwma,8000,-8000);
 	pwmb=limit_pwm(pwmb,8000,-8000);
-  set_pwm(pwma,pwmb);
+  
+	set_pwm(pwma,pwmb);
 	
 }
 
@@ -82,15 +89,18 @@ int turn()
 	if(t1+t2+t3+t4+t5==0)
 	{
 		turnPwm=0;
+		target_encoder_value=StraightV;
 	}
 	else
 	{
 		if(t3==1)
 		{
 			turnPwm=0;
+			target_encoder_value=StraightV;
 		}
 		if(t1==1)
 		{
+			target_encoder_value=TurnV2;
 			if(turnPwm>MaxTurn2)
 			{
 				turnPwm=MaxTurn2;
@@ -102,6 +112,7 @@ int turn()
 		}
 		if(t2==1)
 		{
+			target_encoder_value=TurnV1;
 			if(turnPwm>MaxTurn1)
 			{
 				turnPwm=MaxTurn1;
@@ -113,7 +124,7 @@ int turn()
 		}
 		if(t4==1)
 		{
-			//GPIO_setOutputHighOnPin(GPIO_PORT_P1,GPIO_PIN0);
+			target_encoder_value=TurnV1;
 			if(turnPwm<-MaxTurn1)
 			{
 				turnPwm=-MaxTurn1;
@@ -125,6 +136,7 @@ int turn()
 		}
 		if(t5==1)
 		{
+			target_encoder_value=TurnV2;
 			if(turnPwm<-MaxTurn2)
 			{
 				turnPwm=-MaxTurn2;
