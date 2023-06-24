@@ -196,7 +196,6 @@ void T32_INT1_IRQHandler(void)
 {
   MAP_Timer32_clearInterruptFlag(TIMER32_BASE);
 	Control();
-	GPIO_toggleOutputOnPin(GPIO_PORT_P1,GPIO_PIN0);
 }
 
 //检测到下降沿触发中断

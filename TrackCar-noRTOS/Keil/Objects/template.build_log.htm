@@ -21,7 +21,7 @@ Target DLL:      CMSIS_AGDI.dll V1.30.6.0
 Dialog DLL:      TCM.DLL V1.36.1.0
  
 <h2>Project:</h2>
-D:\code\stm32\msp\project\TrackCar(noRTOS)\Keil\template.uvprojx
+D:\code\stm32\msp\project\TrackCar-noRTOS\Keil\template.uvprojx
 Project File Date:  06/22/2023
 
 <h2>Output:</h2>
@@ -46,22 +46,26 @@ compiling Control.c...
   void init_digitalTCRT();
 ..\User\Driver\TCRT5000.h(23): warning:  #1-D: last line of file ends without a newline
   #endif // !__TCRT5000.h
-..\User\Driver\Control.h(9): warning:  #1295-D: Deprecated declaration Control - give arg types
+..\User\Driver\Control.h(14): warning:  #1295-D: Deprecated declaration Control - give arg types
   void Control();
-..\User\Driver\Control.h(12): warning:  #1295-D: Deprecated declaration turn - give arg types
+..\User\Driver\Control.h(17): warning:  #1295-D: Deprecated declaration turn - give arg types
   int turn();
-..\User\Driver\Control.h(13): warning:  #1295-D: Deprecated declaration init_control - give arg types
+..\User\Driver\Control.h(18): warning:  #1295-D: Deprecated declaration init_control - give arg types
   void init_control();
-..\User\Driver\Control.h(16): warning:  #1-D: last line of file ends without a newline
+..\User\Driver\Control.h(22): warning:  #1-D: last line of file ends without a newline
   #endif
-..\User\Driver\Control.c(34): warning:  #177-D: variable "encoder_integral"  was declared but never referenced
+..\User\Driver\Control.c(42): warning:  #1035-D: single-precision operand implicitly converted to double-precision
+  	encoder_bias=0.84*encoder_bias+current_bias*0.16;
+..\User\Driver\Control.c(42): warning:  #1035-D: single-precision operand implicitly converted to double-precision
+  	encoder_bias=0.84*encoder_bias+current_bias*0.16;
+..\User\Driver\Control.c(64): warning:  #177-D: variable "encoder_integral"  was declared but never referenced
   	static float encoder_integral;
-..\User\Driver\Control.c(97): warning:  #1-D: last line of file ends without a newline
+..\User\Driver\Control.c(153): warning:  #1-D: last line of file ends without a newline
   }
-..\User\Driver\Control.c: 15 warnings, 0 errors
+..\User\Driver\Control.c: 17 warnings, 0 errors
 linking...
-Program Size: Code=14264 RO-data=4596 RW-data=272 ZI-data=6224  
-".\Objects\template.axf" - 0 Error(s), 15 Warning(s).
+Program Size: Code=15540 RO-data=4596 RW-data=296 ZI-data=6224  
+".\Objects\template.axf" - 0 Error(s), 17 Warning(s).
 
 <h2>Software Packages used:</h2>
 

@@ -3,19 +3,19 @@
         {
             "name": "template",
             "includePath": [
-                "d:\\code\\stm32\\msp\\template-rtthread\\User",
-                "d:\\code\\stm32\\msp\\template-rtthread\\Lib",
-                "d:\\code\\stm32\\msp\\template-rtthread\\Lib\\CMSIS\\include",
-                "d:\\code\\stm32\\msp\\template-rtthread\\RTthread\\bsp",
-                "d:\\code\\stm32\\msp\\template-rtthread\\RTthread\\include",
-                "d:\\code\\stm32\\msp\\template-rtthread\\User\\Driver",
+                "d:\\code\\stm32\\msp\\project\\TrackCar-noRTOS\\User",
+                "d:\\code\\stm32\\msp\\project\\TrackCar-noRTOS\\Lib",
+                "d:\\code\\stm32\\msp\\project\\TrackCar-noRTOS\\Lib\\CMSIS\\include",
+                "d:\\code\\stm32\\msp\\project\\TrackCar-noRTOS\\RTthread\\bsp",
+                "d:\\code\\stm32\\msp\\project\\TrackCar-noRTOS\\RTthread\\include",
+                "d:\\code\\stm32\\msp\\project\\TrackCar-noRTOS\\User\\Driver",
                 "D:\\Environment\\keil\\ARM\\ARMCC\\include",
                 "D:\\Environment\\keil\\ARM\\ARMCC\\include\\rw",
-                "d:\\code\\stm32\\msp\\template-rtthread\\Lib\\ti\\devices\\msp432p4xx\\driverlib",
-                "d:\\code\\stm32\\msp\\template-rtthread\\Lib\\ti\\devices\\msp432p4xx\\startup_system_files",
-                "d:\\code\\stm32\\msp\\template-rtthread\\Lib\\ti\\devices\\msp432p4xx\\startup_system_files\\keil",
-                "d:\\code\\stm32\\msp\\template-rtthread\\RTthread\\libcpu\\arm\\cortex-m4",
-                "d:\\code\\stm32\\msp\\template-rtthread\\RTthread\\src"
+                "d:\\code\\stm32\\msp\\project\\TrackCar-noRTOS\\Lib\\ti\\devices\\msp432p4xx\\driverlib",
+                "d:\\code\\stm32\\msp\\project\\TrackCar-noRTOS\\Lib\\ti\\devices\\msp432p4xx\\startup_system_files",
+                "d:\\code\\stm32\\msp\\project\\TrackCar-noRTOS\\Lib\\ti\\devices\\msp432p4xx\\startup_system_files\\keil",
+                "d:\\code\\stm32\\msp\\project\\TrackCar-noRTOS\\RTthread\\libcpu\\arm\\cortex-m4",
+                "d:\\code\\stm32\\msp\\project\\TrackCar-noRTOS\\RTthread\\src"
             ],
             "defines": [
                 "__CC_ARM",

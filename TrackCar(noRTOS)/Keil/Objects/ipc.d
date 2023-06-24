@@ -1,9 +1,0 @@
-.\objects\ipc.o: ..\RTthread\src\ipc.c
-.\objects\ipc.o: ..\RTthread\include\rtthread.h
-.\objects\ipc.o: ..\RTthread\bsp\rtconfig.h
-.\objects\ipc.o: ..\RTthread\include\rtthread.h
-.\objects\ipc.o: ..\RTthread\include\rtdebug.h
-.\objects\ipc.o: ..\RTthread\include\rtdef.h
-.\objects\ipc.o: D:\Environment\keil\ARM\ARMCC\Bin\..\include\stdarg.h
-.\objects\ipc.o: ..\RTthread\include\rtservice.h
-.\objects\ipc.o: ..\RTthread\include\rthw.h

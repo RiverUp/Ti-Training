@@ -14,7 +14,7 @@
 
 void init_TCRT();
 float read_TCRT();
-//左中右->p1.6,p1.7,p5.0
+//左中右->p5.2,p1.7,p5.0
 //循迹模块遇到黑线，模块输出高电平，输出指示灯熄灭
 void init_digitalTCRT();
 //123,左中右

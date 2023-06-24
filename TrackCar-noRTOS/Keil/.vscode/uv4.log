@@ -1,3 +1,233 @@
-Load "d:\\code\\stm32\\msp\\template-rtthread\\Keil\\Objects\\template.axf" 
-Erase Done.Programming Done.Verify OK.Application running ...
-Flash Load finished at 16:37:23
+*** Using Compiler 'V5.06 update 6 (build 750)', folder: 'D:\Environment\keil\ARM\ARMCC\Bin'
+ReProgramming Done.Verify OK.Application running ...
+Flash Load finished at 17:38:42
+...
+compiling fpu.c...
+compiling comp_e.c...
+compiling flash_a.c...
+compiling flash.c...
+compiling adc14.c...
+compiling cs.c...
+compiling main.c...
+..\User\Driver\HC-05.h(13): warning:  #1295-D: Deprecated declaration connectDevice - give arg types
+  bool connectDevice();
+..\User\Driver\HC-05.h(15): warning:  #1-D: last line of file ends without a newline
+  #endif
+..\User\Driver\Encoder.h(14): warning:  #1295-D: Deprecated declaration init_encoder_left - give arg types
+  void init_encoder_left();
+..\User\Driver\Encoder.h(15): warning:  #1295-D: Deprecated declaration init_encoder_right - give arg types
+  void init_encoder_right();
+..\User\Driver\Encoder.h(17): warning:  #1-D: last line of file ends without a newline
+  int read_encoder(uint8_t side);
+..\User\Driver\Motor.h(12): warning:  #1295-D: Deprecated declaration init_motor - give arg types
+  void init_motor();
+..\User\Driver\Motor.h(13): warning:  #1295-D: Deprecated declaration set_pwm_trail - give arg types
+  void set_pwm_trail();
+..\User\Driver\TCRT5000.h(15): warning:  #1295-D: Deprecated declaration init_TCRT - give arg types
+  void init_TCRT();
+..\User\Driver\TCRT5000.h(16): warning:  #1295-D: Deprecated declaration read_TCRT - give arg types
+  float read_TCRT();
+..\User\Driver\TCRT5000.h(19): warning:  #1295-D: Deprecated declaration init_digitalTCRT - give arg types
+  void init_digitalTCRT();
+..\User\Driver\TCRT5000.h(23): warning:  #1-D: last line of file ends without a newline
+  #endif // !__TCRT5000.h
+..\User\Driver\Semaphore.h(8): warning:  #1-D: last line of file ends without a newline
+  #endif
+..\User\Driver\Motor.h(12): warning:  #1295-D: Deprecated declaration init_motor - give arg types
+  void init_motor();
+..\User\Driver\Motor.h(13): warning:  #1295-D: Deprecated declaration set_pwm_trail - give arg types
+  void set_pwm_trail();
+..\User\Driver\Encoder.h(14): warning:  #1295-D: Deprecated declaration init_encoder_left - give arg types
+  void init_encoder_left();
+..\User\Driver\Encoder.h(15): warning:  #1295-D: Deprecated declaration init_encoder_right - give arg types
+  void init_encoder_right();
+..\User\Driver\Encoder.h(17): warning:  #1-D: last line of file ends without a newline
+  int read_encoder(uint8_t side);
+..\User\Driver\Control.h(14): warning:  #1295-D: Deprecated declaration Control - give arg types
+  void Control();
+..\User\Driver\Control.h(17): warning:  #1295-D: Deprecated declaration turn - give arg types
+  int turn();
+..\User\Driver\Control.h(18): warning:  #1295-D: Deprecated declaration init_control - give arg types
+  void init_control();
+..\User\Driver\Control.h(21): warning:  #1-D: last line of file ends without a newline
+  #endif
+..\User\main.c(105): warning:  #1-D: last line of file ends without a newline
+  }
+..\User\main.c(88): warning:  #177-D: variable "text4"  was declared but never referenced
+  	char text4[20];
+..\User\main.c: 23 warnings, 0 errors
+compiling dma.c...
+compiling i2c.c...
+compiling interrupt.c...
+compiling mpu.c...
+compiling gpio.c...
+..\Lib\ti\devices\msp432p4xx\driverlib\gpio.c(52): warning:  #1296-D: extended constant initialiser used
+      (uint32_t)P1,
+..\Lib\ti\devices\msp432p4xx\driverlib\gpio.c(53): warning:  #1296-D: extended constant initialiser used
+      (uint32_t)P1+1,
+..\Lib\ti\devices\msp432p4xx\driverlib\gpio.c(54): warning:  #1296-D: extended constant initialiser used
+      (uint32_t)P3,
+..\Lib\ti\devices\msp432p4xx\driverlib\gpio.c(55): warning:  #1296-D: extended constant initialiser used
+      (uint32_t)P3+1,
+..\Lib\ti\devices\msp432p4xx\driverlib\gpio.c(56): warning:  #1296-D: extended constant initialiser used
+      (uint32_t)P5,
+..\Lib\ti\devices\msp432p4xx\driverlib\gpio.c(57): warning:  #1296-D: extended constant initialiser used
+      (uint32_t)P5+1,
+..\Lib\ti\devices\msp432p4xx\driverlib\gpio.c(58): warning:  #1296-D: extended constant initialiser used
+      (uint32_t)P7,
+..\Lib\ti\devices\msp432p4xx\driverlib\gpio.c(59): warning:  #1296-D: extended constant initialiser used
+      (uint32_t)P7+1,
+..\Lib\ti\devices\msp432p4xx\driverlib\gpio.c(60): warning:  #1296-D: extended constant initialiser used
+      (uint32_t)P9,
+..\Lib\ti\devices\msp432p4xx\driverlib\gpio.c(61): warning:  #1296-D: extended constant initialiser used
+      (uint32_t)P9+1,
+..\Lib\ti\devices\msp432p4xx\driverlib\gpio.c(62): warning:  #1296-D: extended constant initialiser used
+      (uint32_t)PJ
+..\Lib\ti\devices\msp432p4xx\driverlib\gpio.c: 11 warnings, 0 errors
+compiling pcm.c...
+compiling lcd_f.c...
+compiling ref_a.c...
+compiling pmap.c...
+compiling pss.c...
+compiling systick.c...
+compiling timer_a.c...
+compiling sysctl_a.c...
+compiling reset.c...
+compiling rtc_c.c...
+compiling sysctl.c...
+compiling spi.c...
+compiling timer32.c...
+compiling board.c...
+compiling cpuport.c...
+assembling context_rvds.S...
+compiling clock.c...
+compiling components.c...
+compiling cpu.c...
+assembling startup_msp432p401r_uvision.s...
+compiling idle.c...
+compiling ipc.c...
+compiling mempool.c...
+compiling irq.c...
+compiling scheduler.c...
+compiling memheap.c...
+compiling object.c...
+compiling kservice.c...
+compiling system_msp432p401r.c...
+compiling mem.c...
+compiling timer.c...
+compiling wdt_a.c...
+compiling thread.c...
+compiling slab.c...
+compiling uart.c...
+compiling Serial.c...
+compiling HC-SR04.c...
+compiling Encoder.c...
+..\User\Driver\Encoder.h(14): warning:  #1295-D: Deprecated declaration init_encoder_left - give arg types
+  void init_encoder_left();
+..\User\Driver\Encoder.h(15): warning:  #1295-D: Deprecated declaration init_encoder_right - give arg types
+  void init_encoder_right();
+..\User\Driver\Encoder.h(17): warning:  #1-D: last line of file ends without a newline
+  int read_encoder(uint8_t side);
+..\User\Driver\Encoder.c: 3 warnings, 0 errors
+compiling oled.c...
+compiling Interrupt.c...
+..\User\Driver\Encoder.h(14): warning:  #1295-D: Deprecated declaration init_encoder_left - give arg types
+  void init_encoder_left();
+..\User\Driver\Encoder.h(15): warning:  #1295-D: Deprecated declaration init_encoder_right - give arg types
+  void init_encoder_right();
+..\User\Driver\Encoder.h(17): warning:  #1-D: last line of file ends without a newline
+  int read_encoder(uint8_t side);
+..\User\Driver\Motor.h(12): warning:  #1295-D: Deprecated declaration init_motor - give arg types
+  void init_motor();
+..\User\Driver\Motor.h(13): warning:  #1295-D: Deprecated declaration set_pwm_trail - give arg types
+  void set_pwm_trail();
+..\User\Driver\Encoder.h(14): warning:  #1295-D: Deprecated declaration init_encoder_left - give arg types
+  void init_encoder_left();
+..\User\Driver\Encoder.h(15): warning:  #1295-D: Deprecated declaration init_encoder_right - give arg types
+  void init_encoder_right();
+..\User\Driver\Encoder.h(17): warning:  #1-D: last line of file ends without a newline
+  int read_encoder(uint8_t side);
+..\User\Driver\TCRT5000.h(15): warning:  #1295-D: Deprecated declaration init_TCRT - give arg types
+  void init_TCRT();
+..\User\Driver\TCRT5000.h(16): warning:  #1295-D: Deprecated declaration read_TCRT - give arg types
+  float read_TCRT();
+..\User\Driver\TCRT5000.h(19): warning:  #1295-D: Deprecated declaration init_digitalTCRT - give arg types
+  void init_digitalTCRT();
+..\User\Driver\TCRT5000.h(23): warning:  #1-D: last line of file ends without a newline
+  #endif // !__TCRT5000.h
+..\User\Driver\Control.h(14): warning:  #1295-D: Deprecated declaration Control - give arg types
+  void Control();
+..\User\Driver\Control.h(17): warning:  #1295-D: Deprecated declaration turn - give arg types
+  int turn();
+..\User\Driver\Control.h(18): warning:  #1295-D: Deprecated declaration init_control - give arg types
+  void init_control();
+..\User\Driver\Control.h(21): warning:  #1-D: last line of file ends without a newline
+  #endif
+..\User\Driver\Interrupt.c(219): warning:  #1-D: last line of file ends without a newline
+  }
+..\User\Driver\Interrupt.c: 17 warnings, 0 errors
+compiling Filter.c...
+..\User\Driver\Filter.c(27): warning:  #1-D: last line of file ends without a newline
+  }
+..\User\Driver\Filter.c: 1 warning, 0 errors
+compiling Control.c...
+..\User\Driver\Motor.h(12): warning:  #1295-D: Deprecated declaration init_motor - give arg types
+  void init_motor();
+..\User\Driver\Motor.h(13): warning:  #1295-D: Deprecated declaration set_pwm_trail - give arg types
+  void set_pwm_trail();
+..\User\Driver\Encoder.h(14): warning:  #1295-D: Deprecated declaration init_encoder_left - give arg types
+  void init_encoder_left();
+..\User\Driver\Encoder.h(15): warning:  #1295-D: Deprecated declaration init_encoder_right - give arg types
+  void init_encoder_right();
+..\User\Driver\Encoder.h(17): warning:  #1-D: last line of file ends without a newline
+  int read_encoder(uint8_t side);
+..\User\Driver\TCRT5000.h(15): warning:  #1295-D: Deprecated declaration init_TCRT - give arg types
+  void init_TCRT();
+..\User\Driver\TCRT5000.h(16): warning:  #1295-D: Deprecated declaration read_TCRT - give arg types
+  float read_TCRT();
+..\User\Driver\TCRT5000.h(19): warning:  #1295-D: Deprecated declaration init_digitalTCRT - give arg types
+  void init_digitalTCRT();
+..\User\Driver\TCRT5000.h(23): warning:  #1-D: last line of file ends without a newline
+  #endif // !__TCRT5000.h
+..\User\Driver\Control.h(14): warning:  #1295-D: Deprecated declaration Control - give arg types
+  void Control();
+..\User\Driver\Control.h(17): warning:  #1295-D: Deprecated declaration turn - give arg types
+  int turn();
+..\User\Driver\Control.h(18): warning:  #1295-D: Deprecated declaration init_control - give arg types
+  void init_control();
+..\User\Driver\Control.h(21): warning:  #1-D: last line of file ends without a newline
+  #endif
+..\User\Driver\Control.c(48): warning:  #177-D: variable "encoder_integral"  was declared but never referenced
+  	static float encoder_integral;
+..\User\Driver\Control.c(113): warning:  #1-D: last line of file ends without a newline
+  }
+..\User\Driver\Control.c: 15 warnings, 0 errors
+compiling Delay.c...
+compiling Motor.c...
+..\User\Driver\Motor.h(12): warning:  #1295-D: Deprecated declaration init_motor - give arg types
+  void init_motor();
+..\User\Driver\Motor.h(13): warning:  #1295-D: Deprecated declaration set_pwm_trail - give arg types
+  void set_pwm_trail();
+..\User\Driver\Motor.c(101): warning:  #1-D: last line of file ends without a newline
+  }
+..\User\Driver\Motor.c: 3 warnings, 0 errors
+compiling HC-05.c...
+..\User\Driver\HC-05.h(13): warning:  #1295-D: Deprecated declaration connectDevice - give arg types
+  bool connectDevice();
+..\User\Driver\HC-05.h(15): warning:  #1-D: last line of file ends without a newline
+  #endif
+..\User\Driver\HC-05.c: 2 warnings, 0 errors
+compiling TCRT5000.c...
+..\User\Driver\TCRT5000.h(15): warning:  #1295-D: Deprecated declaration init_TCRT - give arg types
+  void init_TCRT();
+..\User\Driver\TCRT5000.h(16): warning:  #1295-D: Deprecated declaration read_TCRT - give arg types
+  float read_TCRT();
+..\User\Driver\TCRT5000.h(19): warning:  #1295-D: Deprecated declaration init_digitalTCRT - give arg types
+  void init_digitalTCRT();
+..\User\Driver\TCRT5000.h(23): warning:  #1-D: last line of file ends without a newline
+  #endif // !__TCRT5000.h
+..\User\Driver\TCRT5000.c: 4 warnings, 0 errors
+linking...
+Program Size: Code=14316 RO-data=4596 RW-data=280 ZI-data=6224  
+".\Objects\template.axf" - 0 Error(s), 79 Warning(s).
+Build Time Elapsed:  00:00:11

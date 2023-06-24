@@ -45,3 +45,5 @@
 .\objects\control.o: ..\User\Driver\Motor.h
 .\objects\control.o: ..\User\Driver\Encoder.h
 .\objects\control.o: ..\User\Driver\TCRT5000.h
+.\objects\control.o: ..\User\Driver\oled.h
+.\objects\control.o: D:\Environment\keil\ARM\ARMCC\Bin\..\include\stdio.h

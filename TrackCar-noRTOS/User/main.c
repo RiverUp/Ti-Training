@@ -79,6 +79,8 @@ int main(void)
 	OLED_Init();
 	init_control();
 	init_digitalTCRT();
+	//init_TCRT();
+	
 	
 	char text1[20];
 	char text2[20];
@@ -87,14 +89,17 @@ int main(void)
 	
 	while(1)
 	{
-
+//		sprintf(text1,"t1:%d ",t1);
+//		sprintf(text2,"t2:%d ",t2);
+//		sprintf(text3,"t3:%d ",t3);
 		sprintf(text1,"r:%2d ",encoder_right);
 		sprintf(text2,"l:%2d ",encoder_left);
-		//sprintf(text3,"dist:%.2f",read_hc_sr04(hcsrCountValue));
+//		sprintf(text3,"adc:%.2f     ",adc);
+		sprintf(text3,"turnPwm:%d     ",turnPwm);
 		OLED_ShowString(0,0,(unsigned char *)text1);
 		OLED_ShowString(0,2,(unsigned char *)text2);
 		OLED_ShowString(0,4,(unsigned char *)text3);
-		delay_ms(10);
+		//delay_ms(10);
 		
 	}
 }
