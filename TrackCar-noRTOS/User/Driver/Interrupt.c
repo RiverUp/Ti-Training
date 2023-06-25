@@ -211,9 +211,4 @@ void TA0_N_IRQHandler(void)
 	Timer_A_clearTimer(TIMER_A0_BASE);
 	Timer_A_stopTimer(TIMER_A0_BASE);
 	Interrupt_disableInterrupt(INT_TA0_N);
-	if(AbleToConvert->value==0)
-	{
-		//发送信号量，告知线程获得测量
-		rt_sem_release(AbleToConvert);
-	}
 }

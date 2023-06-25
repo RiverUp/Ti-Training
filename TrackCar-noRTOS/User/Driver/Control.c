@@ -1,13 +1,18 @@
 #include "Control.h"
 
-#define MaxTurn1 2700
-#define MaxTurn2 2700
-#define ChangeIntervalTurn1 300
-#define ChangeIntervalTurn2 600
+#define MaxTurn1 800
+#define MaxTurn2 4000
+#define ChangeIntervalTurn1 200   
+#define ChangeIntervalTurn2 1500
 
 #define StraightV 80
 #define TurnV1 60
-#define TurnV2 20
+#define TurnV2 45
+
+#define DecelerationTimes 50
+
+bool DecelerationFlag;
+int DecelerationCounter;
 
 float target_encoder_value=40;
 float Velocity_Kp=100,Velocity_Ki;
@@ -15,6 +20,7 @@ float Velocity_Kp=100,Velocity_Ki;
 int turnPwm=0;
 float adc;
 bool t1,t2,t3,t4,t5;
+bool last_t1,last_t2,last_t3,last_t4,last_t5;
 
 int sum_EnL,sum_EnR,EnCounter;
 
@@ -101,6 +107,7 @@ int turn()
 		if(t1==1)
 		{
 			target_encoder_value=TurnV2;
+			DecelerationFlag=true;
 			if(turnPwm>MaxTurn2)
 			{
 				turnPwm=MaxTurn2;
@@ -113,6 +120,10 @@ int turn()
 		if(t2==1)
 		{
 			target_encoder_value=TurnV1;
+			if(DecelerationFlag)
+			{
+				target_encoder_value=TurnV2;
+			}
 			if(turnPwm>MaxTurn1)
 			{
 				turnPwm=MaxTurn1;
@@ -137,6 +148,7 @@ int turn()
 		if(t5==1)
 		{
 			target_encoder_value=TurnV2;
+			DecelerationFlag=true;
 			if(turnPwm<-MaxTurn2)
 			{
 				turnPwm=-MaxTurn2;
@@ -146,6 +158,17 @@ int turn()
 				turnPwm-=ChangeIntervalTurn2;
 			}
 		}
+	}
+	
+	if(DecelerationFlag)
+	{
+		target_encoder_value=TurnV2;
+		DecelerationCounter++;
+	}
+	if(DecelerationCounter==50)
+	{
+		DecelerationFlag=false;
+		DecelerationCounter=0;
 	}
 	
 	

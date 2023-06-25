@@ -5,7 +5,7 @@
 #include "Delay.h"
 
 uint32_t countValue;
-rt_sem_t AbleToConvert;
+bool NextTriggerFlag;
 
 //p2.5为输入引脚
 const Timer_A_CaptureModeConfig hcsrCaptureConfig=
@@ -47,7 +47,7 @@ void trigger_measure(void)
 {
 	//p3.0输出1ms高电平触发hcsr04
 	GPIO_setOutputHighOnPin(GPIO_PORT_P3,GPIO_PIN0);
-	rt_thread_mdelay(1);
+	delay_ms(1);
 	GPIO_setOutputLowOnPin(GPIO_PORT_P3,GPIO_PIN0);
 }
 //单位为cm

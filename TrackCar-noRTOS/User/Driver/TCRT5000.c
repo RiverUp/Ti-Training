@@ -54,10 +54,10 @@ bool getTCRTValue(int num)
 			value=GPIO_getInputPinValue(GPIO_PORT_P5,GPIO_PIN0);
 			break;
 		case 4:
-			value=GPIO_getInputPinValue(GPIO_PORT_P1,GPIO_PIN6);
+			value=GPIO_getInputPinValue(GPIO_PORT_P1,GPIO_PIN7);
 			break;
 		case 5:
-			value=GPIO_getInputPinValue(GPIO_PORT_P1,GPIO_PIN7);
+			value=GPIO_getInputPinValue(GPIO_PORT_P1,GPIO_PIN6);
 			break;
 		default:
 			value=0;
