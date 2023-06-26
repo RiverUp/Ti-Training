@@ -2,6 +2,7 @@
 #define __CONTROL_H
 
 #include <ti/devices/msp432p4xx/driverlib/driverlib.h>
+#include "HC-SR04.h"
 #include "Motor.h"
 #include "Encoder.h"
 #include "TCRT5000.h"

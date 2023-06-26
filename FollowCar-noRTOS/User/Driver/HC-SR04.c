@@ -5,6 +5,8 @@
 #include "Delay.h"
 
 uint32_t HCSRCountValue;
+uint32_t HCSRCountMultiValue;
+uint32_t HCSRCountAveraValue;
 uint32_t TriggerCounter;
 bool NextTiggerHCSRFlag = 1;
 
@@ -42,7 +44,7 @@ void init_hc_sr04(void)
 
 	Timer32_initModule(TIMER32_1_BASE, TIMER32_PRESCALER_1, TIMER32_32BIT, TIMER32_PERIODIC_MODE);
 	Interrupt_enableInterrupt(INT_T32_INT2);
-	Timer32_setCount(TIMER32_1_BASE, 120); // 100us
+	Timer32_setCount(TIMER32_1_BASE, 120); // 10us
 	Timer32_enableInterrupt(TIMER32_1_BASE);
 }
 void trigger_measure(void)

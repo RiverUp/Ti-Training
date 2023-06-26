@@ -7,8 +7,11 @@
 //p2.5接echo，p3.0接trig
 
 extern uint32_t HCSRCountValue;
+extern uint32_t HCSRCountMultiValue;
+extern uint32_t HCSRCountAveraValue;
 extern uint32_t TriggerCounter;
 extern bool NextTiggerHCSRFlag;
+
 
 //初始化
 void init_hc_sr04(void);

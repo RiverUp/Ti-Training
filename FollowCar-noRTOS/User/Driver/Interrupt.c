@@ -28,7 +28,19 @@ void PORT2_IRQHandler(void)
 			GPIO_selectInterruptEdge(GPIO_PORT_P2, GPIO_PIN5, GPIO_LOW_TO_HIGH_TRANSITION);
 			GPIO_setOutputHighOnPin(GPIO_PORT_P1,GPIO_PIN0);
 			Timer32_haltTimer(TIMER32_1_BASE);
-			HCSRCountValue=TriggerCounter;
+			static int HCSRSampleTimes;
+			if(HCSRSampleTimes<10)
+			{
+				HCSRCountMultiValue+=TriggerCounter;
+				HCSRSampleTimes++;
+			}
+			else
+			{
+				HCSRCountAveraValue=HCSRCountMultiValue/10;
+				HCSRCountMultiValue=0;
+				HCSRSampleTimes=0;				
+			}
+			HCSRCountValue=HCSRCountAveraValue;
 			NextTiggerHCSRFlag=true;			
 		}
 

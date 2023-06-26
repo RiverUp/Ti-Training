@@ -70,6 +70,8 @@
 
 int main(void)
 {
+	FPU_enableModule();
+  FPU_enableLazyStacking();
 	WDT_A_hold(WDT_A_BASE);
 	Interrupt_enableMaster();
 	Delay_Init();
@@ -92,9 +94,10 @@ int main(void)
 	char text4[20];
 	
 	while(1)
-	{
+	{ 
 		if(NextTiggerHCSRFlag)
 		{
+
 			trigger_measure();
 		}
 //		sprintf(text1,"t1:%d ",t1);
@@ -104,8 +107,7 @@ int main(void)
 		sprintf(text2,"l:%2d ",encoder_left);
 //		sprintf(text3,"adc:%.2f     ",adc);
 		sprintf(text3,"turnPwm:%d     ",turnPwm);
-		int distance=HCSRCountValue;
-		sprintf(text4,"distance:%d   ",distance);
+		sprintf(text4,"distance:%d   ",HCSRCountValue);
 		sendText(text4);
 		OLED_ShowString(0,0,(unsigned char *)text1);
 		OLED_ShowString(0,2,(unsigned char *)text2);
