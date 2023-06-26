@@ -15,8 +15,12 @@ Section Cross References
     main.o(i.main) refers to oled.o(i.OLED_Init) for OLED_Init
     main.o(i.main) refers to control.o(i.init_control) for init_control
     main.o(i.main) refers to tcrt5000.o(i.init_digitalTCRT) for init_digitalTCRT
+    main.o(i.main) refers to hc-sr04.o(i.init_hc_sr04) for init_hc_sr04
+    main.o(i.main) refers to hc-sr04.o(i.trigger_measure) for trigger_measure
     main.o(i.main) refers to printf6.o(i.__0sprintf$6) for __2sprintf
+    main.o(i.main) refers to serial.o(i.sendText) for sendText
     main.o(i.main) refers to oled.o(i.OLED_ShowString) for OLED_ShowString
+    main.o(i.main) refers to hc-sr04.o(.data) for NextTiggerHCSRFlag
     main.o(i.main) refers to encoder.o(.data) for encoder_right
     main.o(i.main) refers to control.o(.data) for turnPwm
     adc14.o(i.ADC14_configureConversionMemory) refers to adc14.o(i.ADCIsConversionRunning) for ADCIsConversionRunning
@@ -404,8 +408,10 @@ Section Cross References
     startup_msp432p401r_uvision.o(RESET) refers to context_rvds.o(.text) for HardFault_Handler
     startup_msp432p401r_uvision.o(RESET) refers to board.o(i.SysTick_Handler) for SysTick_Handler
     startup_msp432p401r_uvision.o(RESET) refers to interrupt_1.o(i.TA0_N_IRQHandler) for TA0_N_IRQHandler
+    startup_msp432p401r_uvision.o(RESET) refers to hcsr04.o(i.TA1_0_IRQHandler) for TA1_0_IRQHandler
     startup_msp432p401r_uvision.o(RESET) refers to hc-05.o(i.EUSCIA2_IRQHandler) for EUSCIA2_IRQHandler
     startup_msp432p401r_uvision.o(RESET) refers to interrupt_1.o(i.T32_INT1_IRQHandler) for T32_INT1_IRQHandler
+    startup_msp432p401r_uvision.o(RESET) refers to interrupt_1.o(i.T32_INT2_IRQHandler) for T32_INT2_IRQHandler
     startup_msp432p401r_uvision.o(RESET) refers to interrupt_1.o(i.PORT2_IRQHandler) for PORT2_IRQHandler
     startup_msp432p401r_uvision.o(RESET) refers to interrupt_1.o(i.PORT3_IRQHandler) for PORT3_IRQHandler
     startup_msp432p401r_uvision.o(RESET) refers to interrupt_1.o(i.PORT4_IRQHandler) for PORT4_IRQHandler
@@ -767,13 +773,14 @@ Section Cross References
     hc-sr04.o(i.init_hc_sr04) refers to gpio.o(i.GPIO_setOutputLowOnPin) for GPIO_setOutputLowOnPin
     hc-sr04.o(i.init_hc_sr04) refers to timer_a.o(i.Timer_A_initCapture) for Timer_A_initCapture
     hc-sr04.o(i.init_hc_sr04) refers to timer_a.o(i.Timer_A_configureContinuousMode) for Timer_A_configureContinuousMode
+    hc-sr04.o(i.init_hc_sr04) refers to timer32.o(i.Timer32_initModule) for Timer32_initModule
+    hc-sr04.o(i.init_hc_sr04) refers to timer32.o(i.Timer32_setCount) for Timer32_setCount
+    hc-sr04.o(i.init_hc_sr04) refers to timer32.o(i.Timer32_enableInterrupt) for Timer32_enableInterrupt
     hc-sr04.o(i.init_hc_sr04) refers to hc-sr04.o(.constdata) for hcsrCaptureConfig
-    hc-sr04.o(i.read_hc_sr04) refers to dfltui.o(.text) for __aeabi_ui2d
-    hc-sr04.o(i.read_hc_sr04) refers to dmul.o(.text) for __aeabi_dmul
-    hc-sr04.o(i.read_hc_sr04) refers to d2f.o(.text) for __aeabi_d2f
     hc-sr04.o(i.trigger_measure) refers to gpio.o(i.GPIO_setOutputHighOnPin) for GPIO_setOutputHighOnPin
-    hc-sr04.o(i.trigger_measure) refers to thread.o(i.rt_thread_mdelay) for rt_thread_mdelay
+    hc-sr04.o(i.trigger_measure) refers to delay.o(i.delay_us) for delay_us
     hc-sr04.o(i.trigger_measure) refers to gpio.o(i.GPIO_setOutputLowOnPin) for GPIO_setOutputLowOnPin
+    hc-sr04.o(i.trigger_measure) refers to hc-sr04.o(.data) for NextTiggerHCSRFlag
     serial.o(i.initSerial) refers to cs.o(i.CS_setDCOFrequency) for CS_setDCOFrequency
     serial.o(i.initSerial) refers to uart.o(i.UART_initModule) for UART_initModule
     serial.o(i.initSerial) refers to uart.o(i.UART_enableModule) for UART_enableModule
@@ -785,10 +792,12 @@ Section Cross References
     delay.o(i.delay_us) refers to delay.o(.data) for fac_us
     interrupt_1.o(i.PORT2_IRQHandler) refers to gpio.o(i.GPIO_getEnabledInterruptStatus) for GPIO_getEnabledInterruptStatus
     interrupt_1.o(i.PORT2_IRQHandler) refers to gpio.o(i.GPIO_clearInterruptFlag) for GPIO_clearInterruptFlag
-    interrupt_1.o(i.PORT2_IRQHandler) refers to interrupt.o(i.Interrupt_enableInterrupt) for Interrupt_enableInterrupt
-    interrupt_1.o(i.PORT2_IRQHandler) refers to interrupt.o(i.Interrupt_disableInterrupt) for Interrupt_disableInterrupt
-    interrupt_1.o(i.PORT2_IRQHandler) refers to gpio.o(i.GPIO_setAsPeripheralModuleFunctionInputPin) for GPIO_setAsPeripheralModuleFunctionInputPin
-    interrupt_1.o(i.PORT2_IRQHandler) refers to timer_a.o(i.Timer_A_startCounter) for Timer_A_startCounter
+    interrupt_1.o(i.PORT2_IRQHandler) refers to gpio.o(i.GPIO_getInputPinValue) for GPIO_getInputPinValue
+    interrupt_1.o(i.PORT2_IRQHandler) refers to gpio.o(i.GPIO_interruptEdgeSelect) for GPIO_interruptEdgeSelect
+    interrupt_1.o(i.PORT2_IRQHandler) refers to timer32.o(i.Timer32_startTimer) for Timer32_startTimer
+    interrupt_1.o(i.PORT2_IRQHandler) refers to gpio.o(i.GPIO_setOutputHighOnPin) for GPIO_setOutputHighOnPin
+    interrupt_1.o(i.PORT2_IRQHandler) refers to timer32.o(i.Timer32_haltTimer) for Timer32_haltTimer
+    interrupt_1.o(i.PORT2_IRQHandler) refers to hc-sr04.o(.data) for TriggerCounter
     interrupt_1.o(i.PORT3_IRQHandler) refers to gpio.o(i.GPIO_getEnabledInterruptStatus) for GPIO_getEnabledInterruptStatus
     interrupt_1.o(i.PORT3_IRQHandler) refers to gpio.o(i.GPIO_clearInterruptFlag) for GPIO_clearInterruptFlag
     interrupt_1.o(i.PORT3_IRQHandler) refers to gpio.o(i.GPIO_getInputPinValue) for GPIO_getInputPinValue
@@ -798,13 +807,13 @@ Section Cross References
     interrupt_1.o(i.PORT4_IRQHandler) refers to gpio.o(i.GPIO_getInputPinValue) for GPIO_getInputPinValue
     interrupt_1.o(i.PORT4_IRQHandler) refers to encoder.o(.data) for encoder_left
     interrupt_1.o(i.T32_INT1_IRQHandler) refers to control.o(i.Control) for Control
+    interrupt_1.o(i.T32_INT2_IRQHandler) refers to hc-sr04.o(.data) for TriggerCounter
+    interrupt_1.o(i.TA0_N_IRQHandler) refers to gpio.o(i.GPIO_toggleOutputOnPin) for GPIO_toggleOutputOnPin
     interrupt_1.o(i.TA0_N_IRQHandler) refers to timer_a.o(i.Timer_A_clearCaptureCompareInterrupt) for Timer_A_clearCaptureCompareInterrupt
     interrupt_1.o(i.TA0_N_IRQHandler) refers to timer_a.o(i.Timer_A_getCaptureCompareCount) for Timer_A_getCaptureCompareCount
-    interrupt_1.o(i.TA0_N_IRQHandler) refers to gpio.o(i.GPIO_setAsInputPinWithPullDownResistor) for GPIO_setAsInputPinWithPullDownResistor
     interrupt_1.o(i.TA0_N_IRQHandler) refers to timer_a.o(i.Timer_A_clearTimer) for Timer_A_clearTimer
     interrupt_1.o(i.TA0_N_IRQHandler) refers to timer_a.o(i.Timer_A_stopTimer) for Timer_A_stopTimer
-    interrupt_1.o(i.TA0_N_IRQHandler) refers to interrupt.o(i.Interrupt_disableInterrupt) for Interrupt_disableInterrupt
-    interrupt_1.o(i.TA0_N_IRQHandler) refers to hc-sr04.o(.data) for countValue
+    interrupt_1.o(i.TA0_N_IRQHandler) refers to hc-sr04.o(.data) for HCSRCountValue
     hc-05.o(i.EUSCIA2_IRQHandler) refers to uart.o(i.UART_getEnabledInterruptStatus) for UART_getEnabledInterruptStatus
     hc-05.o(i.EUSCIA2_IRQHandler) refers to uart.o(i.UART_clearInterruptFlag) for UART_clearInterruptFlag
     hc-05.o(i.EUSCIA2_IRQHandler) refers to uart.o(i.UART_receiveData) for UART_receiveData
@@ -899,6 +908,10 @@ Section Cross References
     control.o(i.velocity) refers to control.o(.data) for target_encoder_value
     control.o(i.velocity_left) refers to control.o(.data) for target_encoder_value
     control.o(i.velocity_right) refers to control.o(.data) for target_encoder_value
+    hcsr04.o(i.Distance) refers to gpio.o(i.GPIO_setOutputLowOnPin) for GPIO_setOutputLowOnPin
+    hcsr04.o(i.Distance) refers to gpio.o(i.GPIO_setOutputHighOnPin) for GPIO_setOutputHighOnPin
+    hcsr04.o(i.Distance) refers to gpio.o(i.GPIO_getInputPinValue) for GPIO_getInputPinValue
+    hcsr04.o(i.HCSR04_Init) refers to hcsr04.o(.constdata) for upConfig
     entry.o(.ARM.Collect$$$$00000000) refers (Special) to entry10a.o(.ARM.Collect$$$$0000000D) for __rt_final_cpp
     entry.o(.ARM.Collect$$$$00000000) refers (Special) to entry11a.o(.ARM.Collect$$$$0000000F) for __rt_final_exit
     entry.o(.ARM.Collect$$$$00000000) refers (Special) to entry7b.o(.ARM.Collect$$$$00000008) for _main_clock
@@ -1148,8 +1161,6 @@ Section Cross References
     dadd.o(.text) refers to depilogue.o(.text) for _double_epilogue
     dmul.o(.text) refers (Special) to iusefp.o(.text) for __I$use$fp
     dmul.o(.text) refers to depilogue.o(.text) for _double_epilogue
-    dfltui.o(.text) refers (Special) to iusefp.o(.text) for __I$use$fp
-    dfltui.o(.text) refers to depilogue.o(.text) for _double_epilogue
     f2d.o(.text) refers (Special) to iusefp.o(.text) for __I$use$fp
     d2f.o(.text) refers (Special) to iusefp.o(.text) for __I$use$fp
     d2f.o(.text) refers to fepilogue.o(.text) for _float_round
@@ -1179,7 +1190,7 @@ Removing Unused input sections from the image.
     Removing main.o(.rev16_text), (4 bytes).
     Removing main.o(.revsh_text), (4 bytes).
     Removing main.o(.rrx_text), (6 bytes).
-    Removing main.o(.data), (5 bytes).
+    Removing main.o(.data), (4 bytes).
     Removing adc14.o(.rev16_text), (4 bytes).
     Removing adc14.o(.revsh_text), (4 bytes).
     Removing adc14.o(.rrx_text), (6 bytes).
@@ -1410,12 +1421,11 @@ Removing Unused input sections from the image.
     Removing gpio.o(.revsh_text), (4 bytes).
     Removing gpio.o(.rrx_text), (6 bytes).
     Removing gpio.o(i.GPIO_disableInterrupt), (20 bytes).
-    Removing gpio.o(i.GPIO_interruptEdgeSelect), (32 bytes).
     Removing gpio.o(i.GPIO_registerInterrupt), (32 bytes).
     Removing gpio.o(i.GPIO_setAsInputPin), (40 bytes).
+    Removing gpio.o(i.GPIO_setAsPeripheralModuleFunctionInputPin), (80 bytes).
     Removing gpio.o(i.GPIO_setDriveStrengthHigh), (20 bytes).
     Removing gpio.o(i.GPIO_setDriveStrengthLow), (20 bytes).
-    Removing gpio.o(i.GPIO_toggleOutputOnPin), (20 bytes).
     Removing gpio.o(i.GPIO_unregisterInterrupt), (28 bytes).
     Removing i2c.o(.rev16_text), (4 bytes).
     Removing i2c.o(.revsh_text), (4 bytes).
@@ -1467,6 +1477,7 @@ Removing Unused input sections from the image.
     Removing interrupt.o(.revsh_text), (4 bytes).
     Removing interrupt.o(.rrx_text), (6 bytes).
     Removing interrupt.o(i.IntDefaultHandler), (4 bytes).
+    Removing interrupt.o(i.Interrupt_disableInterrupt), (116 bytes).
     Removing interrupt.o(i.Interrupt_disableMaster), (16 bytes).
     Removing interrupt.o(i.Interrupt_disableSleepOnIsrExit), (20 bytes).
     Removing interrupt.o(i.Interrupt_enableSleepOnIsrExit), (20 bytes).
@@ -1711,7 +1722,6 @@ Removing Unused input sections from the image.
     Removing timer_a.o(.revsh_text), (4 bytes).
     Removing timer_a.o(.rrx_text), (6 bytes).
     Removing timer_a.o(i.Timer_A_clearInterruptFlag), (14 bytes).
-    Removing timer_a.o(i.Timer_A_configureContinuousMode), (40 bytes).
     Removing timer_a.o(i.Timer_A_configureUpDownMode), (84 bytes).
     Removing timer_a.o(i.Timer_A_configureUpMode), (84 bytes).
     Removing timer_a.o(i.Timer_A_disableCaptureCompareInterrupt), (30 bytes).
@@ -1725,11 +1735,11 @@ Removing Unused input sections from the image.
     Removing timer_a.o(i.Timer_A_getInterruptStatus), (10 bytes).
     Removing timer_a.o(i.Timer_A_getOutputForOutputModeOutBitValue), (38 bytes).
     Removing timer_a.o(i.Timer_A_getSynchronizedCaptureCompareInput), (30 bytes).
-    Removing timer_a.o(i.Timer_A_initCapture), (58 bytes).
     Removing timer_a.o(i.Timer_A_initCompare), (52 bytes).
     Removing timer_a.o(i.Timer_A_registerInterrupt), (208 bytes).
     Removing timer_a.o(i.Timer_A_setCompareValue), (20 bytes).
     Removing timer_a.o(i.Timer_A_setOutputForOutputModeOutBitValue), (32 bytes).
+    Removing timer_a.o(i.Timer_A_startCounter), (8 bytes).
     Removing timer_a.o(i.Timer_A_unregisterInterrupt), (192 bytes).
     Removing timer32.o(.rev16_text), (4 bytes).
     Removing timer32.o(.revsh_text), (4 bytes).
@@ -1738,7 +1748,6 @@ Removing Unused input sections from the image.
     Removing timer32.o(i.Timer32_disableInterrupt), (10 bytes).
     Removing timer32.o(i.Timer32_getInterruptStatus), (6 bytes).
     Removing timer32.o(i.Timer32_getValue), (6 bytes).
-    Removing timer32.o(i.Timer32_haltTimer), (10 bytes).
     Removing timer32.o(i.Timer32_registerInterrupt), (22 bytes).
     Removing timer32.o(i.Timer32_setCountInBackground), (34 bytes).
     Removing timer32.o(i.Timer32_unregisterInterrupt), (18 bytes).
@@ -1756,7 +1765,6 @@ Removing Unused input sections from the image.
     Removing uart.o(i.UART_setDormant), (14 bytes).
     Removing uart.o(i.UART_transmitAddress), (18 bytes).
     Removing uart.o(i.UART_transmitBreak), (72 bytes).
-    Removing uart.o(i.UART_transmitData), (40 bytes).
     Removing uart.o(i.UART_unregisterInterrupt), (96 bytes).
     Removing wdt_a.o(.rev16_text), (4 bytes).
     Removing wdt_a.o(.revsh_text), (4 bytes).
@@ -1839,14 +1847,10 @@ Removing Unused input sections from the image.
     Removing hc-sr04.o(.rev16_text), (4 bytes).
     Removing hc-sr04.o(.revsh_text), (4 bytes).
     Removing hc-sr04.o(.rrx_text), (6 bytes).
-    Removing hc-sr04.o(i.init_hc_sr04), (88 bytes).
-    Removing hc-sr04.o(i.read_hc_sr04), (60 bytes).
-    Removing hc-sr04.o(i.trigger_measure), (26 bytes).
-    Removing hc-sr04.o(.constdata), (40 bytes).
+    Removing hc-sr04.o(i.read_hc_sr04), (10 bytes).
     Removing serial.o(.rev16_text), (4 bytes).
     Removing serial.o(.revsh_text), (4 bytes).
     Removing serial.o(.rrx_text), (6 bytes).
-    Removing serial.o(i.sendText), (28 bytes).
     Removing delay.o(.rev16_text), (4 bytes).
     Removing delay.o(.revsh_text), (4 bytes).
     Removing delay.o(.rrx_text), (6 bytes).
@@ -1891,12 +1895,17 @@ Removing Unused input sections from the image.
     Removing control.o(.rrx_text), (6 bytes).
     Removing control.o(i.velocity_left), (132 bytes).
     Removing control.o(i.velocity_right), (132 bytes).
-    Removing dfltui.o(.text), (26 bytes).
+    Removing hcsr04.o(.rev16_text), (4 bytes).
+    Removing hcsr04.o(.revsh_text), (4 bytes).
+    Removing hcsr04.o(.rrx_text), (6 bytes).
+    Removing hcsr04.o(i.Distance), (192 bytes).
+    Removing hcsr04.o(i.HCSR04_Init), (136 bytes).
+    Removing hcsr04.o(.constdata), (24 bytes).
     Removing ddiv.o(.text), (222 bytes).
     Removing dfixul.o(.text), (48 bytes).
     Removing cdrcmple.o(.text), (48 bytes).
 
-719 unused section(s) (total 29660 bytes) removed from the image.
+717 unused section(s) (total 29771 bytes) removed from the image.
 
 ==============================================================================
 
@@ -1911,31 +1920,31 @@ Image Symbol Table
     ../clib/microlib/division.c              0x00000000   Number         0  uldiv.o ABSOLUTE
     ../clib/microlib/division.c              0x00000000   Number         0  uidiv.o ABSOLUTE
     ../clib/microlib/init/entry.s            0x00000000   Number         0  entry10b.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry7a.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry8a.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry2.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry7b.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry10a.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry5.o ABSOLUTE
     ../clib/microlib/init/entry.s            0x00000000   Number         0  entry8b.o ABSOLUTE
     ../clib/microlib/init/entry.s            0x00000000   Number         0  entry9a.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry2.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry5.o ABSOLUTE
     ../clib/microlib/init/entry.s            0x00000000   Number         0  entry9b.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry10a.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry7a.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry7b.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry8a.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry11a.o ABSOLUTE
     ../clib/microlib/init/entry.s            0x00000000   Number         0  entry11b.o ABSOLUTE
     ../clib/microlib/init/entry.s            0x00000000   Number         0  entry.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry11a.o ABSOLUTE
-    ../clib/microlib/longlong.c              0x00000000   Number         0  llsshr.o ABSOLUTE
     ../clib/microlib/longlong.c              0x00000000   Number         0  llshl.o ABSOLUTE
     ../clib/microlib/longlong.c              0x00000000   Number         0  llushr.o ABSOLUTE
-    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf7.o ABSOLUTE
-    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf6.o ABSOLUTE
+    ../clib/microlib/longlong.c              0x00000000   Number         0  llsshr.o ABSOLUTE
     ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf5.o ABSOLUTE
-    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf4.o ABSOLUTE
-    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf8.o ABSOLUTE
-    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf3.o ABSOLUTE
     ../clib/microlib/printf/printf.c         0x00000000   Number         0  printfb.o ABSOLUTE
-    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf2.o ABSOLUTE
     ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf0.o ABSOLUTE
     ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf1.o ABSOLUTE
+    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf2.o ABSOLUTE
+    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf3.o ABSOLUTE
+    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf6.o ABSOLUTE
+    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf7.o ABSOLUTE
+    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf8.o ABSOLUTE
+    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf4.o ABSOLUTE
     ../clib/microlib/printf/printf.c         0x00000000   Number         0  printfa.o ABSOLUTE
     ../clib/microlib/printf/stubs.s          0x00000000   Number         0  stubs.o ABSOLUTE
     ../clib/microlib/stdio/fputc.c           0x00000000   Number         0  fputc.o ABSOLUTE
@@ -1952,7 +1961,6 @@ Image Symbol Table
     ../fplib/microlib/fpepilogue.c           0x00000000   Number         0  depilogue.o ABSOLUTE
     ../fplib/microlib/fpepilogue.c           0x00000000   Number         0  fepilogue.o ABSOLUTE
     ../fplib/microlib/fpfix.c                0x00000000   Number         0  dfixul.o ABSOLUTE
-    ../fplib/microlib/fpflt.c                0x00000000   Number         0  dfltui.o ABSOLUTE
     ../fplib/microlib/fpmul.c                0x00000000   Number         0  dmul.o ABSOLUTE
     ..\Lib\ti\devices\msp432p4xx\driverlib\adc14.c 0x00000000   Number         0  adc14.o ABSOLUTE
     ..\Lib\ti\devices\msp432p4xx\driverlib\aes256.c 0x00000000   Number         0  aes256.o ABSOLUTE
@@ -2013,6 +2021,7 @@ Image Symbol Table
     ..\User\Driver\Motor.c                   0x00000000   Number         0  motor.o ABSOLUTE
     ..\User\Driver\Serial.c                  0x00000000   Number         0  serial.o ABSOLUTE
     ..\User\Driver\TCRT5000.c                0x00000000   Number         0  tcrt5000.o ABSOLUTE
+    ..\User\Driver\hcsr04.c                  0x00000000   Number         0  hcsr04.o ABSOLUTE
     ..\User\Driver\oled.c                    0x00000000   Number         0  oled.o ABSOLUTE
     ..\User\main.c                           0x00000000   Number         0  main.o ABSOLUTE
     ..\\Lib\\ti\\devices\\msp432p4xx\\driverlib\\adc14.c 0x00000000   Number         0  adc14.o ABSOLUTE
@@ -2055,6 +2064,7 @@ Image Symbol Table
     ..\\User\\Driver\\Motor.c                0x00000000   Number         0  motor.o ABSOLUTE
     ..\\User\\Driver\\Serial.c               0x00000000   Number         0  serial.o ABSOLUTE
     ..\\User\\Driver\\TCRT5000.c             0x00000000   Number         0  tcrt5000.o ABSOLUTE
+    ..\\User\\Driver\\hcsr04.c               0x00000000   Number         0  hcsr04.o ABSOLUTE
     ..\\User\\Driver\\oled.c                 0x00000000   Number         0  oled.o ABSOLUTE
     ..\\User\\main.c                         0x00000000   Number         0  main.o ABSOLUTE
     cdrcmple.s                               0x00000000   Number         0  cdrcmple.o ABSOLUTE
@@ -2084,8 +2094,8 @@ Image Symbol Table
     .text                                    0x00000568   Section        0  uidiv.o(.text)
     .text                                    0x00000594   Section        0  llshl.o(.text)
     .text                                    0x000005b2   Section        0  llsshr.o(.text)
-    .text                                    0x000005d6   Section        0  fepilogue.o(.text)
     .text                                    0x000005d6   Section        0  iusefp.o(.text)
+    .text                                    0x000005d6   Section        0  fepilogue.o(.text)
     .text                                    0x00000644   Section        0  depilogue.o(.text)
     .text                                    0x00000700   Section       36  init.o(.text)
     .text                                    0x00000724   Section        0  llushr.o(.text)
@@ -2102,227 +2112,236 @@ Image Symbol Table
     i.GPIO_getEnabledInterruptStatus         0x00000aa4   Section        0  gpio.o(i.GPIO_getEnabledInterruptStatus)
     i.GPIO_getInputPinValue                  0x00000af8   Section        0  gpio.o(i.GPIO_getInputPinValue)
     i.GPIO_getInterruptStatus                0x00000b18   Section        0  gpio.o(i.GPIO_getInterruptStatus)
-    i.GPIO_setAsInputPinWithPullDownResistor 0x00000b2c   Section        0  gpio.o(i.GPIO_setAsInputPinWithPullDownResistor)
-    i.GPIO_setAsInputPinWithPullUpResistor   0x00000b58   Section        0  gpio.o(i.GPIO_setAsInputPinWithPullUpResistor)
-    i.GPIO_setAsOutputPin                    0x00000b84   Section        0  gpio.o(i.GPIO_setAsOutputPin)
-    i.GPIO_setAsPeripheralModuleFunctionInputPin 0x00000ba4   Section        0  gpio.o(i.GPIO_setAsPeripheralModuleFunctionInputPin)
-    i.GPIO_setAsPeripheralModuleFunctionOutputPin 0x00000bf4   Section        0  gpio.o(i.GPIO_setAsPeripheralModuleFunctionOutputPin)
-    i.GPIO_setOutputHighOnPin                0x00000c44   Section        0  gpio.o(i.GPIO_setOutputHighOnPin)
-    i.GPIO_setOutputLowOnPin                 0x00000c58   Section        0  gpio.o(i.GPIO_setOutputLowOnPin)
-    i.Interrupt_disableInterrupt             0x00000c6c   Section        0  interrupt.o(i.Interrupt_disableInterrupt)
-    i.Interrupt_enableInterrupt              0x00000ce0   Section        0  interrupt.o(i.Interrupt_enableInterrupt)
-    i.Interrupt_enableMaster                 0x00000d54   Section        0  interrupt.o(i.Interrupt_enableMaster)
-    i.OLED_CS_Clr                            0x00000d64   Section        0  oled.o(i.OLED_CS_Clr)
-    i.OLED_CS_Set                            0x00000d78   Section        0  oled.o(i.OLED_CS_Set)
-    i.OLED_Clear                             0x00000d8c   Section        0  oled.o(i.OLED_Clear)
-    i.OLED_DC_Clr                            0x00000dcc   Section        0  oled.o(i.OLED_DC_Clr)
-    i.OLED_DC_Set                            0x00000de0   Section        0  oled.o(i.OLED_DC_Set)
-    i.OLED_Init                              0x00000df4   Section        0  oled.o(i.OLED_Init)
-    i.OLED_RST_Clr                           0x00000f04   Section        0  oled.o(i.OLED_RST_Clr)
-    i.OLED_RST_Set                           0x00000f18   Section        0  oled.o(i.OLED_RST_Set)
-    i.OLED_SCLK_Clr                          0x00000f2c   Section        0  oled.o(i.OLED_SCLK_Clr)
-    i.OLED_SCLK_Set                          0x00000f40   Section        0  oled.o(i.OLED_SCLK_Set)
-    i.OLED_SDIN_Clr                          0x00000f54   Section        0  oled.o(i.OLED_SDIN_Clr)
-    i.OLED_SDIN_Set                          0x00000f68   Section        0  oled.o(i.OLED_SDIN_Set)
-    i.OLED_Set_Pos                           0x00000f7c   Section        0  oled.o(i.OLED_Set_Pos)
-    i.OLED_ShowChar                          0x00000fac   Section        0  oled.o(i.OLED_ShowChar)
-    i.OLED_ShowString                        0x0000101c   Section        0  oled.o(i.OLED_ShowString)
-    i.OLED_WR_Byte                           0x00001052   Section        0  oled.o(i.OLED_WR_Byte)
-    i.PORT2_IRQHandler                       0x0000109a   Section        0  interrupt_1.o(i.PORT2_IRQHandler)
-    i.PORT3_IRQHandler                       0x000010d4   Section        0  interrupt_1.o(i.PORT3_IRQHandler)
-    i.PORT4_IRQHandler                       0x00001198   Section        0  interrupt_1.o(i.PORT4_IRQHandler)
-    i.SysCtl_getTLVInfo                      0x0000125c   Section        0  sysctl.o(i.SysCtl_getTLVInfo)
-    i.SysTick_Handler                        0x000012ac   Section        0  board.o(i.SysTick_Handler)
-    i.SystemCoreClockUpdate                  0x000012bc   Section        0  system_msp432p401r.o(i.SystemCoreClockUpdate)
-    i.SystemInit                             0x00001530   Section        0  system_msp432p401r.o(i.SystemInit)
-    i.T32_INT1_IRQHandler                    0x0000159c   Section        0  interrupt_1.o(i.T32_INT1_IRQHandler)
-    i.TA0_N_IRQHandler                       0x000015b8   Section        0  interrupt_1.o(i.TA0_N_IRQHandler)
-    i.Timer32_enableInterrupt                0x000015f8   Section        0  timer32.o(i.Timer32_enableInterrupt)
-    i.Timer32_initModule                     0x00001602   Section        0  timer32.o(i.Timer32_initModule)
-    i.Timer32_setCount                       0x00001660   Section        0  timer32.o(i.Timer32_setCount)
-    i.Timer32_startTimer                     0x00001682   Section        0  timer32.o(i.Timer32_startTimer)
-    i.Timer_A_clearCaptureCompareInterrupt   0x000016b2   Section        0  timer_a.o(i.Timer_A_clearCaptureCompareInterrupt)
-    i.Timer_A_clearTimer                     0x000016d0   Section        0  timer_a.o(i.Timer_A_clearTimer)
-    i.Timer_A_generatePWM                    0x000016de   Section        0  timer_a.o(i.Timer_A_generatePWM)
-    i.Timer_A_getCaptureCompareCount         0x00001738   Section        0  timer_a.o(i.Timer_A_getCaptureCompareCount)
-    i.Timer_A_startCounter                   0x0000174c   Section        0  timer_a.o(i.Timer_A_startCounter)
-    i.Timer_A_stopTimer                      0x00001754   Section        0  timer_a.o(i.Timer_A_stopTimer)
-    i.UART_clearInterruptFlag                0x0000175e   Section        0  uart.o(i.UART_clearInterruptFlag)
-    i.UART_disableInterrupt                  0x00001766   Section        0  uart.o(i.UART_disableInterrupt)
-    i.UART_enableModule                      0x0000177c   Section        0  uart.o(i.UART_enableModule)
-    i.UART_getEnabledInterruptStatus         0x0000178a   Section        0  uart.o(i.UART_getEnabledInterruptStatus)
-    i.UART_getInterruptStatus                0x000017d2   Section        0  uart.o(i.UART_getInterruptStatus)
-    i.UART_initModule                        0x000017da   Section        0  uart.o(i.UART_initModule)
-    i.UART_receiveData                       0x000018d0   Section        0  uart.o(i.UART_receiveData)
-    i.WDT_A_holdTimer                        0x000018fc   Section        0  wdt_a.o(i.WDT_A_holdTimer)
-    i._SysTick_Config                        0x00001914   Section        0  board.o(i._SysTick_Config)
-    _SysTick_Config                          0x00001915   Thumb Code    44  board.o(i._SysTick_Config)
-    i.__0sprintf$6                           0x00001944   Section        0  printf6.o(i.__0sprintf$6)
-    i.__rt_ffs                               0x0000196c   Section        0  kservice.o(i.__rt_ffs)
-    i.__scatterload_copy                     0x000019b8   Section       14  handlers.o(i.__scatterload_copy)
-    i.__scatterload_null                     0x000019c6   Section        2  handlers.o(i.__scatterload_null)
-    i.__scatterload_zeroinit                 0x000019c8   Section       14  handlers.o(i.__scatterload_zeroinit)
-    i._printf_core                           0x000019d8   Section        0  printf6.o(i._printf_core)
-    _printf_core                             0x000019d9   Thumb Code   748  printf6.o(i._printf_core)
-    i._printf_post_padding                   0x00001cc8   Section        0  printf6.o(i._printf_post_padding)
-    _printf_post_padding                     0x00001cc9   Thumb Code    36  printf6.o(i._printf_post_padding)
-    i._printf_pre_padding                    0x00001cec   Section        0  printf6.o(i._printf_pre_padding)
-    _printf_pre_padding                      0x00001ced   Thumb Code    46  printf6.o(i._printf_pre_padding)
-    i._rt_thread_init                        0x00001d1c   Section        0  thread.o(i._rt_thread_init)
-    _rt_thread_init                          0x00001d1d   Thumb Code   128  thread.o(i._rt_thread_init)
-    i._rt_timer_init                         0x00001da4   Section        0  timer.o(i._rt_timer_init)
-    _rt_timer_init                           0x00001da5   Thumb Code    66  timer.o(i._rt_timer_init)
-    i._rt_timer_remove                       0x00001de6   Section        0  timer.o(i._rt_timer_remove)
-    _rt_timer_remove                         0x00001de7   Thumb Code    28  timer.o(i._rt_timer_remove)
-    i._sputc                                 0x00001e02   Section        0  printf6.o(i._sputc)
-    _sputc                                   0x00001e03   Thumb Code    10  printf6.o(i._sputc)
-    i._thread_cleanup_execute                0x00001e0c   Section        0  thread.o(i._thread_cleanup_execute)
-    _thread_cleanup_execute                  0x00001e0d   Thumb Code    28  thread.o(i._thread_cleanup_execute)
-    i.delay_ms                               0x00001e28   Section        0  delay.o(i.delay_ms)
-    i.delay_us                               0x00001e44   Section        0  delay.o(i.delay_us)
-    i.getTCRTValue                           0x00001e90   Section        0  tcrt5000.o(i.getTCRTValue)
-    i.init                                   0x00001f10   Section        0  oled.o(i.init)
-    i.initSerial                             0x00001f54   Section        0  serial.o(i.initSerial)
-    i.init_control                           0x00001f8c   Section        0  control.o(i.init_control)
-    i.init_digitalTCRT                       0x00001fd0   Section        0  tcrt5000.o(i.init_digitalTCRT)
-    i.init_encoder_left                      0x00001fec   Section        0  encoder.o(i.init_encoder_left)
-    i.init_encoder_right                     0x0000200e   Section        0  encoder.o(i.init_encoder_right)
-    i.init_motor                             0x00002030   Section        0  motor.o(i.init_motor)
-    i.limit_pwm                              0x0000206e   Section        0  motor.o(i.limit_pwm)
-    i.main                                   0x00002084   Section        0  main.o(i.main)
-    i.main_thread_entry                      0x00002124   Section        0  components.o(i.main_thread_entry)
-    i.plug_holes                             0x00002134   Section        0  mem.o(i.plug_holes)
-    plug_holes                               0x00002135   Thumb Code   108  mem.o(i.plug_holes)
-    i.print_number                           0x000021ac   Section        0  kservice.o(i.print_number)
-    print_number                             0x000021ad   Thumb Code   400  kservice.o(i.print_number)
-    i.privateTimer_AProcessClockSourceDivider 0x00002344   Section        0  timer_a.o(i.privateTimer_AProcessClockSourceDivider)
-    privateTimer_AProcessClockSourceDivider  0x00002345   Thumb Code   232  timer_a.o(i.privateTimer_AProcessClockSourceDivider)
-    i.read_encoder                           0x0000242c   Section        0  encoder.o(i.read_encoder)
-    i.rt_application_init                    0x00002458   Section        0  components.o(i.rt_application_init)
-    i.rt_components_board_init               0x00002488   Section        0  components.o(i.rt_components_board_init)
-    i.rt_components_init                     0x000024a4   Section        0  components.o(i.rt_components_init)
-    i.rt_enter_critical                      0x000024c0   Section        0  scheduler.o(i.rt_enter_critical)
-    i.rt_exit_critical                       0x000024e0   Section        0  scheduler.o(i.rt_exit_critical)
-    i.rt_free                                0x00002524   Section        0  mem.o(i.rt_free)
-    i.rt_heap_begin_get                      0x00002604   Section        0  board.o(i.rt_heap_begin_get)
-    i.rt_heap_end_get                        0x0000260c   Section        0  board.o(i.rt_heap_end_get)
-    i.rt_hw_board_init                       0x00002614   Section        0  board.o(i.rt_hw_board_init)
-    i.rt_hw_console_output                   0x00002648   Section        0  kservice.o(i.rt_hw_console_output)
-    i.rt_hw_hard_fault_exception             0x0000264c   Section        0  cpuport.o(i.rt_hw_hard_fault_exception)
-    i.rt_hw_stack_init                       0x00002870   Section        0  cpuport.o(i.rt_hw_stack_init)
-    i.rt_interrupt_enter                     0x000028c0   Section        0  irq.o(i.rt_interrupt_enter)
-    i.rt_interrupt_leave                     0x000028e0   Section        0  irq.o(i.rt_interrupt_leave)
-    i.rt_ipc_list_resume                     0x00002900   Section        0  ipc.o(i.rt_ipc_list_resume)
-    rt_ipc_list_resume                       0x00002901   Thumb Code    20  ipc.o(i.rt_ipc_list_resume)
-    i.rt_ipc_list_suspend                    0x00002914   Section        0  ipc.o(i.rt_ipc_list_suspend)
-    rt_ipc_list_suspend                      0x00002915   Thumb Code   110  ipc.o(i.rt_ipc_list_suspend)
-    i.rt_ipc_object_init                     0x00002982   Section        0  ipc.o(i.rt_ipc_object_init)
-    rt_ipc_object_init                       0x00002983   Thumb Code    16  ipc.o(i.rt_ipc_object_init)
-    i.rt_kprintf                             0x00002994   Section        0  kservice.o(i.rt_kprintf)
-    i.rt_list_init                           0x000029c4   Section        0  ipc.o(i.rt_list_init)
-    rt_list_init                             0x000029c5   Thumb Code     6  ipc.o(i.rt_list_init)
-    i.rt_list_init                           0x000029ca   Section        0  scheduler.o(i.rt_list_init)
-    rt_list_init                             0x000029cb   Thumb Code     6  scheduler.o(i.rt_list_init)
-    i.rt_list_init                           0x000029d0   Section        0  timer.o(i.rt_list_init)
-    rt_list_init                             0x000029d1   Thumb Code     6  timer.o(i.rt_list_init)
-    i.rt_list_insert_after                   0x000029d6   Section        0  object.o(i.rt_list_insert_after)
-    rt_list_insert_after                     0x000029d7   Thumb Code    14  object.o(i.rt_list_insert_after)
-    i.rt_list_insert_after                   0x000029e4   Section        0  thread.o(i.rt_list_insert_after)
-    rt_list_insert_after                     0x000029e5   Thumb Code    14  thread.o(i.rt_list_insert_after)
-    i.rt_list_insert_after                   0x000029f2   Section        0  timer.o(i.rt_list_insert_after)
-    rt_list_insert_after                     0x000029f3   Thumb Code    14  timer.o(i.rt_list_insert_after)
-    i.rt_list_insert_before                  0x00002a00   Section        0  ipc.o(i.rt_list_insert_before)
-    rt_list_insert_before                    0x00002a01   Thumb Code    14  ipc.o(i.rt_list_insert_before)
-    i.rt_list_isempty                        0x00002a0e   Section        0  ipc.o(i.rt_list_isempty)
-    rt_list_isempty                          0x00002a0f   Thumb Code    16  ipc.o(i.rt_list_isempty)
-    i.rt_list_isempty                        0x00002a1e   Section        0  timer.o(i.rt_list_isempty)
-    rt_list_isempty                          0x00002a1f   Thumb Code    16  timer.o(i.rt_list_isempty)
-    i.rt_list_remove                         0x00002a2e   Section        0  object.o(i.rt_list_remove)
-    rt_list_remove                           0x00002a2f   Thumb Code    18  object.o(i.rt_list_remove)
-    i.rt_list_remove                         0x00002a40   Section        0  thread.o(i.rt_list_remove)
-    rt_list_remove                           0x00002a41   Thumb Code    18  thread.o(i.rt_list_remove)
-    i.rt_list_remove                         0x00002a52   Section        0  timer.o(i.rt_list_remove)
-    rt_list_remove                           0x00002a53   Thumb Code    18  timer.o(i.rt_list_remove)
-    i.rt_malloc                              0x00002a64   Section        0  mem.o(i.rt_malloc)
-    i.rt_memset                              0x00002bd0   Section        0  kservice.o(i.rt_memset)
-    i.rt_object_allocate                     0x00002c18   Section        0  object.o(i.rt_object_allocate)
-    i.rt_object_delete                       0x00002c6c   Section        0  object.o(i.rt_object_delete)
-    i.rt_object_detach                       0x00002c90   Section        0  object.o(i.rt_object_detach)
-    i.rt_object_get_information              0x00002cb0   Section        0  object.o(i.rt_object_get_information)
-    i.rt_object_init                         0x00002cd8   Section        0  object.o(i.rt_object_init)
-    i.rt_object_is_systemobject              0x00002d2e   Section        0  object.o(i.rt_object_is_systemobject)
-    i.rt_schedule                            0x00002d40   Section        0  scheduler.o(i.rt_schedule)
-    i.rt_schedule_insert_thread              0x00002dd4   Section        0  scheduler.o(i.rt_schedule_insert_thread)
-    i.rt_schedule_remove_thread              0x00002e40   Section        0  scheduler.o(i.rt_schedule_remove_thread)
-    i.rt_sem_init                            0x00002eb4   Section        0  ipc.o(i.rt_sem_init)
-    i.rt_sem_release                         0x00002eda   Section        0  ipc.o(i.rt_sem_release)
-    i.rt_sem_take                            0x00002f2c   Section        0  ipc.o(i.rt_sem_take)
-    i.rt_show_version                        0x00002fa0   Section        0  kservice.o(i.rt_show_version)
-    i.rt_strncpy                             0x00003050   Section        0  kservice.o(i.rt_strncpy)
-    i.rt_system_heap_init                    0x00003084   Section        0  mem.o(i.rt_system_heap_init)
-    i.rt_system_scheduler_init               0x0000317c   Section        0  scheduler.o(i.rt_system_scheduler_init)
-    i.rt_system_scheduler_start              0x000031d8   Section        0  scheduler.o(i.rt_system_scheduler_start)
-    i.rt_system_timer_init                   0x0000321c   Section        0  timer.o(i.rt_system_timer_init)
-    i.rt_system_timer_thread_init            0x00003238   Section        0  timer.o(i.rt_system_timer_thread_init)
-    i.rt_thread_create                       0x0000323a   Section        0  thread.o(i.rt_thread_create)
-    i.rt_thread_exit                         0x0000328c   Section        0  thread.o(i.rt_thread_exit)
-    i.rt_thread_idle_entry                   0x000032e4   Section        0  idle.o(i.rt_thread_idle_entry)
-    rt_thread_idle_entry                     0x000032e5   Thumb Code     8  idle.o(i.rt_thread_idle_entry)
-    i.rt_thread_idle_excute                  0x000032ec   Section        0  idle.o(i.rt_thread_idle_excute)
-    i.rt_thread_idle_init                    0x0000334c   Section        0  idle.o(i.rt_thread_idle_init)
-    i.rt_thread_init                         0x00003388   Section        0  thread.o(i.rt_thread_init)
-    i.rt_thread_resume                       0x000033bc   Section        0  thread.o(i.rt_thread_resume)
-    i.rt_thread_self                         0x000033f8   Section        0  thread.o(i.rt_thread_self)
-    i.rt_thread_startup                      0x00003404   Section        0  thread.o(i.rt_thread_startup)
-    i.rt_thread_suspend                      0x00003442   Section        0  thread.o(i.rt_thread_suspend)
-    i.rt_thread_timeout                      0x00003486   Section        0  thread.o(i.rt_thread_timeout)
-    i.rt_thread_yield                        0x000034a8   Section        0  thread.o(i.rt_thread_yield)
-    i.rt_tick_get                            0x0000350c   Section        0  clock.o(i.rt_tick_get)
-    i.rt_tick_increase                       0x00003518   Section        0  clock.o(i.rt_tick_increase)
-    i.rt_timer_check                         0x00003548   Section        0  timer.o(i.rt_timer_check)
-    i.rt_timer_control                       0x000035ec   Section        0  timer.o(i.rt_timer_control)
-    i.rt_timer_detach                        0x0000364e   Section        0  timer.o(i.rt_timer_detach)
-    i.rt_timer_init                          0x00003676   Section        0  timer.o(i.rt_timer_init)
-    i.rt_timer_start                         0x000036a4   Section        0  timer.o(i.rt_timer_start)
-    i.rt_timer_stop                          0x00003790   Section        0  timer.o(i.rt_timer_stop)
-    i.rt_vsnprintf                           0x000037c0   Section        0  kservice.o(i.rt_vsnprintf)
-    i.rti_board_end                          0x00003b00   Section        0  components.o(i.rti_board_end)
-    rti_board_end                            0x00003b01   Thumb Code     4  components.o(i.rti_board_end)
-    i.rti_board_start                        0x00003b04   Section        0  components.o(i.rti_board_start)
-    rti_board_start                          0x00003b05   Thumb Code     4  components.o(i.rti_board_start)
-    i.rti_end                                0x00003b08   Section        0  components.o(i.rti_end)
-    rti_end                                  0x00003b09   Thumb Code     4  components.o(i.rti_end)
-    i.rti_start                              0x00003b0c   Section        0  components.o(i.rti_start)
-    rti_start                                0x00003b0d   Thumb Code     4  components.o(i.rti_start)
-    i.rtthread_startup                       0x00003b10   Section        0  components.o(i.rtthread_startup)
-    i.set_pwm                                0x00003b3c   Section        0  motor.o(i.set_pwm)
-    i.skip_atoi                              0x00003bd0   Section        0  kservice.o(i.skip_atoi)
-    skip_atoi                                0x00003bd1   Thumb Code    38  kservice.o(i.skip_atoi)
-    i.turn                                   0x00003bf8   Section        0  control.o(i.turn)
-    i.velocity                               0x00003d68   Section        0  control.o(i.velocity)
-    .constdata                               0x00003e74   Section       76  gpio.o(.constdata)
-    GPIO_PORT_TO_INT                         0x00003e74   Data          28  gpio.o(.constdata)
-    GPIO_PORT_TO_BASE                        0x00003e90   Data          48  gpio.o(.constdata)
-    .constdata                               0x00003ec0   Section      144  interrupt.o(.constdata)
-    g_pulPriority                            0x00003ec0   Data          32  interrupt.o(.constdata)
-    g_pulRegs                                0x00003ee0   Data          80  interrupt.o(.constdata)
-    g_pulEnRegs                              0x00003f30   Data           8  interrupt.o(.constdata)
-    g_pulDisRegs                             0x00003f38   Data           8  interrupt.o(.constdata)
-    g_pulPendRegs                            0x00003f40   Data           8  interrupt.o(.constdata)
-    g_pulUnpendRegs                          0x00003f48   Data           8  interrupt.o(.constdata)
-    .constdata                               0x00003f50   Section      290  kservice.o(.constdata)
-    small_digits                             0x00004050   Data          17  kservice.o(.constdata)
-    large_digits                             0x00004061   Data          17  kservice.o(.constdata)
-    .constdata                               0x00004074   Section       40  serial.o(.constdata)
-    .constdata                               0x0000409c   Section     3672  oled.o(.constdata)
-    .rti_fn.0                                0x00004ef4   Section        4  components.o(.rti_fn.0)
-    __tagsym$$used                           0x00004ef4   Number         0  components.o(.rti_fn.0)
-    .rti_fn.0.end                            0x00004ef8   Section        4  components.o(.rti_fn.0.end)
-    __tagsym$$used                           0x00004ef8   Number         0  components.o(.rti_fn.0.end)
-    .rti_fn.1.end                            0x00004efc   Section        4  components.o(.rti_fn.1.end)
-    __tagsym$$used                           0x00004efc   Number         0  components.o(.rti_fn.1.end)
-    .rti_fn.6.end                            0x00004f00   Section        4  components.o(.rti_fn.6.end)
-    __tagsym$$used                           0x00004f00   Number         0  components.o(.rti_fn.6.end)
+    i.GPIO_interruptEdgeSelect               0x00000b2c   Section        0  gpio.o(i.GPIO_interruptEdgeSelect)
+    i.GPIO_setAsInputPinWithPullDownResistor 0x00000b4c   Section        0  gpio.o(i.GPIO_setAsInputPinWithPullDownResistor)
+    i.GPIO_setAsInputPinWithPullUpResistor   0x00000b78   Section        0  gpio.o(i.GPIO_setAsInputPinWithPullUpResistor)
+    i.GPIO_setAsOutputPin                    0x00000ba4   Section        0  gpio.o(i.GPIO_setAsOutputPin)
+    i.GPIO_setAsPeripheralModuleFunctionOutputPin 0x00000bc4   Section        0  gpio.o(i.GPIO_setAsPeripheralModuleFunctionOutputPin)
+    i.GPIO_setOutputHighOnPin                0x00000c14   Section        0  gpio.o(i.GPIO_setOutputHighOnPin)
+    i.GPIO_setOutputLowOnPin                 0x00000c28   Section        0  gpio.o(i.GPIO_setOutputLowOnPin)
+    i.GPIO_toggleOutputOnPin                 0x00000c3c   Section        0  gpio.o(i.GPIO_toggleOutputOnPin)
+    i.Interrupt_enableInterrupt              0x00000c50   Section        0  interrupt.o(i.Interrupt_enableInterrupt)
+    i.Interrupt_enableMaster                 0x00000cc4   Section        0  interrupt.o(i.Interrupt_enableMaster)
+    i.OLED_CS_Clr                            0x00000cd4   Section        0  oled.o(i.OLED_CS_Clr)
+    i.OLED_CS_Set                            0x00000ce8   Section        0  oled.o(i.OLED_CS_Set)
+    i.OLED_Clear                             0x00000cfc   Section        0  oled.o(i.OLED_Clear)
+    i.OLED_DC_Clr                            0x00000d3c   Section        0  oled.o(i.OLED_DC_Clr)
+    i.OLED_DC_Set                            0x00000d50   Section        0  oled.o(i.OLED_DC_Set)
+    i.OLED_Init                              0x00000d64   Section        0  oled.o(i.OLED_Init)
+    i.OLED_RST_Clr                           0x00000e74   Section        0  oled.o(i.OLED_RST_Clr)
+    i.OLED_RST_Set                           0x00000e88   Section        0  oled.o(i.OLED_RST_Set)
+    i.OLED_SCLK_Clr                          0x00000e9c   Section        0  oled.o(i.OLED_SCLK_Clr)
+    i.OLED_SCLK_Set                          0x00000eb0   Section        0  oled.o(i.OLED_SCLK_Set)
+    i.OLED_SDIN_Clr                          0x00000ec4   Section        0  oled.o(i.OLED_SDIN_Clr)
+    i.OLED_SDIN_Set                          0x00000ed8   Section        0  oled.o(i.OLED_SDIN_Set)
+    i.OLED_Set_Pos                           0x00000eec   Section        0  oled.o(i.OLED_Set_Pos)
+    i.OLED_ShowChar                          0x00000f1c   Section        0  oled.o(i.OLED_ShowChar)
+    i.OLED_ShowString                        0x00000f8c   Section        0  oled.o(i.OLED_ShowString)
+    i.OLED_WR_Byte                           0x00000fc2   Section        0  oled.o(i.OLED_WR_Byte)
+    i.PORT2_IRQHandler                       0x0000100c   Section        0  interrupt_1.o(i.PORT2_IRQHandler)
+    i.PORT3_IRQHandler                       0x00001084   Section        0  interrupt_1.o(i.PORT3_IRQHandler)
+    i.PORT4_IRQHandler                       0x00001148   Section        0  interrupt_1.o(i.PORT4_IRQHandler)
+    i.SysCtl_getTLVInfo                      0x0000120c   Section        0  sysctl.o(i.SysCtl_getTLVInfo)
+    i.SysTick_Handler                        0x0000125c   Section        0  board.o(i.SysTick_Handler)
+    i.SystemCoreClockUpdate                  0x0000126c   Section        0  system_msp432p401r.o(i.SystemCoreClockUpdate)
+    i.SystemInit                             0x000014e0   Section        0  system_msp432p401r.o(i.SystemInit)
+    i.T32_INT1_IRQHandler                    0x0000154c   Section        0  interrupt_1.o(i.T32_INT1_IRQHandler)
+    i.T32_INT2_IRQHandler                    0x00001568   Section        0  interrupt_1.o(i.T32_INT2_IRQHandler)
+    i.TA0_N_IRQHandler                       0x0000158c   Section        0  interrupt_1.o(i.TA0_N_IRQHandler)
+    i.TA1_0_IRQHandler                       0x000015c4   Section        0  hcsr04.o(i.TA1_0_IRQHandler)
+    i.Timer32_enableInterrupt                0x000015dc   Section        0  timer32.o(i.Timer32_enableInterrupt)
+    i.Timer32_haltTimer                      0x000015e6   Section        0  timer32.o(i.Timer32_haltTimer)
+    i.Timer32_initModule                     0x000015f0   Section        0  timer32.o(i.Timer32_initModule)
+    i.Timer32_setCount                       0x0000164e   Section        0  timer32.o(i.Timer32_setCount)
+    i.Timer32_startTimer                     0x00001670   Section        0  timer32.o(i.Timer32_startTimer)
+    i.Timer_A_clearCaptureCompareInterrupt   0x000016a0   Section        0  timer_a.o(i.Timer_A_clearCaptureCompareInterrupt)
+    i.Timer_A_clearTimer                     0x000016be   Section        0  timer_a.o(i.Timer_A_clearTimer)
+    i.Timer_A_configureContinuousMode        0x000016cc   Section        0  timer_a.o(i.Timer_A_configureContinuousMode)
+    i.Timer_A_generatePWM                    0x000016f4   Section        0  timer_a.o(i.Timer_A_generatePWM)
+    i.Timer_A_getCaptureCompareCount         0x0000174e   Section        0  timer_a.o(i.Timer_A_getCaptureCompareCount)
+    i.Timer_A_initCapture                    0x00001762   Section        0  timer_a.o(i.Timer_A_initCapture)
+    i.Timer_A_stopTimer                      0x0000179c   Section        0  timer_a.o(i.Timer_A_stopTimer)
+    i.UART_clearInterruptFlag                0x000017a6   Section        0  uart.o(i.UART_clearInterruptFlag)
+    i.UART_disableInterrupt                  0x000017ae   Section        0  uart.o(i.UART_disableInterrupt)
+    i.UART_enableModule                      0x000017c4   Section        0  uart.o(i.UART_enableModule)
+    i.UART_getEnabledInterruptStatus         0x000017d2   Section        0  uart.o(i.UART_getEnabledInterruptStatus)
+    i.UART_getInterruptStatus                0x0000181a   Section        0  uart.o(i.UART_getInterruptStatus)
+    i.UART_initModule                        0x00001822   Section        0  uart.o(i.UART_initModule)
+    i.UART_receiveData                       0x00001918   Section        0  uart.o(i.UART_receiveData)
+    i.UART_transmitData                      0x00001944   Section        0  uart.o(i.UART_transmitData)
+    i.WDT_A_holdTimer                        0x0000196c   Section        0  wdt_a.o(i.WDT_A_holdTimer)
+    i._SysTick_Config                        0x00001984   Section        0  board.o(i._SysTick_Config)
+    _SysTick_Config                          0x00001985   Thumb Code    44  board.o(i._SysTick_Config)
+    i.__0sprintf$6                           0x000019b4   Section        0  printf6.o(i.__0sprintf$6)
+    i.__rt_ffs                               0x000019dc   Section        0  kservice.o(i.__rt_ffs)
+    i.__scatterload_copy                     0x00001a28   Section       14  handlers.o(i.__scatterload_copy)
+    i.__scatterload_null                     0x00001a36   Section        2  handlers.o(i.__scatterload_null)
+    i.__scatterload_zeroinit                 0x00001a38   Section       14  handlers.o(i.__scatterload_zeroinit)
+    i._printf_core                           0x00001a48   Section        0  printf6.o(i._printf_core)
+    _printf_core                             0x00001a49   Thumb Code   748  printf6.o(i._printf_core)
+    i._printf_post_padding                   0x00001d38   Section        0  printf6.o(i._printf_post_padding)
+    _printf_post_padding                     0x00001d39   Thumb Code    36  printf6.o(i._printf_post_padding)
+    i._printf_pre_padding                    0x00001d5c   Section        0  printf6.o(i._printf_pre_padding)
+    _printf_pre_padding                      0x00001d5d   Thumb Code    46  printf6.o(i._printf_pre_padding)
+    i._rt_thread_init                        0x00001d8c   Section        0  thread.o(i._rt_thread_init)
+    _rt_thread_init                          0x00001d8d   Thumb Code   128  thread.o(i._rt_thread_init)
+    i._rt_timer_init                         0x00001e14   Section        0  timer.o(i._rt_timer_init)
+    _rt_timer_init                           0x00001e15   Thumb Code    66  timer.o(i._rt_timer_init)
+    i._rt_timer_remove                       0x00001e56   Section        0  timer.o(i._rt_timer_remove)
+    _rt_timer_remove                         0x00001e57   Thumb Code    28  timer.o(i._rt_timer_remove)
+    i._sputc                                 0x00001e72   Section        0  printf6.o(i._sputc)
+    _sputc                                   0x00001e73   Thumb Code    10  printf6.o(i._sputc)
+    i._thread_cleanup_execute                0x00001e7c   Section        0  thread.o(i._thread_cleanup_execute)
+    _thread_cleanup_execute                  0x00001e7d   Thumb Code    28  thread.o(i._thread_cleanup_execute)
+    i.delay_ms                               0x00001e98   Section        0  delay.o(i.delay_ms)
+    i.delay_us                               0x00001eb4   Section        0  delay.o(i.delay_us)
+    i.getTCRTValue                           0x00001f00   Section        0  tcrt5000.o(i.getTCRTValue)
+    i.init                                   0x00001f80   Section        0  oled.o(i.init)
+    i.initSerial                             0x00001fc4   Section        0  serial.o(i.initSerial)
+    i.init_control                           0x00001ffc   Section        0  control.o(i.init_control)
+    i.init_digitalTCRT                       0x00002040   Section        0  tcrt5000.o(i.init_digitalTCRT)
+    i.init_encoder_left                      0x0000205c   Section        0  encoder.o(i.init_encoder_left)
+    i.init_encoder_right                     0x0000207e   Section        0  encoder.o(i.init_encoder_right)
+    i.init_hc_sr04                           0x000020a0   Section        0  hc-sr04.o(i.init_hc_sr04)
+    i.init_motor                             0x00002120   Section        0  motor.o(i.init_motor)
+    i.limit_pwm                              0x0000215e   Section        0  motor.o(i.limit_pwm)
+    i.main                                   0x00002174   Section        0  main.o(i.main)
+    i.main_thread_entry                      0x00002250   Section        0  components.o(i.main_thread_entry)
+    i.plug_holes                             0x00002260   Section        0  mem.o(i.plug_holes)
+    plug_holes                               0x00002261   Thumb Code   108  mem.o(i.plug_holes)
+    i.print_number                           0x000022d8   Section        0  kservice.o(i.print_number)
+    print_number                             0x000022d9   Thumb Code   400  kservice.o(i.print_number)
+    i.privateTimer_AProcessClockSourceDivider 0x00002470   Section        0  timer_a.o(i.privateTimer_AProcessClockSourceDivider)
+    privateTimer_AProcessClockSourceDivider  0x00002471   Thumb Code   232  timer_a.o(i.privateTimer_AProcessClockSourceDivider)
+    i.read_encoder                           0x00002558   Section        0  encoder.o(i.read_encoder)
+    i.rt_application_init                    0x00002584   Section        0  components.o(i.rt_application_init)
+    i.rt_components_board_init               0x000025b4   Section        0  components.o(i.rt_components_board_init)
+    i.rt_components_init                     0x000025d0   Section        0  components.o(i.rt_components_init)
+    i.rt_enter_critical                      0x000025ec   Section        0  scheduler.o(i.rt_enter_critical)
+    i.rt_exit_critical                       0x0000260c   Section        0  scheduler.o(i.rt_exit_critical)
+    i.rt_free                                0x00002650   Section        0  mem.o(i.rt_free)
+    i.rt_heap_begin_get                      0x00002730   Section        0  board.o(i.rt_heap_begin_get)
+    i.rt_heap_end_get                        0x00002738   Section        0  board.o(i.rt_heap_end_get)
+    i.rt_hw_board_init                       0x00002740   Section        0  board.o(i.rt_hw_board_init)
+    i.rt_hw_console_output                   0x00002774   Section        0  kservice.o(i.rt_hw_console_output)
+    i.rt_hw_hard_fault_exception             0x00002778   Section        0  cpuport.o(i.rt_hw_hard_fault_exception)
+    i.rt_hw_stack_init                       0x0000299c   Section        0  cpuport.o(i.rt_hw_stack_init)
+    i.rt_interrupt_enter                     0x000029ec   Section        0  irq.o(i.rt_interrupt_enter)
+    i.rt_interrupt_leave                     0x00002a0c   Section        0  irq.o(i.rt_interrupt_leave)
+    i.rt_ipc_list_resume                     0x00002a2c   Section        0  ipc.o(i.rt_ipc_list_resume)
+    rt_ipc_list_resume                       0x00002a2d   Thumb Code    20  ipc.o(i.rt_ipc_list_resume)
+    i.rt_ipc_list_suspend                    0x00002a40   Section        0  ipc.o(i.rt_ipc_list_suspend)
+    rt_ipc_list_suspend                      0x00002a41   Thumb Code   110  ipc.o(i.rt_ipc_list_suspend)
+    i.rt_ipc_object_init                     0x00002aae   Section        0  ipc.o(i.rt_ipc_object_init)
+    rt_ipc_object_init                       0x00002aaf   Thumb Code    16  ipc.o(i.rt_ipc_object_init)
+    i.rt_kprintf                             0x00002ac0   Section        0  kservice.o(i.rt_kprintf)
+    i.rt_list_init                           0x00002af0   Section        0  ipc.o(i.rt_list_init)
+    rt_list_init                             0x00002af1   Thumb Code     6  ipc.o(i.rt_list_init)
+    i.rt_list_init                           0x00002af6   Section        0  scheduler.o(i.rt_list_init)
+    rt_list_init                             0x00002af7   Thumb Code     6  scheduler.o(i.rt_list_init)
+    i.rt_list_init                           0x00002afc   Section        0  timer.o(i.rt_list_init)
+    rt_list_init                             0x00002afd   Thumb Code     6  timer.o(i.rt_list_init)
+    i.rt_list_insert_after                   0x00002b02   Section        0  object.o(i.rt_list_insert_after)
+    rt_list_insert_after                     0x00002b03   Thumb Code    14  object.o(i.rt_list_insert_after)
+    i.rt_list_insert_after                   0x00002b10   Section        0  thread.o(i.rt_list_insert_after)
+    rt_list_insert_after                     0x00002b11   Thumb Code    14  thread.o(i.rt_list_insert_after)
+    i.rt_list_insert_after                   0x00002b1e   Section        0  timer.o(i.rt_list_insert_after)
+    rt_list_insert_after                     0x00002b1f   Thumb Code    14  timer.o(i.rt_list_insert_after)
+    i.rt_list_insert_before                  0x00002b2c   Section        0  ipc.o(i.rt_list_insert_before)
+    rt_list_insert_before                    0x00002b2d   Thumb Code    14  ipc.o(i.rt_list_insert_before)
+    i.rt_list_isempty                        0x00002b3a   Section        0  ipc.o(i.rt_list_isempty)
+    rt_list_isempty                          0x00002b3b   Thumb Code    16  ipc.o(i.rt_list_isempty)
+    i.rt_list_isempty                        0x00002b4a   Section        0  timer.o(i.rt_list_isempty)
+    rt_list_isempty                          0x00002b4b   Thumb Code    16  timer.o(i.rt_list_isempty)
+    i.rt_list_remove                         0x00002b5a   Section        0  object.o(i.rt_list_remove)
+    rt_list_remove                           0x00002b5b   Thumb Code    18  object.o(i.rt_list_remove)
+    i.rt_list_remove                         0x00002b6c   Section        0  thread.o(i.rt_list_remove)
+    rt_list_remove                           0x00002b6d   Thumb Code    18  thread.o(i.rt_list_remove)
+    i.rt_list_remove                         0x00002b7e   Section        0  timer.o(i.rt_list_remove)
+    rt_list_remove                           0x00002b7f   Thumb Code    18  timer.o(i.rt_list_remove)
+    i.rt_malloc                              0x00002b90   Section        0  mem.o(i.rt_malloc)
+    i.rt_memset                              0x00002cfc   Section        0  kservice.o(i.rt_memset)
+    i.rt_object_allocate                     0x00002d44   Section        0  object.o(i.rt_object_allocate)
+    i.rt_object_delete                       0x00002d98   Section        0  object.o(i.rt_object_delete)
+    i.rt_object_detach                       0x00002dbc   Section        0  object.o(i.rt_object_detach)
+    i.rt_object_get_information              0x00002ddc   Section        0  object.o(i.rt_object_get_information)
+    i.rt_object_init                         0x00002e04   Section        0  object.o(i.rt_object_init)
+    i.rt_object_is_systemobject              0x00002e5a   Section        0  object.o(i.rt_object_is_systemobject)
+    i.rt_schedule                            0x00002e6c   Section        0  scheduler.o(i.rt_schedule)
+    i.rt_schedule_insert_thread              0x00002f00   Section        0  scheduler.o(i.rt_schedule_insert_thread)
+    i.rt_schedule_remove_thread              0x00002f6c   Section        0  scheduler.o(i.rt_schedule_remove_thread)
+    i.rt_sem_init                            0x00002fe0   Section        0  ipc.o(i.rt_sem_init)
+    i.rt_sem_release                         0x00003006   Section        0  ipc.o(i.rt_sem_release)
+    i.rt_sem_take                            0x00003058   Section        0  ipc.o(i.rt_sem_take)
+    i.rt_show_version                        0x000030cc   Section        0  kservice.o(i.rt_show_version)
+    i.rt_strncpy                             0x0000317c   Section        0  kservice.o(i.rt_strncpy)
+    i.rt_system_heap_init                    0x000031b0   Section        0  mem.o(i.rt_system_heap_init)
+    i.rt_system_scheduler_init               0x000032a8   Section        0  scheduler.o(i.rt_system_scheduler_init)
+    i.rt_system_scheduler_start              0x00003304   Section        0  scheduler.o(i.rt_system_scheduler_start)
+    i.rt_system_timer_init                   0x00003348   Section        0  timer.o(i.rt_system_timer_init)
+    i.rt_system_timer_thread_init            0x00003364   Section        0  timer.o(i.rt_system_timer_thread_init)
+    i.rt_thread_create                       0x00003366   Section        0  thread.o(i.rt_thread_create)
+    i.rt_thread_exit                         0x000033b8   Section        0  thread.o(i.rt_thread_exit)
+    i.rt_thread_idle_entry                   0x00003410   Section        0  idle.o(i.rt_thread_idle_entry)
+    rt_thread_idle_entry                     0x00003411   Thumb Code     8  idle.o(i.rt_thread_idle_entry)
+    i.rt_thread_idle_excute                  0x00003418   Section        0  idle.o(i.rt_thread_idle_excute)
+    i.rt_thread_idle_init                    0x00003478   Section        0  idle.o(i.rt_thread_idle_init)
+    i.rt_thread_init                         0x000034b4   Section        0  thread.o(i.rt_thread_init)
+    i.rt_thread_resume                       0x000034e8   Section        0  thread.o(i.rt_thread_resume)
+    i.rt_thread_self                         0x00003524   Section        0  thread.o(i.rt_thread_self)
+    i.rt_thread_startup                      0x00003530   Section        0  thread.o(i.rt_thread_startup)
+    i.rt_thread_suspend                      0x0000356e   Section        0  thread.o(i.rt_thread_suspend)
+    i.rt_thread_timeout                      0x000035b2   Section        0  thread.o(i.rt_thread_timeout)
+    i.rt_thread_yield                        0x000035d4   Section        0  thread.o(i.rt_thread_yield)
+    i.rt_tick_get                            0x00003638   Section        0  clock.o(i.rt_tick_get)
+    i.rt_tick_increase                       0x00003644   Section        0  clock.o(i.rt_tick_increase)
+    i.rt_timer_check                         0x00003674   Section        0  timer.o(i.rt_timer_check)
+    i.rt_timer_control                       0x00003718   Section        0  timer.o(i.rt_timer_control)
+    i.rt_timer_detach                        0x0000377a   Section        0  timer.o(i.rt_timer_detach)
+    i.rt_timer_init                          0x000037a2   Section        0  timer.o(i.rt_timer_init)
+    i.rt_timer_start                         0x000037d0   Section        0  timer.o(i.rt_timer_start)
+    i.rt_timer_stop                          0x000038bc   Section        0  timer.o(i.rt_timer_stop)
+    i.rt_vsnprintf                           0x000038ec   Section        0  kservice.o(i.rt_vsnprintf)
+    i.rti_board_end                          0x00003c2c   Section        0  components.o(i.rti_board_end)
+    rti_board_end                            0x00003c2d   Thumb Code     4  components.o(i.rti_board_end)
+    i.rti_board_start                        0x00003c30   Section        0  components.o(i.rti_board_start)
+    rti_board_start                          0x00003c31   Thumb Code     4  components.o(i.rti_board_start)
+    i.rti_end                                0x00003c34   Section        0  components.o(i.rti_end)
+    rti_end                                  0x00003c35   Thumb Code     4  components.o(i.rti_end)
+    i.rti_start                              0x00003c38   Section        0  components.o(i.rti_start)
+    rti_start                                0x00003c39   Thumb Code     4  components.o(i.rti_start)
+    i.rtthread_startup                       0x00003c3c   Section        0  components.o(i.rtthread_startup)
+    i.sendText                               0x00003c68   Section        0  serial.o(i.sendText)
+    i.set_pwm                                0x00003c84   Section        0  motor.o(i.set_pwm)
+    i.skip_atoi                              0x00003d18   Section        0  kservice.o(i.skip_atoi)
+    skip_atoi                                0x00003d19   Thumb Code    38  kservice.o(i.skip_atoi)
+    i.trigger_measure                        0x00003d40   Section        0  hc-sr04.o(i.trigger_measure)
+    i.turn                                   0x00003d64   Section        0  control.o(i.turn)
+    i.velocity                               0x00003ed4   Section        0  control.o(i.velocity)
+    .constdata                               0x00003fe0   Section       76  gpio.o(.constdata)
+    GPIO_PORT_TO_INT                         0x00003fe0   Data          28  gpio.o(.constdata)
+    GPIO_PORT_TO_BASE                        0x00003ffc   Data          48  gpio.o(.constdata)
+    .constdata                               0x0000402c   Section      144  interrupt.o(.constdata)
+    g_pulPriority                            0x0000402c   Data          32  interrupt.o(.constdata)
+    g_pulRegs                                0x0000404c   Data          80  interrupt.o(.constdata)
+    g_pulEnRegs                              0x0000409c   Data           8  interrupt.o(.constdata)
+    g_pulDisRegs                             0x000040a4   Data           8  interrupt.o(.constdata)
+    g_pulPendRegs                            0x000040ac   Data           8  interrupt.o(.constdata)
+    g_pulUnpendRegs                          0x000040b4   Data           8  interrupt.o(.constdata)
+    .constdata                               0x000040bc   Section      290  kservice.o(.constdata)
+    small_digits                             0x000041bc   Data          17  kservice.o(.constdata)
+    large_digits                             0x000041cd   Data          17  kservice.o(.constdata)
+    .constdata                               0x000041e0   Section       40  hc-sr04.o(.constdata)
+    .constdata                               0x00004208   Section       40  serial.o(.constdata)
+    .constdata                               0x00004230   Section     3672  oled.o(.constdata)
+    .rti_fn.0                                0x00005088   Section        4  components.o(.rti_fn.0)
+    __tagsym$$used                           0x00005088   Number         0  components.o(.rti_fn.0)
+    .rti_fn.0.end                            0x0000508c   Section        4  components.o(.rti_fn.0.end)
+    __tagsym$$used                           0x0000508c   Number         0  components.o(.rti_fn.0.end)
+    .rti_fn.1.end                            0x00005090   Section        4  components.o(.rti_fn.1.end)
+    __tagsym$$used                           0x00005090   Number         0  components.o(.rti_fn.1.end)
+    .rti_fn.6.end                            0x00005094   Section        4  components.o(.rti_fn.6.end)
+    __tagsym$$used                           0x00005094   Number         0  components.o(.rti_fn.6.end)
     .data                                    0x20000000   Section        4  system_msp432p401r.o(.data)
     .data                                    0x20000004   Section       16  cpuport.o(.data)
     rt_exception_hook                        0x20000010   Data           4  cpuport.o(.data)
@@ -2343,9 +2362,9 @@ Image Symbol Table
     .data                                    0x2000008c   Section       12  timer.o(.data)
     rt_timer_list                            0x2000008c   Data           8  timer.o(.data)
     random_nr                                0x20000094   Data           4  timer.o(.data)
-    .data                                    0x20000098   Section        8  hc-sr04.o(.data)
-    .data                                    0x200000a0   Section        1  delay.o(.data)
-    fac_us                                   0x200000a0   Data           1  delay.o(.data)
+    .data                                    0x20000098   Section        9  hc-sr04.o(.data)
+    .data                                    0x200000a1   Section        1  delay.o(.data)
+    fac_us                                   0x200000a1   Data           1  delay.o(.data)
     .data                                    0x200000a4   Section        6  hc-05.o(.data)
     .data                                    0x200000ac   Section        8  encoder.o(.data)
     .data                                    0x200000b4   Section       48  motor.o(.data)
@@ -2474,10 +2493,8 @@ Image Symbol Table
     PORT6_IRQHandler                         0x0000019b   Thumb Code     0  startup_msp432p401r_uvision.o(.text)
     PSS_IRQHandler                           0x0000019b   Thumb Code     0  startup_msp432p401r_uvision.o(.text)
     RTC_C_IRQHandler                         0x0000019b   Thumb Code     0  startup_msp432p401r_uvision.o(.text)
-    T32_INT2_IRQHandler                      0x0000019b   Thumb Code     0  startup_msp432p401r_uvision.o(.text)
     T32_INTC_IRQHandler                      0x0000019b   Thumb Code     0  startup_msp432p401r_uvision.o(.text)
     TA0_0_IRQHandler                         0x0000019b   Thumb Code     0  startup_msp432p401r_uvision.o(.text)
-    TA1_0_IRQHandler                         0x0000019b   Thumb Code     0  startup_msp432p401r_uvision.o(.text)
     TA1_N_IRQHandler                         0x0000019b   Thumb Code     0  startup_msp432p401r_uvision.o(.text)
     TA2_0_IRQHandler                         0x0000019b   Thumb Code     0  startup_msp432p401r_uvision.o(.text)
     TA2_N_IRQHandler                         0x0000019b   Thumb Code     0  startup_msp432p401r_uvision.o(.text)
@@ -2527,151 +2544,161 @@ Image Symbol Table
     GPIO_getEnabledInterruptStatus           0x00000aa5   Thumb Code    80  gpio.o(i.GPIO_getEnabledInterruptStatus)
     GPIO_getInputPinValue                    0x00000af9   Thumb Code    26  gpio.o(i.GPIO_getInputPinValue)
     GPIO_getInterruptStatus                  0x00000b19   Thumb Code    14  gpio.o(i.GPIO_getInterruptStatus)
-    GPIO_setAsInputPinWithPullDownResistor   0x00000b2d   Thumb Code    40  gpio.o(i.GPIO_setAsInputPinWithPullDownResistor)
-    GPIO_setAsInputPinWithPullUpResistor     0x00000b59   Thumb Code    40  gpio.o(i.GPIO_setAsInputPinWithPullUpResistor)
-    GPIO_setAsOutputPin                      0x00000b85   Thumb Code    28  gpio.o(i.GPIO_setAsOutputPin)
-    GPIO_setAsPeripheralModuleFunctionInputPin 0x00000ba5   Thumb Code    76  gpio.o(i.GPIO_setAsPeripheralModuleFunctionInputPin)
-    GPIO_setAsPeripheralModuleFunctionOutputPin 0x00000bf5   Thumb Code    76  gpio.o(i.GPIO_setAsPeripheralModuleFunctionOutputPin)
-    GPIO_setOutputHighOnPin                  0x00000c45   Thumb Code    14  gpio.o(i.GPIO_setOutputHighOnPin)
-    GPIO_setOutputLowOnPin                   0x00000c59   Thumb Code    14  gpio.o(i.GPIO_setOutputLowOnPin)
-    Interrupt_disableInterrupt               0x00000c6d   Thumb Code   108  interrupt.o(i.Interrupt_disableInterrupt)
-    Interrupt_enableInterrupt                0x00000ce1   Thumb Code   108  interrupt.o(i.Interrupt_enableInterrupt)
-    Interrupt_enableMaster                   0x00000d55   Thumb Code    16  interrupt.o(i.Interrupt_enableMaster)
-    OLED_CS_Clr                              0x00000d65   Thumb Code    16  oled.o(i.OLED_CS_Clr)
-    OLED_CS_Set                              0x00000d79   Thumb Code    16  oled.o(i.OLED_CS_Set)
-    OLED_Clear                               0x00000d8d   Thumb Code    64  oled.o(i.OLED_Clear)
-    OLED_DC_Clr                              0x00000dcd   Thumb Code    16  oled.o(i.OLED_DC_Clr)
-    OLED_DC_Set                              0x00000de1   Thumb Code    16  oled.o(i.OLED_DC_Set)
-    OLED_Init                                0x00000df5   Thumb Code   272  oled.o(i.OLED_Init)
-    OLED_RST_Clr                             0x00000f05   Thumb Code    16  oled.o(i.OLED_RST_Clr)
-    OLED_RST_Set                             0x00000f19   Thumb Code    16  oled.o(i.OLED_RST_Set)
-    OLED_SCLK_Clr                            0x00000f2d   Thumb Code    16  oled.o(i.OLED_SCLK_Clr)
-    OLED_SCLK_Set                            0x00000f41   Thumb Code    16  oled.o(i.OLED_SCLK_Set)
-    OLED_SDIN_Clr                            0x00000f55   Thumb Code    16  oled.o(i.OLED_SDIN_Clr)
-    OLED_SDIN_Set                            0x00000f69   Thumb Code    16  oled.o(i.OLED_SDIN_Set)
-    OLED_Set_Pos                             0x00000f7d   Thumb Code    46  oled.o(i.OLED_Set_Pos)
-    OLED_ShowChar                            0x00000fad   Thumb Code   106  oled.o(i.OLED_ShowChar)
-    OLED_ShowString                          0x0000101d   Thumb Code    54  oled.o(i.OLED_ShowString)
-    OLED_WR_Byte                             0x00001053   Thumb Code    72  oled.o(i.OLED_WR_Byte)
-    PORT2_IRQHandler                         0x0000109b   Thumb Code    56  interrupt_1.o(i.PORT2_IRQHandler)
-    PORT3_IRQHandler                         0x000010d5   Thumb Code   190  interrupt_1.o(i.PORT3_IRQHandler)
-    PORT4_IRQHandler                         0x00001199   Thumb Code   190  interrupt_1.o(i.PORT4_IRQHandler)
-    SysCtl_getTLVInfo                        0x0000125d   Thumb Code    72  sysctl.o(i.SysCtl_getTLVInfo)
-    SysTick_Handler                          0x000012ad   Thumb Code    16  board.o(i.SysTick_Handler)
-    SystemCoreClockUpdate                    0x000012bd   Thumb Code   576  system_msp432p401r.o(i.SystemCoreClockUpdate)
-    SystemInit                               0x00001531   Thumb Code    86  system_msp432p401r.o(i.SystemInit)
-    T32_INT1_IRQHandler                      0x0000159d   Thumb Code    18  interrupt_1.o(i.T32_INT1_IRQHandler)
-    TA0_N_IRQHandler                         0x000015b9   Thumb Code    58  interrupt_1.o(i.TA0_N_IRQHandler)
-    Timer32_enableInterrupt                  0x000015f9   Thumb Code    10  timer32.o(i.Timer32_enableInterrupt)
-    Timer32_initModule                       0x00001603   Thumb Code    94  timer32.o(i.Timer32_initModule)
-    Timer32_setCount                         0x00001661   Thumb Code    34  timer32.o(i.Timer32_setCount)
-    Timer32_startTimer                       0x00001683   Thumb Code    48  timer32.o(i.Timer32_startTimer)
-    Timer_A_clearCaptureCompareInterrupt     0x000016b3   Thumb Code    30  timer_a.o(i.Timer_A_clearCaptureCompareInterrupt)
-    Timer_A_clearTimer                       0x000016d1   Thumb Code    14  timer_a.o(i.Timer_A_clearTimer)
-    Timer_A_generatePWM                      0x000016df   Thumb Code    90  timer_a.o(i.Timer_A_generatePWM)
-    Timer_A_getCaptureCompareCount           0x00001739   Thumb Code    20  timer_a.o(i.Timer_A_getCaptureCompareCount)
-    Timer_A_startCounter                     0x0000174d   Thumb Code     8  timer_a.o(i.Timer_A_startCounter)
-    Timer_A_stopTimer                        0x00001755   Thumb Code    10  timer_a.o(i.Timer_A_stopTimer)
-    UART_clearInterruptFlag                  0x0000175f   Thumb Code     8  uart.o(i.UART_clearInterruptFlag)
-    UART_disableInterrupt                    0x00001767   Thumb Code    22  uart.o(i.UART_disableInterrupt)
-    UART_enableModule                        0x0000177d   Thumb Code    14  uart.o(i.UART_enableModule)
-    UART_getEnabledInterruptStatus           0x0000178b   Thumb Code    72  uart.o(i.UART_getEnabledInterruptStatus)
-    UART_getInterruptStatus                  0x000017d3   Thumb Code     8  uart.o(i.UART_getInterruptStatus)
-    UART_initModule                          0x000017db   Thumb Code   246  uart.o(i.UART_initModule)
-    UART_receiveData                         0x000018d1   Thumb Code    44  uart.o(i.UART_receiveData)
-    WDT_A_holdTimer                          0x000018fd   Thumb Code    20  wdt_a.o(i.WDT_A_holdTimer)
-    __0sprintf$6                             0x00001945   Thumb Code    34  printf6.o(i.__0sprintf$6)
-    __1sprintf$6                             0x00001945   Thumb Code     0  printf6.o(i.__0sprintf$6)
-    __2sprintf                               0x00001945   Thumb Code     0  printf6.o(i.__0sprintf$6)
-    __rt_ffs                                 0x0000196d   Thumb Code    70  kservice.o(i.__rt_ffs)
-    __scatterload_copy                       0x000019b9   Thumb Code    14  handlers.o(i.__scatterload_copy)
-    __scatterload_null                       0x000019c7   Thumb Code     2  handlers.o(i.__scatterload_null)
-    __scatterload_zeroinit                   0x000019c9   Thumb Code    14  handlers.o(i.__scatterload_zeroinit)
-    delay_ms                                 0x00001e29   Thumb Code    28  delay.o(i.delay_ms)
-    delay_us                                 0x00001e45   Thumb Code    72  delay.o(i.delay_us)
-    getTCRTValue                             0x00001e91   Thumb Code   128  tcrt5000.o(i.getTCRTValue)
-    init                                     0x00001f11   Thumb Code    64  oled.o(i.init)
-    initSerial                               0x00001f55   Thumb Code    38  serial.o(i.initSerial)
-    init_control                             0x00001f8d   Thumb Code    60  control.o(i.init_control)
-    init_digitalTCRT                         0x00001fd1   Thumb Code    28  tcrt5000.o(i.init_digitalTCRT)
-    init_encoder_left                        0x00001fed   Thumb Code    34  encoder.o(i.init_encoder_left)
-    init_encoder_right                       0x0000200f   Thumb Code    34  encoder.o(i.init_encoder_right)
-    init_motor                               0x00002031   Thumb Code    62  motor.o(i.init_motor)
-    limit_pwm                                0x0000206f   Thumb Code    22  motor.o(i.limit_pwm)
-    $Super$$main                             0x00002085   Thumb Code   116  main.o(i.main)
-    main_thread_entry                        0x00002125   Thumb Code    14  components.o(i.main_thread_entry)
-    read_encoder                             0x0000242d   Thumb Code    34  encoder.o(i.read_encoder)
-    rt_application_init                      0x00002459   Thumb Code    34  components.o(i.rt_application_init)
-    rt_components_board_init                 0x00002489   Thumb Code    20  components.o(i.rt_components_board_init)
-    rt_components_init                       0x000024a5   Thumb Code    20  components.o(i.rt_components_init)
-    rt_enter_critical                        0x000024c1   Thumb Code    28  scheduler.o(i.rt_enter_critical)
-    rt_exit_critical                         0x000024e1   Thumb Code    60  scheduler.o(i.rt_exit_critical)
-    rt_free                                  0x00002525   Thumb Code   128  mem.o(i.rt_free)
-    rt_heap_begin_get                        0x00002605   Thumb Code     4  board.o(i.rt_heap_begin_get)
-    rt_heap_end_get                          0x0000260d   Thumb Code     4  board.o(i.rt_heap_end_get)
-    rt_hw_board_init                         0x00002615   Thumb Code    48  board.o(i.rt_hw_board_init)
-    rt_hw_console_output                     0x00002649   Thumb Code     2  kservice.o(i.rt_hw_console_output)
-    rt_hw_hard_fault_exception               0x0000264d   Thumb Code   212  cpuport.o(i.rt_hw_hard_fault_exception)
-    rt_hw_stack_init                         0x00002871   Thumb Code    74  cpuport.o(i.rt_hw_stack_init)
-    rt_interrupt_enter                       0x000028c1   Thumb Code    26  irq.o(i.rt_interrupt_enter)
-    rt_interrupt_leave                       0x000028e1   Thumb Code    26  irq.o(i.rt_interrupt_leave)
-    rt_kprintf                               0x00002995   Thumb Code    44  kservice.o(i.rt_kprintf)
-    rt_malloc                                0x00002a65   Thumb Code   336  mem.o(i.rt_malloc)
-    rt_memset                                0x00002bd1   Thumb Code    72  kservice.o(i.rt_memset)
-    rt_object_allocate                       0x00002c19   Thumb Code    84  object.o(i.rt_object_allocate)
-    rt_object_delete                         0x00002c6d   Thumb Code    36  object.o(i.rt_object_delete)
-    rt_object_detach                         0x00002c91   Thumb Code    30  object.o(i.rt_object_detach)
-    rt_object_get_information                0x00002cb1   Thumb Code    36  object.o(i.rt_object_get_information)
-    rt_object_init                           0x00002cd9   Thumb Code    86  object.o(i.rt_object_init)
-    rt_object_is_systemobject                0x00002d2f   Thumb Code    18  object.o(i.rt_object_is_systemobject)
-    rt_schedule                              0x00002d41   Thumb Code   120  scheduler.o(i.rt_schedule)
-    rt_schedule_insert_thread                0x00002dd5   Thumb Code    94  scheduler.o(i.rt_schedule_insert_thread)
-    rt_schedule_remove_thread                0x00002e41   Thumb Code   104  scheduler.o(i.rt_schedule_remove_thread)
-    rt_sem_init                              0x00002eb5   Thumb Code    38  ipc.o(i.rt_sem_init)
-    rt_sem_release                           0x00002edb   Thumb Code    82  ipc.o(i.rt_sem_release)
-    rt_sem_take                              0x00002f2d   Thumb Code   116  ipc.o(i.rt_sem_take)
-    rt_show_version                          0x00002fa1   Thumb Code    38  kservice.o(i.rt_show_version)
-    rt_strncpy                               0x00003051   Thumb Code    52  kservice.o(i.rt_strncpy)
-    rt_system_heap_init                      0x00003085   Thumb Code   160  mem.o(i.rt_system_heap_init)
-    rt_system_scheduler_init                 0x0000317d   Thumb Code    62  scheduler.o(i.rt_system_scheduler_init)
-    rt_system_scheduler_start                0x000031d9   Thumb Code    50  scheduler.o(i.rt_system_scheduler_start)
-    rt_system_timer_init                     0x0000321d   Thumb Code    24  timer.o(i.rt_system_timer_init)
-    rt_system_timer_thread_init              0x00003239   Thumb Code     2  timer.o(i.rt_system_timer_thread_init)
-    rt_thread_create                         0x0000323b   Thumb Code    80  thread.o(i.rt_thread_create)
-    rt_thread_exit                           0x0000328d   Thumb Code    78  thread.o(i.rt_thread_exit)
-    rt_thread_idle_excute                    0x000032ed   Thumb Code    92  idle.o(i.rt_thread_idle_excute)
-    rt_thread_idle_init                      0x0000334d   Thumb Code    38  idle.o(i.rt_thread_idle_init)
-    rt_thread_init                           0x00003389   Thumb Code    52  thread.o(i.rt_thread_init)
-    rt_thread_resume                         0x000033bd   Thumb Code    60  thread.o(i.rt_thread_resume)
-    rt_thread_self                           0x000033f9   Thumb Code     6  thread.o(i.rt_thread_self)
-    rt_thread_startup                        0x00003405   Thumb Code    62  thread.o(i.rt_thread_startup)
-    rt_thread_suspend                        0x00003443   Thumb Code    68  thread.o(i.rt_thread_suspend)
-    rt_thread_timeout                        0x00003487   Thumb Code    32  thread.o(i.rt_thread_timeout)
-    rt_thread_yield                          0x000034a9   Thumb Code    92  thread.o(i.rt_thread_yield)
-    rt_tick_get                              0x0000350d   Thumb Code     6  clock.o(i.rt_tick_get)
-    rt_tick_increase                         0x00003519   Thumb Code    42  clock.o(i.rt_tick_increase)
-    rt_timer_check                           0x00003549   Thumb Code   160  timer.o(i.rt_timer_check)
-    rt_timer_control                         0x000035ed   Thumb Code    98  timer.o(i.rt_timer_control)
-    rt_timer_detach                          0x0000364f   Thumb Code    40  timer.o(i.rt_timer_detach)
-    rt_timer_init                            0x00003677   Thumb Code    46  timer.o(i.rt_timer_init)
-    rt_timer_start                           0x000036a5   Thumb Code   226  timer.o(i.rt_timer_start)
-    rt_timer_stop                            0x00003791   Thumb Code    48  timer.o(i.rt_timer_stop)
-    rt_vsnprintf                             0x000037c1   Thumb Code   824  kservice.o(i.rt_vsnprintf)
-    rtthread_startup                         0x00003b11   Thumb Code    42  components.o(i.rtthread_startup)
-    set_pwm                                  0x00003b3d   Thumb Code   140  motor.o(i.set_pwm)
-    turn                                     0x00003bf9   Thumb Code   326  control.o(i.turn)
-    velocity                                 0x00003d69   Thumb Code   222  control.o(i.velocity)
-    __lowest_bit_bitmap                      0x00003f50   Data         256  kservice.o(.constdata)
-    uartConfig                               0x00004074   Data          40  serial.o(.constdata)
-    F6x8                                     0x0000409c   Data         552  oled.o(.constdata)
-    F8X16                                    0x000042c4   Data        1520  oled.o(.constdata)
-    Hzk                                      0x000048b4   Data        1600  oled.o(.constdata)
-    __rt_init_rti_start                      0x00004ef4   Data           4  components.o(.rti_fn.0)
-    __rt_init_rti_board_start                0x00004ef8   Data           4  components.o(.rti_fn.0.end)
-    __rt_init_rti_board_end                  0x00004efc   Data           4  components.o(.rti_fn.1.end)
-    __rt_init_rti_end                        0x00004f00   Data           4  components.o(.rti_fn.6.end)
-    Region$$Table$$Base                      0x00004f04   Number         0  anon$$obj.o(Region$$Table)
-    Region$$Table$$Limit                     0x00004f24   Number         0  anon$$obj.o(Region$$Table)
+    GPIO_interruptEdgeSelect                 0x00000b2d   Thumb Code    28  gpio.o(i.GPIO_interruptEdgeSelect)
+    GPIO_setAsInputPinWithPullDownResistor   0x00000b4d   Thumb Code    40  gpio.o(i.GPIO_setAsInputPinWithPullDownResistor)
+    GPIO_setAsInputPinWithPullUpResistor     0x00000b79   Thumb Code    40  gpio.o(i.GPIO_setAsInputPinWithPullUpResistor)
+    GPIO_setAsOutputPin                      0x00000ba5   Thumb Code    28  gpio.o(i.GPIO_setAsOutputPin)
+    GPIO_setAsPeripheralModuleFunctionOutputPin 0x00000bc5   Thumb Code    76  gpio.o(i.GPIO_setAsPeripheralModuleFunctionOutputPin)
+    GPIO_setOutputHighOnPin                  0x00000c15   Thumb Code    14  gpio.o(i.GPIO_setOutputHighOnPin)
+    GPIO_setOutputLowOnPin                   0x00000c29   Thumb Code    14  gpio.o(i.GPIO_setOutputLowOnPin)
+    GPIO_toggleOutputOnPin                   0x00000c3d   Thumb Code    14  gpio.o(i.GPIO_toggleOutputOnPin)
+    Interrupt_enableInterrupt                0x00000c51   Thumb Code   108  interrupt.o(i.Interrupt_enableInterrupt)
+    Interrupt_enableMaster                   0x00000cc5   Thumb Code    16  interrupt.o(i.Interrupt_enableMaster)
+    OLED_CS_Clr                              0x00000cd5   Thumb Code    16  oled.o(i.OLED_CS_Clr)
+    OLED_CS_Set                              0x00000ce9   Thumb Code    16  oled.o(i.OLED_CS_Set)
+    OLED_Clear                               0x00000cfd   Thumb Code    64  oled.o(i.OLED_Clear)
+    OLED_DC_Clr                              0x00000d3d   Thumb Code    16  oled.o(i.OLED_DC_Clr)
+    OLED_DC_Set                              0x00000d51   Thumb Code    16  oled.o(i.OLED_DC_Set)
+    OLED_Init                                0x00000d65   Thumb Code   272  oled.o(i.OLED_Init)
+    OLED_RST_Clr                             0x00000e75   Thumb Code    16  oled.o(i.OLED_RST_Clr)
+    OLED_RST_Set                             0x00000e89   Thumb Code    16  oled.o(i.OLED_RST_Set)
+    OLED_SCLK_Clr                            0x00000e9d   Thumb Code    16  oled.o(i.OLED_SCLK_Clr)
+    OLED_SCLK_Set                            0x00000eb1   Thumb Code    16  oled.o(i.OLED_SCLK_Set)
+    OLED_SDIN_Clr                            0x00000ec5   Thumb Code    16  oled.o(i.OLED_SDIN_Clr)
+    OLED_SDIN_Set                            0x00000ed9   Thumb Code    16  oled.o(i.OLED_SDIN_Set)
+    OLED_Set_Pos                             0x00000eed   Thumb Code    46  oled.o(i.OLED_Set_Pos)
+    OLED_ShowChar                            0x00000f1d   Thumb Code   106  oled.o(i.OLED_ShowChar)
+    OLED_ShowString                          0x00000f8d   Thumb Code    54  oled.o(i.OLED_ShowString)
+    OLED_WR_Byte                             0x00000fc3   Thumb Code    72  oled.o(i.OLED_WR_Byte)
+    PORT2_IRQHandler                         0x0000100d   Thumb Code   102  interrupt_1.o(i.PORT2_IRQHandler)
+    PORT3_IRQHandler                         0x00001085   Thumb Code   190  interrupt_1.o(i.PORT3_IRQHandler)
+    PORT4_IRQHandler                         0x00001149   Thumb Code   190  interrupt_1.o(i.PORT4_IRQHandler)
+    SysCtl_getTLVInfo                        0x0000120d   Thumb Code    72  sysctl.o(i.SysCtl_getTLVInfo)
+    SysTick_Handler                          0x0000125d   Thumb Code    16  board.o(i.SysTick_Handler)
+    SystemCoreClockUpdate                    0x0000126d   Thumb Code   576  system_msp432p401r.o(i.SystemCoreClockUpdate)
+    SystemInit                               0x000014e1   Thumb Code    86  system_msp432p401r.o(i.SystemInit)
+    T32_INT1_IRQHandler                      0x0000154d   Thumb Code    18  interrupt_1.o(i.T32_INT1_IRQHandler)
+    T32_INT2_IRQHandler                      0x00001569   Thumb Code    24  interrupt_1.o(i.T32_INT2_IRQHandler)
+    TA0_N_IRQHandler                         0x0000158d   Thumb Code    52  interrupt_1.o(i.TA0_N_IRQHandler)
+    TA1_0_IRQHandler                         0x000015c5   Thumb Code    16  hcsr04.o(i.TA1_0_IRQHandler)
+    Timer32_enableInterrupt                  0x000015dd   Thumb Code    10  timer32.o(i.Timer32_enableInterrupt)
+    Timer32_haltTimer                        0x000015e7   Thumb Code    10  timer32.o(i.Timer32_haltTimer)
+    Timer32_initModule                       0x000015f1   Thumb Code    94  timer32.o(i.Timer32_initModule)
+    Timer32_setCount                         0x0000164f   Thumb Code    34  timer32.o(i.Timer32_setCount)
+    Timer32_startTimer                       0x00001671   Thumb Code    48  timer32.o(i.Timer32_startTimer)
+    Timer_A_clearCaptureCompareInterrupt     0x000016a1   Thumb Code    30  timer_a.o(i.Timer_A_clearCaptureCompareInterrupt)
+    Timer_A_clearTimer                       0x000016bf   Thumb Code    14  timer_a.o(i.Timer_A_clearTimer)
+    Timer_A_configureContinuousMode          0x000016cd   Thumb Code    40  timer_a.o(i.Timer_A_configureContinuousMode)
+    Timer_A_generatePWM                      0x000016f5   Thumb Code    90  timer_a.o(i.Timer_A_generatePWM)
+    Timer_A_getCaptureCompareCount           0x0000174f   Thumb Code    20  timer_a.o(i.Timer_A_getCaptureCompareCount)
+    Timer_A_initCapture                      0x00001763   Thumb Code    58  timer_a.o(i.Timer_A_initCapture)
+    Timer_A_stopTimer                        0x0000179d   Thumb Code    10  timer_a.o(i.Timer_A_stopTimer)
+    UART_clearInterruptFlag                  0x000017a7   Thumb Code     8  uart.o(i.UART_clearInterruptFlag)
+    UART_disableInterrupt                    0x000017af   Thumb Code    22  uart.o(i.UART_disableInterrupt)
+    UART_enableModule                        0x000017c5   Thumb Code    14  uart.o(i.UART_enableModule)
+    UART_getEnabledInterruptStatus           0x000017d3   Thumb Code    72  uart.o(i.UART_getEnabledInterruptStatus)
+    UART_getInterruptStatus                  0x0000181b   Thumb Code     8  uart.o(i.UART_getInterruptStatus)
+    UART_initModule                          0x00001823   Thumb Code   246  uart.o(i.UART_initModule)
+    UART_receiveData                         0x00001919   Thumb Code    44  uart.o(i.UART_receiveData)
+    UART_transmitData                        0x00001945   Thumb Code    40  uart.o(i.UART_transmitData)
+    WDT_A_holdTimer                          0x0000196d   Thumb Code    20  wdt_a.o(i.WDT_A_holdTimer)
+    __0sprintf$6                             0x000019b5   Thumb Code    34  printf6.o(i.__0sprintf$6)
+    __1sprintf$6                             0x000019b5   Thumb Code     0  printf6.o(i.__0sprintf$6)
+    __2sprintf                               0x000019b5   Thumb Code     0  printf6.o(i.__0sprintf$6)
+    __rt_ffs                                 0x000019dd   Thumb Code    70  kservice.o(i.__rt_ffs)
+    __scatterload_copy                       0x00001a29   Thumb Code    14  handlers.o(i.__scatterload_copy)
+    __scatterload_null                       0x00001a37   Thumb Code     2  handlers.o(i.__scatterload_null)
+    __scatterload_zeroinit                   0x00001a39   Thumb Code    14  handlers.o(i.__scatterload_zeroinit)
+    delay_ms                                 0x00001e99   Thumb Code    28  delay.o(i.delay_ms)
+    delay_us                                 0x00001eb5   Thumb Code    72  delay.o(i.delay_us)
+    getTCRTValue                             0x00001f01   Thumb Code   128  tcrt5000.o(i.getTCRTValue)
+    init                                     0x00001f81   Thumb Code    64  oled.o(i.init)
+    initSerial                               0x00001fc5   Thumb Code    38  serial.o(i.initSerial)
+    init_control                             0x00001ffd   Thumb Code    60  control.o(i.init_control)
+    init_digitalTCRT                         0x00002041   Thumb Code    28  tcrt5000.o(i.init_digitalTCRT)
+    init_encoder_left                        0x0000205d   Thumb Code    34  encoder.o(i.init_encoder_left)
+    init_encoder_right                       0x0000207f   Thumb Code    34  encoder.o(i.init_encoder_right)
+    init_hc_sr04                             0x000020a1   Thumb Code   114  hc-sr04.o(i.init_hc_sr04)
+    init_motor                               0x00002121   Thumb Code    62  motor.o(i.init_motor)
+    limit_pwm                                0x0000215f   Thumb Code    22  motor.o(i.limit_pwm)
+    $Super$$main                             0x00002175   Thumb Code   152  main.o(i.main)
+    main_thread_entry                        0x00002251   Thumb Code    14  components.o(i.main_thread_entry)
+    read_encoder                             0x00002559   Thumb Code    34  encoder.o(i.read_encoder)
+    rt_application_init                      0x00002585   Thumb Code    34  components.o(i.rt_application_init)
+    rt_components_board_init                 0x000025b5   Thumb Code    20  components.o(i.rt_components_board_init)
+    rt_components_init                       0x000025d1   Thumb Code    20  components.o(i.rt_components_init)
+    rt_enter_critical                        0x000025ed   Thumb Code    28  scheduler.o(i.rt_enter_critical)
+    rt_exit_critical                         0x0000260d   Thumb Code    60  scheduler.o(i.rt_exit_critical)
+    rt_free                                  0x00002651   Thumb Code   128  mem.o(i.rt_free)
+    rt_heap_begin_get                        0x00002731   Thumb Code     4  board.o(i.rt_heap_begin_get)
+    rt_heap_end_get                          0x00002739   Thumb Code     4  board.o(i.rt_heap_end_get)
+    rt_hw_board_init                         0x00002741   Thumb Code    48  board.o(i.rt_hw_board_init)
+    rt_hw_console_output                     0x00002775   Thumb Code     2  kservice.o(i.rt_hw_console_output)
+    rt_hw_hard_fault_exception               0x00002779   Thumb Code   212  cpuport.o(i.rt_hw_hard_fault_exception)
+    rt_hw_stack_init                         0x0000299d   Thumb Code    74  cpuport.o(i.rt_hw_stack_init)
+    rt_interrupt_enter                       0x000029ed   Thumb Code    26  irq.o(i.rt_interrupt_enter)
+    rt_interrupt_leave                       0x00002a0d   Thumb Code    26  irq.o(i.rt_interrupt_leave)
+    rt_kprintf                               0x00002ac1   Thumb Code    44  kservice.o(i.rt_kprintf)
+    rt_malloc                                0x00002b91   Thumb Code   336  mem.o(i.rt_malloc)
+    rt_memset                                0x00002cfd   Thumb Code    72  kservice.o(i.rt_memset)
+    rt_object_allocate                       0x00002d45   Thumb Code    84  object.o(i.rt_object_allocate)
+    rt_object_delete                         0x00002d99   Thumb Code    36  object.o(i.rt_object_delete)
+    rt_object_detach                         0x00002dbd   Thumb Code    30  object.o(i.rt_object_detach)
+    rt_object_get_information                0x00002ddd   Thumb Code    36  object.o(i.rt_object_get_information)
+    rt_object_init                           0x00002e05   Thumb Code    86  object.o(i.rt_object_init)
+    rt_object_is_systemobject                0x00002e5b   Thumb Code    18  object.o(i.rt_object_is_systemobject)
+    rt_schedule                              0x00002e6d   Thumb Code   120  scheduler.o(i.rt_schedule)
+    rt_schedule_insert_thread                0x00002f01   Thumb Code    94  scheduler.o(i.rt_schedule_insert_thread)
+    rt_schedule_remove_thread                0x00002f6d   Thumb Code   104  scheduler.o(i.rt_schedule_remove_thread)
+    rt_sem_init                              0x00002fe1   Thumb Code    38  ipc.o(i.rt_sem_init)
+    rt_sem_release                           0x00003007   Thumb Code    82  ipc.o(i.rt_sem_release)
+    rt_sem_take                              0x00003059   Thumb Code   116  ipc.o(i.rt_sem_take)
+    rt_show_version                          0x000030cd   Thumb Code    38  kservice.o(i.rt_show_version)
+    rt_strncpy                               0x0000317d   Thumb Code    52  kservice.o(i.rt_strncpy)
+    rt_system_heap_init                      0x000031b1   Thumb Code   160  mem.o(i.rt_system_heap_init)
+    rt_system_scheduler_init                 0x000032a9   Thumb Code    62  scheduler.o(i.rt_system_scheduler_init)
+    rt_system_scheduler_start                0x00003305   Thumb Code    50  scheduler.o(i.rt_system_scheduler_start)
+    rt_system_timer_init                     0x00003349   Thumb Code    24  timer.o(i.rt_system_timer_init)
+    rt_system_timer_thread_init              0x00003365   Thumb Code     2  timer.o(i.rt_system_timer_thread_init)
+    rt_thread_create                         0x00003367   Thumb Code    80  thread.o(i.rt_thread_create)
+    rt_thread_exit                           0x000033b9   Thumb Code    78  thread.o(i.rt_thread_exit)
+    rt_thread_idle_excute                    0x00003419   Thumb Code    92  idle.o(i.rt_thread_idle_excute)
+    rt_thread_idle_init                      0x00003479   Thumb Code    38  idle.o(i.rt_thread_idle_init)
+    rt_thread_init                           0x000034b5   Thumb Code    52  thread.o(i.rt_thread_init)
+    rt_thread_resume                         0x000034e9   Thumb Code    60  thread.o(i.rt_thread_resume)
+    rt_thread_self                           0x00003525   Thumb Code     6  thread.o(i.rt_thread_self)
+    rt_thread_startup                        0x00003531   Thumb Code    62  thread.o(i.rt_thread_startup)
+    rt_thread_suspend                        0x0000356f   Thumb Code    68  thread.o(i.rt_thread_suspend)
+    rt_thread_timeout                        0x000035b3   Thumb Code    32  thread.o(i.rt_thread_timeout)
+    rt_thread_yield                          0x000035d5   Thumb Code    92  thread.o(i.rt_thread_yield)
+    rt_tick_get                              0x00003639   Thumb Code     6  clock.o(i.rt_tick_get)
+    rt_tick_increase                         0x00003645   Thumb Code    42  clock.o(i.rt_tick_increase)
+    rt_timer_check                           0x00003675   Thumb Code   160  timer.o(i.rt_timer_check)
+    rt_timer_control                         0x00003719   Thumb Code    98  timer.o(i.rt_timer_control)
+    rt_timer_detach                          0x0000377b   Thumb Code    40  timer.o(i.rt_timer_detach)
+    rt_timer_init                            0x000037a3   Thumb Code    46  timer.o(i.rt_timer_init)
+    rt_timer_start                           0x000037d1   Thumb Code   226  timer.o(i.rt_timer_start)
+    rt_timer_stop                            0x000038bd   Thumb Code    48  timer.o(i.rt_timer_stop)
+    rt_vsnprintf                             0x000038ed   Thumb Code   824  kservice.o(i.rt_vsnprintf)
+    rtthread_startup                         0x00003c3d   Thumb Code    42  components.o(i.rtthread_startup)
+    sendText                                 0x00003c69   Thumb Code    24  serial.o(i.sendText)
+    set_pwm                                  0x00003c85   Thumb Code   140  motor.o(i.set_pwm)
+    trigger_measure                          0x00003d41   Thumb Code    32  hc-sr04.o(i.trigger_measure)
+    turn                                     0x00003d65   Thumb Code   326  control.o(i.turn)
+    velocity                                 0x00003ed5   Thumb Code   222  control.o(i.velocity)
+    __lowest_bit_bitmap                      0x000040bc   Data         256  kservice.o(.constdata)
+    hcsrCaptureConfig                        0x000041e0   Data          24  hc-sr04.o(.constdata)
+    hcsrContinuousConfig                     0x000041f8   Data          16  hc-sr04.o(.constdata)
+    uartConfig                               0x00004208   Data          40  serial.o(.constdata)
+    F6x8                                     0x00004230   Data         552  oled.o(.constdata)
+    F8X16                                    0x00004458   Data        1520  oled.o(.constdata)
+    Hzk                                      0x00004a48   Data        1600  oled.o(.constdata)
+    __rt_init_rti_start                      0x00005088   Data           4  components.o(.rti_fn.0)
+    __rt_init_rti_board_start                0x0000508c   Data           4  components.o(.rti_fn.0.end)
+    __rt_init_rti_board_end                  0x00005090   Data           4  components.o(.rti_fn.1.end)
+    __rt_init_rti_end                        0x00005094   Data           4  components.o(.rti_fn.6.end)
+    Region$$Table$$Base                      0x00005098   Number         0  anon$$obj.o(Region$$Table)
+    Region$$Table$$Limit                     0x000050b8   Number         0  anon$$obj.o(Region$$Table)
     SystemCoreClock                          0x20000000   Data           4  system_msp432p401r.o(.data)
     rt_interrupt_from_thread                 0x20000004   Data           4  cpuport.o(.data)
     rt_interrupt_to_thread                   0x20000008   Data           4  cpuport.o(.data)
@@ -2681,8 +2708,9 @@ Image Symbol Table
     rt_current_thread                        0x2000007c   Data           4  scheduler.o(.data)
     rt_current_priority                      0x20000080   Data           1  scheduler.o(.data)
     rt_thread_defunct                        0x20000084   Data           8  scheduler.o(.data)
-    countValue                               0x20000098   Data           4  hc-sr04.o(.data)
-    AbleToConvert                            0x2000009c   Data           4  hc-sr04.o(.data)
+    HCSRCountValue                           0x20000098   Data           4  hc-sr04.o(.data)
+    TriggerCounter                           0x2000009c   Data           4  hc-sr04.o(.data)
+    NextTiggerHCSRFlag                       0x200000a0   Data           1  hc-sr04.o(.data)
     ProcessBtData                            0x200000a4   Data           4  hc-05.o(.data)
     state                                    0x200000a8   Data           1  hc-05.o(.data)
     dataPtr                                  0x200000a9   Data           1  hc-05.o(.data)
@@ -2716,271 +2744,280 @@ Memory Map of the image
 
   Image Entry point : 0x00000145
 
-  Load Region LR_IROM1 (Base: 0x00000000, Size: 0x00005058, Max: 0x00040000, ABSOLUTE, COMPRESSED[0x00004f68])
+  Load Region LR_IROM1 (Base: 0x00000000, Size: 0x000051ec, Max: 0x00040000, ABSOLUTE, COMPRESSED[0x00005100])
 
-    Execution Region ER_IROM1 (Exec base: 0x00000000, Load base: 0x00000000, Size: 0x00004f24, Max: 0x00040000, ABSOLUTE)
+    Execution Region ER_IROM1 (Exec base: 0x00000000, Load base: 0x00000000, Size: 0x000050b8, Max: 0x00040000, ABSOLUTE)
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
-    0x00000000   0x00000000   0x00000144   Data   RO         4005    RESET               startup_msp432p401r_uvision.o
-    0x00000144   0x00000144   0x00000000   Code   RO         5821  * .ARM.Collect$$$$00000000  mc_w.l(entry.o)
-    0x00000144   0x00000144   0x00000004   Code   RO         6099    .ARM.Collect$$$$00000001  mc_w.l(entry2.o)
-    0x00000148   0x00000148   0x00000004   Code   RO         6102    .ARM.Collect$$$$00000004  mc_w.l(entry5.o)
-    0x0000014c   0x0000014c   0x00000000   Code   RO         6104    .ARM.Collect$$$$00000008  mc_w.l(entry7b.o)
-    0x0000014c   0x0000014c   0x00000000   Code   RO         6106    .ARM.Collect$$$$0000000A  mc_w.l(entry8b.o)
-    0x0000014c   0x0000014c   0x00000008   Code   RO         6107    .ARM.Collect$$$$0000000B  mc_w.l(entry9a.o)
-    0x00000154   0x00000154   0x00000000   Code   RO         6109    .ARM.Collect$$$$0000000D  mc_w.l(entry10a.o)
-    0x00000154   0x00000154   0x00000000   Code   RO         6111    .ARM.Collect$$$$0000000F  mc_w.l(entry11a.o)
-    0x00000154   0x00000154   0x00000004   Code   RO         6100    .ARM.Collect$$$$00002712  mc_w.l(entry2.o)
-    0x00000158   0x00000158   0x00000026   Code   RO          736    .emb_text           cpu.o
+    0x00000000   0x00000000   0x00000144   Data   RO         4009    RESET               startup_msp432p401r_uvision.o
+    0x00000144   0x00000144   0x00000000   Code   RO         5706  * .ARM.Collect$$$$00000000  mc_w.l(entry.o)
+    0x00000144   0x00000144   0x00000004   Code   RO         5982    .ARM.Collect$$$$00000001  mc_w.l(entry2.o)
+    0x00000148   0x00000148   0x00000004   Code   RO         5985    .ARM.Collect$$$$00000004  mc_w.l(entry5.o)
+    0x0000014c   0x0000014c   0x00000000   Code   RO         5987    .ARM.Collect$$$$00000008  mc_w.l(entry7b.o)
+    0x0000014c   0x0000014c   0x00000000   Code   RO         5989    .ARM.Collect$$$$0000000A  mc_w.l(entry8b.o)
+    0x0000014c   0x0000014c   0x00000008   Code   RO         5990    .ARM.Collect$$$$0000000B  mc_w.l(entry9a.o)
+    0x00000154   0x00000154   0x00000000   Code   RO         5992    .ARM.Collect$$$$0000000D  mc_w.l(entry10a.o)
+    0x00000154   0x00000154   0x00000000   Code   RO         5994    .ARM.Collect$$$$0000000F  mc_w.l(entry11a.o)
+    0x00000154   0x00000154   0x00000004   Code   RO         5983    .ARM.Collect$$$$00002712  mc_w.l(entry2.o)
+    0x00000158   0x00000158   0x00000026   Code   RO          740    .emb_text           cpu.o
     0x0000017e   0x0000017e   0x00000002   PAD
-    0x00000180   0x00000180   0x00000024   Code   RO         4006    .text               startup_msp432p401r_uvision.o
-    0x000001a4   0x000001a4   0x00000134   Code   RO         4090    .text               context_rvds.o
-    0x000002d8   0x000002d8   0x0000014e   Code   RO         6089    .text               mf_w.l(dadd.o)
-    0x00000426   0x00000426   0x000000e4   Code   RO         6091    .text               mf_w.l(dmul.o)
-    0x0000050a   0x0000050a   0x00000026   Code   RO         6095    .text               mf_w.l(f2d.o)
-    0x00000530   0x00000530   0x00000038   Code   RO         6097    .text               mf_w.l(d2f.o)
-    0x00000568   0x00000568   0x0000002c   Code   RO         6116    .text               mc_w.l(uidiv.o)
-    0x00000594   0x00000594   0x0000001e   Code   RO         6120    .text               mc_w.l(llshl.o)
-    0x000005b2   0x000005b2   0x00000024   Code   RO         6122    .text               mc_w.l(llsshr.o)
-    0x000005d6   0x000005d6   0x00000000   Code   RO         6124    .text               mc_w.l(iusefp.o)
-    0x000005d6   0x000005d6   0x0000006e   Code   RO         6125    .text               mf_w.l(fepilogue.o)
-    0x00000644   0x00000644   0x000000ba   Code   RO         6127    .text               mf_w.l(depilogue.o)
+    0x00000180   0x00000180   0x00000024   Code   RO         4010    .text               startup_msp432p401r_uvision.o
+    0x000001a4   0x000001a4   0x00000134   Code   RO         4094    .text               context_rvds.o
+    0x000002d8   0x000002d8   0x0000014e   Code   RO         5974    .text               mf_w.l(dadd.o)
+    0x00000426   0x00000426   0x000000e4   Code   RO         5976    .text               mf_w.l(dmul.o)
+    0x0000050a   0x0000050a   0x00000026   Code   RO         5978    .text               mf_w.l(f2d.o)
+    0x00000530   0x00000530   0x00000038   Code   RO         5980    .text               mf_w.l(d2f.o)
+    0x00000568   0x00000568   0x0000002c   Code   RO         5999    .text               mc_w.l(uidiv.o)
+    0x00000594   0x00000594   0x0000001e   Code   RO         6003    .text               mc_w.l(llshl.o)
+    0x000005b2   0x000005b2   0x00000024   Code   RO         6005    .text               mc_w.l(llsshr.o)
+    0x000005d6   0x000005d6   0x00000000   Code   RO         6007    .text               mc_w.l(iusefp.o)
+    0x000005d6   0x000005d6   0x0000006e   Code   RO         6008    .text               mf_w.l(fepilogue.o)
+    0x00000644   0x00000644   0x000000ba   Code   RO         6010    .text               mf_w.l(depilogue.o)
     0x000006fe   0x000006fe   0x00000002   PAD
-    0x00000700   0x00000700   0x00000024   Code   RO         6135    .text               mc_w.l(init.o)
-    0x00000724   0x00000724   0x00000020   Code   RO         6138    .text               mc_w.l(llushr.o)
-    0x00000744   0x00000744   0x00000056   Code   RO         6149    .text               mc_w.l(__dczerorl2.o)
-    0x0000079a   0x0000079a   0x0000000a   Code   RO         4132    i.$Sub$$main        components.o
-    0x000007a4   0x000007a4   0x00000028   Code   RO          850    i.CS_setDCOCenteredFrequency  cs.o
-    0x000007cc   0x000007cc   0x0000016c   Code   RO          852    i.CS_setDCOFrequency  cs.o
-    0x00000938   0x00000938   0x00000054   Code   RO          860    i.CS_tuneDCOFrequency  cs.o
-    0x0000098c   0x0000098c   0x00000050   Code   RO         5760    i.Control           control.o
-    0x000009dc   0x000009dc   0x0000001c   Code   RO         5273    i.Delay_Init        delay.o
-    0x000009f8   0x000009f8   0x00000084   Code   RO         5380    i.EUSCIA2_IRQHandler  hc-05.o
-    0x00000a7c   0x00000a7c   0x00000014   Code   RO         1588    i.GPIO_clearInterruptFlag  gpio.o
-    0x00000a90   0x00000a90   0x00000014   Code   RO         1590    i.GPIO_enableInterrupt  gpio.o
-    0x00000aa4   0x00000aa4   0x00000054   Code   RO         1591    i.GPIO_getEnabledInterruptStatus  gpio.o
-    0x00000af8   0x00000af8   0x00000020   Code   RO         1592    i.GPIO_getInputPinValue  gpio.o
-    0x00000b18   0x00000b18   0x00000014   Code   RO         1593    i.GPIO_getInterruptStatus  gpio.o
-    0x00000b2c   0x00000b2c   0x0000002c   Code   RO         1597    i.GPIO_setAsInputPinWithPullDownResistor  gpio.o
-    0x00000b58   0x00000b58   0x0000002c   Code   RO         1598    i.GPIO_setAsInputPinWithPullUpResistor  gpio.o
-    0x00000b84   0x00000b84   0x00000020   Code   RO         1599    i.GPIO_setAsOutputPin  gpio.o
-    0x00000ba4   0x00000ba4   0x00000050   Code   RO         1600    i.GPIO_setAsPeripheralModuleFunctionInputPin  gpio.o
-    0x00000bf4   0x00000bf4   0x00000050   Code   RO         1601    i.GPIO_setAsPeripheralModuleFunctionOutputPin  gpio.o
-    0x00000c44   0x00000c44   0x00000014   Code   RO         1604    i.GPIO_setOutputHighOnPin  gpio.o
-    0x00000c58   0x00000c58   0x00000014   Code   RO         1605    i.GPIO_setOutputLowOnPin  gpio.o
-    0x00000c6c   0x00000c6c   0x00000074   Code   RO         2005    i.Interrupt_disableInterrupt  interrupt.o
-    0x00000ce0   0x00000ce0   0x00000074   Code   RO         2008    i.Interrupt_enableInterrupt  interrupt.o
-    0x00000d54   0x00000d54   0x00000010   Code   RO         2009    i.Interrupt_enableMaster  interrupt.o
-    0x00000d64   0x00000d64   0x00000014   Code   RO         5521    i.OLED_CS_Clr       oled.o
-    0x00000d78   0x00000d78   0x00000014   Code   RO         5522    i.OLED_CS_Set       oled.o
-    0x00000d8c   0x00000d8c   0x00000040   Code   RO         5523    i.OLED_Clear        oled.o
-    0x00000dcc   0x00000dcc   0x00000014   Code   RO         5524    i.OLED_DC_Clr       oled.o
-    0x00000de0   0x00000de0   0x00000014   Code   RO         5525    i.OLED_DC_Set       oled.o
-    0x00000df4   0x00000df4   0x00000110   Code   RO         5529    i.OLED_Init         oled.o
-    0x00000f04   0x00000f04   0x00000014   Code   RO         5530    i.OLED_RST_Clr      oled.o
-    0x00000f18   0x00000f18   0x00000014   Code   RO         5531    i.OLED_RST_Set      oled.o
-    0x00000f2c   0x00000f2c   0x00000014   Code   RO         5532    i.OLED_SCLK_Clr     oled.o
-    0x00000f40   0x00000f40   0x00000014   Code   RO         5533    i.OLED_SCLK_Set     oled.o
-    0x00000f54   0x00000f54   0x00000014   Code   RO         5534    i.OLED_SDIN_Clr     oled.o
-    0x00000f68   0x00000f68   0x00000014   Code   RO         5535    i.OLED_SDIN_Set     oled.o
-    0x00000f7c   0x00000f7c   0x0000002e   Code   RO         5536    i.OLED_Set_Pos      oled.o
-    0x00000faa   0x00000faa   0x00000002   PAD
-    0x00000fac   0x00000fac   0x00000070   Code   RO         5538    i.OLED_ShowChar     oled.o
-    0x0000101c   0x0000101c   0x00000036   Code   RO         5540    i.OLED_ShowString   oled.o
-    0x00001052   0x00001052   0x00000048   Code   RO         5541    i.OLED_WR_Byte      oled.o
-    0x0000109a   0x0000109a   0x00000038   Code   RO         5311    i.PORT2_IRQHandler  interrupt_1.o
-    0x000010d2   0x000010d2   0x00000002   PAD
-    0x000010d4   0x000010d4   0x000000c4   Code   RO         5312    i.PORT3_IRQHandler  interrupt_1.o
-    0x00001198   0x00001198   0x000000c4   Code   RO         5313    i.PORT4_IRQHandler  interrupt_1.o
-    0x0000125c   0x0000125c   0x00000050   Code   RO         3282    i.SysCtl_getTLVInfo  sysctl.o
-    0x000012ac   0x000012ac   0x00000010   Code   RO         4010    i.SysTick_Handler   board.o
-    0x000012bc   0x000012bc   0x00000274   Code   RO         3970    i.SystemCoreClockUpdate  system_msp432p401r.o
-    0x00001530   0x00001530   0x0000006c   Code   RO         3971    i.SystemInit        system_msp432p401r.o
-    0x0000159c   0x0000159c   0x0000001c   Code   RO         5314    i.T32_INT1_IRQHandler  interrupt_1.o
-    0x000015b8   0x000015b8   0x00000040   Code   RO         5315    i.TA0_N_IRQHandler  interrupt_1.o
-    0x000015f8   0x000015f8   0x0000000a   Code   RO         3672    i.Timer32_enableInterrupt  timer32.o
-    0x00001602   0x00001602   0x0000005e   Code   RO         3676    i.Timer32_initModule  timer32.o
-    0x00001660   0x00001660   0x00000022   Code   RO         3678    i.Timer32_setCount  timer32.o
-    0x00001682   0x00001682   0x00000030   Code   RO         3680    i.Timer32_startTimer  timer32.o
-    0x000016b2   0x000016b2   0x0000001e   Code   RO         3485    i.Timer_A_clearCaptureCompareInterrupt  timer_a.o
-    0x000016d0   0x000016d0   0x0000000e   Code   RO         3487    i.Timer_A_clearTimer  timer_a.o
-    0x000016de   0x000016de   0x0000005a   Code   RO         3495    i.Timer_A_generatePWM  timer_a.o
-    0x00001738   0x00001738   0x00000014   Code   RO         3496    i.Timer_A_getCaptureCompareCount  timer_a.o
-    0x0000174c   0x0000174c   0x00000008   Code   RO         3509    i.Timer_A_startCounter  timer_a.o
-    0x00001754   0x00001754   0x0000000a   Code   RO         3510    i.Timer_A_stopTimer  timer_a.o
-    0x0000175e   0x0000175e   0x00000008   Code   RO         3760    i.UART_clearInterruptFlag  uart.o
-    0x00001766   0x00001766   0x00000016   Code   RO         3761    i.UART_disableInterrupt  uart.o
-    0x0000177c   0x0000177c   0x0000000e   Code   RO         3764    i.UART_enableModule  uart.o
-    0x0000178a   0x0000178a   0x00000048   Code   RO         3765    i.UART_getEnabledInterruptStatus  uart.o
-    0x000017d2   0x000017d2   0x00000008   Code   RO         3766    i.UART_getInterruptStatus  uart.o
-    0x000017da   0x000017da   0x000000f6   Code   RO         3769    i.UART_initModule   uart.o
-    0x000018d0   0x000018d0   0x0000002c   Code   RO         3771    i.UART_receiveData  uart.o
-    0x000018fc   0x000018fc   0x00000018   Code   RO         3899    i.WDT_A_holdTimer   wdt_a.o
-    0x00001914   0x00001914   0x00000030   Code   RO         4011    i._SysTick_Config   board.o
-    0x00001944   0x00001944   0x00000028   Code   RO         5985    i.__0sprintf$6      mc_w.l(printf6.o)
-    0x0000196c   0x0000196c   0x0000004c   Code   RO         4408    i.__rt_ffs          kservice.o
-    0x000019b8   0x000019b8   0x0000000e   Code   RO         6143    i.__scatterload_copy  mc_w.l(handlers.o)
-    0x000019c6   0x000019c6   0x00000002   Code   RO         6144    i.__scatterload_null  mc_w.l(handlers.o)
-    0x000019c8   0x000019c8   0x0000000e   Code   RO         6145    i.__scatterload_zeroinit  mc_w.l(handlers.o)
-    0x000019d6   0x000019d6   0x00000002   PAD
-    0x000019d8   0x000019d8   0x000002f0   Code   RO         5990    i._printf_core      mc_w.l(printf6.o)
-    0x00001cc8   0x00001cc8   0x00000024   Code   RO         5991    i._printf_post_padding  mc_w.l(printf6.o)
-    0x00001cec   0x00001cec   0x0000002e   Code   RO         5992    i._printf_pre_padding  mc_w.l(printf6.o)
-    0x00001d1a   0x00001d1a   0x00000002   PAD
-    0x00001d1c   0x00001d1c   0x00000088   Code   RO         4807    i._rt_thread_init   thread.o
-    0x00001da4   0x00001da4   0x00000042   Code   RO         4939    i._rt_timer_init    timer.o
-    0x00001de6   0x00001de6   0x0000001c   Code   RO         4940    i._rt_timer_remove  timer.o
-    0x00001e02   0x00001e02   0x0000000a   Code   RO         5994    i._sputc            mc_w.l(printf6.o)
-    0x00001e0c   0x00001e0c   0x0000001c   Code   RO         4808    i._thread_cleanup_execute  thread.o
-    0x00001e28   0x00001e28   0x0000001c   Code   RO         5274    i.delay_ms          delay.o
-    0x00001e44   0x00001e44   0x0000004c   Code   RO         5275    i.delay_us          delay.o
-    0x00001e90   0x00001e90   0x00000080   Code   RO         5690    i.getTCRTValue      tcrt5000.o
-    0x00001f10   0x00001f10   0x00000044   Code   RO         5542    i.init              oled.o
-    0x00001f54   0x00001f54   0x00000038   Code   RO         5240    i.initSerial        serial.o
-    0x00001f8c   0x00001f8c   0x00000044   Code   RO         5761    i.init_control      control.o
-    0x00001fd0   0x00001fd0   0x0000001c   Code   RO         5692    i.init_digitalTCRT  tcrt5000.o
-    0x00001fec   0x00001fec   0x00000022   Code   RO         5424    i.init_encoder_left  encoder.o
-    0x0000200e   0x0000200e   0x00000022   Code   RO         5425    i.init_encoder_right  encoder.o
-    0x00002030   0x00002030   0x0000003e   Code   RO         5466    i.init_motor        motor.o
-    0x0000206e   0x0000206e   0x00000016   Code   RO         5467    i.limit_pwm         motor.o
-    0x00002084   0x00002084   0x000000a0   Code   RO            4    i.main              main.o
-    0x00002124   0x00002124   0x0000000e   Code   RO         4133    i.main_thread_entry  components.o
-    0x00002132   0x00002132   0x00000002   PAD
-    0x00002134   0x00002134   0x00000078   Code   RO         4585    i.plug_holes        mem.o
-    0x000021ac   0x000021ac   0x00000198   Code   RO         4410    i.print_number      kservice.o
-    0x00002344   0x00002344   0x000000e8   Code   RO         3512    i.privateTimer_AProcessClockSourceDivider  timer_a.o
-    0x0000242c   0x0000242c   0x0000002c   Code   RO         5426    i.read_encoder      encoder.o
-    0x00002458   0x00002458   0x00000030   Code   RO         4134    i.rt_application_init  components.o
-    0x00002488   0x00002488   0x0000001c   Code   RO         4135    i.rt_components_board_init  components.o
-    0x000024a4   0x000024a4   0x0000001c   Code   RO         4136    i.rt_components_init  components.o
-    0x000024c0   0x000024c0   0x00000020   Code   RO         4735    i.rt_enter_critical  scheduler.o
-    0x000024e0   0x000024e0   0x00000044   Code   RO         4736    i.rt_exit_critical  scheduler.o
-    0x00002524   0x00002524   0x000000e0   Code   RO         4587    i.rt_free           mem.o
-    0x00002604   0x00002604   0x00000008   Code   RO         4012    i.rt_heap_begin_get  board.o
-    0x0000260c   0x0000260c   0x00000008   Code   RO         4013    i.rt_heap_end_get   board.o
-    0x00002614   0x00002614   0x00000034   Code   RO         4014    i.rt_hw_board_init  board.o
-    0x00002648   0x00002648   0x00000002   Code   RO         4413    i.rt_hw_console_output  kservice.o
-    0x0000264a   0x0000264a   0x00000002   PAD
-    0x0000264c   0x0000264c   0x00000224   Code   RO         4054    i.rt_hw_hard_fault_exception  cpuport.o
-    0x00002870   0x00002870   0x00000050   Code   RO         4055    i.rt_hw_stack_init  cpuport.o
-    0x000028c0   0x000028c0   0x00000020   Code   RO         4381    i.rt_interrupt_enter  irq.o
-    0x000028e0   0x000028e0   0x00000020   Code   RO         4383    i.rt_interrupt_leave  irq.o
-    0x00002900   0x00002900   0x00000014   Code   RO         4241    i.rt_ipc_list_resume  ipc.o
-    0x00002914   0x00002914   0x0000006e   Code   RO         4243    i.rt_ipc_list_suspend  ipc.o
-    0x00002982   0x00002982   0x00000010   Code   RO         4244    i.rt_ipc_object_init  ipc.o
-    0x00002992   0x00002992   0x00000002   PAD
-    0x00002994   0x00002994   0x00000030   Code   RO         4414    i.rt_kprintf        kservice.o
-    0x000029c4   0x000029c4   0x00000006   Code   RO         4245    i.rt_list_init      ipc.o
-    0x000029ca   0x000029ca   0x00000006   Code   RO         4737    i.rt_list_init      scheduler.o
-    0x000029d0   0x000029d0   0x00000006   Code   RO         4941    i.rt_list_init      timer.o
-    0x000029d6   0x000029d6   0x0000000e   Code   RO         4647    i.rt_list_insert_after  object.o
-    0x000029e4   0x000029e4   0x0000000e   Code   RO         4809    i.rt_list_insert_after  thread.o
-    0x000029f2   0x000029f2   0x0000000e   Code   RO         4942    i.rt_list_insert_after  timer.o
-    0x00002a00   0x00002a00   0x0000000e   Code   RO         4246    i.rt_list_insert_before  ipc.o
-    0x00002a0e   0x00002a0e   0x00000010   Code   RO         4247    i.rt_list_isempty   ipc.o
-    0x00002a1e   0x00002a1e   0x00000010   Code   RO         4943    i.rt_list_isempty   timer.o
-    0x00002a2e   0x00002a2e   0x00000012   Code   RO         4648    i.rt_list_remove    object.o
-    0x00002a40   0x00002a40   0x00000012   Code   RO         4810    i.rt_list_remove    thread.o
-    0x00002a52   0x00002a52   0x00000012   Code   RO         4944    i.rt_list_remove    timer.o
-    0x00002a64   0x00002a64   0x0000016c   Code   RO         4588    i.rt_malloc         mem.o
-    0x00002bd0   0x00002bd0   0x00000048   Code   RO         4420    i.rt_memset         kservice.o
-    0x00002c18   0x00002c18   0x00000054   Code   RO         4649    i.rt_object_allocate  object.o
-    0x00002c6c   0x00002c6c   0x00000024   Code   RO         4650    i.rt_object_delete  object.o
-    0x00002c90   0x00002c90   0x0000001e   Code   RO         4651    i.rt_object_detach  object.o
-    0x00002cae   0x00002cae   0x00000002   PAD
-    0x00002cb0   0x00002cb0   0x00000028   Code   RO         4653    i.rt_object_get_information  object.o
-    0x00002cd8   0x00002cd8   0x00000056   Code   RO         4657    i.rt_object_init    object.o
-    0x00002d2e   0x00002d2e   0x00000012   Code   RO         4658    i.rt_object_is_systemobject  object.o
-    0x00002d40   0x00002d40   0x00000094   Code   RO         4738    i.rt_schedule       scheduler.o
-    0x00002dd4   0x00002dd4   0x0000006c   Code   RO         4739    i.rt_schedule_insert_thread  scheduler.o
-    0x00002e40   0x00002e40   0x00000074   Code   RO         4740    i.rt_schedule_remove_thread  scheduler.o
-    0x00002eb4   0x00002eb4   0x00000026   Code   RO         4260    i.rt_sem_init       ipc.o
-    0x00002eda   0x00002eda   0x00000052   Code   RO         4261    i.rt_sem_release    ipc.o
-    0x00002f2c   0x00002f2c   0x00000074   Code   RO         4262    i.rt_sem_take       ipc.o
-    0x00002fa0   0x00002fa0   0x000000b0   Code   RO         4422    i.rt_show_version   kservice.o
-    0x00003050   0x00003050   0x00000034   Code   RO         4430    i.rt_strncpy        kservice.o
-    0x00003084   0x00003084   0x000000f8   Code   RO         4591    i.rt_system_heap_init  mem.o
-    0x0000317c   0x0000317c   0x0000005c   Code   RO         4741    i.rt_system_scheduler_init  scheduler.o
-    0x000031d8   0x000031d8   0x00000044   Code   RO         4742    i.rt_system_scheduler_start  scheduler.o
-    0x0000321c   0x0000321c   0x0000001c   Code   RO         4945    i.rt_system_timer_init  timer.o
-    0x00003238   0x00003238   0x00000002   Code   RO         4946    i.rt_system_timer_thread_init  timer.o
-    0x0000323a   0x0000323a   0x00000050   Code   RO         4812    i.rt_thread_create  thread.o
-    0x0000328a   0x0000328a   0x00000002   PAD
-    0x0000328c   0x0000328c   0x00000058   Code   RO         4817    i.rt_thread_exit    thread.o
-    0x000032e4   0x000032e4   0x00000008   Code   RO         4206    i.rt_thread_idle_entry  idle.o
-    0x000032ec   0x000032ec   0x00000060   Code   RO         4207    i.rt_thread_idle_excute  idle.o
-    0x0000334c   0x0000334c   0x0000003c   Code   RO         4209    i.rt_thread_idle_init  idle.o
-    0x00003388   0x00003388   0x00000034   Code   RO         4819    i.rt_thread_init    thread.o
-    0x000033bc   0x000033bc   0x0000003c   Code   RO         4821    i.rt_thread_resume  thread.o
-    0x000033f8   0x000033f8   0x0000000c   Code   RO         4822    i.rt_thread_self    thread.o
-    0x00003404   0x00003404   0x0000003e   Code   RO         4824    i.rt_thread_startup  thread.o
-    0x00003442   0x00003442   0x00000044   Code   RO         4825    i.rt_thread_suspend  thread.o
-    0x00003486   0x00003486   0x00000020   Code   RO         4826    i.rt_thread_timeout  thread.o
-    0x000034a6   0x000034a6   0x00000002   PAD
-    0x000034a8   0x000034a8   0x00000064   Code   RO         4827    i.rt_thread_yield   thread.o
-    0x0000350c   0x0000350c   0x0000000c   Code   RO         4096    i.rt_tick_get       clock.o
-    0x00003518   0x00003518   0x00000030   Code   RO         4097    i.rt_tick_increase  clock.o
-    0x00003548   0x00003548   0x000000a4   Code   RO         4947    i.rt_timer_check    timer.o
-    0x000035ec   0x000035ec   0x00000062   Code   RO         4948    i.rt_timer_control  timer.o
-    0x0000364e   0x0000364e   0x00000028   Code   RO         4951    i.rt_timer_detach   timer.o
-    0x00003676   0x00003676   0x0000002e   Code   RO         4952    i.rt_timer_init     timer.o
-    0x000036a4   0x000036a4   0x000000ec   Code   RO         4955    i.rt_timer_start    timer.o
-    0x00003790   0x00003790   0x00000030   Code   RO         4956    i.rt_timer_stop     timer.o
-    0x000037c0   0x000037c0   0x00000340   Code   RO         4433    i.rt_vsnprintf      kservice.o
-    0x00003b00   0x00003b00   0x00000004   Code   RO         4137    i.rti_board_end     components.o
-    0x00003b04   0x00003b04   0x00000004   Code   RO         4138    i.rti_board_start   components.o
-    0x00003b08   0x00003b08   0x00000004   Code   RO         4139    i.rti_end           components.o
-    0x00003b0c   0x00003b0c   0x00000004   Code   RO         4140    i.rti_start         components.o
-    0x00003b10   0x00003b10   0x0000002a   Code   RO         4141    i.rtthread_startup  components.o
-    0x00003b3a   0x00003b3a   0x00000002   PAD
-    0x00003b3c   0x00003b3c   0x00000094   Code   RO         5468    i.set_pwm           motor.o
-    0x00003bd0   0x00003bd0   0x00000026   Code   RO         4435    i.skip_atoi         kservice.o
-    0x00003bf6   0x00003bf6   0x00000002   PAD
-    0x00003bf8   0x00003bf8   0x00000170   Code   RO         5762    i.turn              control.o
-    0x00003d68   0x00003d68   0x0000010c   Code   RO         5763    i.velocity          control.o
-    0x00003e74   0x00003e74   0x0000004c   Data   RO         1608    .constdata          gpio.o
-    0x00003ec0   0x00003ec0   0x00000090   Data   RO         2024    .constdata          interrupt.o
-    0x00003f50   0x00003f50   0x00000122   Data   RO         4437    .constdata          kservice.o
-    0x00004072   0x00004072   0x00000002   PAD
-    0x00004074   0x00004074   0x00000028   Data   RO         5242    .constdata          serial.o
-    0x0000409c   0x0000409c   0x00000e58   Data   RO         5544    .constdata          oled.o
-    0x00004ef4   0x00004ef4   0x00000004   Data   RO         4142    .rti_fn.0           components.o
-    0x00004ef8   0x00004ef8   0x00000004   Data   RO         4143    .rti_fn.0.end       components.o
-    0x00004efc   0x00004efc   0x00000004   Data   RO         4144    .rti_fn.1.end       components.o
-    0x00004f00   0x00004f00   0x00000004   Data   RO         4145    .rti_fn.6.end       components.o
-    0x00004f04   0x00004f04   0x00000020   Data   RO         6141    Region$$Table       anon$$obj.o
+    0x00000700   0x00000700   0x00000024   Code   RO         6018    .text               mc_w.l(init.o)
+    0x00000724   0x00000724   0x00000020   Code   RO         6021    .text               mc_w.l(llushr.o)
+    0x00000744   0x00000744   0x00000056   Code   RO         6032    .text               mc_w.l(__dczerorl2.o)
+    0x0000079a   0x0000079a   0x0000000a   Code   RO         4136    i.$Sub$$main        components.o
+    0x000007a4   0x000007a4   0x00000028   Code   RO          854    i.CS_setDCOCenteredFrequency  cs.o
+    0x000007cc   0x000007cc   0x0000016c   Code   RO          856    i.CS_setDCOFrequency  cs.o
+    0x00000938   0x00000938   0x00000054   Code   RO          864    i.CS_tuneDCOFrequency  cs.o
+    0x0000098c   0x0000098c   0x00000050   Code   RO         5606    i.Control           control.o
+    0x000009dc   0x000009dc   0x0000001c   Code   RO         5134    i.Delay_Init        delay.o
+    0x000009f8   0x000009f8   0x00000084   Code   RO         5232    i.EUSCIA2_IRQHandler  hc-05.o
+    0x00000a7c   0x00000a7c   0x00000014   Code   RO         1592    i.GPIO_clearInterruptFlag  gpio.o
+    0x00000a90   0x00000a90   0x00000014   Code   RO         1594    i.GPIO_enableInterrupt  gpio.o
+    0x00000aa4   0x00000aa4   0x00000054   Code   RO         1595    i.GPIO_getEnabledInterruptStatus  gpio.o
+    0x00000af8   0x00000af8   0x00000020   Code   RO         1596    i.GPIO_getInputPinValue  gpio.o
+    0x00000b18   0x00000b18   0x00000014   Code   RO         1597    i.GPIO_getInterruptStatus  gpio.o
+    0x00000b2c   0x00000b2c   0x00000020   Code   RO         1598    i.GPIO_interruptEdgeSelect  gpio.o
+    0x00000b4c   0x00000b4c   0x0000002c   Code   RO         1601    i.GPIO_setAsInputPinWithPullDownResistor  gpio.o
+    0x00000b78   0x00000b78   0x0000002c   Code   RO         1602    i.GPIO_setAsInputPinWithPullUpResistor  gpio.o
+    0x00000ba4   0x00000ba4   0x00000020   Code   RO         1603    i.GPIO_setAsOutputPin  gpio.o
+    0x00000bc4   0x00000bc4   0x00000050   Code   RO         1605    i.GPIO_setAsPeripheralModuleFunctionOutputPin  gpio.o
+    0x00000c14   0x00000c14   0x00000014   Code   RO         1608    i.GPIO_setOutputHighOnPin  gpio.o
+    0x00000c28   0x00000c28   0x00000014   Code   RO         1609    i.GPIO_setOutputLowOnPin  gpio.o
+    0x00000c3c   0x00000c3c   0x00000014   Code   RO         1610    i.GPIO_toggleOutputOnPin  gpio.o
+    0x00000c50   0x00000c50   0x00000074   Code   RO         2012    i.Interrupt_enableInterrupt  interrupt.o
+    0x00000cc4   0x00000cc4   0x00000010   Code   RO         2013    i.Interrupt_enableMaster  interrupt.o
+    0x00000cd4   0x00000cd4   0x00000014   Code   RO         5370    i.OLED_CS_Clr       oled.o
+    0x00000ce8   0x00000ce8   0x00000014   Code   RO         5371    i.OLED_CS_Set       oled.o
+    0x00000cfc   0x00000cfc   0x00000040   Code   RO         5372    i.OLED_Clear        oled.o
+    0x00000d3c   0x00000d3c   0x00000014   Code   RO         5373    i.OLED_DC_Clr       oled.o
+    0x00000d50   0x00000d50   0x00000014   Code   RO         5374    i.OLED_DC_Set       oled.o
+    0x00000d64   0x00000d64   0x00000110   Code   RO         5378    i.OLED_Init         oled.o
+    0x00000e74   0x00000e74   0x00000014   Code   RO         5379    i.OLED_RST_Clr      oled.o
+    0x00000e88   0x00000e88   0x00000014   Code   RO         5380    i.OLED_RST_Set      oled.o
+    0x00000e9c   0x00000e9c   0x00000014   Code   RO         5381    i.OLED_SCLK_Clr     oled.o
+    0x00000eb0   0x00000eb0   0x00000014   Code   RO         5382    i.OLED_SCLK_Set     oled.o
+    0x00000ec4   0x00000ec4   0x00000014   Code   RO         5383    i.OLED_SDIN_Clr     oled.o
+    0x00000ed8   0x00000ed8   0x00000014   Code   RO         5384    i.OLED_SDIN_Set     oled.o
+    0x00000eec   0x00000eec   0x0000002e   Code   RO         5385    i.OLED_Set_Pos      oled.o
+    0x00000f1a   0x00000f1a   0x00000002   PAD
+    0x00000f1c   0x00000f1c   0x00000070   Code   RO         5387    i.OLED_ShowChar     oled.o
+    0x00000f8c   0x00000f8c   0x00000036   Code   RO         5389    i.OLED_ShowString   oled.o
+    0x00000fc2   0x00000fc2   0x00000048   Code   RO         5390    i.OLED_WR_Byte      oled.o
+    0x0000100a   0x0000100a   0x00000002   PAD
+    0x0000100c   0x0000100c   0x00000078   Code   RO         5172    i.PORT2_IRQHandler  interrupt_1.o
+    0x00001084   0x00001084   0x000000c4   Code   RO         5173    i.PORT3_IRQHandler  interrupt_1.o
+    0x00001148   0x00001148   0x000000c4   Code   RO         5174    i.PORT4_IRQHandler  interrupt_1.o
+    0x0000120c   0x0000120c   0x00000050   Code   RO         3286    i.SysCtl_getTLVInfo  sysctl.o
+    0x0000125c   0x0000125c   0x00000010   Code   RO         4014    i.SysTick_Handler   board.o
+    0x0000126c   0x0000126c   0x00000274   Code   RO         3974    i.SystemCoreClockUpdate  system_msp432p401r.o
+    0x000014e0   0x000014e0   0x0000006c   Code   RO         3975    i.SystemInit        system_msp432p401r.o
+    0x0000154c   0x0000154c   0x0000001c   Code   RO         5175    i.T32_INT1_IRQHandler  interrupt_1.o
+    0x00001568   0x00001568   0x00000024   Code   RO         5176    i.T32_INT2_IRQHandler  interrupt_1.o
+    0x0000158c   0x0000158c   0x00000038   Code   RO         5177    i.TA0_N_IRQHandler  interrupt_1.o
+    0x000015c4   0x000015c4   0x00000018   Code   RO         5672    i.TA1_0_IRQHandler  hcsr04.o
+    0x000015dc   0x000015dc   0x0000000a   Code   RO         3676    i.Timer32_enableInterrupt  timer32.o
+    0x000015e6   0x000015e6   0x0000000a   Code   RO         3679    i.Timer32_haltTimer  timer32.o
+    0x000015f0   0x000015f0   0x0000005e   Code   RO         3680    i.Timer32_initModule  timer32.o
+    0x0000164e   0x0000164e   0x00000022   Code   RO         3682    i.Timer32_setCount  timer32.o
+    0x00001670   0x00001670   0x00000030   Code   RO         3684    i.Timer32_startTimer  timer32.o
+    0x000016a0   0x000016a0   0x0000001e   Code   RO         3489    i.Timer_A_clearCaptureCompareInterrupt  timer_a.o
+    0x000016be   0x000016be   0x0000000e   Code   RO         3491    i.Timer_A_clearTimer  timer_a.o
+    0x000016cc   0x000016cc   0x00000028   Code   RO         3492    i.Timer_A_configureContinuousMode  timer_a.o
+    0x000016f4   0x000016f4   0x0000005a   Code   RO         3499    i.Timer_A_generatePWM  timer_a.o
+    0x0000174e   0x0000174e   0x00000014   Code   RO         3500    i.Timer_A_getCaptureCompareCount  timer_a.o
+    0x00001762   0x00001762   0x0000003a   Code   RO         3508    i.Timer_A_initCapture  timer_a.o
+    0x0000179c   0x0000179c   0x0000000a   Code   RO         3514    i.Timer_A_stopTimer  timer_a.o
+    0x000017a6   0x000017a6   0x00000008   Code   RO         3764    i.UART_clearInterruptFlag  uart.o
+    0x000017ae   0x000017ae   0x00000016   Code   RO         3765    i.UART_disableInterrupt  uart.o
+    0x000017c4   0x000017c4   0x0000000e   Code   RO         3768    i.UART_enableModule  uart.o
+    0x000017d2   0x000017d2   0x00000048   Code   RO         3769    i.UART_getEnabledInterruptStatus  uart.o
+    0x0000181a   0x0000181a   0x00000008   Code   RO         3770    i.UART_getInterruptStatus  uart.o
+    0x00001822   0x00001822   0x000000f6   Code   RO         3773    i.UART_initModule   uart.o
+    0x00001918   0x00001918   0x0000002c   Code   RO         3775    i.UART_receiveData  uart.o
+    0x00001944   0x00001944   0x00000028   Code   RO         3782    i.UART_transmitData  uart.o
+    0x0000196c   0x0000196c   0x00000018   Code   RO         3903    i.WDT_A_holdTimer   wdt_a.o
+    0x00001984   0x00001984   0x00000030   Code   RO         4015    i._SysTick_Config   board.o
+    0x000019b4   0x000019b4   0x00000028   Code   RO         5870    i.__0sprintf$6      mc_w.l(printf6.o)
+    0x000019dc   0x000019dc   0x0000004c   Code   RO         4412    i.__rt_ffs          kservice.o
+    0x00001a28   0x00001a28   0x0000000e   Code   RO         6026    i.__scatterload_copy  mc_w.l(handlers.o)
+    0x00001a36   0x00001a36   0x00000002   Code   RO         6027    i.__scatterload_null  mc_w.l(handlers.o)
+    0x00001a38   0x00001a38   0x0000000e   Code   RO         6028    i.__scatterload_zeroinit  mc_w.l(handlers.o)
+    0x00001a46   0x00001a46   0x00000002   PAD
+    0x00001a48   0x00001a48   0x000002f0   Code   RO         5875    i._printf_core      mc_w.l(printf6.o)
+    0x00001d38   0x00001d38   0x00000024   Code   RO         5876    i._printf_post_padding  mc_w.l(printf6.o)
+    0x00001d5c   0x00001d5c   0x0000002e   Code   RO         5877    i._printf_pre_padding  mc_w.l(printf6.o)
+    0x00001d8a   0x00001d8a   0x00000002   PAD
+    0x00001d8c   0x00001d8c   0x00000088   Code   RO         4811    i._rt_thread_init   thread.o
+    0x00001e14   0x00001e14   0x00000042   Code   RO         4943    i._rt_timer_init    timer.o
+    0x00001e56   0x00001e56   0x0000001c   Code   RO         4944    i._rt_timer_remove  timer.o
+    0x00001e72   0x00001e72   0x0000000a   Code   RO         5879    i._sputc            mc_w.l(printf6.o)
+    0x00001e7c   0x00001e7c   0x0000001c   Code   RO         4812    i._thread_cleanup_execute  thread.o
+    0x00001e98   0x00001e98   0x0000001c   Code   RO         5135    i.delay_ms          delay.o
+    0x00001eb4   0x00001eb4   0x0000004c   Code   RO         5136    i.delay_us          delay.o
+    0x00001f00   0x00001f00   0x00000080   Code   RO         5536    i.getTCRTValue      tcrt5000.o
+    0x00001f80   0x00001f80   0x00000044   Code   RO         5391    i.init              oled.o
+    0x00001fc4   0x00001fc4   0x00000038   Code   RO         5101    i.initSerial        serial.o
+    0x00001ffc   0x00001ffc   0x00000044   Code   RO         5607    i.init_control      control.o
+    0x00002040   0x00002040   0x0000001c   Code   RO         5538    i.init_digitalTCRT  tcrt5000.o
+    0x0000205c   0x0000205c   0x00000022   Code   RO         5276    i.init_encoder_left  encoder.o
+    0x0000207e   0x0000207e   0x00000022   Code   RO         5277    i.init_encoder_right  encoder.o
+    0x000020a0   0x000020a0   0x00000080   Code   RO         5058    i.init_hc_sr04      hc-sr04.o
+    0x00002120   0x00002120   0x0000003e   Code   RO         5318    i.init_motor        motor.o
+    0x0000215e   0x0000215e   0x00000016   Code   RO         5319    i.limit_pwm         motor.o
+    0x00002174   0x00002174   0x000000dc   Code   RO            4    i.main              main.o
+    0x00002250   0x00002250   0x0000000e   Code   RO         4137    i.main_thread_entry  components.o
+    0x0000225e   0x0000225e   0x00000002   PAD
+    0x00002260   0x00002260   0x00000078   Code   RO         4589    i.plug_holes        mem.o
+    0x000022d8   0x000022d8   0x00000198   Code   RO         4414    i.print_number      kservice.o
+    0x00002470   0x00002470   0x000000e8   Code   RO         3516    i.privateTimer_AProcessClockSourceDivider  timer_a.o
+    0x00002558   0x00002558   0x0000002c   Code   RO         5278    i.read_encoder      encoder.o
+    0x00002584   0x00002584   0x00000030   Code   RO         4138    i.rt_application_init  components.o
+    0x000025b4   0x000025b4   0x0000001c   Code   RO         4139    i.rt_components_board_init  components.o
+    0x000025d0   0x000025d0   0x0000001c   Code   RO         4140    i.rt_components_init  components.o
+    0x000025ec   0x000025ec   0x00000020   Code   RO         4739    i.rt_enter_critical  scheduler.o
+    0x0000260c   0x0000260c   0x00000044   Code   RO         4740    i.rt_exit_critical  scheduler.o
+    0x00002650   0x00002650   0x000000e0   Code   RO         4591    i.rt_free           mem.o
+    0x00002730   0x00002730   0x00000008   Code   RO         4016    i.rt_heap_begin_get  board.o
+    0x00002738   0x00002738   0x00000008   Code   RO         4017    i.rt_heap_end_get   board.o
+    0x00002740   0x00002740   0x00000034   Code   RO         4018    i.rt_hw_board_init  board.o
+    0x00002774   0x00002774   0x00000002   Code   RO         4417    i.rt_hw_console_output  kservice.o
+    0x00002776   0x00002776   0x00000002   PAD
+    0x00002778   0x00002778   0x00000224   Code   RO         4058    i.rt_hw_hard_fault_exception  cpuport.o
+    0x0000299c   0x0000299c   0x00000050   Code   RO         4059    i.rt_hw_stack_init  cpuport.o
+    0x000029ec   0x000029ec   0x00000020   Code   RO         4385    i.rt_interrupt_enter  irq.o
+    0x00002a0c   0x00002a0c   0x00000020   Code   RO         4387    i.rt_interrupt_leave  irq.o
+    0x00002a2c   0x00002a2c   0x00000014   Code   RO         4245    i.rt_ipc_list_resume  ipc.o
+    0x00002a40   0x00002a40   0x0000006e   Code   RO         4247    i.rt_ipc_list_suspend  ipc.o
+    0x00002aae   0x00002aae   0x00000010   Code   RO         4248    i.rt_ipc_object_init  ipc.o
+    0x00002abe   0x00002abe   0x00000002   PAD
+    0x00002ac0   0x00002ac0   0x00000030   Code   RO         4418    i.rt_kprintf        kservice.o
+    0x00002af0   0x00002af0   0x00000006   Code   RO         4249    i.rt_list_init      ipc.o
+    0x00002af6   0x00002af6   0x00000006   Code   RO         4741    i.rt_list_init      scheduler.o
+    0x00002afc   0x00002afc   0x00000006   Code   RO         4945    i.rt_list_init      timer.o
+    0x00002b02   0x00002b02   0x0000000e   Code   RO         4651    i.rt_list_insert_after  object.o
+    0x00002b10   0x00002b10   0x0000000e   Code   RO         4813    i.rt_list_insert_after  thread.o
+    0x00002b1e   0x00002b1e   0x0000000e   Code   RO         4946    i.rt_list_insert_after  timer.o
+    0x00002b2c   0x00002b2c   0x0000000e   Code   RO         4250    i.rt_list_insert_before  ipc.o
+    0x00002b3a   0x00002b3a   0x00000010   Code   RO         4251    i.rt_list_isempty   ipc.o
+    0x00002b4a   0x00002b4a   0x00000010   Code   RO         4947    i.rt_list_isempty   timer.o
+    0x00002b5a   0x00002b5a   0x00000012   Code   RO         4652    i.rt_list_remove    object.o
+    0x00002b6c   0x00002b6c   0x00000012   Code   RO         4814    i.rt_list_remove    thread.o
+    0x00002b7e   0x00002b7e   0x00000012   Code   RO         4948    i.rt_list_remove    timer.o
+    0x00002b90   0x00002b90   0x0000016c   Code   RO         4592    i.rt_malloc         mem.o
+    0x00002cfc   0x00002cfc   0x00000048   Code   RO         4424    i.rt_memset         kservice.o
+    0x00002d44   0x00002d44   0x00000054   Code   RO         4653    i.rt_object_allocate  object.o
+    0x00002d98   0x00002d98   0x00000024   Code   RO         4654    i.rt_object_delete  object.o
+    0x00002dbc   0x00002dbc   0x0000001e   Code   RO         4655    i.rt_object_detach  object.o
+    0x00002dda   0x00002dda   0x00000002   PAD
+    0x00002ddc   0x00002ddc   0x00000028   Code   RO         4657    i.rt_object_get_information  object.o
+    0x00002e04   0x00002e04   0x00000056   Code   RO         4661    i.rt_object_init    object.o
+    0x00002e5a   0x00002e5a   0x00000012   Code   RO         4662    i.rt_object_is_systemobject  object.o
+    0x00002e6c   0x00002e6c   0x00000094   Code   RO         4742    i.rt_schedule       scheduler.o
+    0x00002f00   0x00002f00   0x0000006c   Code   RO         4743    i.rt_schedule_insert_thread  scheduler.o
+    0x00002f6c   0x00002f6c   0x00000074   Code   RO         4744    i.rt_schedule_remove_thread  scheduler.o
+    0x00002fe0   0x00002fe0   0x00000026   Code   RO         4264    i.rt_sem_init       ipc.o
+    0x00003006   0x00003006   0x00000052   Code   RO         4265    i.rt_sem_release    ipc.o
+    0x00003058   0x00003058   0x00000074   Code   RO         4266    i.rt_sem_take       ipc.o
+    0x000030cc   0x000030cc   0x000000b0   Code   RO         4426    i.rt_show_version   kservice.o
+    0x0000317c   0x0000317c   0x00000034   Code   RO         4434    i.rt_strncpy        kservice.o
+    0x000031b0   0x000031b0   0x000000f8   Code   RO         4595    i.rt_system_heap_init  mem.o
+    0x000032a8   0x000032a8   0x0000005c   Code   RO         4745    i.rt_system_scheduler_init  scheduler.o
+    0x00003304   0x00003304   0x00000044   Code   RO         4746    i.rt_system_scheduler_start  scheduler.o
+    0x00003348   0x00003348   0x0000001c   Code   RO         4949    i.rt_system_timer_init  timer.o
+    0x00003364   0x00003364   0x00000002   Code   RO         4950    i.rt_system_timer_thread_init  timer.o
+    0x00003366   0x00003366   0x00000050   Code   RO         4816    i.rt_thread_create  thread.o
+    0x000033b6   0x000033b6   0x00000002   PAD
+    0x000033b8   0x000033b8   0x00000058   Code   RO         4821    i.rt_thread_exit    thread.o
+    0x00003410   0x00003410   0x00000008   Code   RO         4210    i.rt_thread_idle_entry  idle.o
+    0x00003418   0x00003418   0x00000060   Code   RO         4211    i.rt_thread_idle_excute  idle.o
+    0x00003478   0x00003478   0x0000003c   Code   RO         4213    i.rt_thread_idle_init  idle.o
+    0x000034b4   0x000034b4   0x00000034   Code   RO         4823    i.rt_thread_init    thread.o
+    0x000034e8   0x000034e8   0x0000003c   Code   RO         4825    i.rt_thread_resume  thread.o
+    0x00003524   0x00003524   0x0000000c   Code   RO         4826    i.rt_thread_self    thread.o
+    0x00003530   0x00003530   0x0000003e   Code   RO         4828    i.rt_thread_startup  thread.o
+    0x0000356e   0x0000356e   0x00000044   Code   RO         4829    i.rt_thread_suspend  thread.o
+    0x000035b2   0x000035b2   0x00000020   Code   RO         4830    i.rt_thread_timeout  thread.o
+    0x000035d2   0x000035d2   0x00000002   PAD
+    0x000035d4   0x000035d4   0x00000064   Code   RO         4831    i.rt_thread_yield   thread.o
+    0x00003638   0x00003638   0x0000000c   Code   RO         4100    i.rt_tick_get       clock.o
+    0x00003644   0x00003644   0x00000030   Code   RO         4101    i.rt_tick_increase  clock.o
+    0x00003674   0x00003674   0x000000a4   Code   RO         4951    i.rt_timer_check    timer.o
+    0x00003718   0x00003718   0x00000062   Code   RO         4952    i.rt_timer_control  timer.o
+    0x0000377a   0x0000377a   0x00000028   Code   RO         4955    i.rt_timer_detach   timer.o
+    0x000037a2   0x000037a2   0x0000002e   Code   RO         4956    i.rt_timer_init     timer.o
+    0x000037d0   0x000037d0   0x000000ec   Code   RO         4959    i.rt_timer_start    timer.o
+    0x000038bc   0x000038bc   0x00000030   Code   RO         4960    i.rt_timer_stop     timer.o
+    0x000038ec   0x000038ec   0x00000340   Code   RO         4437    i.rt_vsnprintf      kservice.o
+    0x00003c2c   0x00003c2c   0x00000004   Code   RO         4141    i.rti_board_end     components.o
+    0x00003c30   0x00003c30   0x00000004   Code   RO         4142    i.rti_board_start   components.o
+    0x00003c34   0x00003c34   0x00000004   Code   RO         4143    i.rti_end           components.o
+    0x00003c38   0x00003c38   0x00000004   Code   RO         4144    i.rti_start         components.o
+    0x00003c3c   0x00003c3c   0x0000002a   Code   RO         4145    i.rtthread_startup  components.o
+    0x00003c66   0x00003c66   0x00000002   PAD
+    0x00003c68   0x00003c68   0x0000001c   Code   RO         5102    i.sendText          serial.o
+    0x00003c84   0x00003c84   0x00000094   Code   RO         5320    i.set_pwm           motor.o
+    0x00003d18   0x00003d18   0x00000026   Code   RO         4439    i.skip_atoi         kservice.o
+    0x00003d3e   0x00003d3e   0x00000002   PAD
+    0x00003d40   0x00003d40   0x00000024   Code   RO         5060    i.trigger_measure   hc-sr04.o
+    0x00003d64   0x00003d64   0x00000170   Code   RO         5608    i.turn              control.o
+    0x00003ed4   0x00003ed4   0x0000010c   Code   RO         5609    i.velocity          control.o
+    0x00003fe0   0x00003fe0   0x0000004c   Data   RO         1612    .constdata          gpio.o
+    0x0000402c   0x0000402c   0x00000090   Data   RO         2028    .constdata          interrupt.o
+    0x000040bc   0x000040bc   0x00000122   Data   RO         4441    .constdata          kservice.o
+    0x000041de   0x000041de   0x00000002   PAD
+    0x000041e0   0x000041e0   0x00000028   Data   RO         5061    .constdata          hc-sr04.o
+    0x00004208   0x00004208   0x00000028   Data   RO         5103    .constdata          serial.o
+    0x00004230   0x00004230   0x00000e58   Data   RO         5393    .constdata          oled.o
+    0x00005088   0x00005088   0x00000004   Data   RO         4146    .rti_fn.0           components.o
+    0x0000508c   0x0000508c   0x00000004   Data   RO         4147    .rti_fn.0.end       components.o
+    0x00005090   0x00005090   0x00000004   Data   RO         4148    .rti_fn.1.end       components.o
+    0x00005094   0x00005094   0x00000004   Data   RO         4149    .rti_fn.6.end       components.o
+    0x00005098   0x00005098   0x00000020   Data   RO         6024    Region$$Table       anon$$obj.o
 
 
-    Execution Region RW_IRAM1 (Exec base: 0x20000000, Load base: 0x00004f24, Size: 0x00001988, Max: 0x00010000, ABSOLUTE, COMPRESSED[0x00000044])
+    Execution Region RW_IRAM1 (Exec base: 0x20000000, Load base: 0x000050b8, Size: 0x00001988, Max: 0x00010000, ABSOLUTE, COMPRESSED[0x00000048])
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
-    0x20000000   COMPRESSED   0x00000004   Data   RW         3972    .data               system_msp432p401r.o
-    0x20000004   COMPRESSED   0x00000010   Data   RW         4056    .data               cpuport.o
-    0x20000014   COMPRESSED   0x00000004   Data   RW         4099    .data               clock.o
-    0x20000018   COMPRESSED   0x00000001   Data   RW         4384    .data               irq.o
+    0x20000000   COMPRESSED   0x00000004   Data   RW         3976    .data               system_msp432p401r.o
+    0x20000004   COMPRESSED   0x00000010   Data   RW         4060    .data               cpuport.o
+    0x20000014   COMPRESSED   0x00000004   Data   RW         4103    .data               clock.o
+    0x20000018   COMPRESSED   0x00000001   Data   RW         4388    .data               irq.o
     0x20000019   COMPRESSED   0x00000003   PAD
-    0x2000001c   COMPRESSED   0x00000018   Data   RW         4593    .data               mem.o
-    0x20000034   COMPRESSED   0x00000040   Data   RW         4660    .data               object.o
-    0x20000074   COMPRESSED   0x00000018   Data   RW         4744    .data               scheduler.o
-    0x2000008c   COMPRESSED   0x0000000c   Data   RW         4957    .data               timer.o
-    0x20000098   COMPRESSED   0x00000008   Data   RW         5058    .data               hc-sr04.o
-    0x200000a0   COMPRESSED   0x00000001   Data   RW         5276    .data               delay.o
-    0x200000a1   COMPRESSED   0x00000003   PAD
-    0x200000a4   COMPRESSED   0x00000006   Data   RW         5385    .data               hc-05.o
+    0x2000001c   COMPRESSED   0x00000018   Data   RW         4597    .data               mem.o
+    0x20000034   COMPRESSED   0x00000040   Data   RW         4664    .data               object.o
+    0x20000074   COMPRESSED   0x00000018   Data   RW         4748    .data               scheduler.o
+    0x2000008c   COMPRESSED   0x0000000c   Data   RW         4961    .data               timer.o
+    0x20000098   COMPRESSED   0x00000009   Data   RW         5062    .data               hc-sr04.o
+    0x200000a1   COMPRESSED   0x00000001   Data   RW         5137    .data               delay.o
+    0x200000a2   COMPRESSED   0x00000002   PAD
+    0x200000a4   COMPRESSED   0x00000006   Data   RW         5237    .data               hc-05.o
     0x200000aa   COMPRESSED   0x00000002   PAD
-    0x200000ac   COMPRESSED   0x00000008   Data   RW         5427    .data               encoder.o
-    0x200000b4   COMPRESSED   0x00000030   Data   RW         5470    .data               motor.o
-    0x200000e4   COMPRESSED   0x00000050   Data   RW         5766    .data               control.o
-    0x20000134        -       0x00001000   Zero   RW         4015    .bss                board.o
-    0x20001134        -       0x0000017c   Zero   RW         4210    .bss                idle.o
-    0x200012b0        -       0x00000080   Zero   RW         4436    .bss                kservice.o
-    0x20001330        -       0x00000020   Zero   RW         4592    .bss                mem.o
-    0x20001350        -       0x00000420   Zero   RW         4743    .bss                scheduler.o
-    0x20001770        -       0x00000014   Zero   RW         5383    .bss                hc-05.o
+    0x200000ac   COMPRESSED   0x00000008   Data   RW         5279    .data               encoder.o
+    0x200000b4   COMPRESSED   0x00000030   Data   RW         5322    .data               motor.o
+    0x200000e4   COMPRESSED   0x00000050   Data   RW         5612    .data               control.o
+    0x20000134        -       0x00001000   Zero   RW         4019    .bss                board.o
+    0x20001134        -       0x0000017c   Zero   RW         4214    .bss                idle.o
+    0x200012b0        -       0x00000080   Zero   RW         4440    .bss                kservice.o
+    0x20001330        -       0x00000020   Zero   RW         4596    .bss                mem.o
+    0x20001350        -       0x00000420   Zero   RW         4747    .bss                scheduler.o
+    0x20001770        -       0x00000014   Zero   RW         5235    .bss                hc-05.o
     0x20001784   COMPRESSED   0x00000004   PAD
-    0x20001788        -       0x00000200   Zero   RW         4003    STACK               startup_msp432p401r_uvision.o
+    0x20001788        -       0x00000200   Zero   RW         4007    STACK               startup_msp432p401r_uvision.o
 
 
 
@@ -2998,47 +3035,48 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   Object Name
 
-       132         16          0          0       4096       3453   board.o
+       132         16          0          0       4096       3461   board.o
         60         12          0          4          0       1189   clock.o
-       186         30         16          0          0       5888   components.o
+       186         30         16          0          0       5904   components.o
        308         28          0          0          0        828   context_rvds.o
-       784        100          0         80          0       4280   control.o
-        38          0          0          0          0        644   cpu.o
+       784        100          0         80          0       4268   control.o
+        38          0          0          0          0        648   cpu.o
        628        342          0         16          0       4118   cpuport.o
-       488         76          0          0          0       3076   cs.o
-       132         16          0          1          0       1731   delay.o
+       488         76          0          0          0       3080   cs.o
+       132         16          0          1          0       1739   delay.o
        112         10          0          8          0       1861   encoder.o
-       496         72         76          0          0       9184   gpio.o
-       132         22          0          6         20       1312   hc-05.o
-         0          0          0          8          0      11404   hc-sr04.o
+       468         78         76          0          0       9799   gpio.o
+       132         22          0          6         20       1316   hc-05.o
+       164         18         40          9          0       1915   hc-sr04.o
+        24          8          0          0          0        487   hcsr04.o
        164         26          0          0        380       5026   idle.o
-       248         16        144          0          0       2846   interrupt.o
-       540         28          0          0          0       2842   interrupt_1.o
+       132          8        144          0          0       2209   interrupt.o
+       632         56          0          0          0       3360   interrupt_1.o
        418          0          0          0          0       8361   ipc.o
         64         12          0          1          0       1546   irq.o
-      1704        164        290          0        128       8831   kservice.o
-       160         44          0          0          0      23103   main.o
-       956        224          0         24         32       3880   mem.o
-       232          8          0         48          0       2079   motor.o
-       326          4          0         64          0       8228   object.o
-       888         50       3672          0          0       9707   oled.o
-       638        114          0         24       1056       8572   scheduler.o
-        56         18         40          0          0        994   serial.o
+      1704        164        290          0        128       8835   kservice.o
+       220         68          0          0          0      23191   main.o
+       956        224          0         24         32       3884   mem.o
+       232          8          0         48          0       2083   motor.o
+       326          4          0         64          0       8248   object.o
+       888         50       3672          0          0       9723   oled.o
+       638        114          0         24       1056       8584   scheduler.o
+        84         22         40          0          0       1545   serial.o
         36          8        324          0        512        932   startup_msp432p401r_uvision.o
         80          8          0          0          0       1296   sysctl.o
-       736         80          0          4          0       1879   system_msp432p401r.o
+       736         80          0          4          0       1883   system_msp432p401r.o
        156          6          0          0          0       1190   tcrt5000.o
-       750         32          0          0          0      11307   thread.o
-       810         24          0         12          0      11640   timer.o
-       186          0          0          0          0       2543   timer32.o
-       404         28          0          0          0       4990   timer_a.o
-       414          0          0          0          0       5086   uart.o
+       750         32          0          0          0      11319   thread.o
+       810         24          0         12          0      11672   timer.o
+       196          0          0          0          0       3103   timer32.o
+       494         28          0          0          0       5727   timer_a.o
+       454          0          0          0          0       5710   uart.o
         24          4          0          0          0        538   wdt_a.o
 
     ----------------------------------------------------------------------
-     13508       1622       4596        308       6228     176384   Object Totals
+     13872       1702       4636        308       6228     170578   Object Totals
          0          0         32          0          0          0   (incl. Generated)
-        22          0          2          8          4          0   (incl. Padding)
+        22          0          2          7          4          0   (incl. Padding)
 
     ----------------------------------------------------------------------
 
@@ -3089,15 +3127,15 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   
 
-     15664       1648       4596        308       6228     161108   Grand Totals
-     15664       1648       4596         68       6228     161108   ELF Image Totals (compressed)
-     15664       1648       4596         68          0          0   ROM Totals
+     16028       1728       4636        308       6228     154502   Grand Totals
+     16028       1728       4636         72       6228     154502   ELF Image Totals (compressed)
+     16028       1728       4636         72          0          0   ROM Totals
 
 ==============================================================================
 
-    Total RO  Size (Code + RO Data)                20260 (  19.79kB)
+    Total RO  Size (Code + RO Data)                20664 (  20.18kB)
     Total RW  Size (RW Data + ZI Data)              6536 (   6.38kB)
-    Total ROM Size (Code + RO Data + RW Data)      20328 (  19.85kB)
+    Total ROM Size (Code + RO Data + RW Data)      20736 (  20.25kB)
 
 ==============================================================================
 

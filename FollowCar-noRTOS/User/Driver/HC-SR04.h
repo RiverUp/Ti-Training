@@ -6,8 +6,9 @@
 
 //p2.5接echo，p3.0接trig
 
-extern uint32_t countValue;
-extern rt_sem_t AbleToConvert;
+extern uint32_t HCSRCountValue;
+extern uint32_t TriggerCounter;
+extern bool NextTiggerHCSRFlag;
 
 //初始化
 void init_hc_sr04(void);
@@ -18,3 +19,4 @@ float read_hc_sr04(uint32_t countValue);
 
 
 #endif
+

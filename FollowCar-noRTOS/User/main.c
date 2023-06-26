@@ -62,11 +62,11 @@
 #include "Semaphore.h"
 #include "Filter.h"
 #include "Control.h"
+#include "hcsr04.h"
 #include "stdio.h"
 #include "stdbool.h"
 #include "string.h"
 
-bool TriggerHCSRFlag;
 
 int main(void)
 {
@@ -81,6 +81,8 @@ int main(void)
 	OLED_Init();
 	init_control();
 	init_digitalTCRT();
+	//HCSR04_Init();
+	init_hc_sr04();
 	//init_TCRT();
 	
 	
@@ -91,6 +93,10 @@ int main(void)
 	
 	while(1)
 	{
+		if(NextTiggerHCSRFlag)
+		{
+			trigger_measure();
+		}
 //		sprintf(text1,"t1:%d ",t1);
 //		sprintf(text2,"t2:%d ",t2);
 //		sprintf(text3,"t3:%d ",t3);
@@ -98,9 +104,13 @@ int main(void)
 		sprintf(text2,"l:%2d ",encoder_left);
 //		sprintf(text3,"adc:%.2f     ",adc);
 		sprintf(text3,"turnPwm:%d     ",turnPwm);
+		int distance=HCSRCountValue;
+		sprintf(text4,"distance:%d   ",distance);
+		sendText(text4);
 		OLED_ShowString(0,0,(unsigned char *)text1);
 		OLED_ShowString(0,2,(unsigned char *)text2);
-		OLED_ShowString(0,4,(unsigned char *)text3);
+		OLED_ShowString(0,4,(unsigned char *)text4);
+		
 		//delay_ms(10);
 		
 	}
