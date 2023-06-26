@@ -1,17 +1,16 @@
 #include "Control.h"
 
 #define MaxTurn1 2700
-#define MaxTurn2 2700
-#define ChangeIntervalTurn1 300
-#define ChangeIntervalTurn2 600
+#define MaxTurn2 2000
+#define ChangeIntervalTurn1 180
+#define ChangeIntervalTurn2 800
 
-#define StraightV 80
-#define TurnV1 40
+#define StraightV 15
+#define TurnV1 15
 #define TurnV2 10
 
 float target_encoder_value = 40;
-float Velocity_Kp = 100, Velocity_Ki;
-// float Velocity_Kp=10,Velocity_Ki=3000;
+float Velocity_Kp = 100, Velocity_Ki=27;
 int turnPwm = 0;
 float adc;
 bool t1, t2, t3, t4, t5;

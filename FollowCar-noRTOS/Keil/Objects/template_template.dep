@@ -1145,7 +1145,7 @@ I (..\Lib\ti/devices/msp432p4xx/driverlib/uart.h)(0x648EF219)
 I (..\Lib\ti/devices/msp432p4xx/driverlib/wdt_a.h)(0x648EF219)
 I (..\Lib\ti/devices/msp432p4xx/driverlib/sysctl.h)(0x648EF219)
 I (..\Lib\ti/devices/msp432p4xx/driverlib/flash.h)(0x648EF219)
-F (..\User\Driver\Control.c)(0x64994464)(--c99 -c --cpu Cortex-M4.fp -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\User -I ..\Lib -I ..\Lib\CMSIS\include -I ..\RTthread\bsp -I ..\RTthread\include -I ..\User\Driver -D__UVISION_VERSION="526" -D__MSP432P401R__-o .\objects\control.o --omf_browse .\objects\control.crf --depend .\objects\control.d)
+F (..\User\Driver\Control.c)(0x64996B42)(--c99 -c --cpu Cortex-M4.fp -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\User -I ..\Lib -I ..\Lib\CMSIS\include -I ..\RTthread\bsp -I ..\RTthread\include -I ..\User\Driver -D__UVISION_VERSION="526" -D__MSP432P401R__-o .\objects\control.o --omf_browse .\objects\control.crf --depend .\objects\control.d)
 I (..\User\Driver\Control.h)(0x64993E25)
 I (..\Lib\ti/devices/msp432p4xx/driverlib/driverlib.h)(0x648EF219)
 I (..\Lib\ti/devices/msp432p4xx/driverlib/adc14.h)(0x648EF219)
