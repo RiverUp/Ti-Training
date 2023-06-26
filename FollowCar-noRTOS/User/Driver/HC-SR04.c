@@ -40,30 +40,17 @@ void init_hc_sr04(void)
 	GPIO_setAsOutputPin(GPIO_PORT_P3, GPIO_PIN0);
 	GPIO_setOutputLowOnPin(GPIO_PORT_P3, GPIO_PIN0);
 
-	// 初始化时钟为连续捕获模式
-	Timer_A_initCapture(TIMER_A0_BASE, &hcsrCaptureConfig);
-	Timer_A_configureContinuousMode(TIMER_A0_BASE, &hcsrContinuousConfig);
-//	GPIO_setAsPeripheralModuleFunctionInputPin(GPIO_PORT_P2, GPIO_PIN5, GPIO_PRIMARY_MODULE_FUNCTION);
-//	Interrupt_enableInterrupt(INT_TA0_N);
-
 	Timer32_initModule(TIMER32_1_BASE, TIMER32_PRESCALER_1, TIMER32_32BIT, TIMER32_PERIODIC_MODE);
 	Interrupt_enableInterrupt(INT_T32_INT2);
-	Timer32_setCount(TIMER32_1_BASE, 1200); // 100us
+	Timer32_setCount(TIMER32_1_BASE, 120); // 100us
 	Timer32_enableInterrupt(TIMER32_1_BASE);
 }
 void trigger_measure(void)
 {
-	// p3.0输出1ms高电平触发hcsr04
+	// p3.0输出20us高电平触发hcsr04
 	GPIO_setOutputHighOnPin(GPIO_PORT_P3, GPIO_PIN0);
 	NextTiggerHCSRFlag=false;
 	delay_us(20);
 	GPIO_setOutputLowOnPin(GPIO_PORT_P3, GPIO_PIN0);
-	//Timer_A_startCounter(TIMER_A0_BASE,TIMER_A_CONTINUOUS_MODE);
-	//Timer_A_startCounter(TIMER32_1_BASE, true);
 }
-// 单位为cm
-float read_hc_sr04(uint32_t countValue)
-{
-	//float distance = countValue * 0.017;
-	return countValue;
-}
+
