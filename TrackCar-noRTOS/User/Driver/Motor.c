@@ -2,6 +2,7 @@
 #include "math.h"
 #include <stdlib.h>
 
+
 Timer_A_PWMConfig PWMAConfig=
 {
 	TIMER_A_CLOCKSOURCE_SMCLK,

@@ -2299,30 +2299,30 @@ Image Symbol Table
     i.skip_atoi                              0x00003bd0   Section        0  kservice.o(i.skip_atoi)
     skip_atoi                                0x00003bd1   Thumb Code    38  kservice.o(i.skip_atoi)
     i.turn                                   0x00003bf8   Section        0  control.o(i.turn)
-    i.velocity                               0x00003dbc   Section        0  control.o(i.velocity)
-    .constdata                               0x00003ec8   Section       76  gpio.o(.constdata)
-    GPIO_PORT_TO_INT                         0x00003ec8   Data          28  gpio.o(.constdata)
-    GPIO_PORT_TO_BASE                        0x00003ee4   Data          48  gpio.o(.constdata)
-    .constdata                               0x00003f14   Section      144  interrupt.o(.constdata)
-    g_pulPriority                            0x00003f14   Data          32  interrupt.o(.constdata)
-    g_pulRegs                                0x00003f34   Data          80  interrupt.o(.constdata)
-    g_pulEnRegs                              0x00003f84   Data           8  interrupt.o(.constdata)
-    g_pulDisRegs                             0x00003f8c   Data           8  interrupt.o(.constdata)
-    g_pulPendRegs                            0x00003f94   Data           8  interrupt.o(.constdata)
-    g_pulUnpendRegs                          0x00003f9c   Data           8  interrupt.o(.constdata)
-    .constdata                               0x00003fa4   Section      290  kservice.o(.constdata)
-    small_digits                             0x000040a4   Data          17  kservice.o(.constdata)
-    large_digits                             0x000040b5   Data          17  kservice.o(.constdata)
-    .constdata                               0x000040c8   Section       40  serial.o(.constdata)
-    .constdata                               0x000040f0   Section     3672  oled.o(.constdata)
-    .rti_fn.0                                0x00004f48   Section        4  components.o(.rti_fn.0)
-    __tagsym$$used                           0x00004f48   Number         0  components.o(.rti_fn.0)
-    .rti_fn.0.end                            0x00004f4c   Section        4  components.o(.rti_fn.0.end)
-    __tagsym$$used                           0x00004f4c   Number         0  components.o(.rti_fn.0.end)
-    .rti_fn.1.end                            0x00004f50   Section        4  components.o(.rti_fn.1.end)
-    __tagsym$$used                           0x00004f50   Number         0  components.o(.rti_fn.1.end)
-    .rti_fn.6.end                            0x00004f54   Section        4  components.o(.rti_fn.6.end)
-    __tagsym$$used                           0x00004f54   Number         0  components.o(.rti_fn.6.end)
+    i.velocity                               0x00003db0   Section        0  control.o(i.velocity)
+    .constdata                               0x00003ebc   Section       76  gpio.o(.constdata)
+    GPIO_PORT_TO_INT                         0x00003ebc   Data          28  gpio.o(.constdata)
+    GPIO_PORT_TO_BASE                        0x00003ed8   Data          48  gpio.o(.constdata)
+    .constdata                               0x00003f08   Section      144  interrupt.o(.constdata)
+    g_pulPriority                            0x00003f08   Data          32  interrupt.o(.constdata)
+    g_pulRegs                                0x00003f28   Data          80  interrupt.o(.constdata)
+    g_pulEnRegs                              0x00003f78   Data           8  interrupt.o(.constdata)
+    g_pulDisRegs                             0x00003f80   Data           8  interrupt.o(.constdata)
+    g_pulPendRegs                            0x00003f88   Data           8  interrupt.o(.constdata)
+    g_pulUnpendRegs                          0x00003f90   Data           8  interrupt.o(.constdata)
+    .constdata                               0x00003f98   Section      290  kservice.o(.constdata)
+    small_digits                             0x00004098   Data          17  kservice.o(.constdata)
+    large_digits                             0x000040a9   Data          17  kservice.o(.constdata)
+    .constdata                               0x000040bc   Section       40  serial.o(.constdata)
+    .constdata                               0x000040e4   Section     3672  oled.o(.constdata)
+    .rti_fn.0                                0x00004f3c   Section        4  components.o(.rti_fn.0)
+    __tagsym$$used                           0x00004f3c   Number         0  components.o(.rti_fn.0)
+    .rti_fn.0.end                            0x00004f40   Section        4  components.o(.rti_fn.0.end)
+    __tagsym$$used                           0x00004f40   Number         0  components.o(.rti_fn.0.end)
+    .rti_fn.1.end                            0x00004f44   Section        4  components.o(.rti_fn.1.end)
+    __tagsym$$used                           0x00004f44   Number         0  components.o(.rti_fn.1.end)
+    .rti_fn.6.end                            0x00004f48   Section        4  components.o(.rti_fn.6.end)
+    __tagsym$$used                           0x00004f48   Number         0  components.o(.rti_fn.6.end)
     .data                                    0x20000000   Section        4  system_msp432p401r.o(.data)
     .data                                    0x20000004   Section       16  cpuport.o(.data)
     rt_exception_hook                        0x20000010   Data           4  cpuport.o(.data)
@@ -2660,18 +2660,18 @@ Image Symbol Table
     rtthread_startup                         0x00003b11   Thumb Code    42  components.o(i.rtthread_startup)
     set_pwm                                  0x00003b3d   Thumb Code   140  motor.o(i.set_pwm)
     turn                                     0x00003bf9   Thumb Code   394  control.o(i.turn)
-    velocity                                 0x00003dbd   Thumb Code   222  control.o(i.velocity)
-    __lowest_bit_bitmap                      0x00003fa4   Data         256  kservice.o(.constdata)
-    uartConfig                               0x000040c8   Data          40  serial.o(.constdata)
-    F6x8                                     0x000040f0   Data         552  oled.o(.constdata)
-    F8X16                                    0x00004318   Data        1520  oled.o(.constdata)
-    Hzk                                      0x00004908   Data        1600  oled.o(.constdata)
-    __rt_init_rti_start                      0x00004f48   Data           4  components.o(.rti_fn.0)
-    __rt_init_rti_board_start                0x00004f4c   Data           4  components.o(.rti_fn.0.end)
-    __rt_init_rti_board_end                  0x00004f50   Data           4  components.o(.rti_fn.1.end)
-    __rt_init_rti_end                        0x00004f54   Data           4  components.o(.rti_fn.6.end)
-    Region$$Table$$Base                      0x00004f58   Number         0  anon$$obj.o(Region$$Table)
-    Region$$Table$$Limit                     0x00004f78   Number         0  anon$$obj.o(Region$$Table)
+    velocity                                 0x00003db1   Thumb Code   222  control.o(i.velocity)
+    __lowest_bit_bitmap                      0x00003f98   Data         256  kservice.o(.constdata)
+    uartConfig                               0x000040bc   Data          40  serial.o(.constdata)
+    F6x8                                     0x000040e4   Data         552  oled.o(.constdata)
+    F8X16                                    0x0000430c   Data        1520  oled.o(.constdata)
+    Hzk                                      0x000048fc   Data        1600  oled.o(.constdata)
+    __rt_init_rti_start                      0x00004f3c   Data           4  components.o(.rti_fn.0)
+    __rt_init_rti_board_start                0x00004f40   Data           4  components.o(.rti_fn.0.end)
+    __rt_init_rti_board_end                  0x00004f44   Data           4  components.o(.rti_fn.1.end)
+    __rt_init_rti_end                        0x00004f48   Data           4  components.o(.rti_fn.6.end)
+    Region$$Table$$Base                      0x00004f4c   Number         0  anon$$obj.o(Region$$Table)
+    Region$$Table$$Limit                     0x00004f6c   Number         0  anon$$obj.o(Region$$Table)
     SystemCoreClock                          0x20000000   Data           4  system_msp432p401r.o(.data)
     rt_interrupt_from_thread                 0x20000004   Data           4  cpuport.o(.data)
     rt_interrupt_to_thread                   0x20000008   Data           4  cpuport.o(.data)
@@ -2723,9 +2723,9 @@ Memory Map of the image
 
   Image Entry point : 0x00000145
 
-  Load Region LR_IROM1 (Base: 0x00000000, Size: 0x000050b4, Max: 0x00040000, ABSOLUTE, COMPRESSED[0x00004fbc])
+  Load Region LR_IROM1 (Base: 0x00000000, Size: 0x000050a8, Max: 0x00040000, ABSOLUTE, COMPRESSED[0x00004fb4])
 
-    Execution Region ER_IROM1 (Exec base: 0x00000000, Load base: 0x00000000, Size: 0x00004f78, Max: 0x00040000, ABSOLUTE)
+    Execution Region ER_IROM1 (Exec base: 0x00000000, Load base: 0x00000000, Size: 0x00004f6c, Max: 0x00040000, ABSOLUTE)
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
@@ -2944,22 +2944,22 @@ Memory Map of the image
     0x00003b3c   0x00003b3c   0x00000094   Code   RO         5310    i.set_pwm           motor.o
     0x00003bd0   0x00003bd0   0x00000026   Code   RO         4435    i.skip_atoi         kservice.o
     0x00003bf6   0x00003bf6   0x00000002   PAD
-    0x00003bf8   0x00003bf8   0x000001c4   Code   RO         5598    i.turn              control.o
-    0x00003dbc   0x00003dbc   0x0000010c   Code   RO         5599    i.velocity          control.o
-    0x00003ec8   0x00003ec8   0x0000004c   Data   RO         1608    .constdata          gpio.o
-    0x00003f14   0x00003f14   0x00000090   Data   RO         2024    .constdata          interrupt.o
-    0x00003fa4   0x00003fa4   0x00000122   Data   RO         4437    .constdata          kservice.o
-    0x000040c6   0x000040c6   0x00000002   PAD
-    0x000040c8   0x000040c8   0x00000028   Data   RO         5099    .constdata          serial.o
-    0x000040f0   0x000040f0   0x00000e58   Data   RO         5383    .constdata          oled.o
-    0x00004f48   0x00004f48   0x00000004   Data   RO         4142    .rti_fn.0           components.o
-    0x00004f4c   0x00004f4c   0x00000004   Data   RO         4143    .rti_fn.0.end       components.o
-    0x00004f50   0x00004f50   0x00000004   Data   RO         4144    .rti_fn.1.end       components.o
-    0x00004f54   0x00004f54   0x00000004   Data   RO         4145    .rti_fn.6.end       components.o
-    0x00004f58   0x00004f58   0x00000020   Data   RO         5977    Region$$Table       anon$$obj.o
+    0x00003bf8   0x00003bf8   0x000001b8   Code   RO         5598    i.turn              control.o
+    0x00003db0   0x00003db0   0x0000010c   Code   RO         5599    i.velocity          control.o
+    0x00003ebc   0x00003ebc   0x0000004c   Data   RO         1608    .constdata          gpio.o
+    0x00003f08   0x00003f08   0x00000090   Data   RO         2024    .constdata          interrupt.o
+    0x00003f98   0x00003f98   0x00000122   Data   RO         4437    .constdata          kservice.o
+    0x000040ba   0x000040ba   0x00000002   PAD
+    0x000040bc   0x000040bc   0x00000028   Data   RO         5099    .constdata          serial.o
+    0x000040e4   0x000040e4   0x00000e58   Data   RO         5383    .constdata          oled.o
+    0x00004f3c   0x00004f3c   0x00000004   Data   RO         4142    .rti_fn.0           components.o
+    0x00004f40   0x00004f40   0x00000004   Data   RO         4143    .rti_fn.0.end       components.o
+    0x00004f44   0x00004f44   0x00000004   Data   RO         4144    .rti_fn.1.end       components.o
+    0x00004f48   0x00004f48   0x00000004   Data   RO         4145    .rti_fn.6.end       components.o
+    0x00004f4c   0x00004f4c   0x00000020   Data   RO         5977    Region$$Table       anon$$obj.o
 
 
-    Execution Region RW_IRAM1 (Exec base: 0x20000000, Load base: 0x00004f78, Size: 0x00001990, Max: 0x00010000, ABSOLUTE, COMPRESSED[0x00000044])
+    Execution Region RW_IRAM1 (Exec base: 0x20000000, Load base: 0x00004f6c, Size: 0x00001990, Max: 0x00010000, ABSOLUTE, COMPRESSED[0x00000048])
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
@@ -3009,7 +3009,7 @@ Image component sizes
         60         12          0          4          0       1189   clock.o
        186         30         16          0          0       5888   components.o
        308         28          0          0          0        828   context_rvds.o
-       868        116          0         92          0       4581   control.o
+       856        104          0         92          0       4581   control.o
         38          0          0          0          0        644   cpu.o
        628        342          0         16          0       4118   cpuport.o
        488         76          0          0          0       3076   cs.o
@@ -3043,7 +3043,7 @@ Image component sizes
         24          4          0          0          0        538   wdt_a.o
 
     ----------------------------------------------------------------------
-     13592       1638       4596        316       6228     166087   Object Totals
+     13580       1626       4596        316       6228     166087   Object Totals
          0          0         32          0          0          0   (incl. Generated)
         22          0          2          7          4          0   (incl. Padding)
 
@@ -3096,15 +3096,15 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   
 
-     15748       1664       4596        316       6228     150811   Grand Totals
-     15748       1664       4596         68       6228     150811   ELF Image Totals (compressed)
-     15748       1664       4596         68          0          0   ROM Totals
+     15736       1652       4596        316       6228     150811   Grand Totals
+     15736       1652       4596         72       6228     150811   ELF Image Totals (compressed)
+     15736       1652       4596         72          0          0   ROM Totals
 
 ==============================================================================
 
-    Total RO  Size (Code + RO Data)                20344 (  19.87kB)
+    Total RO  Size (Code + RO Data)                20332 (  19.86kB)
     Total RW  Size (RW Data + ZI Data)              6544 (   6.39kB)
-    Total ROM Size (Code + RO Data + RW Data)      20412 (  19.93kB)
+    Total ROM Size (Code + RO Data + RW Data)      20404 (  19.93kB)
 
 ==============================================================================
 

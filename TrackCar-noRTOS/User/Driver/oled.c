@@ -29,7 +29,7 @@ void init()                      //OLED¶Ë¿Ú¶¨Òå
     MAP_GPIO_setAsOutputPin ( GPIO_PORT_P6, GPIO_PIN1 );
     MAP_GPIO_setAsOutputPin ( GPIO_PORT_P6, GPIO_PIN0 );
     MAP_GPIO_setAsOutputPin ( GPIO_PORT_P4, GPIO_PIN0 );
-    MAP_GPIO_setAsOutputPin ( GPIO_PORT_P3, GPIO_PIN2 );
+    MAP_GPIO_setAsOutputPin ( GPIO_PORT_P2, GPIO_PIN3 );
 }
 void OLED_CS_Clr()
 {MAP_GPIO_setOutputLowOnPin(GPIO_PORT_P1, GPIO_PIN5);}
@@ -48,9 +48,9 @@ void OLED_SCLK_Clr()
 void OLED_SCLK_Set()
 {MAP_GPIO_setOutputHighOnPin(GPIO_PORT_P4, GPIO_PIN0);}//OLED_SCL=1
 void OLED_SDIN_Clr()
-{MAP_GPIO_setOutputLowOnPin(GPIO_PORT_P3, GPIO_PIN2);}//OLED_SDIN=0
+{MAP_GPIO_setOutputLowOnPin(GPIO_PORT_P2, GPIO_PIN3);}//OLED_SDIN=0
 void OLED_SDIN_Set()
-{MAP_GPIO_setOutputHighOnPin(GPIO_PORT_P3, GPIO_PIN2);}//OLED_SDIN=1;
+{MAP_GPIO_setOutputHighOnPin(GPIO_PORT_P2, GPIO_PIN3);}//OLED_SDIN=1;
 //void delay_ms(unsigned int ms)
 //{                         
 //	unsigned int a;
