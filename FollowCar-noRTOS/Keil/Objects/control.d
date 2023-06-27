@@ -42,6 +42,11 @@
 .\objects\control.o: ..\Lib\ti/devices/msp432p4xx/driverlib/wdt_a.h
 .\objects\control.o: ..\Lib\ti/devices/msp432p4xx/driverlib/sysctl.h
 .\objects\control.o: ..\Lib\ti/devices/msp432p4xx/driverlib/flash.h
+.\objects\control.o: ..\User\Driver\Motor.h
+.\objects\control.o: ..\User\Driver\Encoder.h
+.\objects\control.o: ..\User\Driver\TCRT5000.h
+.\objects\control.o: ..\User\Driver\oled.h
+.\objects\control.o: D:\Environment\keil\ARM\ARMCC\Bin\..\include\stdio.h
 .\objects\control.o: ..\User\Driver\HC-SR04.h
 .\objects\control.o: ..\RTthread\include\rtthread.h
 .\objects\control.o: ..\RTthread\bsp\rtconfig.h
@@ -50,8 +55,3 @@
 .\objects\control.o: ..\RTthread\include\rtdef.h
 .\objects\control.o: D:\Environment\keil\ARM\ARMCC\Bin\..\include\stdarg.h
 .\objects\control.o: ..\RTthread\include\rtservice.h
-.\objects\control.o: ..\User\Driver\Motor.h
-.\objects\control.o: ..\User\Driver\Encoder.h
-.\objects\control.o: ..\User\Driver\TCRT5000.h
-.\objects\control.o: ..\User\Driver\oled.h
-.\objects\control.o: D:\Environment\keil\ARM\ARMCC\Bin\..\include\stdio.h

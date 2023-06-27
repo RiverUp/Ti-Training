@@ -1,54 +1,3 @@
-/* --COPYRIGHT--,BSD
- * Copyright (c) 2015, Texas Instruments Incorporated
- * All rights reserved.
- *
- * Redistribution and use in source and binary forms, with or without
- * modification, are permitted provided that the following conditions
- * are met:
- *
- * *  Redistributions of source code must retain the above copyright
- *    notice, this list of conditions and the following disclaimer.
- *
- * *  Redistributions in binary form must reproduce the above copyright
- *    notice, this list of conditions and the following disclaimer in the
- *    documentation and/or other materials provided with the distribution.
- *
- * *  Neither the name of Texas Instruments Incorporated nor the names of
- *    its contributors may be used to endorse or promote products derived
- *    from this software without specific prior written permission.
- *
- * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
- * AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO,
- * THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
- * PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR
- * CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
- * EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
- * PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS;
- * OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
- * WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR
- * OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,
- * EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- * --/COPYRIGHT--*/
-//***************************************************************************************
-//  Blink the LED Demo - Software Toggle P1.0
-//
-//  Description; Toggle P1.0 inside of a software loop.
-//  ACLK = n/a, MCLK = SMCLK = default DCO
-//
-//                MSP432P4xx
-//             -----------------
-//         /|\|              XIN|-
-//          | |                 |
-//          --|RST          XOUT|-
-//            |                 |
-//            |             P1.0|-->LED
-//
-//  E. Chen
-//  Texas Instruments, Inc
-//  March 2015
-//  Built with Code Composer Studio v6
-//***************************************************************************************
-
 #include <ti/devices/msp432p4xx/driverlib/driverlib.h>
 #include "rtthread.h"
 #include "HC-SR04.h"
@@ -65,12 +14,11 @@
 #include "stdio.h"
 #include "stdbool.h"
 #include "string.h"
+#include "key.h"
 
 
 int main(void)
 {
-	FPU_enableModule();
-  FPU_enableLazyStacking();
 	WDT_A_hold(WDT_A_BASE);
 	Interrupt_enableMaster();
 	Delay_Init();
@@ -81,9 +29,11 @@ int main(void)
 	init();
 	OLED_Init();
 	init_control();
-	init_digitalTCRT();
-	//HCSR04_Init();
+	init_TCRT();
 	init_hc_sr04();
+	init_hc05();
+	KEY_Init();
+	
 	//init_TCRT();
 	
 	
@@ -92,25 +42,57 @@ int main(void)
 	char text3[20];
 	char text4[20];
 	
+	//SYSCTL->REBOOT_CTL|=SYSCTL_REBOOT_CTL_REBOOT;
 	while(1)
-	{ 
+	{
+		
+		//°´¼üÅÐ¶Ï
+		int keyState=KEY_Scan(0);
+		if(keyState==KEY1_PRES)
+		{
+			Timer32_startTimer(TIMER32_BASE, false);
+			GPIO_toggleOutputOnPin(GPIO_PORT_P1,GPIO_PIN0);
+		}
+		//À¶ÑÀÐÅÏ¢ÅÐ¶Ï
+		if(BTRecCompleteFlag)
+		{
+			OLED_ShowString(0,4,(unsigned char*)btdata);
+			if(!strcmp(btdata,"bk"))
+			{
+				btdata[dataPtr]='0';
+				sendMsgByBlueTooth(btdata);
+			}
+			if(!strcmp(btdata,"r"))
+			{
+				Timer32_startTimer(TIMER32_BASE, false);
+				btdata[dataPtr]='0';
+				sendMsgByBlueTooth(btdata);
+			}
+			{
+				Timer32_startTimer(TIMER32_BASE, false);
+			}
+			dataPtr=0;
+			memset(btdata,0,strlen(btdata));
+			BTRecCompleteFlag=false;
+		}
+		//³¬Éù
 		if(NextTiggerHCSRFlag)
 		{
 			trigger_measure();
+			//GPIO_toggleOutputOnPin(GPIO_PORT_P1,GPIO_PIN0);
 		}
 //		sprintf(text1,"t1:%d ",t1);
 //		sprintf(text2,"t2:%d ",t2);
 //		sprintf(text3,"t3:%d ",t3);
+		
 		sprintf(text1,"r:%2d ",encoder_right);
 		sprintf(text2,"l:%2d ",encoder_left);
 //		sprintf(text3,"adc:%.2f     ",adc);
 		sprintf(text3,"turnPwm:%d     ",turnPwm);
-		sprintf(text4,"distance:%d   ",HCSRCountValue);
-		sendText(text4);
+//		sprintf(text3,"distance:%d     ",HCSRCountValue);
 		OLED_ShowString(0,0,(unsigned char *)text1);
 		OLED_ShowString(0,2,(unsigned char *)text2);
-		OLED_ShowString(0,4,(unsigned char *)text4);
-		
+		OLED_ShowString(0,4,(unsigned char *)text3);
 		//delay_ms(10);
 		
 	}

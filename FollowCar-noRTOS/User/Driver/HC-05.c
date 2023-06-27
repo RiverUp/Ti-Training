@@ -2,10 +2,9 @@
 
 //
 
-
-rt_sem_t ProcessBtData;
 char btdata[20];
 uint8_t dataPtr;
+bool BTRecCompleteFlag;
 
 //设置波特率为9600
 const eUSCI_UART_ConfigV1 uartConfigForHC05 =
@@ -26,7 +25,7 @@ const eUSCI_UART_ConfigV1 uartConfigForHC05 =
 //连接p3.2(RX),p3.3(TX)
 void init_hc05(void)
 {
-	GPIO_setAsPeripheralModuleFunctionInputPin(GPIO_PORT_P3,GPIO_PIN2|GPIO_PIN2,GPIO_PRIMARY_MODULE_FUNCTION);
+	GPIO_setAsPeripheralModuleFunctionInputPin(GPIO_PORT_P3,GPIO_PIN3|GPIO_PIN2,GPIO_PRIMARY_MODULE_FUNCTION);
 	UART_initModule(EUSCI_A2_BASE,&uartConfigForHC05);
 	UART_enableModule(EUSCI_A2_BASE);
 		//使能中断
@@ -36,26 +35,9 @@ void init_hc05(void)
 
 void sendMsgByBlueTooth(char *msg)
 {
-	while(msg)
+	while(*msg)
 	{
 		UART_transmitData(EUSCI_A2_BASE,*msg);
 		msg++;
 	} 
-}
-
-//收到蓝牙信息通过中断回调处理
-//每条消息以0结尾
-void EUSCIA2_IRQHandler()
-{
-	uint32_t status=UART_getEnabledInterruptStatus(EUSCI_A2_BASE);
-	
-	if(status&EUSCI_A_UART_RECEIVE_INTERRUPT_FLAG)
-	{
-    UART_clearInterruptFlag(EUSCI_A2_BASE,EUSCI_A_UART_RECEIVE_INTERRUPT);
-		uint8_t dat=UART_receiveData(EUSCI_A2_BASE);
-
-			
-		//MAP_UART_transmitData(EUSCI_A0_BASE, UART_receiveData(EUSCI_A0_BASE));
-		//handleMsgFromBlueTooth();
-	}
 }

@@ -3,6 +3,9 @@
 #include "HC-SR04.h"
 #include "Encoder.h"
 #include "Control.h"
+#include "HC-05.h"
+#include "string.h"
+#include "stdio.h"
 
 // 检测到上升沿触发中断
 void PORT2_IRQHandler(void)
@@ -170,7 +173,6 @@ void T32_INT1_IRQHandler(void)
 {
 	MAP_Timer32_clearInterruptFlag(TIMER32_0_BASE);
 	Control();
-	
 }
 
 void T32_INT2_IRQHandler(void)
@@ -179,3 +181,24 @@ void T32_INT2_IRQHandler(void)
 	TriggerCounter++;
 }
 
+//收到蓝牙信息通过中断回调处理
+//每条消息以0结尾
+void EUSCIA2_IRQHandler()
+{
+	uint32_t status=UART_getEnabledInterruptStatus(EUSCI_A2_BASE);
+	
+	if(status&EUSCI_A_UART_RECEIVE_INTERRUPT_FLAG)
+	{
+    UART_clearInterruptFlag(EUSCI_A2_BASE,EUSCI_A_UART_RECEIVE_INTERRUPT);
+		uint8_t dat=UART_receiveData(EUSCI_A2_BASE);
+		if(dat!='0')
+		{
+			btdata[dataPtr++]=dat;
+		}
+		else
+		{
+			BTRecCompleteFlag=true;
+		}
+			
+	}
+}

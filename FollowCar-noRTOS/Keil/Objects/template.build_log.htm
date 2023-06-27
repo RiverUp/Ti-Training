@@ -22,55 +22,27 @@ Dialog DLL:      TCM.DLL V1.36.1.0
  
 <h2>Project:</h2>
 D:\code\stm32\msp\project\FollowCar-noRTOS\Keil\template.uvprojx
-Project File Date:  06/26/2023
+Project File Date:  06/27/2023
 
 <h2>Output:</h2>
 *** Using Compiler 'V5.06 update 6 (build 750)', folder: 'D:\Environment\keil\ARM\ARMCC\Bin'
 Build target 'template'
-compiling HC-05.c...
-..\User\Driver\HC-05.h(13): warning:  #1295-D: Deprecated declaration connectDevice - give arg types
-  bool connectDevice();
-..\User\Driver\HC-05.h(15): warning:  #1-D: last line of file ends without a newline
-  #endif
-..\User\Driver\HC-05.c: 2 warnings, 0 errors
-compiling Control.c...
-..\User\Driver\Motor.h(12): warning:  #1295-D: Deprecated declaration init_motor - give arg types
-  void init_motor();
-..\User\Driver\Motor.h(13): warning:  #1295-D: Deprecated declaration set_pwm_trail - give arg types
-  void set_pwm_trail();
-..\User\Driver\Encoder.h(14): warning:  #1295-D: Deprecated declaration init_encoder_left - give arg types
-  void init_encoder_left();
-..\User\Driver\Encoder.h(15): warning:  #1295-D: Deprecated declaration init_encoder_right - give arg types
-  void init_encoder_right();
-..\User\Driver\Encoder.h(17): warning:  #1-D: last line of file ends without a newline
-  int read_encoder(uint8_t side);
+compiling TCRT5000.c...
 ..\User\Driver\TCRT5000.h(15): warning:  #1295-D: Deprecated declaration init_TCRT - give arg types
   void init_TCRT();
 ..\User\Driver\TCRT5000.h(16): warning:  #1295-D: Deprecated declaration read_TCRT - give arg types
-  float read_TCRT();
+  bool read_TCRT();
 ..\User\Driver\TCRT5000.h(19): warning:  #1295-D: Deprecated declaration init_digitalTCRT - give arg types
   void init_digitalTCRT();
 ..\User\Driver\TCRT5000.h(23): warning:  #1-D: last line of file ends without a newline
   #endif // !__TCRT5000.h
-..\User\Driver\Control.h(15): warning:  #1295-D: Deprecated declaration Control - give arg types
-  void Control();
-..\User\Driver\Control.h(18): warning:  #1295-D: Deprecated declaration turn - give arg types
-  int turn();
-..\User\Driver\Control.h(19): warning:  #1295-D: Deprecated declaration init_control - give arg types
-  void init_control();
-..\User\Driver\Control.h(23): warning:  #1-D: last line of file ends without a newline
-  #endif
-..\User\Driver\Control.c(46): warning:  #1035-D: single-precision operand implicitly converted to double-precision
-  	encoder_bias = 0.84 * encoder_bias + current_bias * 0.16;
-..\User\Driver\Control.c(46): warning:  #1035-D: single-precision operand implicitly converted to double-precision
-  	encoder_bias = 0.84 * encoder_bias + current_bias * 0.16;
-..\User\Driver\Control.c(68): warning:  #177-D: variable "encoder_integral"  was declared but never referenced
-  	static float encoder_integral;
-..\User\Driver\Control.c: 16 warnings, 0 errors
+..\User\Driver\TCRT5000.c(4): warning:  #177-D: variable "resultbuffer"  was declared but never referenced
+  static uint16_t resultbuffer[8];
+..\User\Driver\TCRT5000.c: 5 warnings, 0 errors
 compiling main.c...
-..\User\Driver\HC-05.h(13): warning:  #1295-D: Deprecated declaration connectDevice - give arg types
+..\User\Driver\HC-05.h(14): warning:  #1295-D: Deprecated declaration connectDevice - give arg types
   bool connectDevice();
-..\User\Driver\HC-05.h(15): warning:  #1-D: last line of file ends without a newline
+..\User\Driver\HC-05.h(16): warning:  #1-D: last line of file ends without a newline
   #endif
 ..\User\Driver\Encoder.h(14): warning:  #1295-D: Deprecated declaration init_encoder_left - give arg types
   void init_encoder_left();
@@ -85,7 +57,7 @@ compiling main.c...
 ..\User\Driver\TCRT5000.h(15): warning:  #1295-D: Deprecated declaration init_TCRT - give arg types
   void init_TCRT();
 ..\User\Driver\TCRT5000.h(16): warning:  #1295-D: Deprecated declaration read_TCRT - give arg types
-  float read_TCRT();
+  bool read_TCRT();
 ..\User\Driver\TCRT5000.h(19): warning:  #1295-D: Deprecated declaration init_digitalTCRT - give arg types
   void init_digitalTCRT();
 ..\User\Driver\TCRT5000.h(23): warning:  #1-D: last line of file ends without a newline
@@ -102,24 +74,20 @@ compiling main.c...
   void init_encoder_right();
 ..\User\Driver\Encoder.h(17): warning:  #1-D: last line of file ends without a newline
   int read_encoder(uint8_t side);
-..\User\Driver\Control.h(15): warning:  #1295-D: Deprecated declaration Control - give arg types
+..\User\Driver\Control.h(16): warning:  #1295-D: Deprecated declaration Control - give arg types
   void Control();
-..\User\Driver\Control.h(18): warning:  #1295-D: Deprecated declaration turn - give arg types
+..\User\Driver\Control.h(19): warning:  #1295-D: Deprecated declaration turn - give arg types
   int turn();
-..\User\Driver\Control.h(19): warning:  #1295-D: Deprecated declaration init_control - give arg types
+..\User\Driver\Control.h(20): warning:  #1295-D: Deprecated declaration init_control - give arg types
   void init_control();
-..\User\Driver\Control.h(23): warning:  #1-D: last line of file ends without a newline
+..\User\Driver\Control.h(24): warning:  #1-D: last line of file ends without a newline
   #endif
-..\User\main.c(117): warning:  #1-D: last line of file ends without a newline
+..\User\main.c(99): warning:  #1-D: last line of file ends without a newline
   }
-..\User\main.c: 22 warnings, 0 errors
-compiling Interrupt.c...
-..\User\Driver\Encoder.h(14): warning:  #1295-D: Deprecated declaration init_encoder_left - give arg types
-  void init_encoder_left();
-..\User\Driver\Encoder.h(15): warning:  #1295-D: Deprecated declaration init_encoder_right - give arg types
-  void init_encoder_right();
-..\User\Driver\Encoder.h(17): warning:  #1-D: last line of file ends without a newline
-  int read_encoder(uint8_t side);
+..\User\main.c(43): warning:  #177-D: variable "text4"  was declared but never referenced
+  	char text4[20];
+..\User\main.c: 23 warnings, 0 errors
+compiling Control.c...
 ..\User\Driver\Motor.h(12): warning:  #1295-D: Deprecated declaration init_motor - give arg types
   void init_motor();
 ..\User\Driver\Motor.h(13): warning:  #1295-D: Deprecated declaration set_pwm_trail - give arg types
@@ -133,23 +101,33 @@ compiling Interrupt.c...
 ..\User\Driver\TCRT5000.h(15): warning:  #1295-D: Deprecated declaration init_TCRT - give arg types
   void init_TCRT();
 ..\User\Driver\TCRT5000.h(16): warning:  #1295-D: Deprecated declaration read_TCRT - give arg types
-  float read_TCRT();
+  bool read_TCRT();
 ..\User\Driver\TCRT5000.h(19): warning:  #1295-D: Deprecated declaration init_digitalTCRT - give arg types
   void init_digitalTCRT();
 ..\User\Driver\TCRT5000.h(23): warning:  #1-D: last line of file ends without a newline
   #endif // !__TCRT5000.h
-..\User\Driver\Control.h(15): warning:  #1295-D: Deprecated declaration Control - give arg types
+..\User\Driver\Control.h(16): warning:  #1295-D: Deprecated declaration Control - give arg types
   void Control();
-..\User\Driver\Control.h(18): warning:  #1295-D: Deprecated declaration turn - give arg types
+..\User\Driver\Control.h(19): warning:  #1295-D: Deprecated declaration turn - give arg types
   int turn();
-..\User\Driver\Control.h(19): warning:  #1295-D: Deprecated declaration init_control - give arg types
+..\User\Driver\Control.h(20): warning:  #1295-D: Deprecated declaration init_control - give arg types
   void init_control();
-..\User\Driver\Control.h(23): warning:  #1-D: last line of file ends without a newline
+..\User\Driver\Control.h(24): warning:  #1-D: last line of file ends without a newline
   #endif
-..\User\Driver\Interrupt.c: 16 warnings, 0 errors
+..\User\Driver\Control.c(45): warning:  #177-D: variable "distance_value"  was declared but never referenced
+  	int distance_value=(HCSRCountValue-HCSRStandardValue)*DislanceK;
+..\User\Driver\Control.c(69): warning:  #1035-D: single-precision operand implicitly converted to double-precision
+  	encoder_bias=0.84*encoder_bias+current_bias*0.16;
+..\User\Driver\Control.c(69): warning:  #1035-D: single-precision operand implicitly converted to double-precision
+  	encoder_bias=0.84*encoder_bias+current_bias*0.16;
+..\User\Driver\Control.c(91): warning:  #177-D: variable "encoder_integral"  was declared but never referenced
+  	static float encoder_integral;
+..\User\Driver\Control.c(202): warning:  #1-D: last line of file ends without a newline
+  }
+..\User\Driver\Control.c: 18 warnings, 0 errors
 linking...
-Program Size: Code=15744 RO-data=4596 RW-data=316 ZI-data=6204  
-".\Objects\template.axf" - 0 Error(s), 56 Warning(s).
+Program Size: Code=17516 RO-data=4764 RW-data=336 ZI-data=6224  
+".\Objects\template.axf" - 0 Error(s), 46 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -163,7 +141,7 @@ Package Vendor: TexasInstruments
   D:\Environment\keil\ARM\PACK\TexasInstruments\MSP432P4xx_DFP\3.2.6\Device\Include
 
 <h2>Collection of Component Files used:</h2>
-Build Time Elapsed:  00:00:02
+Build Time Elapsed:  00:00:01
 </pre>
 </body>
 </html>
