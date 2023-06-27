@@ -62,7 +62,6 @@
 #include "Semaphore.h"
 #include "Filter.h"
 #include "Control.h"
-#include "hcsr04.h"
 #include "stdio.h"
 #include "stdbool.h"
 #include "string.h"
@@ -97,7 +96,6 @@ int main(void)
 	{ 
 		if(NextTiggerHCSRFlag)
 		{
-
 			trigger_measure();
 		}
 //		sprintf(text1,"t1:%d ",t1);

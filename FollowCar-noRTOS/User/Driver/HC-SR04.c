@@ -52,7 +52,7 @@ void trigger_measure(void)
 	// p3.0输出20us高电平触发hcsr04
 	GPIO_setOutputHighOnPin(GPIO_PORT_P3, GPIO_PIN0);
 	NextTiggerHCSRFlag=false;
-	delay_us(20);
+	delay_ms(1);
 	GPIO_setOutputLowOnPin(GPIO_PORT_P3, GPIO_PIN0);
 }
 

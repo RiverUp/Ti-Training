@@ -63,5 +63,4 @@
 .\objects\main.o: ..\User\Driver\Motor.h
 .\objects\main.o: ..\User\Driver\Encoder.h
 .\objects\main.o: ..\User\Driver\oled.h
-.\objects\main.o: ..\User\Driver\hcsr04.h
 .\objects\main.o: D:\Environment\keil\ARM\ARMCC\Bin\..\include\string.h

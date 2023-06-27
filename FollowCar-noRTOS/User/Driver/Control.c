@@ -9,8 +9,11 @@
 #define TurnV1 15
 #define TurnV2 10
 
+#define BalanceK 225
+
 float target_encoder_value = 40;
 float Velocity_Kp = 100, Velocity_Ki=27;
+int balanceK;
 int turnPwm = 0;
 float adc;
 bool t1, t2, t3, t4, t5;
@@ -25,14 +28,11 @@ void Control()
 
 	int velocity_value = velocity(left, right);
 	int turn_value = turn();
-
-	// adc=read_TCRT();
-
-	//	int pwma=velocity_left(left)+turn_value;
-	//	int pwmb=velocity_right(right)-turn_value;
-
-	int pwma = velocity_value + turn_value;
-	int pwmb = velocity_value - turn_value;
+	//´ý²âbalanceK
+	int balance_value=(HCSRCountValue-HCSRStandardValue)*BalanceK;
+	
+	int pwma = velocity_value + turn_value+balance_value;
+	int pwmb = velocity_value - turn_value+balance_value;
 	pwma = limit_pwm(pwma, 8000, -8000);
 	pwmb = limit_pwm(pwmb, 8000, -8000);
 

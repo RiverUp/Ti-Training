@@ -42,6 +42,7 @@ void PORT2_IRQHandler(void)
 			}
 			
 			HCSRCountValue=HCSRCountAveraValue;
+//			HCSRCountValue=TriggerCounter;
 			
 			NextTiggerHCSRFlag=true;			
 		}

@@ -43,7 +43,7 @@ void Control()
 	pwma=limit_pwm(pwma,8000,-8000);
 	pwmb=limit_pwm(pwmb,8000,-8000);
   
-	set_pwm(pwma,pwmb);
+	//set_pwm(pwma,pwmb);
 	
 }
 
