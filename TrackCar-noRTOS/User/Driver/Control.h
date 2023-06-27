@@ -6,10 +6,12 @@
 #include "Encoder.h"
 #include "TCRT5000.h"
 #include "oled.h"
+#include "HC-SR04.h"
 
 extern int turnPwm;
 extern float adc;
 extern bool t1,t2,t3;
+extern int mission;
 
 void Control();
 int velocity_left(int left);

@@ -5,14 +5,18 @@
 #define ChangeIntervalTurn1 180   
 #define ChangeIntervalTurn2 800
 
-#define StraightV 15
-#define TurnV1 15
+#define StraightV 14
+#define TurnV1 14
 #define TurnV2 10
+
+#define DislanceK 75
 
 #define DecelerationTimes 0
 
 bool DecelerationFlag;
 int DecelerationCounter;
+
+int Mission=1;
 
 float target_encoder_value=40;
 float Velocity_Kp=100,Velocity_Ki=27;
@@ -38,12 +42,23 @@ void Control()
 //	int pwma=velocity_left(left)+turn_value;
 //	int pwmb=velocity_right(right)-turn_value;
 	
-	int pwma=velocity_value+turn_value;
-	int pwmb=velocity_value-turn_value;
+	int distance_value=(HCSRCountValue-HCSRStandardValue)*DislanceK;
+	
+	int pwma, pwmb;
+	if(Mission==1)
+	{
+		pwma = velocity_value + turn_value;//+distance_value;
+		pwmb = velocity_value - turn_value;//+distance_value;
+	}
+	if(Mission==2)
+	{
+		pwma = velocity_value + turn_value;//+distance_value;
+		pwmb = velocity_value - turn_value;//+distance_value;
+	}
 	pwma=limit_pwm(pwma,8000,-8000);
 	pwmb=limit_pwm(pwmb,8000,-8000);
   
-	//set_pwm(pwma,pwmb);
+	set_pwm(pwma,pwmb);
 	
 }
 
@@ -183,5 +198,5 @@ void init_control()
 	Interrupt_enableInterrupt(INT_T32_INT1);
 	Timer32_setCount(TIMER32_BASE,120000);//10ms
   Timer32_enableInterrupt(TIMER32_BASE);
-  Timer32_startTimer(TIMER32_BASE, false);
+  //Timer32_startTimer(TIMER32_BASE, false);
 }

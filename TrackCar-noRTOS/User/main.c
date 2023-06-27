@@ -14,15 +14,15 @@
 #include "stdio.h"
 #include "stdbool.h"
 #include "string.h"
+#include "key.h"
 
-bool TriggerHCSRFlag;
 
 int main(void)
 {
 	WDT_A_hold(WDT_A_BASE);
 	Interrupt_enableMaster();
 	Delay_Init();
-  	initSerial();
+  initSerial();
 	init_motor();
 	init_encoder_left();
 	init_encoder_right();
@@ -30,7 +30,10 @@ int main(void)
 	OLED_Init();
 	init_control();
 	init_digitalTCRT();
+	init_hc_sr04();
 	init_hc05();
+	KEY_Init();
+	
 	//init_TCRT();
 	
 	
@@ -38,10 +41,19 @@ int main(void)
 	char text2[20];
 	char text3[20];
 	char text4[20];
-
-	char blt[20];
+	
+	//SYSCTL->REBOOT_CTL|=SYSCTL_REBOOT_CTL_REBOOT;
 	while(1)
 	{
+		
+		//°´¼üÅÐ¶Ï
+		int keyState=KEY_Scan(0);
+		if(keyState==KEY1_PRES)
+		{
+			Timer32_startTimer(TIMER32_BASE, false);
+			GPIO_toggleOutputOnPin(GPIO_PORT_P1,GPIO_PIN0);
+		}
+		//À¶ÑÀÐÅÏ¢ÅÐ¶Ï
 		if(BTRecCompleteFlag)
 		{
 			OLED_ShowString(0,4,(unsigned char*)btdata);
@@ -50,9 +62,24 @@ int main(void)
 				btdata[dataPtr]='0';
 				sendMsgByBlueTooth(btdata);
 			}
+			if(!strcmp(btdata,"r"))
+			{
+				Timer32_startTimer(TIMER32_BASE, false);
+				btdata[dataPtr]='0';
+				sendMsgByBlueTooth(btdata);
+			}
+			{
+				Timer32_startTimer(TIMER32_BASE, false);
+			}
 			dataPtr=0;
 			memset(btdata,0,strlen(btdata));
 			BTRecCompleteFlag=false;
+		}
+		//³¬Éù
+		if(NextTiggerHCSRFlag)
+		{
+			trigger_measure();
+			//GPIO_toggleOutputOnPin(GPIO_PORT_P1,GPIO_PIN0);
 		}
 //		sprintf(text1,"t1:%d ",t1);
 //		sprintf(text2,"t2:%d ",t2);
@@ -62,9 +89,10 @@ int main(void)
 		sprintf(text2,"l:%2d ",encoder_left);
 //		sprintf(text3,"adc:%.2f     ",adc);
 		sprintf(text3,"turnPwm:%d     ",turnPwm);
+//		sprintf(text3,"distance:%d     ",HCSRCountValue);
 		OLED_ShowString(0,0,(unsigned char *)text1);
 		OLED_ShowString(0,2,(unsigned char *)text2);
-		//OLED_ShowString(0,4,(unsigned char *)text3);
+		OLED_ShowString(0,4,(unsigned char *)text3);
 		//delay_ms(10);
 		
 	}

@@ -37,7 +37,6 @@ void sendMsgByBlueTooth(char *msg)
 {
 	while(*msg)
 	{
-		GPIO_toggleOutputOnPin(GPIO_PORT_P1,GPIO_PIN0);
 		UART_transmitData(EUSCI_A2_BASE,*msg);
 		msg++;
 	} 

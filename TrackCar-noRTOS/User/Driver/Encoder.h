@@ -3,8 +3,8 @@
 /*
 p4.1->E2A
 p4.6->E2B
-p3.5->E1A
-p3.7->E1B
+p3.5->E1B
+p3.7->E1A
 */
 
 extern int encoder_left;
