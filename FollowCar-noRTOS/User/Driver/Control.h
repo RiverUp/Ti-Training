@@ -23,5 +23,6 @@ int turn();
 void init_control();
 int velocity(int current_encoder_left,int current_encoder_right);
 int distance(int current_dis);
+int turn2();
 
 #endif

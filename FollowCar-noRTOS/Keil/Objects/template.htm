@@ -3,7 +3,7 @@
 <title>Static Call Graph - [.\Objects\template.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\Objects\template.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060750: Last Updated: Wed Jun 28 22:51:28 2023
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060750: Last Updated: Thu Jun 29 18:05:57 2023
 <BR><P>
 <H3>Maximum Stack Usage =        300 bytes + Unknown(Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -118,8 +118,8 @@ Global Symbols
 
 <P><STRONG><a name="[10e]"></a>CPU_primask</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, cpu.o(.emb_text), UNUSED)
 
-<P><STRONG><a name="[6b]"></a>CPU_cpsie</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, cpu.o(.emb_text))
-<BR><BR>[Called By]<UL><LI><a href="#[6a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Interrupt_enableMaster
+<P><STRONG><a name="[6a]"></a>CPU_cpsie</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, cpu.o(.emb_text))
+<BR><BR>[Called By]<UL><LI><a href="#[69]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Interrupt_enableMaster
 </UL>
 
 <P><STRONG><a name="[10f]"></a>CPU_wfi</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, cpu.o(.emb_text), UNUSED)
@@ -402,7 +402,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[4b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_drsub
 <LI><a href="#[4a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dsub
 <LI><a href="#[5f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;velocity
-<LI><a href="#[63]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;distance
+<LI><a href="#[61]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;distance
 </UL>
 
 <P><STRONG><a name="[4a]"></a>__aeabi_dsub</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, dadd.o(.text), UNUSED)
@@ -419,12 +419,12 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[48]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_double_epilogue
 </UL>
 <BR>[Called By]<UL><LI><a href="#[5f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;velocity
-<LI><a href="#[63]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;distance
+<LI><a href="#[61]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;distance
 </UL>
 
 <P><STRONG><a name="[9b]"></a>__aeabi_f2d</STRONG> (Thumb, 38 bytes, Stack size 0 bytes, f2d.o(.text))
 <BR><BR>[Called By]<UL><LI><a href="#[5f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;velocity
-<LI><a href="#[63]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;distance
+<LI><a href="#[61]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;distance
 </UL>
 
 <P><STRONG><a name="[4d]"></a>__aeabi_d2f</STRONG> (Thumb, 56 bytes, Stack size 8 bytes, d2f.o(.text))
@@ -433,7 +433,7 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[4e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_float_round
 </UL>
 <BR>[Called By]<UL><LI><a href="#[5f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;velocity
-<LI><a href="#[63]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;distance
+<LI><a href="#[61]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;distance
 </UL>
 
 <P><STRONG><a name="[117]"></a>__aeabi_uidiv</STRONG> (Thumb, 0 bytes, Stack size 12 bytes, uidiv.o(.text), UNUSED)
@@ -577,16 +577,15 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[59]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CS_setDCOFrequency
 </UL>
 
-<P><STRONG><a name="[5d]"></a>Control</STRONG> (Thumb, 178 bytes, Stack size 40 bytes, control.o(i.Control))
+<P><STRONG><a name="[5d]"></a>Control</STRONG> (Thumb, 144 bytes, Stack size 40 bytes, control.o(i.Control))
 <BR><BR>[Stack]<UL><LI>Max Depth = 176<LI>Call Chain = Control &rArr; velocity &rArr; __aeabi_dmul &rArr; _double_epilogue &rArr; _double_round
 </UL>
-<BR>[Calls]<UL><LI><a href="#[61]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;set_pwm
-<LI><a href="#[64]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;limit_pwm
+<BR>[Calls]<UL><LI><a href="#[63]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;set_pwm
+<LI><a href="#[62]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;limit_pwm
 <LI><a href="#[5e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;read_encoder
-<LI><a href="#[62]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay_ms
 <LI><a href="#[5f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;velocity
-<LI><a href="#[60]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;turn
-<LI><a href="#[63]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;distance
+<LI><a href="#[60]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;turn2
+<LI><a href="#[61]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;distance
 </UL>
 <BR>[Called By]<UL><LI><a href="#[23]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;T32_INT1_IRQHandler
 </UL>
@@ -598,18 +597,18 @@ Global Symbols
 <P><STRONG><a name="[1c]"></a>EUSCIA2_IRQHandler</STRONG> (Thumb, 64 bytes, Stack size 16 bytes, interrupt_1.o(i.EUSCIA2_IRQHandler))
 <BR><BR>[Stack]<UL><LI>Max Depth = 28<LI>Call Chain = EUSCIA2_IRQHandler &rArr; UART_getEnabledInterruptStatus
 </UL>
-<BR>[Calls]<UL><LI><a href="#[67]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_receiveData
-<LI><a href="#[65]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_getEnabledInterruptStatus
-<LI><a href="#[66]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_clearInterruptFlag
+<BR>[Calls]<UL><LI><a href="#[66]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_receiveData
+<LI><a href="#[64]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_getEnabledInterruptStatus
+<LI><a href="#[65]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_clearInterruptFlag
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> startup_msp432p401r_uvision.o(RESET)
 </UL>
 <P><STRONG><a name="[1d]"></a>EUSCIA3_IRQHandler</STRONG> (Thumb, 64 bytes, Stack size 16 bytes, k210.o(i.EUSCIA3_IRQHandler))
 <BR><BR>[Stack]<UL><LI>Max Depth = 28<LI>Call Chain = EUSCIA3_IRQHandler &rArr; UART_getEnabledInterruptStatus
 </UL>
-<BR>[Calls]<UL><LI><a href="#[67]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_receiveData
-<LI><a href="#[65]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_getEnabledInterruptStatus
-<LI><a href="#[66]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_clearInterruptFlag
+<BR>[Calls]<UL><LI><a href="#[66]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_receiveData
+<LI><a href="#[64]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_getEnabledInterruptStatus
+<LI><a href="#[65]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_clearInterruptFlag
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> startup_msp432p401r_uvision.o(RESET)
 </UL>
@@ -628,10 +627,10 @@ Global Symbols
 <LI><a href="#[ae]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;init_encoder_left
 </UL>
 
-<P><STRONG><a name="[68]"></a>GPIO_getEnabledInterruptStatus</STRONG> (Thumb, 80 bytes, Stack size 16 bytes, gpio.o(i.GPIO_getEnabledInterruptStatus))
+<P><STRONG><a name="[67]"></a>GPIO_getEnabledInterruptStatus</STRONG> (Thumb, 80 bytes, Stack size 16 bytes, gpio.o(i.GPIO_getEnabledInterruptStatus))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = GPIO_getEnabledInterruptStatus
 </UL>
-<BR>[Calls]<UL><LI><a href="#[69]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_getInterruptStatus
+<BR>[Calls]<UL><LI><a href="#[68]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_getInterruptStatus
 </UL>
 <BR>[Called By]<UL><LI><a href="#[30]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PORT4_IRQHandler
 <LI><a href="#[2f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PORT3_IRQHandler
@@ -647,8 +646,8 @@ Global Symbols
 <LI><a href="#[2e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PORT2_IRQHandler
 </UL>
 
-<P><STRONG><a name="[69]"></a>GPIO_getInterruptStatus</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, gpio.o(i.GPIO_getInterruptStatus))
-<BR><BR>[Called By]<UL><LI><a href="#[68]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_getEnabledInterruptStatus
+<P><STRONG><a name="[68]"></a>GPIO_getInterruptStatus</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, gpio.o(i.GPIO_getInterruptStatus))
+<BR><BR>[Called By]<UL><LI><a href="#[67]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_getEnabledInterruptStatus
 </UL>
 
 <P><STRONG><a name="[80]"></a>GPIO_interruptEdgeSelect</STRONG> (Thumb, 28 bytes, Stack size 8 bytes, gpio.o(i.GPIO_interruptEdgeSelect))
@@ -662,10 +661,10 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[b2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;init_hc_sr04
 </UL>
 
-<P><STRONG><a name="[6d]"></a>GPIO_setAsInputPinWithPullUpResistor</STRONG> (Thumb, 40 bytes, Stack size 0 bytes, gpio.o(i.GPIO_setAsInputPinWithPullUpResistor))
+<P><STRONG><a name="[6c]"></a>GPIO_setAsInputPinWithPullUpResistor</STRONG> (Thumb, 40 bytes, Stack size 0 bytes, gpio.o(i.GPIO_setAsInputPinWithPullUpResistor))
 <BR><BR>[Called By]<UL><LI><a href="#[b0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;init_encoder_right
 <LI><a href="#[ae]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;init_encoder_left
-<LI><a href="#[6c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;KEY_Init
+<LI><a href="#[6b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;KEY_Init
 </UL>
 
 <P><STRONG><a name="[a9]"></a>GPIO_setAsOutputPin</STRONG> (Thumb, 28 bytes, Stack size 0 bytes, gpio.o(i.GPIO_setAsOutputPin))
@@ -690,7 +689,7 @@ Global Symbols
 <P><STRONG><a name="[82]"></a>GPIO_setOutputHighOnPin</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, gpio.o(i.GPIO_setOutputHighOnPin))
 <BR><BR>[Called By]<UL><LI><a href="#[bf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;trigger_measure
 <LI><a href="#[b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;init_motor
-<LI><a href="#[61]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;set_pwm
+<LI><a href="#[63]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;set_pwm
 <LI><a href="#[2e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PORT2_IRQHandler
 </UL>
 
@@ -698,7 +697,7 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[bf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;trigger_measure
 <LI><a href="#[b2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;init_hc_sr04
 <LI><a href="#[a8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;init_control
-<LI><a href="#[61]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;set_pwm
+<LI><a href="#[63]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;set_pwm
 </UL>
 
 <P><STRONG><a name="[bb]"></a>GPIO_toggleOutputOnPin</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, gpio.o(i.GPIO_toggleOutputOnPin))
@@ -714,19 +713,19 @@ Global Symbols
 <LI><a href="#[a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;init_K210
 </UL>
 
-<P><STRONG><a name="[6a]"></a>Interrupt_enableMaster</STRONG> (Thumb, 16 bytes, Stack size 8 bytes, interrupt.o(i.Interrupt_enableMaster))
+<P><STRONG><a name="[69]"></a>Interrupt_enableMaster</STRONG> (Thumb, 16 bytes, Stack size 8 bytes, interrupt.o(i.Interrupt_enableMaster))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = Interrupt_enableMaster
 </UL>
-<BR>[Calls]<UL><LI><a href="#[6b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CPU_cpsie
+<BR>[Calls]<UL><LI><a href="#[6a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CPU_cpsie
 </UL>
 <BR>[Called By]<UL><LI><a href="#[a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;init_K210
 <LI><a href="#[b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;$Super$$main
 </UL>
 
-<P><STRONG><a name="[6c]"></a>KEY_Init</STRONG> (Thumb, 12 bytes, Stack size 8 bytes, key.o(i.KEY_Init))
+<P><STRONG><a name="[6b]"></a>KEY_Init</STRONG> (Thumb, 12 bytes, Stack size 8 bytes, key.o(i.KEY_Init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = KEY_Init
 </UL>
-<BR>[Calls]<UL><LI><a href="#[6d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_setAsInputPinWithPullUpResistor
+<BR>[Calls]<UL><LI><a href="#[6c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_setAsInputPinWithPullUpResistor
 </UL>
 <BR>[Called By]<UL><LI><a href="#[b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;$Super$$main
 </UL>
@@ -738,44 +737,44 @@ Global Symbols
 <P><STRONG><a name="[78]"></a>OLED_CS_Clr</STRONG> (Thumb, 16 bytes, Stack size 8 bytes, oled.o(i.OLED_CS_Clr))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = OLED_CS_Clr
 </UL>
-<BR>[Called By]<UL><LI><a href="#[6f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_WR_Byte
+<BR>[Called By]<UL><LI><a href="#[6e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_WR_Byte
 </UL>
 
 <P><STRONG><a name="[7d]"></a>OLED_CS_Set</STRONG> (Thumb, 16 bytes, Stack size 8 bytes, oled.o(i.OLED_CS_Set))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = OLED_CS_Set
 </UL>
-<BR>[Called By]<UL><LI><a href="#[6f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_WR_Byte
+<BR>[Called By]<UL><LI><a href="#[6e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_WR_Byte
 </UL>
 
-<P><STRONG><a name="[6e]"></a>OLED_Clear</STRONG> (Thumb, 64 bytes, Stack size 16 bytes, oled.o(i.OLED_Clear))
+<P><STRONG><a name="[6d]"></a>OLED_Clear</STRONG> (Thumb, 64 bytes, Stack size 16 bytes, oled.o(i.OLED_Clear))
 <BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = OLED_Clear &rArr; OLED_WR_Byte &rArr; OLED_SDIN_Set
 </UL>
-<BR>[Calls]<UL><LI><a href="#[6f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_WR_Byte
+<BR>[Calls]<UL><LI><a href="#[6e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_WR_Byte
 </UL>
-<BR>[Called By]<UL><LI><a href="#[70]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_Init
+<BR>[Called By]<UL><LI><a href="#[6f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_Init
 </UL>
 
 <P><STRONG><a name="[77]"></a>OLED_DC_Clr</STRONG> (Thumb, 16 bytes, Stack size 8 bytes, oled.o(i.OLED_DC_Clr))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = OLED_DC_Clr
 </UL>
-<BR>[Called By]<UL><LI><a href="#[6f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_WR_Byte
+<BR>[Called By]<UL><LI><a href="#[6e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_WR_Byte
 </UL>
 
 <P><STRONG><a name="[76]"></a>OLED_DC_Set</STRONG> (Thumb, 16 bytes, Stack size 8 bytes, oled.o(i.OLED_DC_Set))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = OLED_DC_Set
 </UL>
-<BR>[Called By]<UL><LI><a href="#[6f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_WR_Byte
+<BR>[Called By]<UL><LI><a href="#[6e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_WR_Byte
 </UL>
 
-<P><STRONG><a name="[70]"></a>OLED_Init</STRONG> (Thumb, 272 bytes, Stack size 8 bytes, oled.o(i.OLED_Init))
+<P><STRONG><a name="[6f]"></a>OLED_Init</STRONG> (Thumb, 272 bytes, Stack size 8 bytes, oled.o(i.OLED_Init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 48<LI>Call Chain = OLED_Init &rArr; OLED_Set_Pos &rArr; OLED_WR_Byte &rArr; OLED_SDIN_Set
 </UL>
-<BR>[Calls]<UL><LI><a href="#[6f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_WR_Byte
+<BR>[Calls]<UL><LI><a href="#[6e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_WR_Byte
 <LI><a href="#[73]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_Set_Pos
-<LI><a href="#[71]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_RST_Set
+<LI><a href="#[70]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_RST_Set
 <LI><a href="#[72]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_RST_Clr
-<LI><a href="#[6e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_Clear
-<LI><a href="#[62]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay_ms
+<LI><a href="#[6d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_Clear
+<LI><a href="#[71]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay_ms
 </UL>
 <BR>[Called By]<UL><LI><a href="#[b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;$Super$$main
 </UL>
@@ -783,52 +782,52 @@ Global Symbols
 <P><STRONG><a name="[72]"></a>OLED_RST_Clr</STRONG> (Thumb, 16 bytes, Stack size 8 bytes, oled.o(i.OLED_RST_Clr))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = OLED_RST_Clr
 </UL>
-<BR>[Called By]<UL><LI><a href="#[70]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_Init
+<BR>[Called By]<UL><LI><a href="#[6f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_Init
 </UL>
 
-<P><STRONG><a name="[71]"></a>OLED_RST_Set</STRONG> (Thumb, 16 bytes, Stack size 8 bytes, oled.o(i.OLED_RST_Set))
+<P><STRONG><a name="[70]"></a>OLED_RST_Set</STRONG> (Thumb, 16 bytes, Stack size 8 bytes, oled.o(i.OLED_RST_Set))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = OLED_RST_Set
 </UL>
-<BR>[Called By]<UL><LI><a href="#[70]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_Init
+<BR>[Called By]<UL><LI><a href="#[6f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_Init
 </UL>
 
 <P><STRONG><a name="[79]"></a>OLED_SCLK_Clr</STRONG> (Thumb, 16 bytes, Stack size 8 bytes, oled.o(i.OLED_SCLK_Clr))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = OLED_SCLK_Clr
 </UL>
-<BR>[Called By]<UL><LI><a href="#[6f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_WR_Byte
+<BR>[Called By]<UL><LI><a href="#[6e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_WR_Byte
 </UL>
 
 <P><STRONG><a name="[7c]"></a>OLED_SCLK_Set</STRONG> (Thumb, 16 bytes, Stack size 8 bytes, oled.o(i.OLED_SCLK_Set))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = OLED_SCLK_Set
 </UL>
-<BR>[Called By]<UL><LI><a href="#[6f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_WR_Byte
+<BR>[Called By]<UL><LI><a href="#[6e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_WR_Byte
 </UL>
 
 <P><STRONG><a name="[7b]"></a>OLED_SDIN_Clr</STRONG> (Thumb, 16 bytes, Stack size 8 bytes, oled.o(i.OLED_SDIN_Clr))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = OLED_SDIN_Clr
 </UL>
-<BR>[Called By]<UL><LI><a href="#[6f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_WR_Byte
+<BR>[Called By]<UL><LI><a href="#[6e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_WR_Byte
 </UL>
 
 <P><STRONG><a name="[7a]"></a>OLED_SDIN_Set</STRONG> (Thumb, 16 bytes, Stack size 8 bytes, oled.o(i.OLED_SDIN_Set))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = OLED_SDIN_Set
 </UL>
-<BR>[Called By]<UL><LI><a href="#[6f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_WR_Byte
+<BR>[Called By]<UL><LI><a href="#[6e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_WR_Byte
 </UL>
 
 <P><STRONG><a name="[73]"></a>OLED_Set_Pos</STRONG> (Thumb, 46 bytes, Stack size 16 bytes, oled.o(i.OLED_Set_Pos))
 <BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = OLED_Set_Pos &rArr; OLED_WR_Byte &rArr; OLED_SDIN_Set
 </UL>
-<BR>[Calls]<UL><LI><a href="#[6f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_WR_Byte
+<BR>[Calls]<UL><LI><a href="#[6e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_WR_Byte
 </UL>
-<BR>[Called By]<UL><LI><a href="#[70]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_Init
+<BR>[Called By]<UL><LI><a href="#[6f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_Init
 <LI><a href="#[74]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_ShowChar
 </UL>
 
 <P><STRONG><a name="[74]"></a>OLED_ShowChar</STRONG> (Thumb, 106 bytes, Stack size 24 bytes, oled.o(i.OLED_ShowChar))
 <BR><BR>[Stack]<UL><LI>Max Depth = 64<LI>Call Chain = OLED_ShowChar &rArr; OLED_Set_Pos &rArr; OLED_WR_Byte &rArr; OLED_SDIN_Set
 </UL>
-<BR>[Calls]<UL><LI><a href="#[6f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_WR_Byte
+<BR>[Calls]<UL><LI><a href="#[6e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_WR_Byte
 <LI><a href="#[73]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_Set_Pos
 </UL>
 <BR>[Called By]<UL><LI><a href="#[75]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_ShowString
@@ -842,7 +841,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;$Super$$main
 </UL>
 
-<P><STRONG><a name="[6f]"></a>OLED_WR_Byte</STRONG> (Thumb, 72 bytes, Stack size 16 bytes, oled.o(i.OLED_WR_Byte))
+<P><STRONG><a name="[6e]"></a>OLED_WR_Byte</STRONG> (Thumb, 72 bytes, Stack size 16 bytes, oled.o(i.OLED_WR_Byte))
 <BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = OLED_WR_Byte &rArr; OLED_SDIN_Set
 </UL>
 <BR>[Calls]<UL><LI><a href="#[7a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_SDIN_Set
@@ -854,10 +853,10 @@ Global Symbols
 <LI><a href="#[7d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_CS_Set
 <LI><a href="#[78]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_CS_Clr
 </UL>
-<BR>[Called By]<UL><LI><a href="#[70]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_Init
+<BR>[Called By]<UL><LI><a href="#[6f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_Init
 <LI><a href="#[74]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_ShowChar
 <LI><a href="#[73]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_Set_Pos
-<LI><a href="#[6e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_Clear
+<LI><a href="#[6d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_Clear
 </UL>
 
 <P><STRONG><a name="[2e]"></a>PORT2_IRQHandler</STRONG> (Thumb, 162 bytes, Stack size 8 bytes, interrupt_1.o(i.PORT2_IRQHandler))
@@ -867,7 +866,7 @@ Global Symbols
 <LI><a href="#[82]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_setOutputHighOnPin
 <LI><a href="#[80]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_interruptEdgeSelect
 <LI><a href="#[7f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_getInputPinValue
-<LI><a href="#[68]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_getEnabledInterruptStatus
+<LI><a href="#[67]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_getEnabledInterruptStatus
 <LI><a href="#[7e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_clearInterruptFlag
 <LI><a href="#[83]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Timer32_haltTimer
 </UL>
@@ -877,7 +876,7 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = PORT3_IRQHandler &rArr; GPIO_getEnabledInterruptStatus
 </UL>
 <BR>[Calls]<UL><LI><a href="#[7f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_getInputPinValue
-<LI><a href="#[68]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_getEnabledInterruptStatus
+<LI><a href="#[67]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_getEnabledInterruptStatus
 <LI><a href="#[7e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_clearInterruptFlag
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> startup_msp432p401r_uvision.o(RESET)
@@ -886,7 +885,7 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = PORT4_IRQHandler &rArr; GPIO_getEnabledInterruptStatus
 </UL>
 <BR>[Calls]<UL><LI><a href="#[7f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_getInputPinValue
-<LI><a href="#[68]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_getEnabledInterruptStatus
+<LI><a href="#[67]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_getEnabledInterruptStatus
 <LI><a href="#[7e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_clearInterruptFlag
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> startup_msp432p401r_uvision.o(RESET)
@@ -964,10 +963,10 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;privateTimer_AProcessClockSourceDivider
 </UL>
-<BR>[Called By]<UL><LI><a href="#[61]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;set_pwm
+<BR>[Called By]<UL><LI><a href="#[63]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;set_pwm
 </UL>
 
-<P><STRONG><a name="[66]"></a>UART_clearInterruptFlag</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, uart.o(i.UART_clearInterruptFlag))
+<P><STRONG><a name="[65]"></a>UART_clearInterruptFlag</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, uart.o(i.UART_clearInterruptFlag))
 <BR><BR>[Called By]<UL><LI><a href="#[1c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EUSCIA2_IRQHandler
 <LI><a href="#[1d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EUSCIA3_IRQHandler
 </UL>
@@ -983,7 +982,7 @@ Global Symbols
 <LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initSerial
 </UL>
 
-<P><STRONG><a name="[65]"></a>UART_getEnabledInterruptStatus</STRONG> (Thumb, 72 bytes, Stack size 12 bytes, uart.o(i.UART_getEnabledInterruptStatus))
+<P><STRONG><a name="[64]"></a>UART_getEnabledInterruptStatus</STRONG> (Thumb, 72 bytes, Stack size 12 bytes, uart.o(i.UART_getEnabledInterruptStatus))
 <BR><BR>[Stack]<UL><LI>Max Depth = 12<LI>Call Chain = UART_getEnabledInterruptStatus
 </UL>
 <BR>[Calls]<UL><LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_getInterruptStatus
@@ -993,7 +992,7 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[89]"></a>UART_getInterruptStatus</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, uart.o(i.UART_getInterruptStatus))
-<BR><BR>[Called By]<UL><LI><a href="#[65]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_getEnabledInterruptStatus
+<BR><BR>[Called By]<UL><LI><a href="#[64]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_getEnabledInterruptStatus
 </UL>
 
 <P><STRONG><a name="[9e]"></a>UART_initModule</STRONG> (Thumb, 246 bytes, Stack size 12 bytes, uart.o(i.UART_initModule))
@@ -1004,7 +1003,7 @@ Global Symbols
 <LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initSerial
 </UL>
 
-<P><STRONG><a name="[67]"></a>UART_receiveData</STRONG> (Thumb, 44 bytes, Stack size 0 bytes, uart.o(i.UART_receiveData))
+<P><STRONG><a name="[66]"></a>UART_receiveData</STRONG> (Thumb, 44 bytes, Stack size 0 bytes, uart.o(i.UART_receiveData))
 <BR><BR>[Called By]<UL><LI><a href="#[1c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EUSCIA2_IRQHandler
 <LI><a href="#[1d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EUSCIA3_IRQHandler
 </UL>
@@ -1041,21 +1040,20 @@ Global Symbols
 
 <P><STRONG><a name="[123]"></a>__scatterload_zeroinit</STRONG> (Thumb, 14 bytes, Stack size unknown bytes, handlers.o(i.__scatterload_zeroinit), UNUSED)
 
-<P><STRONG><a name="[62]"></a>delay_ms</STRONG> (Thumb, 28 bytes, Stack size 12 bytes, delay.o(i.delay_ms))
+<P><STRONG><a name="[71]"></a>delay_ms</STRONG> (Thumb, 28 bytes, Stack size 12 bytes, delay.o(i.delay_ms))
 <BR><BR>[Stack]<UL><LI>Max Depth = 12<LI>Call Chain = delay_ms
 </UL>
 <BR>[Calls]<UL><LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay_us
 </UL>
 <BR>[Called By]<UL><LI><a href="#[bf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;trigger_measure
-<LI><a href="#[70]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_Init
-<LI><a href="#[5d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Control
+<LI><a href="#[6f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_Init
 </UL>
 
 <P><STRONG><a name="[9a]"></a>delay_us</STRONG> (Thumb, 72 bytes, Stack size 0 bytes, delay.o(i.delay_us))
-<BR><BR>[Called By]<UL><LI><a href="#[62]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay_ms
+<BR><BR>[Called By]<UL><LI><a href="#[71]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay_ms
 </UL>
 
-<P><STRONG><a name="[63]"></a>distance</STRONG> (Thumb, 134 bytes, Stack size 40 bytes, control.o(i.distance))
+<P><STRONG><a name="[61]"></a>distance</STRONG> (Thumb, 134 bytes, Stack size 40 bytes, control.o(i.distance))
 <BR><BR>[Stack]<UL><LI>Max Depth = 128<LI>Call Chain = distance &rArr; __aeabi_dmul &rArr; _double_epilogue &rArr; _double_round
 </UL>
 <BR>[Calls]<UL><LI><a href="#[9b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2d
@@ -1071,7 +1069,7 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[7f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_getInputPinValue
 </UL>
-<BR>[Called By]<UL><LI><a href="#[60]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;turn
+<BR>[Called By]<UL><LI><a href="#[60]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;turn2
 </UL>
 
 <P><STRONG><a name="[b9]"></a>init</STRONG> (Thumb, 64 bytes, Stack size 8 bytes, oled.o(i.init))
@@ -1094,7 +1092,7 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 64<LI>Call Chain = init_K210 &rArr; CS_setDCOFrequency &rArr; SysCtl_getTLVInfo
 </UL>
 <BR>[Calls]<UL><LI><a href="#[a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Interrupt_enableInterrupt
-<LI><a href="#[6a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Interrupt_enableMaster
+<LI><a href="#[69]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Interrupt_enableMaster
 <LI><a href="#[59]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CS_setDCOFrequency
 <LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_initModule
 <LI><a href="#[9f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_enableModule
@@ -1136,7 +1134,7 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = init_encoder_left
 </UL>
 <BR>[Calls]<UL><LI><a href="#[a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Interrupt_enableInterrupt
-<LI><a href="#[6d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_setAsInputPinWithPullUpResistor
+<LI><a href="#[6c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_setAsInputPinWithPullUpResistor
 <LI><a href="#[af]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_enableInterrupt
 <LI><a href="#[7e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_clearInterruptFlag
 </UL>
@@ -1147,7 +1145,7 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = init_encoder_right
 </UL>
 <BR>[Calls]<UL><LI><a href="#[a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Interrupt_enableInterrupt
-<LI><a href="#[6d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_setAsInputPinWithPullUpResistor
+<LI><a href="#[6c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_setAsInputPinWithPullUpResistor
 <LI><a href="#[af]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_enableInterrupt
 <LI><a href="#[7e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_clearInterruptFlag
 </UL>
@@ -1193,7 +1191,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;$Super$$main
 </UL>
 
-<P><STRONG><a name="[64]"></a>limit_pwm</STRONG> (Thumb, 22 bytes, Stack size 0 bytes, motor.o(i.limit_pwm))
+<P><STRONG><a name="[62]"></a>limit_pwm</STRONG> (Thumb, 22 bytes, Stack size 0 bytes, motor.o(i.limit_pwm))
 <BR><BR>[Called By]<UL><LI><a href="#[5d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Control
 <LI><a href="#[5f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;velocity
 </UL>
@@ -1216,10 +1214,10 @@ Global Symbols
 <LI><a href="#[b7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WDT_A_holdTimer
 <LI><a href="#[81]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Timer32_startTimer
 <LI><a href="#[75]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_ShowString
-<LI><a href="#[70]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_Init
+<LI><a href="#[6f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_Init
 <LI><a href="#[ba]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;KEY_Scan
-<LI><a href="#[6c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;KEY_Init
-<LI><a href="#[6a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Interrupt_enableMaster
+<LI><a href="#[6b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;KEY_Init
+<LI><a href="#[69]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Interrupt_enableMaster
 <LI><a href="#[bb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_toggleOutputOnPin
 <LI><a href="#[b8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Delay_Init
 <LI><a href="#[c0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2sprintf
@@ -1807,7 +1805,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;$Super$$main
 </UL>
 
-<P><STRONG><a name="[61]"></a>set_pwm</STRONG> (Thumb, 140 bytes, Stack size 24 bytes, motor.o(i.set_pwm))
+<P><STRONG><a name="[63]"></a>set_pwm</STRONG> (Thumb, 140 bytes, Stack size 24 bytes, motor.o(i.set_pwm))
 <BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = set_pwm &rArr; Timer_A_generatePWM
 </UL>
 <BR>[Calls]<UL><LI><a href="#[aa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_setOutputLowOnPin
@@ -1822,13 +1820,13 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[aa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_setOutputLowOnPin
 <LI><a href="#[82]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_setOutputHighOnPin
-<LI><a href="#[62]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay_ms
+<LI><a href="#[71]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay_ms
 </UL>
 <BR>[Called By]<UL><LI><a href="#[b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;$Super$$main
 </UL>
 
-<P><STRONG><a name="[60]"></a>turn</STRONG> (Thumb, 480 bytes, Stack size 8 bytes, control.o(i.turn))
-<BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = turn &rArr; getTCRTValue &rArr; GPIO_getInputPinValue
+<P><STRONG><a name="[60]"></a>turn2</STRONG> (Thumb, 932 bytes, Stack size 8 bytes, control.o(i.turn2))
+<BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = turn2 &rArr; getTCRTValue &rArr; GPIO_getInputPinValue
 </UL>
 <BR>[Calls]<UL><LI><a href="#[9c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getTCRTValue
 </UL>
@@ -1838,7 +1836,7 @@ Global Symbols
 <P><STRONG><a name="[5f]"></a>velocity</STRONG> (Thumb, 222 bytes, Stack size 48 bytes, control.o(i.velocity))
 <BR><BR>[Stack]<UL><LI>Max Depth = 136<LI>Call Chain = velocity &rArr; __aeabi_dmul &rArr; _double_epilogue &rArr; _double_round
 </UL>
-<BR>[Calls]<UL><LI><a href="#[64]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;limit_pwm
+<BR>[Calls]<UL><LI><a href="#[62]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;limit_pwm
 <LI><a href="#[9b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2d
 <LI><a href="#[4c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dmul
 <LI><a href="#[45]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dadd
