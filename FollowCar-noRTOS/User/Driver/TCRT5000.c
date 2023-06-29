@@ -66,21 +66,21 @@ bool read_TCRT(int num)
 		  break;
 		case 3:
 			adcV=ADC14_getResult(ADC_MEM20);
-		  if(adcV>1000)
+		  if(adcV>1500)
 				value=1;
 			else 
 				value=0;
 		  break;
 		case 4:
 			adcV=ADC14_getResult(ADC_MEM23);
-		  if(adcV>1000)
+		  if(adcV>1500)
 				value=1;
 			else 
 				value=0;
 		  break;
 		case 5:
 			adcV=ADC14_getResult(ADC_MEM22);
-		  if(adcV>1000)
+		  if(adcV>1500)
 				value=1;
 			else 
 				value=0;

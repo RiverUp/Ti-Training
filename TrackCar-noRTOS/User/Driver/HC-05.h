@@ -7,6 +7,7 @@
 extern char btdata[20];
 extern uint8_t dataPtr;
 extern bool BTRecCompleteFlag;
+extern bool BTBeginConnectFlag;
 
 void init_hc05(void);
 void sendMsgByBlueTooth(char *msg);

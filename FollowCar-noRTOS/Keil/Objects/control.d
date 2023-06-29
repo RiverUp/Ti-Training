@@ -55,3 +55,4 @@
 .\objects\control.o: ..\RTthread\include\rtdef.h
 .\objects\control.o: D:\Environment\keil\ARM\ARMCC\Bin\..\include\stdarg.h
 .\objects\control.o: ..\RTthread\include\rtservice.h
+.\objects\control.o: ..\User\Driver\Delay.h

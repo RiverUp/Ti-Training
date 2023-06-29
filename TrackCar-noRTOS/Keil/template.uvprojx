@@ -712,6 +712,11 @@
               <FileType>1</FileType>
               <FilePath>..\User\Driver\key.c</FilePath>
             </File>
+            <File>
+              <FileName>k210.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\User\Driver\k210.c</FilePath>
+            </File>
           </Files>
         </Group>
       </Groups>

@@ -1,26 +1,30 @@
 #include "Control.h"
 
-#define MaxTurn1 2700
+#define MaxTurn1 1200
 #define MaxTurn2 2000
 #define ChangeIntervalTurn1 180   
-#define ChangeIntervalTurn2 800
+#define ChangeIntervalTurn2 400
 
-#define StraightV 14
-#define TurnV1 14
+#define StraightV 15
+#define TurnV1 12
 #define TurnV2 10
-
-#define DislanceK 75
 
 #define DecelerationTimes 0
 
+bool StopFlag;
+bool CrossFlag;			//遇到岔道
+int CrossNums;			//遇到的岔道个数
 bool DecelerationFlag;
 int DecelerationCounter;
 
 int Mission=1;
 
 float target_encoder_value=40;
-float Velocity_Kp=100,Velocity_Ki=27;
+float Velocity_Kp=100,Velocity_Ki=20;
+float Distance_Kp=0.1;
 int turnPwm=0;
+int distancePwm=0;
+int pwma, pwmb;
 float adc;
 bool t1,t2,t3,t4,t5;
 bool last_t1,last_t2,last_t3,last_t4,last_t5;
@@ -42,18 +46,21 @@ void Control()
 //	int pwma=velocity_left(left)+turn_value;
 //	int pwmb=velocity_right(right)-turn_value;
 	
-	int distance_value=(HCSRCountValue-HCSRStandardValue)*DislanceK;
+
 	
-	int pwma, pwmb;
+	
 	if(Mission==1)
 	{
-		pwma = velocity_value + turn_value;//+distance_value;
-		pwmb = velocity_value - turn_value;//+distance_value;
+		pwma = velocity_value + turn_value;
+		pwmb = velocity_value - turn_value;
 	}
 	if(Mission==2)
 	{
-		pwma = velocity_value + turn_value;//+distance_value;
-		pwmb = velocity_value - turn_value;//+distance_value;
+		pwma = velocity_value + turn_value;
+		pwmb = velocity_value - turn_value;
+		int distance_value=distance(HCSRCountValue);
+		distance_value=limit_pwm(distance_value,-10,10);
+		target_encoder_value+=distance_value;
 	}
 	pwma=limit_pwm(pwma,8000,-8000);
 	pwmb=limit_pwm(pwmb,8000,-8000);
@@ -97,6 +104,17 @@ int velocity_right(int current_encoder_value)
 	return velocity;
 }
 
+int distance(int current_dis)
+{
+	static float current_bias,distance_bias;
+	current_bias=current_dis-HCSRStandardValue;
+	distance_bias=0.84*distance_bias+current_bias*0.16;
+
+	distancePwm=distance_bias*Distance_Kp;
+
+	return distancePwm;
+}
+
 int turn()
 {
 	//t1=1;
@@ -105,6 +123,11 @@ int turn()
 	t3=getTCRTValue(3);
 	t4=getTCRTValue(4);
 	t5=getTCRTValue(5);
+	
+	if(t2==1&&t3==1&&t4==1)
+	{
+		//StopFlag=true;
+	}
 	
 	if(t1+t2+t3+t4+t5==0)
 	{
@@ -172,6 +195,18 @@ int turn()
 				turnPwm-=ChangeIntervalTurn2;
 			}
 		}
+//		if(t2==1&&t4==1)
+//		{
+//			if(turnPwm<-MaxTurn2)
+//			{
+//				turnPwm=-MaxTurn2;
+//			}
+//			else
+//			{
+//				turnPwm+=1000;
+//			}
+//		}
+			
 	}
 	
 	if(DecelerationFlag)

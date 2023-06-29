@@ -5,6 +5,7 @@
 char btdata[20];
 uint8_t dataPtr;
 bool BTRecCompleteFlag;
+bool BTBeginConnectFlag;
 
 //设置波特率为9600
 const eUSCI_UART_ConfigV1 uartConfigForHC05 =
