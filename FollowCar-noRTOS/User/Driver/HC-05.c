@@ -22,10 +22,10 @@ const eUSCI_UART_ConfigV1 uartConfigForHC05 =
 };
 
 
-//连接p3.2(RX),p3.3(TX)
+//连接p9.6.2(RX),p9.7(TX)
 void init_hc05(void)
 {
-	GPIO_setAsPeripheralModuleFunctionInputPin(GPIO_PORT_P3,GPIO_PIN3|GPIO_PIN2,GPIO_PRIMARY_MODULE_FUNCTION);
+	GPIO_setAsPeripheralModuleFunctionInputPin(GPIO_PORT_P3,GPIO_PIN2|GPIO_PIN3,GPIO_PRIMARY_MODULE_FUNCTION);
 	UART_initModule(EUSCI_A2_BASE,&uartConfigForHC05);
 	UART_enableModule(EUSCI_A2_BASE);
 		//使能中断

@@ -45,27 +45,27 @@ void init_K210()
 
 
 
-void EUSCIA3_IRQHandler()
-{
-	uint32_t status=UART_getEnabledInterruptStatus(K210_UART);
-	
-	if(status&EUSCI_A_UART_RECEIVE_INTERRUPT_FLAG)
-	{
-    UART_clearInterruptFlag(K210_UART,EUSCI_A_UART_RECEIVE_INTERRUPT);				//turn on interrupt for k210
-		uint8_t dat=UART_receiveData(K210_UART);																	//receive the data one by one
-		if(dat!='0')																																	//judge receive over or not
-		{
-			k210_data[data_k210_Ptr++]=dat;
-		}
-		else
-		{
-			K210_RecCompleteFlag=true;
-		}
-			
-	}
+//void EUSCIA3_IRQHandler()
+//{
+//	uint32_t status=UART_getEnabledInterruptStatus(K210_UART);
+//	
+//	if(status&EUSCI_A_UART_RECEIVE_INTERRUPT_FLAG)
+//	{
+//    UART_clearInterruptFlag(K210_UART,EUSCI_A_UART_RECEIVE_INTERRUPT);				//turn on interrupt for k210
+//		uint8_t dat=UART_receiveData(K210_UART);																	//receive the data one by one
+//		if(dat!='0')																																	//judge receive over or not
+//		{
+//			k210_data[data_k210_Ptr++]=dat;
+//		}
+//		else
+//		{
+//			K210_RecCompleteFlag=true;
+//		}
+//			
+//	}
 
-//		MAP_UART_transmitData(K210_UART, MAP_UART_receiveData(K210_UART));
-}
+////		MAP_UART_transmitData(K210_UART, MAP_UART_receiveData(K210_UART));
+//}
 
 //K210数据发送函数
 void K210_Translate(uint8_t *Tx)

@@ -56,5 +56,6 @@
 .\objects\interrupt_1.o: ..\User\Driver\TCRT5000.h
 .\objects\interrupt_1.o: ..\User\Driver\oled.h
 .\objects\interrupt_1.o: D:\Environment\keil\ARM\ARMCC\Bin\..\include\stdio.h
+.\objects\interrupt_1.o: ..\User\Driver\Delay.h
 .\objects\interrupt_1.o: ..\User\Driver\HC-05.h
 .\objects\interrupt_1.o: D:\Environment\keil\ARM\ARMCC\Bin\..\include\string.h

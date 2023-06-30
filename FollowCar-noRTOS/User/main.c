@@ -34,7 +34,7 @@ int main(void)
 	init_hc_sr04();
 	init_hc05();
 	KEY_Init();
-	init_K210();
+//	init_K210();
 	
 	//init_TCRT();
 	
@@ -59,16 +59,17 @@ int main(void)
 		//¿∂—¿–≈œ¢≈–∂œ
 		if(BTRecCompleteFlag)
 		{
-			//OLED_ShowString(0,4,(unsigned char*)btdata);
+			OLED_ShowString(0,6,(unsigned char*)btdata);
 			if(!strcmp(btdata,"bk"))
 			{
 				btdata[dataPtr]='0';
 				sendMsgByBlueTooth(btdata);
 			}
 			if(!strcmp(btdata,"r"))
+			//if(btdata[1]=='r')
 			{
-				btdata[dataPtr]='0';
-				sendMsgByBlueTooth(btdata);
+				//btdata[dataPtr]='0';
+				//sendMsgByBlueTooth(btdata);
 				Timer32_startTimer(TIMER32_BASE, false);
 			}
 			dataPtr=0;
@@ -90,18 +91,18 @@ int main(void)
 //		sprintf(text3,"adc:%.2f     ",adc);
 		sprintf(text3,"turnPwm:%d     ",turnPwm);
 		//k210
-		if(K210_RecCompleteFlag)
-		{
-			K210_RecCompleteFlag=false;
-			OLED_ShowString(0,6,(unsigned char *)k210_data);
-			if(k210_data[0]==2)
-			{
-				CrossFlag=true;
-				CrossNums++;
-			}
-			data_k210_Ptr=0;
-			memset(k210_data,0,strlen(k210_data));
-		}
+//		if(K210_RecCompleteFlag)
+//		{
+//			K210_RecCompleteFlag=false;
+//			OLED_ShowString(0,6,(unsigned char *)k210_data);
+//			if(k210_data[0]==2)
+//			{
+//				CrossFlag=true;
+//				CrossNums++;
+//			}
+//			data_k210_Ptr=0;
+//			memset(k210_data,0,strlen(k210_data));
+//		}
 		//OLED_ShowString(0,4,(unsigned char*)btdata);
 //		sprintf(text3,"distance:%d     ",HCSRCountValue);
 //		OLED_ShowString(0,0,(unsigned char *)text1);
