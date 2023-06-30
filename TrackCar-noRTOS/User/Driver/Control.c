@@ -10,22 +10,26 @@ int TurnV1 =11;
 int TurnV2 =10;
 
 
-int DecelerationTimes=0;
-int SavedTCRTStatus;
+
 
 bool StopFlag;
 bool CrossFlag;			//遇到岔道
+bool WaitFlag;			//第二次遇到不置CrossFlag
 int CrossAccelerateCount;
 int CrossAccelerateTimes=160;
+bool OverTakeFlag;
+int OverTakeCount;
+int WaitCount;
 bool CrossRushOrNot=true;
 int CrossNums;			//遇到的岔道个数
 bool DecelerationFlag1;
 bool DecelerationFlag2;
+int DecelerationTimes=0;
 int DecelerationCounter;
 
 int Mission=1;
 
-float target_encoder_value=40;
+float target_encoder_value;
 float Velocity_Kp=100,Velocity_Ki=22;
 float Distance_Kp=0.1;
 int turnPwm=0;
@@ -48,8 +52,8 @@ void Control()
 	
 	
 	int pwma, pwmb;
-	if(Mission==1)
-	{
+//	if(Mission==1)
+//	{
 		
 		pwma = velocity_value + turn_value;
 		pwmb = velocity_value - turn_value;
@@ -59,14 +63,14 @@ void Control()
 //			delay_ms(CrossAccelerateTimes);
 //			CrossFlag=false;
 //		}
-	}
-	if(Mission==2)
-	{
-		pwma = velocity_value + turn_value;//+distance_value;
-		pwmb = velocity_value - turn_value;//+distance_value;
-		int distance_value=distance(HCSRCountValue);
-		target_encoder_value+=distance_value;
-	}
+//	}
+//	if(Mission==2)
+//	{
+//		pwma = velocity_value + turn_value;//+distance_value;
+//		pwmb = velocity_value - turn_value;//+distance_value;
+//		int distance_value=distance(HCSRCountValue);
+//		target_encoder_value+=distance_value;
+//	}
 	pwma=limit_pwm(pwma,8000,-8000);
 	pwmb=limit_pwm(pwmb,8000,-8000);
   
@@ -264,7 +268,42 @@ int turn2()
 		case 1110:
 		case 11110:
 		case 1111:
-			CrossFlag=true;
+			if(Mission==1&&CrossNums==1&&!WaitFlag)
+			{
+				StopFlag=true;
+			}
+			if(Mission==2&&CrossNums==2&&!WaitCount)
+			{
+				StopFlag=true;
+			}
+			if(Mission==3&&!WaitFlag)
+			{
+				if(CrossNums==1)
+				{
+					sendMsgByBlueTooth("i");
+				}
+				if(CrossNums==2)
+				{
+					sendMsgByBlueTooth("o");
+					CrossRushOrNot=false;
+					MaxTurn1=1500;
+					MaxTurn2=2000;
+					ChangeIntervalTurn1=250;
+					ChangeIntervalTurn2=1800;
+					StraightV=15;
+					TurnV1=15;
+					TurnV2=12;
+					Velocity_Kp=100;
+					Velocity_Ki=22;
+					CrossAccelerateTimes=80;
+					DecelerationTimes=10;
+				}
+			}
+			if(!WaitFlag)
+			{
+				CrossFlag=true;
+				WaitFlag=true;
+			}
 			break;
 		default:break;
 	}
@@ -309,6 +348,43 @@ int turn2()
 		{
 			CrossFlag=false;
 			CrossAccelerateCount=0;
+			CrossNums++;
+		}
+	}
+	if(WaitFlag)
+	{
+		if(WaitCount<10*CrossAccelerateTimes)
+		{
+			WaitCount++;
+		}
+		else
+		{
+			WaitFlag=false;
+			WaitCount=0;
+		}
+		
+	}
+	if(OverTakeFlag)
+	{
+		if(OverTakeCount<150)
+		{
+			OverTakeCount++;
+		}
+		else
+		{
+			OverTakeFlag=false;
+			CrossRushOrNot=true;
+			MaxTurn1=1500;
+			MaxTurn2=2000;
+			ChangeIntervalTurn1=250;
+			ChangeIntervalTurn2=1800;
+			StraightV=11;
+			TurnV1=11;
+			TurnV2=10;
+			Velocity_Kp=100;
+			Velocity_Ki=22;
+			CrossAccelerateTimes=160;
+			DecelerationTimes=0;
 		}
 	}
 	
@@ -355,7 +431,6 @@ int turn()
 	{
 		if(t1==1&&t2==0&&t3==0&&t4==0&&t5==0)
 		{
-			SavedTCRTStatus=1;
 			target_encoder_value=TurnV2;
 			DecelerationFlag2=true;
 			if(turnPwm>MaxTurn2)
@@ -404,7 +479,6 @@ int turn()
 		{
 			target_encoder_value=TurnV2;
 			DecelerationFlag2=true;
-			SavedTCRTStatus=5;
 			if(turnPwm<-MaxTurn2)
 			{
 				turnPwm=-MaxTurn2;
@@ -422,25 +496,7 @@ int turn()
 			DecelerationFlag2=false;
 			target_encoder_value=StraightV;
 		}
-//		if(t2==1&&t3==1&&t4==1)
-//		{
-//			CrossFlag=true;
-//		}
-//		if(CrossFlag)
-//		{
-//			if(CrossAccelerateCount<CrossAccelerateTimes)
-//			{
-//				turnPwm=0;
-//				
-//				CrossAccelerateCount++;
-//			}
-//			else
-//			{
-//				CrossFlag=false;
-//				CrossAccelerateCount=0;
-//			}
-//			
-//		}
+
 	}
 	
 	if(DecelerationFlag2)

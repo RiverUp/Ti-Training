@@ -12,9 +12,23 @@
 extern int turnPwm;
 extern float adc;
 extern bool t1,t2,t3;
-extern int mission;
+extern int Mission;
+extern bool StopFlag;
 extern bool CrossFlag;
 extern int CrossNums;
+extern int MaxTurn1;
+extern int MaxTurn2;
+extern int ChangeIntervalTurn1;   
+extern int ChangeIntervalTurn2;
+
+extern int StraightV;
+extern int TurnV1;
+extern int TurnV2;
+extern float Velocity_Kp,Velocity_Ki;
+
+extern int CrossAccelerateTimes,DecelerationTimes;
+
+extern float target_encoder_value;
 
 void Control();
 int velocity_left(int left);

@@ -66,15 +66,59 @@ int main(void)
 				sendMsgByBlueTooth(btdata);
 			}
 			if(!strcmp(btdata,"r"))
-			//if(btdata[1]=='r')
 			{
-				//btdata[dataPtr]='0';
-				//sendMsgByBlueTooth(btdata);
+				encoder_left=0;
+				encoder_right=0;
+				Mission++;
+				switch(Mission)
+				{
+					case 1:
+						MaxTurn1=1500;
+						MaxTurn2=2000;
+						ChangeIntervalTurn1=250;
+						ChangeIntervalTurn2=1800;
+						StraightV=9;
+						TurnV1=9;
+						TurnV2=9;
+						Velocity_Kp=100;
+						Velocity_Ki=22;
+						CrossAccelerateTimes=160;
+						DecelerationTimes=0;		
+						break;
+					case 2:
+						MaxTurn1=1500;
+						MaxTurn2=2000;
+						ChangeIntervalTurn1=250;
+						ChangeIntervalTurn2=1800;
+						StraightV=14;
+						TurnV1=13;
+						TurnV2=12;
+						Velocity_Kp=100;
+						Velocity_Ki=22;
+						CrossAccelerateTimes=80;
+						DecelerationTimes=15;
+						break;
+					case 3:
+						break;
+					case 4:
+						break;
+				}
 				Timer32_startTimer(TIMER32_BASE, false);
+			}
+			if(!strcmp(btdata,"s"))
+			{
+				StopFlag=true;
 			}
 			dataPtr=0;
 			memset(btdata,0,strlen(btdata));
 			BTRecCompleteFlag=false;
+		}
+		
+		if(StopFlag)
+		{
+			set_pwm(0,0);
+			Timer32_haltTimer(TIMER32_0_BASE);
+			StopFlag=false;
 		}
 		//³¬Éù
 		if(NextTiggerHCSRFlag)
@@ -89,7 +133,7 @@ int main(void)
 		sprintf(text1,"r:%2d ",encoder_right);
 		sprintf(text2,"l:%2d ",encoder_left);
 //		sprintf(text3,"adc:%.2f     ",adc);
-		sprintf(text3,"turnPwm:%d     ",turnPwm);
+//		sprintf(text3,"turnPwm:%d     ",turnPwm);
 		//k210
 //		if(K210_RecCompleteFlag)
 //		{
@@ -115,7 +159,7 @@ int main(void)
 //		float adc4=read_TCRT(4);
 //		float adc5=read_TCRT(5);
 		
-//		sprintf(text3,"distance:%d     ",HCSRCountValue);
+		sprintf(text3,"distance:%d     ",HCSRCountValue);
 		
 //		sprintf(text1,"adc1:%.1f",adc1);
 //		sprintf(text2,"adc2:%.1f",adc2);

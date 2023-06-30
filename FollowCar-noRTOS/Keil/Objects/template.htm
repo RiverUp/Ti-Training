@@ -3,7 +3,7 @@
 <title>Static Call Graph - [.\Objects\template.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\Objects\template.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060750: Last Updated: Fri Jun 30 11:11:03 2023
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060750: Last Updated: Fri Jun 30 21:01:46 2023
 <BR><P>
 <H3>Maximum Stack Usage =        300 bytes + Unknown(Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -579,7 +579,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[59]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CS_setDCOFrequency
 </UL>
 
-<P><STRONG><a name="[5d]"></a>Control</STRONG> (Thumb, 144 bytes, Stack size 40 bytes, control.o(i.Control))
+<P><STRONG><a name="[5d]"></a>Control</STRONG> (Thumb, 268 bytes, Stack size 40 bytes, control.o(i.Control))
 <BR><BR>[Stack]<UL><LI>Max Depth = 176<LI>Call Chain = Control &rArr; velocity &rArr; __aeabi_dmul &rArr; _double_epilogue &rArr; _double_round
 </UL>
 <BR>[Calls]<UL><LI><a href="#[63]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;set_pwm
@@ -681,16 +681,16 @@ Global Symbols
 
 <P><STRONG><a name="[82]"></a>GPIO_setOutputHighOnPin</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, gpio.o(i.GPIO_setOutputHighOnPin))
 <BR><BR>[Called By]<UL><LI><a href="#[be]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;trigger_measure
-<LI><a href="#[b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;init_motor
 <LI><a href="#[63]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;set_pwm
+<LI><a href="#[b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;init_motor
 <LI><a href="#[2e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PORT2_IRQHandler
 </UL>
 
 <P><STRONG><a name="[a7]"></a>GPIO_setOutputLowOnPin</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, gpio.o(i.GPIO_setOutputLowOnPin))
 <BR><BR>[Called By]<UL><LI><a href="#[be]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;trigger_measure
+<LI><a href="#[63]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;set_pwm
 <LI><a href="#[b1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;init_hc_sr04
 <LI><a href="#[a5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;init_control
-<LI><a href="#[63]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;set_pwm
 </UL>
 
 <P><STRONG><a name="[ba]"></a>GPIO_toggleOutputOnPin</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, gpio.o(i.GPIO_toggleOutputOnPin))
@@ -854,12 +854,12 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = PORT2_IRQHandler &rArr; GPIO_getEnabledInterruptStatus
 </UL>
 <BR>[Calls]<UL><LI><a href="#[81]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Timer32_startTimer
+<LI><a href="#[83]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Timer32_haltTimer
 <LI><a href="#[82]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_setOutputHighOnPin
 <LI><a href="#[80]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_interruptEdgeSelect
 <LI><a href="#[7f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_getInputPinValue
 <LI><a href="#[67]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_getEnabledInterruptStatus
 <LI><a href="#[7e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_clearInterruptFlag
-<LI><a href="#[83]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Timer32_haltTimer
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> startup_msp432p401r_uvision.o(RESET)
 </UL>
@@ -927,7 +927,8 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[83]"></a>Timer32_haltTimer</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, timer32.o(i.Timer32_haltTimer))
-<BR><BR>[Called By]<UL><LI><a href="#[2e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PORT2_IRQHandler
+<BR><BR>[Called By]<UL><LI><a href="#[b5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;$Super$$main
+<LI><a href="#[2e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PORT2_IRQHandler
 </UL>
 
 <P><STRONG><a name="[a8]"></a>Timer32_initModule</STRONG> (Thumb, 94 bytes, Stack size 16 bytes, timer32.o(i.Timer32_initModule))
@@ -1168,10 +1169,11 @@ Global Symbols
 <LI><a href="#[5f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;velocity
 </UL>
 
-<P><STRONG><a name="[b5]"></a>$Super$$main</STRONG> (Thumb, 256 bytes, Stack size 64 bytes, main.o(i.main))
+<P><STRONG><a name="[b5]"></a>$Super$$main</STRONG> (Thumb, 510 bytes, Stack size 64 bytes, main.o(i.main))
 <BR><BR>[Stack]<UL><LI>Max Depth = 152<LI>Call Chain = $Super$$main &rArr; OLED_ShowString &rArr; OLED_ShowChar &rArr; OLED_Set_Pos &rArr; OLED_WR_Byte &rArr; OLED_SDIN_Set
 </UL>
 <BR>[Calls]<UL><LI><a href="#[be]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;trigger_measure
+<LI><a href="#[63]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;set_pwm
 <LI><a href="#[bc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sendMsgByBlueTooth
 <LI><a href="#[b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;init_motor
 <LI><a href="#[b1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;init_hc_sr04
@@ -1184,6 +1186,7 @@ Global Symbols
 <LI><a href="#[b8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;init
 <LI><a href="#[b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WDT_A_holdTimer
 <LI><a href="#[81]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Timer32_startTimer
+<LI><a href="#[83]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Timer32_haltTimer
 <LI><a href="#[75]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_ShowString
 <LI><a href="#[6f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_Init
 <LI><a href="#[b9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;KEY_Scan
@@ -1515,8 +1518,8 @@ Global Symbols
 <P><STRONG><a name="[f0]"></a>rt_system_scheduler_init</STRONG> (Thumb, 62 bytes, Stack size 8 bytes, scheduler.o(i.rt_system_scheduler_init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 28<LI>Call Chain = rt_system_scheduler_init &rArr; rt_memset
 </UL>
-<BR>[Calls]<UL><LI><a href="#[f1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rt_list_init
-<LI><a href="#[90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rt_memset
+<BR>[Calls]<UL><LI><a href="#[90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rt_memset
+<LI><a href="#[f1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rt_list_init
 </UL>
 <BR>[Called By]<UL><LI><a href="#[51]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rtthread_startup
 </UL>
@@ -1783,7 +1786,8 @@ Global Symbols
 <LI><a href="#[82]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_setOutputHighOnPin
 <LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Timer_A_generatePWM
 </UL>
-<BR>[Called By]<UL><LI><a href="#[5d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Control
+<BR>[Called By]<UL><LI><a href="#[b5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;$Super$$main
+<LI><a href="#[5d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Control
 </UL>
 
 <P><STRONG><a name="[be]"></a>trigger_measure</STRONG> (Thumb, 32 bytes, Stack size 8 bytes, hc-sr04.o(i.trigger_measure))

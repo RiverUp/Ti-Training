@@ -53,8 +53,55 @@ int main(void)
 		int keyState=KEY_Scan(0);
 		if(keyState==KEY1_PRES)
 		{
+			encoder_left=0;
+			encoder_right=0;
+			Mission++;
+			switch(Mission)
+			{
+				case 1:
+					MaxTurn1=1500;
+					MaxTurn2=2000;
+					ChangeIntervalTurn1=250;
+					ChangeIntervalTurn2=1800;
+					StraightV=11;
+					TurnV1=11;
+					TurnV2=10;
+					Velocity_Kp=100;
+					Velocity_Ki=22;
+					CrossAccelerateTimes=160;
+					DecelerationTimes=0;		
+					break;
+				case 2:
+					MaxTurn1=1500;
+					MaxTurn2=2000;
+					ChangeIntervalTurn1=250;
+					ChangeIntervalTurn2=1800;
+					StraightV=14;
+					TurnV1=14;
+					TurnV2=12;
+					Velocity_Kp=100;
+					Velocity_Ki=22;
+					CrossAccelerateTimes=80;
+					DecelerationTimes=10;
+					break;
+				case 3:
+					MaxTurn1=1500;
+					MaxTurn2=2000;
+					ChangeIntervalTurn1=250;
+					ChangeIntervalTurn2=1800;
+					StraightV=11;
+					TurnV1=11;
+					TurnV2=10;
+					Velocity_Kp=100;
+					Velocity_Ki=22;
+					CrossAccelerateTimes=160;
+					DecelerationTimes=0;
+					break;
+				case 4:
+					break;
+			}
 			sendMsgByBlueTooth("r");
-			Timer32_startTimer(TIMER32_BASE, false);
+			Timer32_startTimer(TIMER32_0_BASE, false);
 			
 		}
 		//¿∂—¿–≈œ¢≈–∂œ
@@ -70,7 +117,7 @@ int main(void)
 			{
 				//btdata[dataPtr]='0';
 				//sendMsgByBlueTooth(btdata);
-				Timer32_startTimer(TIMER32_BASE, false);
+				Timer32_startTimer(TIMER32_0_BASE, false);
 			}
 			dataPtr=0;
 			memset(btdata,0,strlen(btdata));
@@ -81,6 +128,14 @@ int main(void)
 		{
 			trigger_measure();
 			//GPIO_toggleOutputOnPin(GPIO_PORT_P1,GPIO_PIN0);
+		}
+		if(StopFlag)
+		{
+			set_pwm(0,0);
+			Timer32_haltTimer(TIMER32_0_BASE);
+			sendMsgByBlueTooth("s");
+			CrossNums=0;
+			StopFlag=false;
 		}
 //		sprintf(text1,"t1:%d ",t1);
 //		sprintf(text2,"t2:%d ",t2);

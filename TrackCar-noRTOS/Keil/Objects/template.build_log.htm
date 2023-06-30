@@ -27,7 +27,6 @@ Project File Date:  06/28/2023
 <h2>Output:</h2>
 *** Using Compiler 'V5.06 update 6 (build 750)', folder: 'D:\Environment\keil\ARM\ARMCC\Bin'
 Build target 'template'
-compiling HC-SR04.c...
 compiling Interrupt.c...
 ..\User\Driver\Encoder.h(14): warning:  #1295-D: Deprecated declaration init_encoder_left - give arg types
   void init_encoder_left();
@@ -53,19 +52,19 @@ compiling Interrupt.c...
   void init_digitalTCRT();
 ..\User\Driver\TCRT5000.h(23): warning:  #1-D: last line of file ends without a newline
   #endif // !__TCRT5000.h
-..\User\Driver\Control.h(19): warning:  #1295-D: Deprecated declaration Control - give arg types
-  void Control();
-..\User\Driver\Control.h(22): warning:  #1295-D: Deprecated declaration turn - give arg types
-  int turn();
-..\User\Driver\Control.h(23): warning:  #1295-D: Deprecated declaration init_control - give arg types
-  void init_control();
-..\User\Driver\Control.h(26): warning:  #1295-D: Deprecated declaration turn2 - give arg types
-  int turn2();
-..\User\Driver\Control.h(28): warning:  #1-D: last line of file ends without a newline
-  #endif
 ..\User\Driver\HC-05.h(14): warning:  #1295-D: Deprecated declaration connectDevice - give arg types
   bool connectDevice();
 ..\User\Driver\HC-05.h(16): warning:  #1-D: last line of file ends without a newline
+  #endif
+..\User\Driver\Control.h(34): warning:  #1295-D: Deprecated declaration Control - give arg types
+  void Control();
+..\User\Driver\Control.h(37): warning:  #1295-D: Deprecated declaration turn - give arg types
+  int turn();
+..\User\Driver\Control.h(38): warning:  #1295-D: Deprecated declaration init_control - give arg types
+  void init_control();
+..\User\Driver\Control.h(41): warning:  #1295-D: Deprecated declaration turn2 - give arg types
+  int turn2();
+..\User\Driver\Control.h(43): warning:  #1-D: last line of file ends without a newline
   #endif
 ..\User\Driver\Interrupt.c(197): warning:  #1-D: last line of file ends without a newline
   }
@@ -105,17 +104,17 @@ compiling main.c...
   void init_encoder_right();
 ..\User\Driver\Encoder.h(17): warning:  #1-D: last line of file ends without a newline
   int read_encoder(uint8_t side);
-..\User\Driver\Control.h(19): warning:  #1295-D: Deprecated declaration Control - give arg types
+..\User\Driver\Control.h(34): warning:  #1295-D: Deprecated declaration Control - give arg types
   void Control();
-..\User\Driver\Control.h(22): warning:  #1295-D: Deprecated declaration turn - give arg types
+..\User\Driver\Control.h(37): warning:  #1295-D: Deprecated declaration turn - give arg types
   int turn();
-..\User\Driver\Control.h(23): warning:  #1295-D: Deprecated declaration init_control - give arg types
+..\User\Driver\Control.h(38): warning:  #1295-D: Deprecated declaration init_control - give arg types
   void init_control();
-..\User\Driver\Control.h(26): warning:  #1295-D: Deprecated declaration turn2 - give arg types
+..\User\Driver\Control.h(41): warning:  #1295-D: Deprecated declaration turn2 - give arg types
   int turn2();
-..\User\Driver\Control.h(28): warning:  #1-D: last line of file ends without a newline
+..\User\Driver\Control.h(43): warning:  #1-D: last line of file ends without a newline
   #endif
-..\User\main.c(133): warning:  #1-D: last line of file ends without a newline
+..\User\main.c(188): warning:  #1-D: last line of file ends without a newline
   }
 ..\User\main.c(45): warning:  #177-D: variable "text4"  was declared but never referenced
   	char text4[20];
@@ -141,32 +140,36 @@ compiling Control.c...
   void init_digitalTCRT();
 ..\User\Driver\TCRT5000.h(23): warning:  #1-D: last line of file ends without a newline
   #endif // !__TCRT5000.h
-..\User\Driver\Control.h(19): warning:  #1295-D: Deprecated declaration Control - give arg types
-  void Control();
-..\User\Driver\Control.h(22): warning:  #1295-D: Deprecated declaration turn - give arg types
-  int turn();
-..\User\Driver\Control.h(23): warning:  #1295-D: Deprecated declaration init_control - give arg types
-  void init_control();
-..\User\Driver\Control.h(26): warning:  #1295-D: Deprecated declaration turn2 - give arg types
-  int turn2();
-..\User\Driver\Control.h(28): warning:  #1-D: last line of file ends without a newline
+..\User\Driver\HC-05.h(14): warning:  #1295-D: Deprecated declaration connectDevice - give arg types
+  bool connectDevice();
+..\User\Driver\HC-05.h(16): warning:  #1-D: last line of file ends without a newline
   #endif
-..\User\Driver\Control.c(81): warning:  #1035-D: single-precision operand implicitly converted to double-precision
+..\User\Driver\Control.h(34): warning:  #1295-D: Deprecated declaration Control - give arg types
+  void Control();
+..\User\Driver\Control.h(37): warning:  #1295-D: Deprecated declaration turn - give arg types
+  int turn();
+..\User\Driver\Control.h(38): warning:  #1295-D: Deprecated declaration init_control - give arg types
+  void init_control();
+..\User\Driver\Control.h(41): warning:  #1295-D: Deprecated declaration turn2 - give arg types
+  int turn2();
+..\User\Driver\Control.h(43): warning:  #1-D: last line of file ends without a newline
+  #endif
+..\User\Driver\Control.c(85): warning:  #1035-D: single-precision operand implicitly converted to double-precision
   	encoder_bias=0.84*encoder_bias+current_bias*0.16;
-..\User\Driver\Control.c(81): warning:  #1035-D: single-precision operand implicitly converted to double-precision
+..\User\Driver\Control.c(85): warning:  #1035-D: single-precision operand implicitly converted to double-precision
   	encoder_bias=0.84*encoder_bias+current_bias*0.16;
-..\User\Driver\Control.c(103): warning:  #177-D: variable "encoder_integral"  was declared but never referenced
+..\User\Driver\Control.c(107): warning:  #177-D: variable "encoder_integral"  was declared but never referenced
   	static float encoder_integral;
-..\User\Driver\Control.c(116): warning:  #1035-D: single-precision operand implicitly converted to double-precision
+..\User\Driver\Control.c(120): warning:  #1035-D: single-precision operand implicitly converted to double-precision
   	distance_bias=0.84*distance_bias+current_bias*0.16;
-..\User\Driver\Control.c(116): warning:  #1035-D: single-precision operand implicitly converted to double-precision
+..\User\Driver\Control.c(120): warning:  #1035-D: single-precision operand implicitly converted to double-precision
   	distance_bias=0.84*distance_bias+current_bias*0.16;
-..\User\Driver\Control.c(482): warning:  #1-D: last line of file ends without a newline
+..\User\Driver\Control.c(538): warning:  #1-D: last line of file ends without a newline
   }
-..\User\Driver\Control.c: 20 warnings, 0 errors
+..\User\Driver\Control.c: 22 warnings, 0 errors
 linking...
-Program Size: Code=18100 RO-data=4764 RW-data=408 ZI-data=6224  
-".\Objects\template.axf" - 0 Error(s), 65 Warning(s).
+Program Size: Code=18744 RO-data=4764 RW-data=416 ZI-data=6224  
+".\Objects\template.axf" - 0 Error(s), 67 Warning(s).
 
 <h2>Software Packages used:</h2>
 

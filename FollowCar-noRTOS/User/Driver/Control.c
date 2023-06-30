@@ -11,7 +11,6 @@ int TurnV2 =10;
 
 
 int DecelerationTimes=0;
-int SavedTCRTStatus;
 
 bool StopFlag;
 bool CrossFlag;			//Óöµ½²íµÀ
@@ -27,7 +26,7 @@ int Mission=1;
 
 float target_encoder_value=40;
 float Velocity_Kp=100,Velocity_Ki=22;
-float Distance_Kp=0.1;
+float Distance_Kp=2.5;
 int turnPwm=0;
 int distancePwm;
 float adc;
@@ -50,7 +49,9 @@ void Control()
 	int pwma, pwmb;
 	if(Mission==1)
 	{
-		
+		int distance_value=distance(HCSRCountValue);
+		target_encoder_value+=distance_value;
+		target_encoder_value=limit_pwm(target_encoder_value,StraightV,StraightV-5);
 		pwma = velocity_value + turn_value-125;
 		pwmb = velocity_value - turn_value+125;
 //		if(CrossFlag)
@@ -62,10 +63,12 @@ void Control()
 	}
 	if(Mission==2)
 	{
-		pwma = velocity_value + turn_value;//+distance_value;
-		pwmb = velocity_value - turn_value;//+distance_value;
 		int distance_value=distance(HCSRCountValue);
 		target_encoder_value+=distance_value;
+		target_encoder_value=limit_pwm(target_encoder_value,StraightV,StraightV-5);
+		pwma = velocity_value + turn_value-125;
+		pwmb = velocity_value - turn_value+125;
+		
 	}
 	pwma=limit_pwm(pwma,8000,-8000);
 	pwmb=limit_pwm(pwmb,8000,-8000);
@@ -355,7 +358,6 @@ int turn()
 	{
 		if(t1==1&&t2==0&&t3==0&&t4==0&&t5==0)
 		{
-			SavedTCRTStatus=1;
 			target_encoder_value=TurnV2;
 			DecelerationFlag2=true;
 			if(turnPwm>MaxTurn2)
@@ -404,7 +406,6 @@ int turn()
 		{
 			target_encoder_value=TurnV2;
 			DecelerationFlag2=true;
-			SavedTCRTStatus=5;
 			if(turnPwm<-MaxTurn2)
 			{
 				turnPwm=-MaxTurn2;

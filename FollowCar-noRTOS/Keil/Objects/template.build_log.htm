@@ -27,7 +27,11 @@ Project File Date:  06/28/2023
 <h2>Output:</h2>
 *** Using Compiler 'V5.06 update 6 (build 750)', folder: 'D:\Environment\keil\ARM\ARMCC\Bin'
 Build target 'template'
-compiling Interrupt.c...
+compiling main.c...
+..\User\Driver\HC-05.h(14): warning:  #1295-D: Deprecated declaration connectDevice - give arg types
+  bool connectDevice();
+..\User\Driver\HC-05.h(16): warning:  #1-D: last line of file ends without a newline
+  #endif
 ..\User\Driver\Encoder.h(14): warning:  #1295-D: Deprecated declaration init_encoder_left - give arg types
   void init_encoder_left();
 ..\User\Driver\Encoder.h(15): warning:  #1295-D: Deprecated declaration init_encoder_right - give arg types
@@ -38,12 +42,6 @@ compiling Interrupt.c...
   void init_motor();
 ..\User\Driver\Motor.h(13): warning:  #1295-D: Deprecated declaration set_pwm_trail - give arg types
   void set_pwm_trail();
-..\User\Driver\Encoder.h(14): warning:  #1295-D: Deprecated declaration init_encoder_left - give arg types
-  void init_encoder_left();
-..\User\Driver\Encoder.h(15): warning:  #1295-D: Deprecated declaration init_encoder_right - give arg types
-  void init_encoder_right();
-..\User\Driver\Encoder.h(17): warning:  #1-D: last line of file ends without a newline
-  int read_encoder(uint8_t side);
 ..\User\Driver\TCRT5000.h(15): warning:  #1295-D: Deprecated declaration init_TCRT - give arg types
   void init_TCRT();
 ..\User\Driver\TCRT5000.h(16): warning:  #1295-D: Deprecated declaration read_TCRT - give arg types
@@ -52,26 +50,38 @@ compiling Interrupt.c...
   void init_digitalTCRT();
 ..\User\Driver\TCRT5000.h(23): warning:  #1-D: last line of file ends without a newline
   #endif // !__TCRT5000.h
-..\User\Driver\Control.h(19): warning:  #1295-D: Deprecated declaration Control - give arg types
+..\User\Driver\Semaphore.h(8): warning:  #1-D: last line of file ends without a newline
+  #endif
+..\User\Driver\Motor.h(12): warning:  #1295-D: Deprecated declaration init_motor - give arg types
+  void init_motor();
+..\User\Driver\Motor.h(13): warning:  #1295-D: Deprecated declaration set_pwm_trail - give arg types
+  void set_pwm_trail();
+..\User\Driver\Encoder.h(14): warning:  #1295-D: Deprecated declaration init_encoder_left - give arg types
+  void init_encoder_left();
+..\User\Driver\Encoder.h(15): warning:  #1295-D: Deprecated declaration init_encoder_right - give arg types
+  void init_encoder_right();
+..\User\Driver\Encoder.h(17): warning:  #1-D: last line of file ends without a newline
+  int read_encoder(uint8_t side);
+..\User\Driver\Control.h(33): warning:  #1295-D: Deprecated declaration Control - give arg types
   void Control();
-..\User\Driver\Control.h(22): warning:  #1295-D: Deprecated declaration turn - give arg types
+..\User\Driver\Control.h(36): warning:  #1295-D: Deprecated declaration turn - give arg types
   int turn();
-..\User\Driver\Control.h(23): warning:  #1295-D: Deprecated declaration init_control - give arg types
+..\User\Driver\Control.h(37): warning:  #1295-D: Deprecated declaration init_control - give arg types
   void init_control();
-..\User\Driver\Control.h(26): warning:  #1295-D: Deprecated declaration turn2 - give arg types
+..\User\Driver\Control.h(40): warning:  #1295-D: Deprecated declaration turn2 - give arg types
   int turn2();
-..\User\Driver\Control.h(28): warning:  #1-D: last line of file ends without a newline
+..\User\Driver\Control.h(42): warning:  #1-D: last line of file ends without a newline
   #endif
-..\User\Driver\HC-05.h(14): warning:  #1295-D: Deprecated declaration connectDevice - give arg types
-  bool connectDevice();
-..\User\Driver\HC-05.h(16): warning:  #1-D: last line of file ends without a newline
-  #endif
-..\User\Driver\Interrupt.c(198): warning:  #1-D: last line of file ends without a newline
+..\User\main.c(177): warning:  #1-D: last line of file ends without a newline
   }
-..\User\Driver\Interrupt.c: 20 warnings, 0 errors
+..\User\main.c(45): warning:  #177-D: variable "text4"  was declared but never referenced
+  	char text4[20];
+..\User\main.c(46): warning:  #177-D: variable "text5"  was declared but never referenced
+  	char text5[20];
+..\User\main.c: 25 warnings, 0 errors
 linking...
-Program Size: Code=18128 RO-data=4764 RW-data=408 ZI-data=6224  
-".\Objects\template.axf" - 0 Error(s), 20 Warning(s).
+Program Size: Code=18576 RO-data=4764 RW-data=404 ZI-data=6228  
+".\Objects\template.axf" - 0 Error(s), 25 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -85,7 +95,7 @@ Package Vendor: TexasInstruments
   D:\Environment\keil\ARM\PACK\TexasInstruments\MSP432P4xx_DFP\3.2.6\Device\Include
 
 <h2>Collection of Component Files used:</h2>
-Build Time Elapsed:  00:00:05
+Build Time Elapsed:  00:00:01
 </pre>
 </body>
 </html>

@@ -32,14 +32,14 @@ void PORT2_IRQHandler(void)
 			GPIO_setOutputHighOnPin(GPIO_PORT_P1,GPIO_PIN0);
 			Timer32_haltTimer(TIMER32_1_BASE);
 			static int HCSRSampleTimes;
-			if(HCSRSampleTimes<10)
+			if(HCSRSampleTimes<3)
 			{
 				HCSRCountMultiValue+=TriggerCounter;
 				HCSRSampleTimes++;
 			}
 			else
 			{
-				HCSRCountAveraValue=HCSRCountMultiValue/10;
+				HCSRCountAveraValue=HCSRCountMultiValue/3;
 				HCSRCountMultiValue=0;
 				HCSRSampleTimes=0;				
 			}
