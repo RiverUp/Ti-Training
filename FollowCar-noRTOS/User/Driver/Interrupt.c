@@ -191,14 +191,8 @@ void EUSCIA2_IRQHandler()
 	{
     UART_clearInterruptFlag(EUSCI_A2_BASE,EUSCI_A_UART_RECEIVE_INTERRUPT);
 		uint8_t dat=UART_receiveData(EUSCI_A2_BASE);
-		if(dat!='0')
-		{
-			btdata[dataPtr++]=dat;
-		}
-		else
-		{
-			BTRecCompleteFlag=true;
-		}
+		btdata[dataPtr++]=dat;
+		BTRecCompleteFlag=true;
 			
 	}
 }

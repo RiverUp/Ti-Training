@@ -53,9 +53,9 @@ int main(void)
 		int keyState=KEY_Scan(0);
 		if(keyState==KEY1_PRES)
 		{
-			sendMsgByBlueTooth("r0");
+			sendMsgByBlueTooth("r");
 			Timer32_startTimer(TIMER32_BASE, false);
-			GPIO_toggleOutputOnPin(GPIO_PORT_P1,GPIO_PIN0);
+			
 		}
 		//¿∂—¿–≈œ¢≈–∂œ
 		if(BTRecCompleteFlag)
@@ -68,7 +68,7 @@ int main(void)
 			}
 			if(!strcmp(btdata,"r"))
 			{
-				btdata[dataPtr]='0';
+				//btdata[dataPtr]='0';
 				//sendMsgByBlueTooth(btdata);
 				Timer32_startTimer(TIMER32_BASE, false);
 			}

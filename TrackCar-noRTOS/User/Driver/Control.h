@@ -12,7 +12,7 @@
 extern int turnPwm;
 extern float adc;
 extern bool t1,t2,t3;
-extern int mission;
+extern int Mission;
 extern bool CrossFlag;
 extern int CrossNums;
 
