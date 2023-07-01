@@ -27,7 +27,7 @@ bool DecelerationFlag2;
 int DecelerationTimes=0;
 int DecelerationCounter;
 
-int Mission=2;
+int Mission=0;
 
 float target_encoder_value;
 float Velocity_Kp=100,Velocity_Ki=22;
@@ -226,7 +226,7 @@ int turn2()
 				}
 				else
 				{
-					turnPwm-=2000;
+					turnPwm-=800;
 				}
 			}
 			break;//00110
@@ -265,7 +265,7 @@ int turn2()
 			{
 				turnPwm+=ChangeIntervalTurn1;
 			}
-			if(!CrossRushOrNot)
+			if(OverTakeFlag)
 			{
 				turnPwm=0;
 			}
@@ -281,7 +281,7 @@ int turn2()
 			{
 				turnPwm+=ChangeIntervalTurn2;
 			}
-			if(!CrossRushOrNot)
+			if(OverTakeFlag)
 			{
 				turnPwm=0;
 			}

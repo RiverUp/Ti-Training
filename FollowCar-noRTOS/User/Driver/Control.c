@@ -19,14 +19,14 @@ bool OverTakeFlag;
 bool ReadyOverTakeFlag;
 int OverTakeCount;
 int CrossAccelerateCount;
-int CrossAccelerateTimes=160;
+int CrossAccelerateTimes=200;
 bool CrossRushOrNot=true;
 int CrossNums;			//遇到的岔道个数
 bool DecelerationFlag1;
 bool DecelerationFlag2;
 int DecelerationCounter;
 
-int Mission=2;
+int Mission=0;
 
 float target_encoder_value=40;
 float Velocity_Kp=100,Velocity_Ki=22;
@@ -216,7 +216,7 @@ int turn2()
 //					turnPwm-=100;
 //				}
 			}
-			else if(CrossFlag&&!CrossRushOrNot)
+			if(!CrossRushOrNot)
 			{
 				if(turnPwm<-MaxTurn1)
 				{
@@ -224,7 +224,7 @@ int turn2()
 				}
 				else
 				{
-					turnPwm-=2000;
+					turnPwm-=800;
 				}
 			}
 			break;//00110
@@ -263,6 +263,10 @@ int turn2()
 			{
 				turnPwm+=ChangeIntervalTurn1;
 			}
+			if(OverTakeFlag)
+			{
+				turnPwm=0;
+			}
 			break;//11000
 		case 10000: 
 			target_encoder_value=TurnV2;
@@ -274,6 +278,10 @@ int turn2()
 			else
 			{
 				turnPwm+=ChangeIntervalTurn2;
+			}
+			if(OverTakeFlag)
+			{
+				turnPwm=0;
 			}
 			break;//10000 01010
 		case 1110:
@@ -292,6 +300,8 @@ int turn2()
 				Velocity_Ki=22;
 				CrossAccelerateTimes=80;
 				DecelerationTimes=15;
+				ReadyOverTakeFlag=false;
+				CrossRushOrNot=false;
 			}
 			break;
 		default:break;
@@ -328,7 +338,7 @@ int turn2()
 	
 	if(OverTakeFlag)
 	{
-		if(OverTakeCount<150)
+		if(OverTakeCount<500)
 		{
 			OverTakeCount++;
 		}
@@ -340,13 +350,17 @@ int turn2()
 			MaxTurn2=2000;
 			ChangeIntervalTurn1=250;
 			ChangeIntervalTurn2=1800;
-			StraightV=9;
-			TurnV1=9;
-			TurnV2=9;
+			StraightV=11;
+			TurnV1=11;
+			TurnV2=10;
 			Velocity_Kp=100;
 			Velocity_Ki=22;
 			CrossAccelerateTimes=160;
 			DecelerationTimes=0;	
+		}
+		if(OverTakeCount==300)
+		{
+			CrossRushOrNot=true;
 		}
 	}
 	if(CrossFlag)
