@@ -16,7 +16,7 @@ bool StopFlag;
 bool CrossFlag;			//遇到岔道
 bool WaitFlag;			//第二次遇到不置CrossFlag
 int CrossAccelerateCount;
-int CrossAccelerateTimes=160;
+int CrossAccelerateTimes=200;
 bool OverTakeFlag;
 int OverTakeCount;
 int WaitCount;
@@ -27,7 +27,7 @@ bool DecelerationFlag2;
 int DecelerationTimes=0;
 int DecelerationCounter;
 
-int Mission=0;
+int Mission=2;
 
 float target_encoder_value;
 float Velocity_Kp=100,Velocity_Ki=22;
@@ -133,10 +133,6 @@ int turn2()
 	t4=getTCRTValue(4);
 	t5=getTCRTValue(5);
 	
-	if(!CrossRushOrNot)
-	{
-		t1=t2=0;
-	}
 	gray_state=t1*10000+t2*1000+t3*100+t4*10+t5*1;
 	
 	switch(gray_state)
@@ -183,14 +179,27 @@ int turn2()
 			{
 				DecelerationFlag1=true;
 			}
-			
-			if(turnPwm<-MaxTurn1)
+			if(CrossRushOrNot)
 			{
-				turnPwm=-MaxTurn1;
+				if(turnPwm<-MaxTurn1)
+				{
+					turnPwm=-MaxTurn1;
+				}
+				else
+				{
+					turnPwm-=ChangeIntervalTurn1;
+				}
 			}
 			else
 			{
-				turnPwm-=ChangeIntervalTurn1;
+				if(turnPwm<-MaxTurn1)
+				{
+					turnPwm=-MaxTurn1;
+				}
+				else
+				{
+					turnPwm-=1200;
+				}
 			}
 			break;//00010
 		//岔口
@@ -209,7 +218,7 @@ int turn2()
 //					turnPwm-=100;
 //				}
 			}
-			else if(CrossFlag&&!CrossRushOrNot)
+			if(CrossFlag&&!CrossRushOrNot)
 			{
 				if(turnPwm<-MaxTurn1)
 				{
@@ -217,7 +226,7 @@ int turn2()
 				}
 				else
 				{
-					turnPwm-=1200;
+					turnPwm-=2000;
 				}
 			}
 			break;//00110
@@ -256,6 +265,10 @@ int turn2()
 			{
 				turnPwm+=ChangeIntervalTurn1;
 			}
+			if(!CrossRushOrNot)
+			{
+				turnPwm=0;
+			}
 			break;//11000
 		case 10000: 
 			target_encoder_value=TurnV2;
@@ -267,6 +280,10 @@ int turn2()
 			else
 			{
 				turnPwm+=ChangeIntervalTurn2;
+			}
+			if(!CrossRushOrNot)
+			{
+				turnPwm=0;
 			}
 			break;//10000 01010
 		case 1110:
@@ -363,9 +380,9 @@ int turn2()
 			CrossNums++;
 		}
 		//转内圈
-		if(CrossAccelerateCount>(CrossAccelerateTimes/3*2))
+		if(CrossAccelerateCount==(CrossAccelerateTimes/3*2)&&!CrossRushOrNot)
 		{
-			CrossRushOrNot=true;
+			//turnPwm-=2000;
 		}
 		
 	}
@@ -377,8 +394,13 @@ int turn2()
 		}
 		else
 		{
+			
 			WaitFlag=false;
 			WaitCount=0;
+		}
+		if(WaitCount>3*CrossAccelerateTimes)
+		{
+			CrossRushOrNot=true;
 		}
 		
 	}
