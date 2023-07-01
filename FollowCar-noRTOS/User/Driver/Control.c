@@ -12,8 +12,12 @@ int TurnV2 =10;
 
 int DecelerationTimes=0;
 
+bool FollowFlag=true;
 bool StopFlag;
 bool CrossFlag;			//Óöµ½²íµÀ
+bool OverTakeFlag;
+bool ReadyOverTakeFlag;
+int OverTakeCount;
 int CrossAccelerateCount;
 int CrossAccelerateTimes=160;
 bool CrossRushOrNot=true;
@@ -22,7 +26,7 @@ bool DecelerationFlag1;
 bool DecelerationFlag2;
 int DecelerationCounter;
 
-int Mission=1;
+int Mission=2;
 
 float target_encoder_value=40;
 float Velocity_Kp=100,Velocity_Ki=22;
@@ -47,29 +51,37 @@ void Control()
 	
 	
 	int pwma, pwmb;
-	if(Mission==1)
+	if(Mission==1||Mission==2||(Mission==3&&FollowFlag))
 	{
 		int distance_value=distance(HCSRCountValue);
 		target_encoder_value+=distance_value;
 		target_encoder_value=limit_pwm(target_encoder_value,StraightV,StraightV-5);
 		pwma = velocity_value + turn_value-125;
 		pwmb = velocity_value - turn_value+125;
+	}
+	if(Mission==3&&!FollowFlag)
+	{
+		pwma = velocity_value + turn_value-125;
+		pwmb = velocity_value - turn_value+125;
+	}
+	
+		
 //		if(CrossFlag)
 //		{
 //			set_pwm(velocity_value+1875,velocity_value+2125);
 //			delay_ms(CrossAccelerateTimes);
 //			CrossFlag=false;
 //		}
-	}
-	if(Mission==2)
-	{
-		int distance_value=distance(HCSRCountValue);
-		target_encoder_value+=distance_value;
-		target_encoder_value=limit_pwm(target_encoder_value,StraightV,StraightV-5);
-		pwma = velocity_value + turn_value-125;
-		pwmb = velocity_value - turn_value+125;
-		
-	}
+//	}
+//	if(Mission==2)
+//	{
+//		int distance_value=distance(HCSRCountValue);
+//		target_encoder_value+=distance_value;
+//		target_encoder_value=limit_pwm(target_encoder_value,StraightV,StraightV-5);
+//		pwma = velocity_value + turn_value-125;
+//		pwmb = velocity_value - turn_value+125;
+//		
+//	}
 	pwma=limit_pwm(pwma,8000,-8000);
 	pwmb=limit_pwm(pwmb,8000,-8000);
   
@@ -268,6 +280,19 @@ int turn2()
 		case 11110:
 		case 1111:
 			CrossFlag=true;
+			if(ReadyOverTakeFlag)
+			{
+				OverTakeFlag=true;
+				ChangeIntervalTurn1=250;
+				ChangeIntervalTurn2=1800;
+				StraightV=14;
+				TurnV1=13;
+				TurnV2=12;
+				Velocity_Kp=100;
+				Velocity_Ki=22;
+				CrossAccelerateTimes=80;
+				DecelerationTimes=15;
+			}
 			break;
 		default:break;
 	}
@@ -301,7 +326,29 @@ int turn2()
 		
 	}
 	
-	
+	if(OverTakeFlag)
+	{
+		if(OverTakeCount<150)
+		{
+			OverTakeCount++;
+		}
+		else
+		{
+			OverTakeFlag=false;
+			CrossRushOrNot=true;
+			MaxTurn1=1500;
+			MaxTurn2=2000;
+			ChangeIntervalTurn1=250;
+			ChangeIntervalTurn2=1800;
+			StraightV=9;
+			TurnV1=9;
+			TurnV2=9;
+			Velocity_Kp=100;
+			Velocity_Ki=22;
+			CrossAccelerateTimes=160;
+			DecelerationTimes=0;	
+		}
+	}
 	if(CrossFlag)
 	{
 		if(CrossAccelerateCount<CrossAccelerateTimes)

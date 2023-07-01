@@ -9,12 +9,16 @@
 #include "HC-SR04.h"
 #include "Delay.h"
 
+extern bool OverTakeFlag;
+extern bool ReadyOverTakeFlag;
+extern int OverTakeCount;
 extern int turnPwm;
 extern float adc;
 extern bool t1,t2,t3;
 extern int Mission;
 extern bool StopFlag;
 extern bool CrossFlag;
+extern bool FollowFlag;
 extern int CrossNums;
 extern int MaxTurn1;
 extern int MaxTurn2;

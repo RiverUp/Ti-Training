@@ -99,11 +99,47 @@ int main(void)
 						DecelerationTimes=15;
 						break;
 					case 3:
+						MaxTurn1=1500;
+						MaxTurn2=2000;
+						ChangeIntervalTurn1=250;
+						ChangeIntervalTurn2=1800;
+						StraightV=9;
+						TurnV1=9;
+						TurnV2=9;
+						Velocity_Kp=100;
+						Velocity_Ki=22;
+						CrossAccelerateTimes=160;
+						DecelerationTimes=0;	
 						break;
 					case 4:
 						break;
 				}
 				Timer32_startTimer(TIMER32_BASE, false);
+			}
+			if(!strcasecmp(btdata,"o"))
+			{
+				MaxTurn1=1500;
+				MaxTurn2=2000;
+				ChangeIntervalTurn1=250;
+				ChangeIntervalTurn2=1800;
+				StraightV=9;
+				TurnV1=9;
+				TurnV2=9;
+				Velocity_Kp=100;
+				Velocity_Ki=22;
+				CrossAccelerateTimes=160;
+				DecelerationTimes=0;	
+			}
+			if(!strcasecmp(btdata,"i"))
+			{
+				ReadyOverTakeFlag=true;
+				FollowFlag=false;
+				MaxTurn1=1500;
+				MaxTurn2=2000;
+			}
+			if(!strcasecmp(btdata,"f"))
+			{
+				FollowFlag=true;
 			}
 			if(!strcmp(btdata,"s"))
 			{

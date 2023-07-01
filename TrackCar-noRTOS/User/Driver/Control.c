@@ -27,7 +27,7 @@ bool DecelerationFlag2;
 int DecelerationTimes=0;
 int DecelerationCounter;
 
-int Mission=1;
+int Mission=0;
 
 float target_encoder_value;
 float Velocity_Kp=100,Velocity_Ki=22;
@@ -133,6 +133,10 @@ int turn2()
 	t4=getTCRTValue(4);
 	t5=getTCRTValue(5);
 	
+	if(!CrossRushOrNot)
+	{
+		t1=t2=0;
+	}
 	gray_state=t1*10000+t2*1000+t3*100+t4*10+t5*1;
 	
 	switch(gray_state)
@@ -213,7 +217,7 @@ int turn2()
 				}
 				else
 				{
-					turnPwm-=2000;
+					turnPwm-=1200;
 				}
 			}
 			break;//00110
@@ -278,13 +282,16 @@ int turn2()
 			}
 			if(Mission==3&&!WaitFlag)
 			{
+				//告诉从车超车
 				if(CrossNums==1)
 				{
 					sendMsgByBlueTooth("i");
 				}
+				//加速走内圈超车
 				if(CrossNums==2)
 				{
 					sendMsgByBlueTooth("o");
+					OverTakeFlag=true;
 					CrossRushOrNot=false;
 					MaxTurn1=1500;
 					MaxTurn2=2000;
@@ -293,10 +300,15 @@ int turn2()
 					StraightV=15;
 					TurnV1=15;
 					TurnV2=12;
+					target_encoder_value=StraightV;
 					Velocity_Kp=100;
 					Velocity_Ki=22;
 					CrossAccelerateTimes=80;
 					DecelerationTimes=10;
+				}
+				if(CrossNums==3)
+				{
+					StopFlag=true;
 				}
 			}
 			if(!WaitFlag)
@@ -350,10 +362,16 @@ int turn2()
 			CrossAccelerateCount=0;
 			CrossNums++;
 		}
+		//转内圈
+		if(CrossAccelerateCount>(CrossAccelerateTimes/3*2))
+		{
+			CrossRushOrNot=true;
+		}
+		
 	}
 	if(WaitFlag)
 	{
-		if(WaitCount<10*CrossAccelerateTimes)
+		if(WaitCount<7*CrossAccelerateTimes)
 		{
 			WaitCount++;
 		}
@@ -366,12 +384,14 @@ int turn2()
 	}
 	if(OverTakeFlag)
 	{
-		if(OverTakeCount<150)
+		if(OverTakeCount<500)
 		{
 			OverTakeCount++;
 		}
 		else
 		{
+			//加完速告诉从车开始跟随
+			sendMsgByBlueTooth("f");
 			OverTakeFlag=false;
 			CrossRushOrNot=true;
 			MaxTurn1=1500;
