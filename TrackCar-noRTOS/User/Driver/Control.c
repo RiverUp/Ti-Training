@@ -27,7 +27,7 @@ bool DecelerationFlag2;
 int DecelerationTimes=0;
 int DecelerationCounter;
 
-int Mission=0;
+int Mission=3;
 
 float target_encoder_value;
 float Velocity_Kp=100,Velocity_Ki=22;
@@ -322,6 +322,29 @@ int turn2()
 					Velocity_Ki=22;
 					CrossAccelerateTimes=80;
 					DecelerationTimes=10;
+				}
+				if(CrossNums==3)
+				{
+					StopFlag=true;
+				}
+			}
+			if(Mission==4&&!WaitFlag)
+			{
+				if(CrossNums==1)
+				{
+					Timer32_haltTimer(TIMER32_0_BASE);
+					set_pwm(0,0);
+					sendMsgByBlueTooth("s");
+					WaitCount=5*CrossAccelerateTimes;
+					delay_ms(5000);
+					Timer32_startTimer(TIMER32_0_BASE,false);
+					sendMsgByBlueTooth("r");
+					
+				}
+				if(CrossNums==2)
+				{
+					CrossNums++;
+					break;
 				}
 				if(CrossNums==3)
 				{

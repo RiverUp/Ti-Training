@@ -68,7 +68,7 @@ int main(void)
 					TurnV2=10;
 					Velocity_Kp=100;
 					Velocity_Ki=22;
-					CrossAccelerateTimes=160;
+					CrossAccelerateTimes=200;
 					DecelerationTimes=0;		
 					break;
 				case 2:
@@ -94,7 +94,7 @@ int main(void)
 					TurnV2=10;
 					Velocity_Kp=100;
 					Velocity_Ki=22;
-					CrossAccelerateTimes=160;
+					CrossAccelerateTimes=200;
 					DecelerationTimes=0;
 					break;
 				case 4:

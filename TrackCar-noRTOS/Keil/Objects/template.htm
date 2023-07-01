@@ -3,7 +3,7 @@
 <title>Static Call Graph - [.\Objects\template.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\Objects\template.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060750: Last Updated: Sat Jul 01 14:18:43 2023
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060750: Last Updated: Sat Jul 01 15:07:00 2023
 <BR><P>
 <H3>Maximum Stack Usage =        300 bytes + Unknown(Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -920,6 +920,7 @@ Global Symbols
 <P><STRONG><a name="[82]"></a>Timer32_haltTimer</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, timer32.o(i.Timer32_haltTimer))
 <BR><BR>[Called By]<UL><LI><a href="#[b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;$Super$$main
 <LI><a href="#[2e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PORT2_IRQHandler
+<LI><a href="#[60]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;turn2
 </UL>
 
 <P><STRONG><a name="[a6]"></a>Timer32_initModule</STRONG> (Thumb, 94 bytes, Stack size 16 bytes, timer32.o(i.Timer32_initModule))
@@ -939,6 +940,7 @@ Global Symbols
 </UL>
 <BR>[Called By]<UL><LI><a href="#[b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;$Super$$main
 <LI><a href="#[2e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PORT2_IRQHandler
+<LI><a href="#[60]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;turn2
 </UL>
 
 <P><STRONG><a name="[86]"></a>Timer_A_generatePWM</STRONG> (Thumb, 90 bytes, Stack size 16 bytes, timer_a.o(i.Timer_A_generatePWM))
@@ -1024,6 +1026,7 @@ Global Symbols
 </UL>
 <BR>[Called By]<UL><LI><a href="#[bb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;trigger_measure
 <LI><a href="#[6e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_Init
+<LI><a href="#[60]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;turn2
 </UL>
 
 <P><STRONG><a name="[99]"></a>delay_us</STRONG> (Thumb, 72 bytes, Stack size 0 bytes, delay.o(i.delay_us))
@@ -1768,6 +1771,7 @@ Global Symbols
 </UL>
 <BR>[Called By]<UL><LI><a href="#[b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;$Super$$main
 <LI><a href="#[5d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Control
+<LI><a href="#[60]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;turn2
 </UL>
 
 <P><STRONG><a name="[bb]"></a>trigger_measure</STRONG> (Thumb, 32 bytes, Stack size 8 bytes, hc-sr04.o(i.trigger_measure))
@@ -1780,11 +1784,15 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;$Super$$main
 </UL>
 
-<P><STRONG><a name="[60]"></a>turn2</STRONG> (Thumb, 1552 bytes, Stack size 8 bytes, control.o(i.turn2))
-<BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = turn2 &rArr; getTCRTValue &rArr; GPIO_getInputPinValue
+<P><STRONG><a name="[60]"></a>turn2</STRONG> (Thumb, 1662 bytes, Stack size 8 bytes, control.o(i.turn2))
+<BR><BR>[Stack]<UL><LI>Max Depth = 48<LI>Call Chain = turn2 &rArr; set_pwm &rArr; Timer_A_generatePWM
 </UL>
-<BR>[Calls]<UL><LI><a href="#[b8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sendMsgByBlueTooth
+<BR>[Calls]<UL><LI><a href="#[62]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;set_pwm
+<LI><a href="#[b8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sendMsgByBlueTooth
+<LI><a href="#[80]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Timer32_startTimer
+<LI><a href="#[82]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Timer32_haltTimer
 <LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getTCRTValue
+<LI><a href="#[70]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay_ms
 </UL>
 <BR>[Called By]<UL><LI><a href="#[5d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Control
 </UL>

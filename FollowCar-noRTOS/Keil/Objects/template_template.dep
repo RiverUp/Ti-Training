@@ -1,5 +1,5 @@
 Dependencies for Project 'template', Target 'template': (DO NOT MODIFY !)
-F (..\User\main.c)(0x649FC378)(--c99 -c --cpu Cortex-M4.fp -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\User -I ..\Lib -I ..\Lib\CMSIS\include -I ..\RTthread\bsp -I ..\RTthread\include -I ..\User\Driver -D__UVISION_VERSION="526" -D__MSP432P401R__-o .\objects\main.o --omf_browse .\objects\main.crf --depend .\objects\main.d)
+F (..\User\main.c)(0x649FCFF4)(--c99 -c --cpu Cortex-M4.fp -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\User -I ..\Lib -I ..\Lib\CMSIS\include -I ..\RTthread\bsp -I ..\RTthread\include -I ..\User\Driver -D__UVISION_VERSION="526" -D__MSP432P401R__-o .\objects\main.o --omf_browse .\objects\main.crf --depend .\objects\main.d)
 I (..\Lib\ti/devices/msp432p4xx/driverlib/driverlib.h)(0x648EF219)
 I (..\Lib\ti/devices/msp432p4xx/driverlib/adc14.h)(0x648EF219)
 I (D:\Environment\keil\ARM\ARMCC\include\stdint.h)(0x599EDB3E)
