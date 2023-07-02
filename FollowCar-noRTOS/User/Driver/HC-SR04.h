@@ -5,7 +5,7 @@
 #include "rtthread.h"
 
 //p2.5½Óecho£¬p3.0½Ótrig
-#define HCSRStandardValue 120
+#define HCSRStandardValue 140
 extern uint32_t HCSRCountValue;
 extern uint32_t HCSRCountMultiValue;
 extern uint32_t HCSRCountAveraValue;

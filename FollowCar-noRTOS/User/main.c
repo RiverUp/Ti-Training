@@ -90,7 +90,7 @@ int main(void)
 						MaxTurn2=2000;
 						ChangeIntervalTurn1=250;
 						ChangeIntervalTurn2=1800;
-						StraightV=14;
+						StraightV=15;
 						TurnV1=13;
 						TurnV2=12;
 						Velocity_Kp=100;
@@ -117,7 +117,7 @@ int main(void)
 						ChangeIntervalTurn1=250;
 						ChangeIntervalTurn2=1800;
 						StraightV=11;
-						TurnV1=11;
+						TurnV1=10;
 						TurnV2=10;
 						Velocity_Kp=100;
 						Velocity_Ki=22;
@@ -145,6 +145,7 @@ int main(void)
 			{
 				ReadyOverTakeFlag=true;
 				FollowFlag=false;
+				
 				MaxTurn1=1500;
 				MaxTurn2=2000;
 			}
@@ -154,6 +155,11 @@ int main(void)
 			}
 			if(!strcmp(btdata,"s"))
 			{
+				if(Mission==4)
+				{
+					HCSRCountValue=140;
+				}
+				
 				StopFlag=true;
 			}
 			dataPtr=0;
