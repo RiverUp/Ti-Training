@@ -27,7 +27,7 @@ bool DecelerationFlag2;
 int DecelerationTimes=0;
 int DecelerationCounter;
 
-int Mission=0; 
+int Mission=1; 
 
 float target_encoder_value;
 float Velocity_Kp=100,Velocity_Ki=22;
@@ -356,7 +356,7 @@ int turn2()
 					target_encoder_value=StraightV;
 					Velocity_Kp=100;
 					Velocity_Ki=22;
-					CrossAccelerateTimes=100;
+					CrossAccelerateTimes=200;
 					DecelerationTimes=10;
 				}
 				if(CrossNums==3)

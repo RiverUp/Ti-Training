@@ -27,7 +27,7 @@ bool DecelerationFlag1;
 bool DecelerationFlag2;
 int DecelerationCounter;
 
-int Mission=0;
+int Mission=1;
 
 float target_encoder_value=40;
 float Velocity_Kp=100,Velocity_Ki=22;
@@ -62,12 +62,12 @@ void Control()
 			MaxTurn2=2000;
 			ChangeIntervalTurn1=250;
 			ChangeIntervalTurn2=1800;
-			StraightV=11;
+			StraightV=12;
 			TurnV1=11;
 			TurnV2=10;
 			Velocity_Kp=100;
 			Velocity_Ki=22;
-			CrossAccelerateTimes=200;
+			CrossAccelerateTimes=220;
 			DecelerationTimes=0;	
 		}
 		target_encoder_value+=distance_value;
@@ -179,11 +179,18 @@ int turn2()
 			{
 				turnPwm-=ChangeIntervalTurn2;
 			}
-			if(CrossFlag&CrossRushOrNot)
+			if(CrossFlag&&CrossRushOrNot)
 			{
-				turnPwm=0;
+				if(turnPwm<-800)
+				{
+					turnPwm=-800;
+				}
+				else
+				{
+					turnPwm-=80;
+				}
 			}
-			if(!CrossRushOrNot&&CrossAccelerateCount>CrossAccelerateTimes/8)
+			if(!CrossRushOrNot&&CrossAccelerateCount>CrossAccelerateTimes/5)
 			{
 				if(turnPwm<-MaxTurn1)
 				{
@@ -383,7 +390,7 @@ int turn2()
 	
 	if(OverTakeFlag)
 	{
-		if(OverTakeCount<400)
+		if(OverTakeCount<450)
 		{
 			OverTakeCount++;
 		}
@@ -392,7 +399,7 @@ int turn2()
 			OverTakeFlag=false;
 			CrossRushOrNot=true;
 			MaxTurn1=1500;
-			MaxTurn2=2000;
+			MaxTurn2=2600;
 			ChangeIntervalTurn1=250;
 			ChangeIntervalTurn2=1800;
 			StraightV=11;
