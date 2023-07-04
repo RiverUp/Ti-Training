@@ -820,6 +820,9 @@
           </Files>
         </Group>
         <Group>
+          <GroupName>NewDriver</GroupName>
+        </Group>
+        <Group>
           <GroupName>::RTOS</GroupName>
         </Group>
       </Groups>
