@@ -46,7 +46,15 @@ compiling Control.c...
   void init_digitalTCRT();
 ..\User\Driver\TCRT5000.h(23): warning:  #1-D: last line of file ends without a newline
   #endif // !__TCRT5000.h
+<<<<<<< HEAD:FollowCar/FollowCar-noRTOS/Keil/Objects/template.build_log.htm
 ..\User\Driver\Control.h(37): warning:  #1295-D: Deprecated declaration Control - give arg types
+=======
+..\User\Driver\HC-05.h(14): warning:  #1295-D: Deprecated declaration connectDevice - give arg types
+  bool connectDevice();
+..\User\Driver\HC-05.h(16): warning:  #1-D: last line of file ends without a newline
+  #endif
+..\User\Driver\Control.h(34): warning:  #1295-D: Deprecated declaration Control - give arg types
+>>>>>>> cf4a76d1b846cc8322ced36769559908cc07cd26:TrackCar-noRTOS/Keil/Objects/template.build_log.htm
   void Control();
 ..\User\Driver\Control.h(40): warning:  #1295-D: Deprecated declaration turn - give arg types
   int turn();
@@ -56,6 +64,7 @@ compiling Control.c...
   int turn2();
 ..\User\Driver\Control.h(46): warning:  #1-D: last line of file ends without a newline
   #endif
+<<<<<<< HEAD:FollowCar/FollowCar-noRTOS/Keil/Objects/template.build_log.htm
 ..\User\Driver\Control.c(112): warning:  #1035-D: single-precision operand implicitly converted to double-precision
   	encoder_bias=0.84*encoder_bias+current_bias*0.16;
 ..\User\Driver\Control.c(112): warning:  #1035-D: single-precision operand implicitly converted to double-precision
@@ -72,6 +81,24 @@ compiling Control.c...
 linking...
 Program Size: Code=19596 RO-data=4764 RW-data=412 ZI-data=6228  
 ".\Objects\template.axf" - 0 Error(s), 20 Warning(s).
+=======
+..\User\Driver\Control.c(85): warning:  #1035-D: single-precision operand implicitly converted to double-precision
+  	encoder_bias=0.84*encoder_bias+current_bias*0.16;
+..\User\Driver\Control.c(85): warning:  #1035-D: single-precision operand implicitly converted to double-precision
+  	encoder_bias=0.84*encoder_bias+current_bias*0.16;
+..\User\Driver\Control.c(107): warning:  #177-D: variable "encoder_integral"  was declared but never referenced
+  	static float encoder_integral;
+..\User\Driver\Control.c(120): warning:  #1035-D: single-precision operand implicitly converted to double-precision
+  	distance_bias=0.84*distance_bias+current_bias*0.16;
+..\User\Driver\Control.c(120): warning:  #1035-D: single-precision operand implicitly converted to double-precision
+  	distance_bias=0.84*distance_bias+current_bias*0.16;
+..\User\Driver\Control.c(639): warning:  #1-D: last line of file ends without a newline
+  }
+..\User\Driver\Control.c: 22 warnings, 0 errors
+linking...
+Program Size: Code=19200 RO-data=4764 RW-data=416 ZI-data=6224  
+".\Objects\template.axf" - 0 Error(s), 22 Warning(s).
+>>>>>>> cf4a76d1b846cc8322ced36769559908cc07cd26:TrackCar-noRTOS/Keil/Objects/template.build_log.htm
 
 <h2>Software Packages used:</h2>
 

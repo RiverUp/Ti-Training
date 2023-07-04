@@ -27,7 +27,11 @@ bool DecelerationFlag2;
 int DecelerationTimes=0;
 int DecelerationCounter;
 
+<<<<<<< HEAD:FollowCar/TrackCar-noRTOS/User/Driver/Control.c
 int Mission=2; 
+=======
+int Mission=1; 
+>>>>>>> cf4a76d1b846cc8322ced36769559908cc07cd26:TrackCar-noRTOS/User/Driver/Control.c
 
 float target_encoder_value;
 float Velocity_Kp=100,Velocity_Ki=22;
@@ -356,7 +360,7 @@ int turn2()
 					target_encoder_value=StraightV;
 					Velocity_Kp=100;
 					Velocity_Ki=22;
-					CrossAccelerateTimes=100;
+					CrossAccelerateTimes=200;
 					DecelerationTimes=10;
 				}
 				if(CrossNums==3)

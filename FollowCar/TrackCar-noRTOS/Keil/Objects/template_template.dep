@@ -1,5 +1,9 @@
 Dependencies for Project 'template', Target 'template': (DO NOT MODIFY !)
+<<<<<<< HEAD:FollowCar/TrackCar-noRTOS/Keil/Objects/template_template.dep
 F (..\User\main.c)(0x64A2D0D2)(--c99 -c --cpu Cortex-M4.fp -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\User -I ..\Lib -I ..\Lib\CMSIS\include -I ..\RTthread\bsp -I ..\RTthread\include -I ..\User\Driver -D__UVISION_VERSION="526" -D__MSP432P401R__-o .\objects\main.o --omf_browse .\objects\main.crf --depend .\objects\main.d)
+=======
+F (..\User\main.c)(0x64A26911)(--c99 -c --cpu Cortex-M4.fp -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\User -I ..\Lib -I ..\Lib\CMSIS\include -I ..\RTthread\bsp -I ..\RTthread\include -I ..\User\Driver -D__UVISION_VERSION="526" -D__MSP432P401R__-o .\objects\main.o --omf_browse .\objects\main.crf --depend .\objects\main.d)
+>>>>>>> cf4a76d1b846cc8322ced36769559908cc07cd26:TrackCar-noRTOS/Keil/Objects/template_template.dep
 I (..\Lib\ti/devices/msp432p4xx/driverlib/driverlib.h)(0x648EF219)
 I (..\Lib\ti/devices/msp432p4xx/driverlib/adc14.h)(0x648EF219)
 I (D:\Environment\keil\ARM\ARMCC\include\stdint.h)(0x599EDB3E)
@@ -1149,7 +1153,11 @@ I (..\Lib\ti/devices/msp432p4xx/driverlib/uart.h)(0x648EF219)
 I (..\Lib\ti/devices/msp432p4xx/driverlib/wdt_a.h)(0x648EF219)
 I (..\Lib\ti/devices/msp432p4xx/driverlib/sysctl.h)(0x648EF219)
 I (..\Lib\ti/devices/msp432p4xx/driverlib/flash.h)(0x648EF219)
+<<<<<<< HEAD:FollowCar/TrackCar-noRTOS/Keil/Objects/template_template.dep
 F (..\User\Driver\Control.c)(0x64A2D0F6)(--c99 -c --cpu Cortex-M4.fp -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\User -I ..\Lib -I ..\Lib\CMSIS\include -I ..\RTthread\bsp -I ..\RTthread\include -I ..\User\Driver -D__UVISION_VERSION="526" -D__MSP432P401R__-o .\objects\control.o --omf_browse .\objects\control.crf --depend .\objects\control.d)
+=======
+F (..\User\Driver\Control.c)(0x64A277EF)(--c99 -c --cpu Cortex-M4.fp -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\User -I ..\Lib -I ..\Lib\CMSIS\include -I ..\RTthread\bsp -I ..\RTthread\include -I ..\User\Driver -D__UVISION_VERSION="526" -D__MSP432P401R__-o .\objects\control.o --omf_browse .\objects\control.crf --depend .\objects\control.d)
+>>>>>>> cf4a76d1b846cc8322ced36769559908cc07cd26:TrackCar-noRTOS/Keil/Objects/template_template.dep
 I (..\User\Driver\Control.h)(0x649ED6D2)
 I (..\Lib\ti/devices/msp432p4xx/driverlib/driverlib.h)(0x648EF219)
 I (..\Lib\ti/devices/msp432p4xx/driverlib/adc14.h)(0x648EF219)

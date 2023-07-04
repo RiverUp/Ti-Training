@@ -77,8 +77,8 @@ int main(void)
 						MaxTurn2=2000;
 						ChangeIntervalTurn1=250;
 						ChangeIntervalTurn2=1800;
-						StraightV=11;
-						TurnV1=11;
+						StraightV=13;
+						TurnV1=12;
 						TurnV2=10;
 						Velocity_Kp=100;
 						Velocity_Ki=22;
@@ -95,7 +95,7 @@ int main(void)
 						TurnV2=12;
 						Velocity_Kp=100;
 						Velocity_Ki=22;
-						CrossAccelerateTimes=80;
+						CrossAccelerateTimes=100;
 						DecelerationTimes=15;
 						break;
 					case 3:
@@ -103,7 +103,7 @@ int main(void)
 						MaxTurn2=2000;
 						ChangeIntervalTurn1=250;
 						ChangeIntervalTurn2=1800;
-						StraightV=11;
+						StraightV=13;
 						TurnV1=11;
 						TurnV2=10;
 						Velocity_Kp=100;
