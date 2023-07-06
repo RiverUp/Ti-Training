@@ -1,0 +1,19 @@
+{
+    "configurations": [
+        {
+            "name": "1",
+            "includePath": [
+                "D:\\code\\stm32\\msp\\project\\DeliverDrugCar(Vice)\\Master\\DriverLib",
+                "D:\\code\\stm32\\msp\\project\\DeliverDrugCar(Vice)\\Master\\Drivers",
+                "D:\\code\\stm32\\msp\\project\\DeliverDrugCar(Vice)\\Master",
+                "E:\\programs\\CCS\\cs\\tools\\compiler\\ti-cgt-arm_20.2.7.LTS\\include"
+            ],
+            "defines": ["PART_TM4C123GH6PM"],  
+            "intelliSenseMode": "windows-msvc-x64",
+            "compilerPath": "D:\\Environment\\vs2022\\VC\\Tools\\MSVC\\14.31.31103\\bin\\Hostx64\\x64\\cl.exe",
+            "cStandard": "c17",
+            "cppStandard": "c++17"
+        }
+    ],
+    "version": 4
+}

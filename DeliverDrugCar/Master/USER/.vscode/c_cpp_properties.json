@@ -18,13 +18,14 @@
                 "d:\\code\\stm32\\msp\\project\\DeliverDrugCar\\Master\\Filter",
                 "d:\\code\\stm32\\msp\\project\\DeliverDrugCar\\Master\\Control",
                 "d:\\code\\stm32\\msp\\project\\DeliverDrugCar\\Master\\Show",
+                "d:\\code\\stm32\\msp\\project\\DeliverDrugCar\\Master\\NewControl",
+                "d:\\code\\stm32\\msp\\project\\DeliverDrugCar\\Master\\NewDriver",
                 "D:\\Environment\\keil\\ARM\\ARMCLANG\\include",
                 "D:\\Environment\\keil\\ARM\\ARMCLANG\\include\\arm_linux",
                 "D:\\Environment\\keil\\ARM\\ARMCLANG\\include\\arm_linux_compat",
                 "D:\\Environment\\keil\\ARM\\ARMCLANG\\include\\libcxx",
                 "d:\\code\\stm32\\msp\\project\\DeliverDrugCar\\Master\\STM32F10x_FWLib\\src",
-                "d:\\code\\stm32\\msp\\project\\DeliverDrugCar\\Master",
-                "d:\\code\\stm32\\msp\\project\\DeliverDrugCar\\Master\\NewControl"
+                "d:\\code\\stm32\\msp\\project\\DeliverDrugCar\\Master"
             ],
             "defines": [
                 "STM32F10X_HD",

@@ -1,5 +1,5 @@
-../obj/owncontrol.o: ../NewControl/OwnControl.c \
-  ../NewControl/OwnControl.h \
+../obj/owncontrol.o: ../NewControl/OwnControl.cpp \
+  ../NewControl/OwnControl.hpp \
   D:/Environment/keil/ARM/PACK/RealThread/RT-Thread/3.1.5/include\rtthread.h \
   RTE/RTOS\rtconfig.h \
   D:/Environment/keil/ARM/PACK/RealThread/RT-Thread/3.1.5/include\rtdebug.h \

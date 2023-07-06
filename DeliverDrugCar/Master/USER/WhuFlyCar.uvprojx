@@ -339,7 +339,7 @@
               <MiscControls></MiscControls>
               <Define>STM32F10X_HD,USE_STDPERIPH_DRIVER</Define>
               <Undefine></Undefine>
-              <IncludePath>..\USER;..\CORE;..\STM32F10x_FWLib\inc;..\SYSTEM\delay;..\SYSTEM\sys;..\SYSTEM\usart;..\FreeRTOS\include;..\FreeRTOS\portable\GCC\ARM_CM3;..\Drivers;..\Basic;..\Drivers;..\Communication;..\DMP;..\Filter;..\Control;..\Show</IncludePath>
+              <IncludePath>..\USER;..\CORE;..\STM32F10x_FWLib\inc;..\SYSTEM\delay;..\SYSTEM\sys;..\SYSTEM\usart;..\FreeRTOS\include;..\FreeRTOS\portable\GCC\ARM_CM3;..\Drivers;..\Basic;..\Drivers;..\Communication;..\DMP;..\Filter;..\Control;..\Show;..\NewControl;..\NewDriver</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -813,14 +813,36 @@
           <GroupName>NewControl</GroupName>
           <Files>
             <File>
-              <FileName>OwnControl.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\NewControl\OwnControl.c</FilePath>
+              <FileName>OwnControl.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>..\NewControl\OwnControl.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>OwnSemaphore.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>..\NewControl\OwnSemaphore.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>TrailEntry.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>..\NewControl\TrailEntry.cpp</FilePath>
             </File>
           </Files>
         </Group>
         <Group>
           <GroupName>NewDriver</GroupName>
+          <Files>
+            <File>
+              <FileName>Motor.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>..\NewDriver\Motor.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>Sg90.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>..\NewDriver\Sg90.cpp</FilePath>
+            </File>
+          </Files>
         </Group>
         <Group>
           <GroupName>::RTOS</GroupName>
