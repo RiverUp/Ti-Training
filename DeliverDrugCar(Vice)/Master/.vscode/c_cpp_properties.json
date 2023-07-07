@@ -6,7 +6,8 @@
                 "D:\\code\\stm32\\msp\\project\\DeliverDrugCar(Vice)\\Master\\DriverLib",
                 "D:\\code\\stm32\\msp\\project\\DeliverDrugCar(Vice)\\Master\\Drivers",
                 "D:\\code\\stm32\\msp\\project\\DeliverDrugCar(Vice)\\Master",
-                "E:\\programs\\CCS\\cs\\tools\\compiler\\ti-cgt-arm_20.2.7.LTS\\include"
+                "E:\\programs\\CCS\\cs\\tools\\compiler\\ti-cgt-arm_20.2.7.LTS\\include",
+                "${workspaceFolder}"
             ],
             "defines": ["PART_TM4C123GH6PM"],  
             "intelliSenseMode": "windows-msvc-x64",

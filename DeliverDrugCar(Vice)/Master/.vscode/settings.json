@@ -1,0 +1,8 @@
+{
+    "files.associations": {
+        "hw_ints.h": "c",
+        "uart.h": "c",
+        "serial.h": "c",
+        "gpio.h": "c"
+    }
+}

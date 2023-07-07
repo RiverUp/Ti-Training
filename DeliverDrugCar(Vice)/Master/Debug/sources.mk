@@ -117,4 +117,11 @@ DriverLib/driverlib/ccs/Debug \
 DriverLib/driverlib/ewarm/Exe \
 DriverLib/driverlib/gcc \
 DriverLib/driverlib/rvmdk \
+DriverLib/sensorlib \
+DriverLib/sensorlib/ccs/Debug \
+DriverLib/sensorlib/ewarm/Exe \
+DriverLib/sensorlib/gcc \
+DriverLib/sensorlib/rvmdk \
+DriverLib/utils \
+Drivers \
 
