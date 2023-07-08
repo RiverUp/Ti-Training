@@ -11,6 +11,8 @@
 #include "GUI.hpp"
 #include "Show.hpp"
 
+#include "Sg90.hpp"
+
 #include "rtthread.h"
 #include "TrailEntry.hpp"
 
@@ -102,16 +104,14 @@ int main(void)
 	RCC_GetClocksFreq(&RCC_CLK);
 	STBY = 1;
 	
+	init_sg90();
+	rotate_sg90(90);
 	
-//	rt_thread_t trail_thread=rt_thread_create("trail",trail_entry,RT_NULL,1024,20,10);
-//	if(trail_thread!=RT_NULL)
-//	{
-//		rt_thread_startup(trail_thread);
-//	}
-//	
+	
 	// 进入主循环
 	while (1)
 	{
+		rotate_sg90(90);
 // 调试模式的选择
 #if Debug
 		DataScope();
