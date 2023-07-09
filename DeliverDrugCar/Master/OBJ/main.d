@@ -38,4 +38,4 @@
   D:\Environment\keil\ARM\ARMCLANG\Bin\..\include\string.h \
   ../Basic/Basic.h ../Basic/TimeBase.h ../Basic/TimeBase.hpp \
   ../Drivers\drv_MPU6050.hpp ../Control\Control.hpp ../Basic\GUI.hpp \
-  ../Show\Show.hpp
+  ../Show\Show.hpp ../NewDrivers\Sg90.hpp

@@ -1,6 +1,6 @@
 #include "Sg90.hpp"
 
-//sg90ç”¨äº†PWM1ï¼ŒTimer4ï¼ŒPD12
+//sg90ÓÃÁËPWM1£¬Timer4£¬PD12
 void init_sg90()
 {
     GPIO_InitTypeDef GPIO_InitStructure;
