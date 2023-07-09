@@ -303,18 +303,17 @@ void Get_Velocity_Form_Encoder(int encoder_left, int encoder_right)
  */
 void Choose(int encoder_left, int encoder_right);
 
-//初始化控制用的timer中断
 void init_drv_ControlSystem()
 {
-//    RCC->APB2ENR |= (1 << 13);
-//    // 需要问一下chatgpt
-//    //  os_delay(1e-2);
-//    TIM8->PSC = (APB2TIMERCLK / 1000000) - 1;
-//    TIM8->ARR = 1e6 / 200 - 1;
-//    TIM8->DIER = 1 << 0;
-//    TIM8->CR1 = 1 << 0;
-//    NVIC_SetPriority(TIM8_UP_IRQn, 3);
-//    NVIC_EnableIRQ(TIM8_UP_IRQn);
+    RCC->APB2ENR |= (1 << 13);
+    // 需要问一下chatgpt
+    //  os_delay(1e-2);
+    TIM8->PSC = (APB2TIMERCLK / 1000000) - 1;
+    TIM8->ARR = 1e6 / 200 - 1;
+    TIM8->DIER = 1 << 0;
+    TIM8->CR1 = 1 << 0;
+    NVIC_SetPriority(TIM8_UP_IRQn, 3);
+    NVIC_EnableIRQ(TIM8_UP_IRQn);
 }
 
 int Set_Postion_PID_L(int position, int target)

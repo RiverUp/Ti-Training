@@ -11,11 +11,6 @@
 #include "GUI.hpp"
 #include "Show.hpp"
 
-#include "Sg90.hpp"
-
-#include "rtthread.h"
-#include "TrailEntry.hpp"
-
 /*
  *      WHU-CAR
  * 所属单位：武汉大学
@@ -103,15 +98,9 @@ int main(void)
 	// 获取时钟
 	RCC_GetClocksFreq(&RCC_CLK);
 	STBY = 1;
-	
-	init_sg90();
-	rotate_sg90(90);
-	
-	
 	// 进入主循环
 	while (1)
 	{
-		rotate_sg90(90);
 // 调试模式的选择
 #if Debug
 		DataScope();
@@ -120,7 +109,6 @@ int main(void)
 		Commulink_Server();
 		// 显示
 		GUI_Server();
-		
 #endif
 	}
 }

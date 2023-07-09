@@ -10,6 +10,7 @@
       <TargetName>WhuFlyCar</TargetName>
       <ToolsetNumber>0x4</ToolsetNumber>
       <ToolsetName>ARM-ADS</ToolsetName>
+      <pArmCC>6100001::V6.10.1::ARMCLANG</pArmCC>
       <pCCUsed>6100001::V6.10.1::ARMCLANG</pCCUsed>
       <uAC6>1</uAC6>
       <TargetOption>
@@ -312,7 +313,7 @@
           </ArmAdsMisc>
           <Cads>
             <interw>1</interw>
-            <Optim>7</Optim>
+            <Optim>3</Optim>
             <oTime>0</oTime>
             <SplitLS>0</SplitLS>
             <OneElfS>1</OneElfS>
@@ -327,7 +328,7 @@
             <uC99>0</uC99>
             <uGnu>0</uGnu>
             <useXO>0</useXO>
-            <v6Lang>3</v6Lang>
+            <v6Lang>5</v6Lang>
             <v6LangP>3</v6LangP>
             <vShortEn>0</vShortEn>
             <vShortWch>0</vShortWch>
@@ -338,7 +339,7 @@
               <MiscControls></MiscControls>
               <Define>STM32F10X_HD,USE_STDPERIPH_DRIVER</Define>
               <Undefine></Undefine>
-              <IncludePath>..\USER;..\CORE;..\STM32F10x_FWLib\inc;..\SYSTEM\delay;..\SYSTEM\sys;..\SYSTEM\usart;..\FreeRTOS\include;..\FreeRTOS\portable\GCC\ARM_CM3;..\Drivers;..\Basic;..\Drivers;..\Communication;..\DMP;..\Filter;..\Control;..\Show;..\NewControl;..\NewDriver</IncludePath>
+              <IncludePath>..\USER;..\CORE;..\STM32F10x_FWLib\inc;..\SYSTEM\delay;..\SYSTEM\sys;..\SYSTEM\usart;..\FreeRTOS\include;..\FreeRTOS\portable\GCC\ARM_CM3;..\Drivers;..\Basic;..\Drivers;..\Communication;..\DMP;..\Filter;..\Control;..\Show;..\NewDrivers</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -809,42 +810,14 @@
           </Files>
         </Group>
         <Group>
-          <GroupName>NewControl</GroupName>
+          <GroupName>NewDrivers</GroupName>
           <Files>
-            <File>
-              <FileName>OwnControl.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>..\NewControl\OwnControl.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>OwnSemaphore.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>..\NewControl\OwnSemaphore.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>TrailEntry.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>..\NewControl\TrailEntry.cpp</FilePath>
-            </File>
-          </Files>
-        </Group>
-        <Group>
-          <GroupName>NewDriver</GroupName>
-          <Files>
-            <File>
-              <FileName>Motor.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>..\NewDriver\Motor.cpp</FilePath>
-            </File>
             <File>
               <FileName>Sg90.cpp</FileName>
               <FileType>8</FileType>
-              <FilePath>..\NewDriver\Sg90.cpp</FilePath>
+              <FilePath>..\NewDrivers\Sg90.cpp</FilePath>
             </File>
           </Files>
-        </Group>
-        <Group>
-          <GroupName>::RTOS</GroupName>
         </Group>
       </Groups>
     </Target>
@@ -852,32 +825,8 @@
 
   <RTE>
     <apis/>
-    <components>
-      <component Cbundle="RT-Thread" Cclass="RTOS" Cgroup="kernel" Cvendor="RealThread" Cversion="3.1.5" condition="CMSIS Core with RTOS">
-        <package license="License.txt" name="RT-Thread" schemaVersion="1.4" supportContact="https://www.rt-thread.org" url="https://www.rt-thread.org/download/mdk/" vendor="RealThread" version="3.1.5"/>
-        <targetInfos>
-          <targetInfo name="WhuFlyCar"/>
-        </targetInfos>
-      </component>
-    </components>
-    <files>
-      <file attr="config" category="source" name="bsp\_template\board.c" version="3.1.5">
-        <instance index="0">RTE\RTOS\board.c</instance>
-        <component Cbundle="RT-Thread" Cclass="RTOS" Cgroup="kernel" Cvendor="RealThread" Cversion="3.1.5" condition="CMSIS Core with RTOS"/>
-        <package license="License.txt" name="RT-Thread" schemaVersion="1.4" supportContact="https://www.rt-thread.org" url="https://www.rt-thread.org/download/mdk/" vendor="RealThread" version="3.1.5"/>
-        <targetInfos>
-          <targetInfo name="WhuFlyCar"/>
-        </targetInfos>
-      </file>
-      <file attr="config" category="header" name="bsp\_template\rtconfig.h" version="3.1.5">
-        <instance index="0">RTE\RTOS\rtconfig.h</instance>
-        <component Cbundle="RT-Thread" Cclass="RTOS" Cgroup="kernel" Cvendor="RealThread" Cversion="3.1.5" condition="CMSIS Core with RTOS"/>
-        <package license="License.txt" name="RT-Thread" schemaVersion="1.4" supportContact="https://www.rt-thread.org" url="https://www.rt-thread.org/download/mdk/" vendor="RealThread" version="3.1.5"/>
-        <targetInfos>
-          <targetInfo name="WhuFlyCar"/>
-        </targetInfos>
-      </file>
-    </files>
+    <components/>
+    <files/>
   </RTE>
 
 </Project>

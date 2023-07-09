@@ -26,14 +26,14 @@ void init_drv_Main()
 	//初始化按键
 	init_drv_Key();
 	//初始化电机接口
-	// init_drv_Motor();
+	init_drv_Motor();
 	//初始化PWM
-	// init_drv_PWMOut();
+	init_drv_PWMOut();
 	//初始化传感器
 	init_drv_Sensors();
 	//初始化编码器
-	// drv_Encoder_Init_TIM3();
-	// drv_Encoder_Init_TIM4();
+	drv_Encoder_Init_TIM3();
+	drv_Encoder_Init_TIM4();
 	//初始化ADC
 	init_drv_ADC();
 	//初始化串口

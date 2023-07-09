@@ -39,15 +39,6 @@
   D:\Environment\keil\ARM\ARMCLANG\Bin\..\include\string.h \
   ../Basic/Basic.h ../SYSTEM/delay\delay.h ../Basic/TimeBase.h \
   ../Basic/TimeBase.hpp ../Drivers/drv_Uart1.hpp \
-  D:/Environment/keil/ARM/PACK/RealThread/RT-Thread/3.1.5/include\rtthread.h \
-  RTE/RTOS\rtconfig.h \
-  D:/Environment/keil/ARM/PACK/RealThread/RT-Thread/3.1.5/include\rtdebug.h \
-  D:/Environment/keil/ARM/PACK/RealThread/RT-Thread/3.1.5/include\rtdef.h \
-  D:\Environment\keil\ARM\ARMCLANG\Bin\..\include\stdarg.h \
-  D:/Environment/keil/ARM/PACK/RealThread/RT-Thread/3.1.5/include\rtservice.h \
-  ../NewControl\OwnSemaphore.hpp \
-  D:\Environment\keil\ARM\ARMCLANG\Bin\..\include\libcxx\stdlib.h \
-  D:\Environment\keil\ARM\ARMCLANG\Bin\..\include\stdlib.h \
-  ../NewDriver\Sg90.hpp ../Drivers/drv_Uart2.hpp \
-  ../Drivers/drv_Uart3.hpp ../Drivers/drv_Uart4.hpp \
-  ../Communication\Commulink.hpp ../Basic\GUI.hpp
+  ../Drivers/drv_Uart2.hpp ../Drivers/drv_Uart3.hpp \
+  ../Drivers/drv_Uart4.hpp ../Communication\Commulink.hpp \
+  ../Basic\GUI.hpp

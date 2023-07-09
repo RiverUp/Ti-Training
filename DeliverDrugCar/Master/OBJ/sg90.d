@@ -1,4 +1,4 @@
-../obj/sg90.o: ../NewDriver/Sg90.cpp ../NewDriver/Sg90.hpp \
+../obj/sg90.o: ../NewDrivers/Sg90.cpp ../NewDrivers/Sg90.hpp \
   ../STM32F10x_FWLib/inc\stm32f10x_gpio.h ../USER\stm32f10x.h \
   ../CORE\core_cm3.h \
   D:\Environment\keil\ARM\ARMCLANG\Bin\..\include\libcxx\stdint.h \

@@ -34,14 +34,5 @@
   D:\Environment\keil\ARM\ARMCLANG\Bin\..\include\libcxx\stdbool.h \
   D:\Environment\keil\ARM\ARMCLANG\Bin\..\include\stdbool.h \
   ../Basic/TimeBase.hpp ../Drivers/drv_Uart1.hpp \
-  D:/Environment/keil/ARM/PACK/RealThread/RT-Thread/3.1.5/include\rtthread.h \
-  RTE/RTOS\rtconfig.h \
-  D:/Environment/keil/ARM/PACK/RealThread/RT-Thread/3.1.5/include\rtdebug.h \
-  D:/Environment/keil/ARM/PACK/RealThread/RT-Thread/3.1.5/include\rtdef.h \
-  D:\Environment\keil\ARM\ARMCLANG\Bin\..\include\stdarg.h \
-  D:/Environment/keil/ARM/PACK/RealThread/RT-Thread/3.1.5/include\rtservice.h \
-  ../NewControl\OwnSemaphore.hpp \
-  D:\Environment\keil\ARM\ARMCLANG\Bin\..\include\libcxx\stdlib.h \
-  D:\Environment\keil\ARM\ARMCLANG\Bin\..\include\stdlib.h \
-  ../NewDriver\Sg90.hpp ../Communication\Commulink.hpp \
-  ../Drivers/drv_MPU6050.hpp ../Control\Control.hpp ../Basic\GUI.hpp
+  ../Communication\Commulink.hpp ../Drivers/drv_MPU6050.hpp \
+  ../Control\Control.hpp
