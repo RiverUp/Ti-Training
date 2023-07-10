@@ -8,6 +8,7 @@
 #include "Commulink.hpp"
 #include "drv_MPU6050.hpp"
 #include "Control.hpp"	
+#include "drv_Uart2.hpp"
 
 //获取RTC时间
 extern "C" RTC_TimeStruct Get_RTC_Time();
@@ -352,23 +353,25 @@ void GUI_Server()
 		LCD_ShowString(134,140,str,RED,WHITE,16,0);
 	/*获取编码器的计数*/
 	
+	
+
 	/*获取电机的速度*/
-		sprintf( str, "%4.1f", Velocity_Left);
-		LCD_ShowString(134,156,str,RED,WHITE,16,0);
-		sprintf( str, "%4.1f", Velocity_Right);
-		LCD_ShowString(134,172,str,RED,WHITE,16,0);
+//		sprintf( str, "%4.1f", Velocity_Left);
+//		LCD_ShowString(134,156,str,RED,WHITE,16,0);
+//		sprintf( str, "%4.1f", Velocity_Right);
+//		LCD_ShowString(134,172,str,RED,WHITE,16,0);
 	/*获取电机的速度*/
 	
 	/*获取PWM赋值的速度*/
-		sprintf( str, "%4d", Motor_Left);
-		LCD_ShowString(134,188,str,RED,WHITE,16,0);
-		sprintf( str, "%4d", Motor_Right);
-		LCD_ShowString(134,204,str,RED,WHITE,16,0);
+//		sprintf( str, "%4d", Motor_Left);
+//		LCD_ShowString(134,188,str,RED,WHITE,16,0);
+//		sprintf( str, "%4d", Motor_Right);
+//		LCD_ShowString(134,204,str,RED,WHITE,16,0);
 	/*获取PWM赋值的速度*/
 	
 	/*获取角速度*/
-		sprintf( str, "%4.1f", Gyro_Balance);
-		LCD_ShowString(134,220,str,RED,WHITE,16,0);
+//		sprintf( str, "%4.1f", Gyro_Balance);
+//		LCD_ShowString(134,220,str,RED,WHITE,16,0);
 	/*获取角速度*/
 	
 	/*获取电池电压*/
@@ -377,6 +380,16 @@ void GUI_Server()
 		LCD_ShowString(134,60,str,RED,WHITE,16,0);
 		sprintf( str, "V");
 		LCD_ShowString(174,60,str,RED,WHITE,16,0);
+		
+		
+		sprintf(str,"cx:%d ",Cx);
+		LCD_ShowString(94,156,str,RED,WHITE,16,0);
+		sprintf(str,"cy:%d ",Cy);
+		LCD_ShowString(94,172,str,RED,WHITE,16,0);
+		sprintf(str,"cw:%d ",Cw);
+		LCD_ShowString(94,188,str,RED,WHITE,16,0);
+		sprintf(str,"ch:%d ",Ch);
+		LCD_ShowString(94,204,str,RED,WHITE,16,0);
 //		if(VDDA<11.7)
 //		{
 //			sprintf(str,"can't work, please recharge");
@@ -411,9 +424,9 @@ void init_GUI()
 	LCD_ShowString(94,108,YaW,RED,WHITE,16,0);
 	LCD_ShowString(94,124,EnL,RED,WHITE,16,0);
 	LCD_ShowString(94,140,EnR,RED,WHITE,16,0);
-	LCD_ShowString(94,156,VL,RED,WHITE,16,0);
-	LCD_ShowString(94,172,VR,RED,WHITE,16,0);
-	LCD_ShowString(94,188,MtL,RED,WHITE,16,0);
-	LCD_ShowString(94,204,MtR,RED,WHITE,16,0);
-	LCD_ShowString(94,220,Gyro,RED,WHITE,16,0);
+//	LCD_ShowString(94,156,VL,RED,WHITE,16,0);
+//	LCD_ShowString(94,172,VR,RED,WHITE,16,0);
+//	LCD_ShowString(94,188,MtL,RED,WHITE,16,0);
+//	LCD_ShowString(94,204,MtR,RED,WHITE,16,0);
+//	LCD_ShowString(94,220,Gyro,RED,WHITE,16,0);
 }

@@ -59,6 +59,7 @@ int Encoder_Left, Encoder_Right;
 int Voltage;
 // 平衡倾角 平衡陀螺仪 转向陀螺仪
 float Angle_Balance, Gyro_Balance, Gyro_Turn;
+float Track_Bias;
 // 延时和调参相关变量
 int delay_50, delay_flag;
 // 蓝牙模式、普通模式标志位
@@ -68,11 +69,11 @@ RCC_ClocksTypeDef RCC_CLK;
 // Z轴加速度计
 float Acceleration_Z;
 // PID参数（放大100倍）
-float Balance_Kp = 20500, Balance_Kd = 110, Velocity_Kp = 16000, Velocity_Ki = 80, Turn_Kp = 420, Turn_Kd = 0;
+float Balance_Kp = 20500, Balance_Kd = 110, Velocity_Kp = 16000, Velocity_Ki = 80, Rotate_Turn_Kp = 4200, Rotate_Turn_Kd = 0,Track_Turn_Kp=400,Track_Turn_Kd=0;
 // 车轮速度(mm/s)
 float Velocity_Left, Velocity_Right;
 // 平衡环PWM变量，速度环PWM变量，转向环PWM变量
-int Balance_Pwm, Velocity_Pwm, Turn_Pwm;
+int Balance_Pwm, Velocity_Pwm, Rotate_Turn_Pwm,Track_Turn_PWM;
 
 // 位置PID控制变量，速度PID控制变量
 int Pos_Pwm, Vel_Pwm;
@@ -101,12 +102,9 @@ int main(void)
 	RCC_GetClocksFreq(&RCC_CLK);
 	STBY = 1;
 	
-	init_sg90();
-	rotate_sg90(90);
 	// 进入主循环
 	while (1)
 	{
-		rotate_sg90(90);
 // 调试模式的选择
 #if Debug
 		DataScope();

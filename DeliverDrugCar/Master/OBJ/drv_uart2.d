@@ -33,5 +33,5 @@
   ../SYSTEM/delay\delay.h ../SYSTEM/sys\sys.h ../Basic/TimeBase.h \
   D:\Environment\keil\ARM\ARMCLANG\Bin\..\include\libcxx\stdbool.h \
   D:\Environment\keil\ARM\ARMCLANG\Bin\..\include\stdbool.h \
-  ../Basic/TimeBase.hpp ../Drivers/drv_Uart2.hpp \
+  ../Basic/TimeBase.hpp ../Drivers/drv_Uart2.hpp ../Basic\GUI.hpp \
   ../Communication\Commulink.hpp

@@ -37,7 +37,7 @@ void init_drv_Main()
 	//初始化ADC
 	init_drv_ADC();
 	//初始化串口
-	init_drv_Uart1(9600);
+	init_drv_Uart1(115200);
 	init_drv_Uart2(115200);
 	init_drv_Uart3(115200);
 	init_drv_Uart4(115200);

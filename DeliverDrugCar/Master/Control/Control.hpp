@@ -35,12 +35,13 @@ extern int Temperature;
 extern int Voltage;                
 //平衡倾角 平衡陀螺仪 转向陀螺仪
 extern float Angle_Balance,Gyro_Balance,Gyro_Turn; 
+extern float Track_Bias;
 //延时和调参相关变量
 extern int delay_50,delay_flag; 						
 //Z轴加速度计  
 extern float Acceleration_Z;         
 //PID参数（放大100倍）
-extern float Balance_Kp,Balance_Kd,Velocity_Kp,Velocity_Ki,Turn_Kp,Turn_Kd;
+extern float Balance_Kp ,Balance_Kd, Velocity_Kp , Velocity_Ki, Rotate_Turn_Kp, Rotate_Turn_Kd,Track_Turn_Kp,Track_Turn_Kd;
 //蓝牙模式、普通模式标志位
 extern u8 Flag_Blooth,Flag_Normol;			
 //左右编码器的脉冲计数	
@@ -48,7 +49,7 @@ extern int Encoder_Left,Encoder_Right;
 //车轮速度(mm/s)
 extern float Velocity_Left,Velocity_Right;	
 //平衡环PWM变量，速度环PWM变量，转向环PWM变量
-extern int Balance_Pwm,Velocity_Pwm,Turn_Pwm;	
+extern int Balance_Pwm,Velocity_Pwm,Rotate_Turn_Pwm,Track_Turn_PWM;	
 //位置PID
 extern float Position_KP,Position_KI,Position_KD; 	
 //编码器当前目标数以及设定目标数
@@ -77,8 +78,9 @@ int Velocity(int encoder_left,int encoder_right);
  * 入口参数：Z轴陀螺仪
  * 返回  值：转向控制PWM
  */
-int Turn(float gyro);
+int RotateTurn(float gyro);
 
+int TrackTurn(float bias);
 /*
  * 函数功能：赋值给PWM寄存器
  * 入口参数：左轮PWM、右轮PWM

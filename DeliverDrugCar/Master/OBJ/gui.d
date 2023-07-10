@@ -38,4 +38,5 @@
   D:\Environment\keil\ARM\ARMCLANG\Bin\..\include\stdlib.h \
   ../Drivers\drv_LCD.hpp ../Basic/GUI_Images.hpp ../Basic/GUI.hpp \
   ../Basic/Font.hpp ../Communication\Commulink.hpp \
-  ../Drivers\drv_MPU6050.hpp ../Control\Control.hpp
+  ../Drivers\drv_MPU6050.hpp ../Control\Control.hpp \
+  ../Drivers\drv_Uart2.hpp

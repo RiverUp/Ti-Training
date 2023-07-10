@@ -12,6 +12,10 @@
 #define BIN2 PDout(10)
 
 float TargetYaw;
+float TargetVelocity=20;
+bool Turn180Flag;
+bool Turn90Flag;
+
 
 /*
  * 函数功能：直立PD控制
@@ -36,7 +40,7 @@ int Velocity(int encoder_left, int encoder_right)
 {
     static float velocity, encoder_least, encoder_bias;
     static float encoder_integral, target_velocity;
-    encoder_least = 0 - (encoder_left + encoder_right);
+    encoder_least = TargetVelocity - (encoder_left + encoder_right);
     // 低通滤波
     encoder_bias *= 0.84;
     encoder_bias += encoder_least * 0.16;
@@ -59,10 +63,10 @@ int Velocity(int encoder_left, int encoder_right)
  * 入口参数：Z轴陀螺仪
  * 返回  值：转向控制PWM
  */
-int Turn(float gyro)
+int RotateTurn(float gyro)
 {
     static float Turn_Target, turn, Turn_Amplitude = 54;
-    float Kp = Turn_Kp, Kd;
+    float Kp = Rotate_Turn_Kp, Kd;
     if (1 == Flag_Left)
     {
         Turn_Target = -Turn_Amplitude / Flag_velocity;
@@ -77,12 +81,23 @@ int Turn(float gyro)
         Turn_Target = 0;
     }
     if (1 == Flag_front || 1 == Flag_back)
-        Kd = Turn_Kd;
+        Kd = Rotate_Turn_Kd;
     else
         Kd = 0;
 
     turn = Turn_Target * Kp / 100 + gyro * Kd / 100;
     return turn;
+}
+
+int TrackTurn(float bias)
+{
+	static float general_bias,turn,last_bias;
+	general_bias=0.84*bias+0.16*last_bias;
+	last_bias=bias;
+	
+	turn=general_bias*Track_Turn_Kp/100;
+	
+	return turn;
 }
 
 /*
@@ -378,9 +393,7 @@ extern "C" void TIM8_UP_IRQHandler(void)
         {
             return;
         }
-        // static u8 Flag_Target;
         Get_Angle(Way_Angle);
-        // Flag_Target = !Flag_Target;
         Encoder_Left = -Read_Encoder(4);
         Encoder_Right = -Read_Encoder(3);
         Key();
@@ -392,32 +405,34 @@ extern "C" void TIM8_UP_IRQHandler(void)
         {
             Led_Flash(100);
         }
-				if(Yaw>2){
-					Flag_Right=1;
-					
-				}else if(Yaw<-2){
-					Flag_Left=1;
-				}
-				if(Flag_Left||Flag_Right){
-						if(myabs(Yaw)<2){
-							Flag_Right=0;
-							Flag_Left=0;
-						}
-				}
+				
+				
+//				if(Yaw>2){
+//					Flag_Right=1;
+//					
+//				}else if(Yaw<-2){
+//					Flag_Left=1;
+//				}
+//				if(Flag_Left||Flag_Right){
+//						if(myabs(Yaw)<2){
+//							Flag_Right=0;
+//							Flag_Left=0;
+//						}
+//				}
+				
+				
         Get_Velocity_Form_Encoder(Encoder_Left, Encoder_Right);
-        Balance_Pwm = Balance(Angle_Balance, Gyro_Balance);
+				
         Velocity_Pwm = Velocity(Encoder_Left, Encoder_Right);
-        Turn_Pwm = Turn(Gyro_Turn);
-        Motor_Left = Balance_Pwm + Velocity_Pwm + Turn_Pwm;
-        Motor_Right = Balance_Pwm + Velocity_Pwm - Turn_Pwm;
+        Rotate_Turn_Pwm = RotateTurn(Gyro_Turn);
+				Track_Turn_PWM=TrackTurn(Track_Bias);
+				
+        Motor_Left = Velocity_Pwm + Rotate_Turn_Pwm+Track_Turn_PWM;
+        Motor_Right = Velocity_Pwm - Rotate_Turn_Pwm-Track_Turn_PWM;
         Voltage = Get_battery_volt();
 				
 
 
-        // Pos_Pwm = Set_Postion_PID_L(Encoder_Left, Target_Position_L);
-        // Motor_Left = Pos_Pwm;
-        // Vel_Pwm = Set_Incremental_PI_L(Encoder_Left, Target_Velocity_L);
-        // Motor_Left = Vel_Pwm;
         Motor_Left = PWM_Limit(Motor_Left, 6900, -6900);
         Motor_Right = PWM_Limit(Motor_Right, 6900, -6900);
         if (Pick_Up(Acceleration_Z, Angle_Balance, Encoder_Left, Encoder_Right))

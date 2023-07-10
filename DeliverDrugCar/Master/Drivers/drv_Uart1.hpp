@@ -2,6 +2,7 @@
 
 #include <stdint.h>
 #include "Basic.hpp"
+#include "GUI.hpp"
 
 #ifdef __cplusplus
 	extern "C" {
