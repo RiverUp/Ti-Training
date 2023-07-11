@@ -384,11 +384,11 @@ void GUI_Server()
 		
 		sprintf(str,"cx:%d ",Cx);
 		LCD_ShowString(94,156,str,RED,WHITE,16,0);
-		sprintf(str,"cy:%d ",Cy);
-		LCD_ShowString(94,172,str,RED,WHITE,16,0);
 		sprintf(str,"cw:%d ",Cw);
+		LCD_ShowString(94,172,str,RED,WHITE,16,0);
+		sprintf(str,"CrossNum:%d ",CrossNum);
 		LCD_ShowString(94,188,str,RED,WHITE,16,0);
-		sprintf(str,"ch:%d ",Ch);
+		sprintf(str,"ci:%d ",Ci);
 		LCD_ShowString(94,204,str,RED,WHITE,16,0);
 //		if(VDDA<11.7)
 //		{

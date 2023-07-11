@@ -1,7 +1,7 @@
 #include "Basic.hpp"
 #include "drv_Uart2.hpp"
 #include "Commulink.hpp"
-u8 Cx=0,Cy=0,Cw=0,Ch=0;
+u8 Cx=0,Cy=0,Cw=0,Ch=0,Ci=0;
 char str[10];
 char str1[10];
 /*
@@ -56,7 +56,7 @@ extern "C" void USART2_IRQHandler(void)
 	u8 com_data;
 	u8 i;
 	static u8 RxCounter1 = 0;
-	static u16 RxBuffer1[11] = {0};
+	static u16 RxBuffer1[12] = {0};
 	static u8 RxState = 0;
 	static u8 RxFlag1 = 0;
 	if (USART_GetITStatus(USART2, USART_IT_RXNE) != RESET)
@@ -76,10 +76,6 @@ extern "C" void USART2_IRQHandler(void)
 
 		else if (RxState == 1 && com_data == 0x12) // 0x12帧头
 		{
-			
-//				sprintf(str1,"Str:%5d",com_data);
-//				LCD_ShowString(94,204,str1,RED,WHITE,16,0);
-				
 			RxState = 2;
 			RxBuffer1[RxCounter1++] = com_data;
 		}
@@ -93,10 +89,11 @@ extern "C" void USART2_IRQHandler(void)
 				
 				RxState = 3;
 				RxFlag1 = 1;
-				Cx = RxBuffer1[RxCounter1 - 5];
-				Cy = RxBuffer1[RxCounter1 - 4];
-				Cw = RxBuffer1[RxCounter1 - 3];
-				Ch = RxBuffer1[RxCounter1 - 2];
+				Cx = RxBuffer1[RxCounter1 - 6];
+				Cy = RxBuffer1[RxCounter1 - 5];
+				Cw = RxBuffer1[RxCounter1 - 4];
+				Ch = RxBuffer1[RxCounter1 - 3];
+				Ci = RxBuffer1[RxCounter1-2];
 			}
 		}
 		else if (RxState == 3) // 检测是否接受到结束标志
@@ -107,6 +104,23 @@ extern "C" void USART2_IRQHandler(void)
 				if (RxFlag1)
 				{
 					
+					if(Cw)
+						Track_Bias=Cx;
+					else
+						Track_Bias=-Cx;
+					//Ci检测是否为路口,计数经过了多少个路口
+					if(Ci)
+					{
+						CrossFlag=true;
+						if(!PassCrossFlag)
+							CrossNum++;
+						PassCrossFlag=true;
+					}
+					else
+					{
+						CrossFlag=false;
+						PassCrossFlag=false;
+					}
 				}
 				RxFlag1 = 0;
 				RxCounter1 = 0;

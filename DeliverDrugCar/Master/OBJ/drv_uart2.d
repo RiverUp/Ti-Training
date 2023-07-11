@@ -34,4 +34,4 @@
   D:\Environment\keil\ARM\ARMCLANG\Bin\..\include\libcxx\stdbool.h \
   D:\Environment\keil\ARM\ARMCLANG\Bin\..\include\stdbool.h \
   ../Basic/TimeBase.hpp ../Drivers/drv_Uart2.hpp ../Basic\GUI.hpp \
-  ../Communication\Commulink.hpp
+  ../Control\Control.hpp ../Communication\Commulink.hpp

@@ -4,6 +4,8 @@
 #include "drv_MPU6050.hpp"
 #include "drv_Key.hpp"
 #include "drv_LED.hpp"
+#include <stack>
+using namespace std;
 
 #define APB2TIMERCLK 72000000
 #define AIN1 PDout(4)
@@ -11,11 +13,18 @@
 #define BIN1 PDout(11)
 #define BIN2 PDout(10)
 
+//在第几个路口停
+int StopCrossNum=1;
+
 float TargetYaw;
 float TargetVelocity=20;
+bool TrackFlag=true;
 bool Turn180Flag;
 bool Turn90Flag;
-
+bool CrossFlag;
+bool PassCrossFlag;
+int CrossNum;
+stack<int> Trace;
 
 /*
  * 函数功能：直立PD控制
@@ -91,13 +100,20 @@ int RotateTurn(float gyro)
 
 int TrackTurn(float bias)
 {
-	static float general_bias,turn,last_bias;
-	general_bias=0.84*bias+0.16*last_bias;
-	last_bias=bias;
-	
-	turn=general_bias*Track_Turn_Kp/100;
-	
-	return turn;
+	if(TrackFlag)
+	{
+		static float general_bias,turn,last_bias;
+		general_bias=0.84*bias+0.16*last_bias;
+		last_bias=bias;
+		
+		turn=general_bias*Track_Turn_Kp/100;
+		
+		return turn;
+	}
+	else
+	{
+		return 0;
+	}
 }
 
 /*
@@ -431,7 +447,10 @@ extern "C" void TIM8_UP_IRQHandler(void)
         Motor_Right = Velocity_Pwm - Rotate_Turn_Pwm-Track_Turn_PWM;
         Voltage = Get_battery_volt();
 				
-
+				if(CrossNum==StopCrossNum)
+				{
+					Flag_Stop=true;
+				}
 
         Motor_Left = PWM_Limit(Motor_Left, 6900, -6900);
         Motor_Right = PWM_Limit(Motor_Right, 6900, -6900);

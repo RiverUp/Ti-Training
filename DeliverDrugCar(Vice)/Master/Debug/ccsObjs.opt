@@ -72,6 +72,7 @@
 "./DriverLib/utils/ustdlib.obj"
 "./Drivers/Flag.obj"
 "./Drivers/Interrupt.obj"
+"./Drivers/Mpu6050.obj"
 "./Drivers/OpenmvTrack.obj"
 "./Drivers/Serial.obj"
 "./Drivers/Sg90.obj"

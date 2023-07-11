@@ -138,6 +138,7 @@ extern "C"
 // Prototypes for the APIs.
 //
 //*****************************************************************************
+#include <stdbool.h>
 extern void GPIODirModeSet(uint32_t ui32Port, uint8_t ui8Pins,
                            uint32_t ui32PinIO);
 extern uint32_t GPIODirModeGet(uint32_t ui32Port, uint8_t ui8Pin);

@@ -28,6 +28,7 @@ encoding//Debug/objects.mk=UTF-8
 encoding//Debug/sources.mk=UTF-8
 encoding//Debug/subdir_rules.mk=UTF-8
 encoding//Debug/subdir_vars.mk=UTF-8
+encoding//Drivers/Mpu6050.c=UTF-8
 encoding//Drivers/Serial.c=UTF-8
 encoding//Drivers/Sg90.c=UTF-8
 encoding/main.c=UTF-8

@@ -21,6 +21,11 @@
 #define Perimeter  210.4867 			//周长，单位mm
 #define Middle_angle 2						//未消除静态误差，导致平衡角为2
 
+extern bool CrossFlag;
+extern bool PassCrossFlag;
+extern int CrossNum;
+
+
 //获取角度的算法，1：四元数  2：卡尔曼  3：互补滤波
 extern u8 Way_Angle;                              
 //蓝牙遥控相关的变量

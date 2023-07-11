@@ -39,5 +39,6 @@
   D:\Environment\keil\ARM\ARMCLANG\Bin\..\include\string.h \
   ../Basic/Basic.h ../SYSTEM/delay\delay.h ../Basic/TimeBase.h \
   ../Basic/TimeBase.hpp ../Drivers/drv_Uart1.hpp ../Basic\GUI.hpp \
-  ../Drivers/drv_Uart2.hpp ../Drivers/drv_Uart3.hpp \
-  ../Drivers/drv_Uart4.hpp ../Communication\Commulink.hpp
+  ../Drivers/drv_Uart2.hpp ../Control\Control.hpp \
+  ../Drivers/drv_Uart3.hpp ../Drivers/drv_Uart4.hpp \
+  ../Communication\Commulink.hpp
