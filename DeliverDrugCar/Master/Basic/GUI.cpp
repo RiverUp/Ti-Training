@@ -388,7 +388,7 @@ void GUI_Server()
 		LCD_ShowString(94,172,str,WHITE,BLACK,16,0);
 		sprintf(str,"CrossNum:%d ",CrossNum);
 		LCD_ShowString(94,188,str,WHITE,BLACK,16,0);
-		sprintf(str,"ci:%d ",Ci);
+		sprintf(str,"ci:%d ",ArrivedFlag);
 		LCD_ShowString(94,204,str,WHITE,BLACK,16,0);
 //		if(VDDA<11.7)
 //		{

@@ -27,6 +27,7 @@ extern bool PassCrossFlag;
 extern bool ReadyStopFlag;
 extern bool Turn180Flag;
 extern bool TrackFlag;
+extern bool ReturnFlag;
 extern int CrossNum,ArrivedNum;
 extern int PassCrossTimes, PassCrossCount;
 extern float TargetVelocity;

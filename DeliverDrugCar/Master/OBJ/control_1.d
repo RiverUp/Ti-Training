@@ -36,7 +36,7 @@
   D:\Environment\keil\ARM\ARMCLANG\Bin\..\include\stdbool.h \
   ../Basic/TimeBase.hpp ../Drivers\drv_Encoder.hpp \
   ../Drivers\drv_MPU6050.hpp ../Drivers\drv_Key.hpp \
-  ../Drivers\drv_LED.hpp ../USER\stm32f10x_it.h \
+  ../Drivers\drv_LED.hpp ../USER\stm32f10x_it.h ../Basic\GUI.hpp \
   D:\Environment\keil\ARM\ARMCLANG\Bin\..\include\libcxx\stack \
   D:\Environment\keil\ARM\ARMCLANG\Bin\..\include\libcxx\deque \
   D:\Environment\keil\ARM\ARMCLANG\Bin\..\include\libcxx\__split_buffer \

@@ -4,6 +4,7 @@
 #include "drv_MPU6050.hpp"
 #include "drv_Key.hpp"
 #include "drv_LED.hpp"
+#include "GUI.hpp"
 #include <stack>
 using namespace std;
 
@@ -12,10 +13,10 @@ using namespace std;
 #define AIN2 PCout(12)
 #define BIN1 PDout(11)
 #define BIN2 PDout(10)
-#define LEFTTURN 0
-#define RIGHTTURN 1
+#define LEFTTURN 1
+#define RIGHTTURN 2
 // 识别到路口至正好行驶到路口上进行旋转的延时时间
-#define StopDelayTimes 115
+#define StopDelayTimes 170
 
 // 在第几个路口停
 int StopCrossNum = 1;
@@ -29,7 +30,7 @@ int StopDelayCount;
 bool ReadyStopFlag;
 
 float TargetYaw;
-float TargetVelocity = 30;
+float TargetVelocity = 20;
 bool TrackFlag = true;
 bool Turn180Flag;
 bool TurnLeft90Flag;
@@ -39,14 +40,15 @@ bool ArrivedFlag;
 bool ReturnFlag;
 int ArrivedNum;
 int CrossNum = 0;
+int ArrivedCount;
 bool PassCrossFlag;
-int PassCrossTimes = 3 * StopDelayTimes;
+int PassCrossTimes = 2 * StopDelayTimes;
 int PassCrossCount;
 int ArrivedTimes;
 
-stack<int> Trace;
-
-
+int Trace[2];
+int TracePtr;
+int TraceBit;
 
 extern "C" void TIM8_UP_IRQHandler(void)
 {
@@ -69,26 +71,58 @@ extern "C" void TIM8_UP_IRQHandler(void)
         {
             Led_Flash(100);
         }
-				
-			
-				//路口判断
-				if(CrossNum==StopCrossNum&&CrossFlag)
-				{
-					//不是近端病房就停下来识别
-					if(!CloseWard)
-					{
-						Flag_Stop=true;
-					}
-					//是近端病房就开始停止延时
-					else
-					{
-						ReadyStopFlag=true;
-						TrackFlag=false;
-						CrossNum=0;
-					}		
-				}
-				//开始延时
-				if (ReadyStopFlag)
+        if (CrossFlag)
+        {
+            TrackFlag = false;
+        }
+
+        // 路口判断
+        if (CrossNum == StopCrossNum && CrossFlag && !ReturnFlag)
+        {
+            // 不是近端病房就停下来识别
+            if (!CloseWard)
+            {
+                Flag_Stop = true;
+            }
+            // 是近端病房就开始停止延时
+            else
+            {
+                ReadyStopFlag = true;
+                TrackFlag = false;
+                CrossNum = 0;
+            }
+        }
+        if (CrossFlag && ReturnFlag)
+        {
+            //					TracePtr--;
+            //					if(TracePtr>=0)
+            //					{
+            //						ReadyStopFlag=true;
+            //						int direction=Trace[TracePtr];
+            //						if(direction==LEFTTURN)
+            //							TurnRight90Flag=true;
+            //						else
+            //							TurnLeft90Flag=true;
+            //					}
+            // LCD_Fill(0, 0, 240, 240, BLUE);
+            TrackFlag = false;
+            ReadyStopFlag = true;
+        }
+        // 识别路口的延时
+        if (PassCrossFlag)
+        {
+            if (PassCrossCount > PassCrossTimes)
+            {
+                PassCrossCount = 0;
+                PassCrossFlag = false;
+            }
+            else
+            {
+                PassCrossCount++;
+            }
+        }
+        // 开始延时
+        if (ReadyStopFlag)
         {
             StopDelayCount++;
             if (StopDelayCount == StopDelayTimes)
@@ -99,39 +133,71 @@ extern "C" void TIM8_UP_IRQHandler(void)
                 ReadyStopFlag = false;
                 // 转向标识设置
                 TrackFlag = false;
-							//近端病房
-							if(!ReturnFlag&&CloseWard)
-							{
-                if (IdentifiedNum == 1)
-                    TurnLeft90Flag = true;
-                if (IdentifiedNum == 2)
-                    TurnRight90Flag = true;
-							}
-						}
-					}
-				
-				if (TurnLeft90Flag)
+                // 近端病房
+                if (!ReturnFlag && CloseWard)
+                {
+                    if (IdentifiedNum == 1)
+                        TurnLeft90Flag = true;
+                    if (IdentifiedNum == 2)
+                        TurnRight90Flag = true;
+                }
+                else if (ReturnFlag)
+                {
+                    int direction = TraceBit;
+                    if (direction == LEFTTURN)
+                        TurnRight90Flag = true;
+                    else
+                    {
+                        // LCD_Fill(0, 0, 240, 240, BLUE);
+                        TurnLeft90Flag = true;
+                    }
+                }
+            }
+        }
+        //				if(ArrivedFlag)
+        //				{
+        //					ArrivedCount++;
+        //					if(ArrivedCount==50)
+        //					{
+        //						ArrivedCount=0;
+        //						ArrivedFlag=false;
+        //						TargetVelocity=0;
+        //						Turn180Flag=true;
+        //						Track_Bias=0;
+        //					}
+        //				}
+        if (TurnLeft90Flag)
         {
             TargetYaw = Yaw + 90;
             TurnLeft90Flag = false;
             Flag_Left = true;
-//						if(!ReturnFlag)
-//							Trace.push(LEFTTURN);
+            if (!ReturnFlag)
+            {
+                TraceBit = LEFTTURN;
+            }
         }
         if (TurnRight90Flag)
         {
             TargetYaw = Yaw - 90;
             TurnRight90Flag = false;
-						Flag_Right = true;
-//						if(!ReturnFlag)
-//							Trace.push(RIGHTTURN);
+            Flag_Right = true;
+            if (!ReturnFlag)
+            {
+                TraceBit = RIGHTTURN;
+            }
         }
-				if(Turn180Flag)
-				{
-					TargetYaw=Yaw+180;
-					Turn180Flag=false;
-					Flag_Left = true;
-				}
+        if (Turn180Flag)
+        {
+            ArrivedCount++;
+            if (ArrivedCount == 50)
+            {
+                TargetVelocity = 0;
+                TargetYaw = Yaw + 180;
+                Turn180Flag = false;
+                Flag_Left = true;
+								ArrivedCount=0;
+            }
+        }
         if (Flag_Left == 1 || Flag_Right == 1)
         {
             // 转向后恢复前进
@@ -139,26 +205,25 @@ extern "C" void TIM8_UP_IRQHandler(void)
             {
                 Flag_Left = 0;
                 Flag_Right = 0;
-								Track_Bias=0;
+                Track_Bias = 0;
                 Set_Pwm(0, 0);
-                TargetVelocity = 30;
+                TargetVelocity = 20;
                 TrackFlag = true;
-								if(ArrivedFlag)
-								{
-									TargetVelocity=0;
-								}
+                if (ArrivedFlag)
+                {
+                    TargetVelocity = 0;
+                }
             }
         }
-				
-				
-				Get_Velocity_Form_Encoder(Encoder_Left, Encoder_Right);
-				
+
+        Get_Velocity_Form_Encoder(Encoder_Left, Encoder_Right);
+
         Velocity_Pwm = Velocity(Encoder_Left, Encoder_Right);
         Rotate_Turn_Pwm = RotateTurn(Gyro_Turn);
-				Track_Turn_PWM=TrackTurn(Track_Bias);
-				
-        Motor_Left = Velocity_Pwm - Rotate_Turn_Pwm+Track_Turn_PWM;
-        Motor_Right = Velocity_Pwm + Rotate_Turn_Pwm-Track_Turn_PWM;
+        Track_Turn_PWM = TrackTurn(Track_Bias);
+
+        Motor_Left = Velocity_Pwm - Rotate_Turn_Pwm + Track_Turn_PWM;
+        Motor_Right = Velocity_Pwm + Rotate_Turn_Pwm - Track_Turn_PWM;
         Voltage = Get_battery_volt();
         Motor_Left = PWM_Limit(Motor_Left, 6900, -6900);
         Motor_Right = PWM_Limit(Motor_Right, 6900, -6900);
@@ -174,7 +239,6 @@ extern "C" void TIM8_UP_IRQHandler(void)
             Set_Pwm(Motor_Left, Motor_Right);
     }
 }
-
 
 /*
  * 函数功能：直立PD控制
@@ -250,20 +314,20 @@ int RotateTurn(float gyro)
 
 int TrackTurn(float bias)
 {
-	if(TrackFlag)
-	{
-		static float general_bias,turn,last_bias;
-		general_bias=0.84*bias+0.16*last_bias;
-		last_bias=bias;
-		
-		turn=general_bias*Track_Turn_Kp/100;
-		
-		return turn;
-	}
-	else
-	{
-		return 0;
-	}
+    if (TrackFlag)
+    {
+        static float general_bias, turn, last_bias;
+        general_bias = 0.84 * bias + 0.16 * last_bias;
+        last_bias = bias;
+
+        turn = general_bias * Track_Turn_Kp / 100;
+
+        return turn;
+    }
+    else
+    {
+        return 0;
+    }
 }
 
 /*
@@ -332,7 +396,15 @@ void Key(void)
     temp = click_N_Double(50);
     if (temp == 1)
     {
-        Flag_Stop = !Flag_Stop;
+        if (ArrivedFlag)
+        {
+            ArrivedFlag = false;
+            TargetVelocity = 20;
+        }
+        else
+        {
+            Flag_Stop = !Flag_Stop;
+        }
     }
 }
 /*
@@ -549,5 +621,3 @@ int Set_Incremental_PI_R(int incremental, int target)
     last_bias = bias;
     return pwm;
 }
-
-
