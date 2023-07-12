@@ -111,15 +111,29 @@ extern "C" void USART2_IRQHandler(void)
 					//Ci检测是否为路口,计数经过了多少个路口
 					if(Ci)
 					{
-						CrossFlag=true;
 						if(!PassCrossFlag)
+						{
+							CrossFlag=true;
+							PassCrossFlag=true;
 							CrossNum++;
-						PassCrossFlag=true;
+						}
+						else
+						{
+							if(PassCrossCount==PassCrossTimes)
+							{
+								PassCrossCount=0;
+								PassCrossFlag=false;
+							}
+							else
+							{
+								PassCrossCount++;
+							}
+						}
 					}
 					else
 					{
 						CrossFlag=false;
-						PassCrossFlag=false;
+						//PassCrossFlag=false;
 					}
 				}
 				RxFlag1 = 0;

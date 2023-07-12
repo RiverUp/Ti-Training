@@ -24,6 +24,7 @@
 extern bool CrossFlag;
 extern bool PassCrossFlag;
 extern int CrossNum;
+extern int PassCrossTimes, PassCrossCount;
 
 
 //获取角度的算法，1：四元数  2：卡尔曼  3：互补滤波

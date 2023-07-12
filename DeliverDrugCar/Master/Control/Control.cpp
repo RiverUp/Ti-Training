@@ -12,19 +12,139 @@ using namespace std;
 #define AIN2 PCout(12)
 #define BIN1 PDout(11)
 #define BIN2 PDout(10)
+//识别到路口至正好行驶到路口上进行旋转的延时时间
+#define StopDelayTimes 150
 
 //在第几个路口停
 int StopCrossNum=1;
+//识别到的病房号
+int IdentifiedNum=1;
+//是否为近端病房
+bool CloseWard=true;
+//延时计数
+int StopDelayCount;
+//标识开始延时
+bool ReadyStopFlag;
+
 
 float TargetYaw;
-float TargetVelocity=20;
+float TargetVelocity=30;
 bool TrackFlag=true;
 bool Turn180Flag;
 bool Turn90Flag;
 bool CrossFlag;
+int CrossNum=0;
 bool PassCrossFlag;
-int CrossNum;
+int PassCrossTimes=2*StopDelayTimes;
+int PassCrossCount;
+
 stack<int> Trace;
+
+
+
+extern "C" void TIM8_UP_IRQHandler(void)
+{
+    if (TIM_GetFlagStatus(TIM8, TIM_FLAG_Update) == SET)
+    {
+        TIM_ClearITPendingBit(TIM8, TIM_IT_Update);
+        if (getInitializationCompleted() == false)
+        {
+            return;
+        }
+        Get_Angle(Way_Angle);
+        Encoder_Left = -Read_Encoder(4);
+        Encoder_Right = -Read_Encoder(3);
+        Key();
+        if (Flag_Stop)
+        {
+            Led_Flash(0);
+        }
+        else
+        {
+            Led_Flash(100);
+        }
+				
+			
+				//路口判断
+				if(CrossNum==StopCrossNum&&CrossFlag)
+				{
+					//不是近端病房就停下来识别
+					if(!CloseWard)
+					{
+						Flag_Stop=true;
+					}
+					//是近端病房就开始停止延时
+					else
+					{
+						ReadyStopFlag=true;
+						TrackFlag=false;
+						CrossNum=0;
+					}		
+				}
+				//开始延时
+				if(ReadyStopFlag)
+				{
+					StopDelayCount++;
+					if(StopDelayCount==StopDelayTimes)
+					{
+						//停车+复位
+						TargetVelocity=0;
+						StopDelayCount=0;
+						ReadyStopFlag=false;
+						//转向标识设置
+						TrackFlag=false;
+						Turn90Flag=true;
+					}
+				}
+				
+				if(Turn90Flag)
+				{
+					TargetYaw=Yaw+90;
+					Turn90Flag=false;
+					Flag_Left=true;
+				}
+//				if(Turn180Flag)
+//				{
+//					TargetYaw=Yaw+180;
+//					Turn180Flag=false;
+//				}
+				if (Flag_Left == 1)
+        {
+					//转向后恢复前进
+					if (myabs(Yaw - TargetYaw) < 20)
+					{
+						Flag_Left = 0;
+						Set_Pwm(0,0);
+						TargetVelocity=20;
+						TrackFlag=true;
+					}
+        }
+				
+				
+				Get_Velocity_Form_Encoder(Encoder_Left, Encoder_Right);
+				
+        Velocity_Pwm = Velocity(Encoder_Left, Encoder_Right);
+        Rotate_Turn_Pwm = RotateTurn(Gyro_Turn);
+				Track_Turn_PWM=TrackTurn(Track_Bias);
+				
+        Motor_Left = Velocity_Pwm - Rotate_Turn_Pwm+Track_Turn_PWM;
+        Motor_Right = Velocity_Pwm + Rotate_Turn_Pwm-Track_Turn_PWM;
+        Voltage = Get_battery_volt();
+        Motor_Left = PWM_Limit(Motor_Left, 6900, -6900);
+        Motor_Right = PWM_Limit(Motor_Right, 6900, -6900);
+        if (Pick_Up(Acceleration_Z, Angle_Balance, Encoder_Left, Encoder_Right))
+        {
+            Flag_Stop = 1;
+        }
+        if (Put_Down(Angle_Balance, Encoder_Left, Encoder_Right))
+        {
+            Flag_Stop = 0;
+        }
+        if (Turn_Off(Angle_Balance, Voltage) == 0)
+            Set_Pwm(Motor_Left, Motor_Right);
+    }
+}
+
 
 /*
  * 函数功能：直立PD控制
@@ -400,69 +520,4 @@ int Set_Incremental_PI_R(int incremental, int target)
     return pwm;
 }
 
-extern "C" void TIM8_UP_IRQHandler(void)
-{
-    if (TIM_GetFlagStatus(TIM8, TIM_FLAG_Update) == SET)
-    {
-        TIM_ClearITPendingBit(TIM8, TIM_IT_Update);
-        if (getInitializationCompleted() == false)
-        {
-            return;
-        }
-        Get_Angle(Way_Angle);
-        Encoder_Left = -Read_Encoder(4);
-        Encoder_Right = -Read_Encoder(3);
-        Key();
-        if (Flag_Stop)
-        {
-            Led_Flash(0);
-        }
-        else
-        {
-            Led_Flash(100);
-        }
-				
-				
-//				if(Yaw>2){
-//					Flag_Right=1;
-//					
-//				}else if(Yaw<-2){
-//					Flag_Left=1;
-//				}
-//				if(Flag_Left||Flag_Right){
-//						if(myabs(Yaw)<2){
-//							Flag_Right=0;
-//							Flag_Left=0;
-//						}
-//				}
-				
-				
-        Get_Velocity_Form_Encoder(Encoder_Left, Encoder_Right);
-				
-        Velocity_Pwm = Velocity(Encoder_Left, Encoder_Right);
-        Rotate_Turn_Pwm = RotateTurn(Gyro_Turn);
-				Track_Turn_PWM=TrackTurn(Track_Bias);
-				
-        Motor_Left = Velocity_Pwm + Rotate_Turn_Pwm+Track_Turn_PWM;
-        Motor_Right = Velocity_Pwm - Rotate_Turn_Pwm-Track_Turn_PWM;
-        Voltage = Get_battery_volt();
-				
-				if(CrossNum==StopCrossNum)
-				{
-					Flag_Stop=true;
-				}
 
-        Motor_Left = PWM_Limit(Motor_Left, 6900, -6900);
-        Motor_Right = PWM_Limit(Motor_Right, 6900, -6900);
-        if (Pick_Up(Acceleration_Z, Angle_Balance, Encoder_Left, Encoder_Right))
-        {
-            Flag_Stop = 1;
-        }
-        if (Put_Down(Angle_Balance, Encoder_Left, Encoder_Right))
-        {
-            Flag_Stop = 0;
-        }
-        if (Turn_Off(Angle_Balance, Voltage) == 0)
-            Set_Pwm(Motor_Left, Motor_Right);
-    }
-}
