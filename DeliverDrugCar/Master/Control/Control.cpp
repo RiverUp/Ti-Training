@@ -143,7 +143,7 @@ extern "C" void TIM8_UP_IRQHandler(void)
                 Set_Pwm(0, 0);
                 TargetVelocity = 30;
                 TrackFlag = true;
-								if(ArrivedNum==2)
+								if(ArrivedFlag)
 								{
 									TargetVelocity=0;
 								}

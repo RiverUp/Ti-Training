@@ -25,10 +25,11 @@ extern bool CrossFlag;
 extern bool ArrivedFlag;
 extern bool PassCrossFlag;
 extern bool ReadyStopFlag;
+extern bool Turn180Flag;
 extern bool TrackFlag;
 extern int CrossNum,ArrivedNum;
 extern int PassCrossTimes, PassCrossCount;
-
+extern float TargetVelocity;
 
 //获取角度的算法，1：四元数  2：卡尔曼  3：互补滤波
 extern u8 Way_Angle;                              

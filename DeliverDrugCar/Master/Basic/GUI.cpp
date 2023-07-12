@@ -337,63 +337,63 @@ void GUI_Server()
 		//获取姿态角
 		//roll
 		sprintf( str, "%3.1f", Pitch);
-		LCD_ShowString(134,76,str,RED,WHITE,16,0);
+		LCD_ShowString(134,76,str,WHITE,BLACK,16,0);
 		//pitch
 		sprintf( str, "%3.1f", Roll);
-		LCD_ShowString(134,92,str,RED,WHITE,16,0);
+		LCD_ShowString(134,92,str,WHITE,BLACK,16,0);
 		//yaw
 		sprintf( str, "%3.1f", Yaw);
-		LCD_ShowString(134,108,str,RED,WHITE,16,0);
+		LCD_ShowString(134,108,str,WHITE,BLACK,16,0);
 	// /*获取姿态*/
 	
 	/*获取编码器的计数*/
 		sprintf( str, "%4d", Encoder_Left);
-		LCD_ShowString(134,124,str,RED,WHITE,16,0);
+		LCD_ShowString(134,124,str,WHITE,BLACK,16,0);
 		sprintf( str, "%4d", Encoder_Right);
-		LCD_ShowString(134,140,str,RED,WHITE,16,0);
+		LCD_ShowString(134,140,str,WHITE,BLACK,16,0);
 	/*获取编码器的计数*/
 	
 	
 
 	/*获取电机的速度*/
 //		sprintf( str, "%4.1f", Velocity_Left);
-//		LCD_ShowString(134,156,str,RED,WHITE,16,0);
+//		LCD_ShowString(134,156,str,WHITE,WHITE,16,0);
 //		sprintf( str, "%4.1f", Velocity_Right);
-//		LCD_ShowString(134,172,str,RED,WHITE,16,0);
+//		LCD_ShowString(134,172,str,WHITE,WHITE,16,0);
 	/*获取电机的速度*/
 	
 	/*获取PWM赋值的速度*/
 //		sprintf( str, "%4d", Motor_Left);
-//		LCD_ShowString(134,188,str,RED,WHITE,16,0);
+//		LCD_ShowString(134,188,str,WHITE,WHITE,16,0);
 //		sprintf( str, "%4d", Motor_Right);
-//		LCD_ShowString(134,204,str,RED,WHITE,16,0);
+//		LCD_ShowString(134,204,str,WHITE,WHITE,16,0);
 	/*获取PWM赋值的速度*/
 	
 	/*获取角速度*/
 //		sprintf( str, "%4.1f", Gyro_Balance);
-//		LCD_ShowString(134,220,str,RED,WHITE,16,0);
+//		LCD_ShowString(134,220,str,WHITE,WHITE,16,0);
 	/*获取角速度*/
 	
 	/*获取电池电压*/
 		VDDA = ((float)Voltage)/100;
 		sprintf( str, "%4.2f", VDDA);
-		LCD_ShowString(134,60,str,RED,WHITE,16,0);
+		LCD_ShowString(134,60,str,WHITE,BLACK,16,0);
 		sprintf( str, "V");
-		LCD_ShowString(174,60,str,RED,WHITE,16,0);
+		LCD_ShowString(174,60,str,WHITE,BLACK,16,0);
 		
 		
 		sprintf(str,"cx:%d ",Cx);
-		LCD_ShowString(94,156,str,RED,WHITE,16,0);
+		LCD_ShowString(94,156,str,WHITE,BLACK,16,0);
 		sprintf(str,"cw:%d ",Cw);
-		LCD_ShowString(94,172,str,RED,WHITE,16,0);
+		LCD_ShowString(94,172,str,WHITE,BLACK,16,0);
 		sprintf(str,"CrossNum:%d ",CrossNum);
-		LCD_ShowString(94,188,str,RED,WHITE,16,0);
+		LCD_ShowString(94,188,str,WHITE,BLACK,16,0);
 		sprintf(str,"ci:%d ",Ci);
-		LCD_ShowString(94,204,str,RED,WHITE,16,0);
+		LCD_ShowString(94,204,str,WHITE,BLACK,16,0);
 //		if(VDDA<11.7)
 //		{
 //			sprintf(str,"can't work, please recharge");
-//			LCD_ShowString(0,200,str,RED,WHITE,16,0);
+//			LCD_ShowString(0,200,str,WHITE,WHITE,16,0);
 //		}
 	/*获取电池电压*/
 }
@@ -403,7 +403,7 @@ void init_GUI()
 {
 	char WhuFly[]={"Whu-Car"};
 	char Auther[]={"Auther:WX"};
-	LCD_Fill(0,0,LCD_W,LCD_H,WHITE);
+	LCD_Fill(0,0,LCD_W,LCD_H,BLACK);
 	char VDDA[]={"VDDA: 0.0"};
 	char Rol[]={"Pit:  0.0"};
 	char Pit[]={"Rol:  0.0"};
@@ -415,18 +415,18 @@ void init_GUI()
 	char MtL[]={"MtL:  0.0"};
 	char MtR[]={"MtR:  0.0"};
 	char Gyro[]={"Gyro: 0.0"};
-	LCD_ShowString(130,0,WhuFly,RED,WHITE,24,0);
-	LCD_ShowString(135,24,Auther,BLUE,WHITE,16,0);
+	LCD_ShowString(130,0,WhuFly,WHITE,BLACK,24,0);
+	LCD_ShowString(135,24,Auther,BLACK,BLACK,16,0);
 	LCD_ShowPicture(0,0,91,57,gImage_Competition);
-	LCD_ShowString(94,60,VDDA,RED,WHITE,16,0);
-	LCD_ShowString(94,76,Rol,RED,WHITE,16,0);
-	LCD_ShowString(94,92,Pit,RED,WHITE,16,0);
-	LCD_ShowString(94,108,YaW,RED,WHITE,16,0);
-	LCD_ShowString(94,124,EnL,RED,WHITE,16,0);
-	LCD_ShowString(94,140,EnR,RED,WHITE,16,0);
-//	LCD_ShowString(94,156,VL,RED,WHITE,16,0);
-//	LCD_ShowString(94,172,VR,RED,WHITE,16,0);
-//	LCD_ShowString(94,188,MtL,RED,WHITE,16,0);
-//	LCD_ShowString(94,204,MtR,RED,WHITE,16,0);
-//	LCD_ShowString(94,220,Gyro,RED,WHITE,16,0);
+	LCD_ShowString(94,60,VDDA,WHITE,BLACK,16,0);
+	LCD_ShowString(94,76,Rol,WHITE,BLACK,16,0);
+	LCD_ShowString(94,92,Pit,WHITE,BLACK,16,0);
+	LCD_ShowString(94,108,YaW,WHITE,BLACK,16,0);
+	LCD_ShowString(94,124,EnL,WHITE,BLACK,16,0);
+	LCD_ShowString(94,140,EnR,WHITE,BLACK,16,0);
+//	LCD_ShowString(94,156,VL,WHITE,WHITE,16,0);
+//	LCD_ShowString(94,172,VR,WHITE,WHITE,16,0);
+//	LCD_ShowString(94,188,MtL,WHITE,WHITE,16,0);
+//	LCD_ShowString(94,204,MtR,WHITE,WHITE,16,0);
+//	LCD_ShowString(94,220,Gyro,WHITE,WHITE,16,0);
 }

@@ -142,7 +142,8 @@ extern "C" void USART2_IRQHandler(void)
 							ArrivedFlag = true;
 							TrackFlag=false;
 							ArrivedNum++;
-							Flag_Stop=true;
+							TargetVelocity=0;
+							Turn180Flag=true;
 							Track_Bias=0;
 						}
 						break;
