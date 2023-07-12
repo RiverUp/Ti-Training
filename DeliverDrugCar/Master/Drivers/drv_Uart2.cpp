@@ -104,36 +104,50 @@ extern "C" void USART2_IRQHandler(void)
 				if (RxFlag1)
 				{
 					
-					if(Cw)
-						Track_Bias=Cx;
+										if (Cw)
+						Track_Bias = Cx;
 					else
-						Track_Bias=-Cx;
-					//Ci检测是否为路口,计数经过了多少个路口
-					if(Ci)
+						Track_Bias = -Cx;
+					// Ci检测是否为路口,计数经过了多少个路口
+					switch (Ci)
 					{
-						if(!PassCrossFlag)
+					case 1:
+					case 2:
+					case 3:
+						if (!PassCrossFlag)
 						{
-							CrossFlag=true;
-							PassCrossFlag=true;
+							CrossFlag = true;
+							PassCrossFlag = true;
 							CrossNum++;
 						}
 						else
 						{
-							if(PassCrossCount==PassCrossTimes)
+							if (PassCrossCount == PassCrossTimes)
 							{
-								PassCrossCount=0;
-								PassCrossFlag=false;
+								PassCrossCount = 0;
+								PassCrossFlag = false;
 							}
 							else
 							{
 								PassCrossCount++;
 							}
 						}
-					}
-					else
-					{
-						CrossFlag=false;
-						//PassCrossFlag=false;
+						break;
+					case 0:
+						CrossFlag = false;
+						break;
+					case 4:
+						if(!ArrivedFlag)
+						{
+							ArrivedFlag = true;
+							TrackFlag=false;
+							ArrivedNum++;
+							Flag_Stop=true;
+							Track_Bias=0;
+						}
+						break;
+					default:
+						break;
 					}
 				}
 				RxFlag1 = 0;

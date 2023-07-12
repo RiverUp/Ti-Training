@@ -22,8 +22,11 @@
 #define Middle_angle 2						//Î´Ïû³ý¾²Ì¬Îó²î£¬µ¼ÖÂÆ½ºâ½ÇÎª2
 
 extern bool CrossFlag;
+extern bool ArrivedFlag;
 extern bool PassCrossFlag;
-extern int CrossNum;
+extern bool ReadyStopFlag;
+extern bool TrackFlag;
+extern int CrossNum,ArrivedNum;
 extern int PassCrossTimes, PassCrossCount;
 
 

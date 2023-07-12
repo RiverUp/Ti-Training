@@ -12,31 +12,37 @@ using namespace std;
 #define AIN2 PCout(12)
 #define BIN1 PDout(11)
 #define BIN2 PDout(10)
-//识别到路口至正好行驶到路口上进行旋转的延时时间
-#define StopDelayTimes 150
+#define LEFTTURN 0
+#define RIGHTTURN 1
+// 识别到路口至正好行驶到路口上进行旋转的延时时间
+#define StopDelayTimes 115
 
-//在第几个路口停
-int StopCrossNum=1;
-//识别到的病房号
-int IdentifiedNum=1;
-//是否为近端病房
-bool CloseWard=true;
-//延时计数
+// 在第几个路口停
+int StopCrossNum = 1;
+// 识别到的病房号
+int IdentifiedNum = 2;
+// 是否为近端病房
+bool CloseWard = true;
+// 延时计数
 int StopDelayCount;
-//标识开始延时
+// 标识开始延时
 bool ReadyStopFlag;
 
-
 float TargetYaw;
-float TargetVelocity=30;
-bool TrackFlag=true;
+float TargetVelocity = 30;
+bool TrackFlag = true;
 bool Turn180Flag;
-bool Turn90Flag;
+bool TurnLeft90Flag;
+bool TurnRight90Flag;
 bool CrossFlag;
-int CrossNum=0;
+bool ArrivedFlag;
+bool ReturnFlag;
+int ArrivedNum;
+int CrossNum = 0;
 bool PassCrossFlag;
-int PassCrossTimes=2*StopDelayTimes;
+int PassCrossTimes = 3 * StopDelayTimes;
 int PassCrossCount;
+int ArrivedTimes;
 
 stack<int> Trace;
 
@@ -82,42 +88,66 @@ extern "C" void TIM8_UP_IRQHandler(void)
 					}		
 				}
 				//开始延时
-				if(ReadyStopFlag)
-				{
-					StopDelayCount++;
-					if(StopDelayCount==StopDelayTimes)
-					{
-						//停车+复位
-						TargetVelocity=0;
-						StopDelayCount=0;
-						ReadyStopFlag=false;
-						//转向标识设置
-						TrackFlag=false;
-						Turn90Flag=true;
-					}
-				}
-				
-				if(Turn90Flag)
-				{
-					TargetYaw=Yaw+90;
-					Turn90Flag=false;
-					Flag_Left=true;
-				}
-//				if(Turn180Flag)
-//				{
-//					TargetYaw=Yaw+180;
-//					Turn180Flag=false;
-//				}
-				if (Flag_Left == 1)
+				if (ReadyStopFlag)
         {
-					//转向后恢复前进
-					if (myabs(Yaw - TargetYaw) < 20)
-					{
-						Flag_Left = 0;
-						Set_Pwm(0,0);
-						TargetVelocity=20;
-						TrackFlag=true;
+            StopDelayCount++;
+            if (StopDelayCount == StopDelayTimes)
+            {
+                // 停车+复位
+                TargetVelocity = 0;
+                StopDelayCount = 0;
+                ReadyStopFlag = false;
+                // 转向标识设置
+                TrackFlag = false;
+							//近端病房
+							if(!ReturnFlag&&CloseWard)
+							{
+                if (IdentifiedNum == 1)
+                    TurnLeft90Flag = true;
+                if (IdentifiedNum == 2)
+                    TurnRight90Flag = true;
+							}
+						}
 					}
+				
+				if (TurnLeft90Flag)
+        {
+            TargetYaw = Yaw + 90;
+            TurnLeft90Flag = false;
+            Flag_Left = true;
+//						if(!ReturnFlag)
+//							Trace.push(LEFTTURN);
+        }
+        if (TurnRight90Flag)
+        {
+            TargetYaw = Yaw - 90;
+            TurnRight90Flag = false;
+						Flag_Right = true;
+//						if(!ReturnFlag)
+//							Trace.push(RIGHTTURN);
+        }
+				if(Turn180Flag)
+				{
+					TargetYaw=Yaw+180;
+					Turn180Flag=false;
+					Flag_Left = true;
+				}
+        if (Flag_Left == 1 || Flag_Right == 1)
+        {
+            // 转向后恢复前进
+            if (myabs(Yaw - TargetYaw) < 10)
+            {
+                Flag_Left = 0;
+                Flag_Right = 0;
+								Track_Bias=0;
+                Set_Pwm(0, 0);
+                TargetVelocity = 30;
+                TrackFlag = true;
+								if(ArrivedNum==2)
+								{
+									TargetVelocity=0;
+								}
+            }
         }
 				
 				
