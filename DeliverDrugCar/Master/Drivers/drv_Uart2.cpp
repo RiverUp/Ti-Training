@@ -126,7 +126,7 @@ extern "C" void USART2_IRQHandler(void)
 						CrossFlag = false;
 						break;
 					case 4:
-						if(!ArrivedFlag)
+						if(!ArrivedFlag&&!PassCrossFlag)
 						{
 							ArrivedFlag = true;
 							TrackFlag=false;

@@ -114,7 +114,7 @@ extern "C" void USART3_IRQHandler(void)
 					case 8:
 						StopCrossNum=2;
 						CloseWard=true;
-						//init_drv_Uart2(115200);
+						init_drv_Uart2(115200);
 						IdentifiedNum = readNum;
 						break;
 					case 11:
