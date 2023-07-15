@@ -19,9 +19,9 @@ using namespace std;
 #define StopDelayTimes 180
 
 // 在第几个路口停
-int StopCrossNum = 1;
+int StopCrossNum = 2;
 // 识别到的病房号
-int IdentifiedNum=0;
+int IdentifiedNum=6;
 // 是否为近端病房
 bool CloseWard=false;
 // 延时计数
@@ -38,17 +38,25 @@ bool Turn180Flag;
 bool TurnLeft90Flag;
 bool TurnRight90Flag;
 bool CrossFlag;
+bool GoBackFlag;
+int GoBackCount;
+int GoBackTimes=200;
 bool ArrivedFlag;
 bool ReturnFlag;
+bool JudgingFlag;
+//数字识别转向方向
+int TurnSignal;
+int JudgingCount;
+int JudgingTimes=100;
 int ArrivedNum;
 int CrossNum = 0;
 int ArrivedCount;
 bool PassCrossFlag;
-int PassCrossTimes = 2 * StopDelayTimes;
+int PassCrossTimes = 400;
 int PassCrossCount;
 int ArrivedTimes;
 
-int Trace[2];
+int Trace[5];
 int TracePtr;
 int TraceBit;
 
@@ -73,26 +81,27 @@ extern "C" void TIM8_UP_IRQHandler(void)
         {
             Led_Flash(100);
         }
-        if (CrossFlag)
-        {
-            TrackFlag = false;
-        }
+
 
         // 路口判断
         if (CrossNum == StopCrossNum && CrossFlag && !ReturnFlag)
         {
-            // 不是近端病房就停下来识别
-            if (!CloseWard)
+					// 不是近端病房就停下来识别,第三个路口也不不识别，直接左转
+            if (!CloseWard&&StopCrossNum!=3)
             {
                 Flag_Stop = true;
+								JudgingFlag=true;
             }
             // 是近端病房就开始停止延时
             else
             {
                 ReadyStopFlag = true;
-                TrackFlag = false;
-                CrossNum = 0;
+                //TrackFlag = false;
+							//试一下
+								
+                //CrossNum = 0;
             }
+						CrossFlag=false;
         }
         if (CrossFlag && ReturnFlag)
         {
@@ -110,6 +119,32 @@ extern "C" void TIM8_UP_IRQHandler(void)
             TrackFlag = false;
             ReadyStopFlag = true;
         }
+				//openmv长时间识别不出就算直行
+				if(JudgingFlag)
+				{
+					JudgingCount++;
+					if(JudgingCount>=JudgingTimes)
+					{
+						if(CrossNum==2)
+						{
+							Flag_Stop=false;
+							JudgingFlag=false;
+							JudgingCount=0;
+							StopCrossNum=3;
+							//PassCrossFlag=true;
+						}
+						if(CrossNum==4)
+						{
+							Flag_Stop=false;
+							JudgingFlag=false;
+							JudgingCount=0;
+							StopCrossNum=6;
+							TargetVelocity=0;
+							Turn180Flag=true;
+							Trace[TracePtr-1]=RIGHTTURN;
+						}
+					}
+				}
         // 识别路口的延时
         if (PassCrossFlag)
         {
@@ -143,9 +178,24 @@ extern "C" void TIM8_UP_IRQHandler(void)
                     if (IdentifiedNum == 2)
                         TurnRight90Flag = true;
                 }
+								else if(!ReturnFlag&&!CloseWard)
+								{
+									//判别左转或遇到第3个十字路口
+									if(TurnSignal==11)
+										TurnLeft90Flag=true;
+									if(StopCrossNum==3)
+									{
+										//下一个路口要判断数字
+										StopCrossNum=4;
+										TurnLeft90Flag=true;
+									}
+									if(TurnSignal==12)
+										TurnRight90Flag=true;
+									
+								}
                 else if (ReturnFlag)
                 {
-                    int direction = TraceBit;
+                    int direction = Trace[--TracePtr];
                     if (direction == LEFTTURN)
                         TurnRight90Flag = true;
                     else
@@ -175,7 +225,7 @@ extern "C" void TIM8_UP_IRQHandler(void)
             Flag_Left = true;
             if (!ReturnFlag)
             {
-                TraceBit = LEFTTURN;
+                Trace[TracePtr++] = LEFTTURN;
             }
         }
         if (TurnRight90Flag)
@@ -185,7 +235,7 @@ extern "C" void TIM8_UP_IRQHandler(void)
             Flag_Right = true;
             if (!ReturnFlag)
             {
-                TraceBit = RIGHTTURN;
+                Trace[TracePtr++]=RIGHTTURN;
             }
         }
         if (Turn180Flag)
@@ -250,6 +300,23 @@ extern "C" void TIM8_UP_IRQHandler(void)
             Set_Pwm(Motor_Left, Motor_Right);
     }
 }
+void GoBack()
+{
+	if(GoBackFlag)
+	{
+		TargetVelocity=-20;
+		GoBackCount++;
+		if(GoBackCount>=GoBackTimes)
+		{
+			TargetVelocity=20;
+			GoBackCount=0;
+			GoBackFlag=false;
+			JudgingFlag=true;
+			//PassCrossFlag=true;
+		}
+	}
+}
+
 
 /*
  * 函数功能：直立PD控制
