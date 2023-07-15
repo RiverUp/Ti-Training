@@ -47,7 +47,7 @@ bool JudgingFlag;
 //数字识别转向方向
 int TurnSignal;
 int JudgingCount;
-int JudgingTimes=100;
+int JudgingTimes=300;
 int ArrivedNum;
 int CrossNum = 0;
 int ArrivedCount;
@@ -89,20 +89,17 @@ extern "C" void TIM8_UP_IRQHandler(void)
 					// 不是近端病房就停下来识别,第三个路口也不不识别，直接左转
             if (!CloseWard&&StopCrossNum!=3)
             {
-                Flag_Stop = true;
-								JudgingFlag=true;
+                //Flag_Stop = true;
+								GoBackFlag=true;
             }
             // 是近端病房就开始停止延时
             else
             {
                 ReadyStopFlag = true;
-                //TrackFlag = false;
-							//试一下
-								
-                //CrossNum = 0;
             }
 						CrossFlag=false;
         }
+				GoBack();
         if (CrossFlag && ReturnFlag)
         {
             //					TracePtr--;
@@ -125,13 +122,14 @@ extern "C" void TIM8_UP_IRQHandler(void)
 					JudgingCount++;
 					if(JudgingCount>=JudgingTimes)
 					{
+						TargetVelocity=20;
 						if(CrossNum==2)
 						{
 							Flag_Stop=false;
 							JudgingFlag=false;
 							JudgingCount=0;
 							StopCrossNum=3;
-							//PassCrossFlag=true;
+							PassCrossFlag=true;
 						}
 						if(CrossNum==4)
 						{
@@ -308,7 +306,7 @@ void GoBack()
 		GoBackCount++;
 		if(GoBackCount>=GoBackTimes)
 		{
-			TargetVelocity=20;
+			TargetVelocity=0;
 			GoBackCount=0;
 			GoBackFlag=false;
 			JudgingFlag=true;

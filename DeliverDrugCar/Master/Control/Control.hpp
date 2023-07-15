@@ -36,6 +36,9 @@ extern int PassCrossTimes, PassCrossCount,JudgingCount;
 extern float TargetVelocity;
 extern int IdentifiedNum;
 
+void GoBack();
+
+
 //获取角度的算法，1：四元数  2：卡尔曼  3：互补滤波
 extern u8 Way_Angle;                              
 //蓝牙遥控相关的变量
