@@ -67,11 +67,11 @@ Section Cross References
     gui.o(.text._Z10GUI_Serverv) refers to font.o(.rodata.ascii_1206) for ascii_1206
     gui.o(.text._Z10GUI_Serverv) refers to drv_lcd.o(.text._Z15LCD_Address_Settttt) for LCD_Address_Set(unsigned short, unsigned short, unsigned short, unsigned short)
     gui.o(.text._Z10GUI_Serverv) refers to drv_lcd.o(.text._Z11LCD_WR_DATAt) for LCD_WR_DATA(unsigned short)
-    gui.o(.text._Z10GUI_Serverv) refers to control_1.o(.bss.CrossNum) for CrossNum
+    gui.o(.text._Z10GUI_Serverv) refers to control_1.o(.bss.IdentifiedNum) for IdentifiedNum
     gui.o(.text._Z10GUI_Serverv) refers to gui.o(.rodata.str1.1) for .L.str
     gui.o(.text._Z10GUI_Serverv) refers to printfa.o(i.__0sprintf) for __2sprintf
     gui.o(.text._Z10GUI_Serverv) refers to font.o(.rodata.ascii_1608) for ascii_1608
-    gui.o(.text._Z10GUI_Serverv) refers to control_1.o(.bss.CrossFlag) for CrossFlag
+    gui.o(.text._Z10GUI_Serverv) refers to control_1.o(.bss.TurnSignal) for TurnSignal
     gui.o(.text._Z10GUI_Serverv) refers to drv_mpu6050.o(.bss.Yaw) for Yaw
     gui.o(.text._Z10GUI_Serverv) refers to f2d.o(.text) for __aeabi_f2d
     gui.o(.text._Z10GUI_Serverv) refers to main.o(.bss.Encoder_Left) for Encoder_Left
@@ -4331,8 +4331,8 @@ Image Symbol Table
     [Anonymous Symbol]                       0x08011d95   Section        0  gui.o(.rodata.str1.1)
     .L.str                                   0x08011d95   Data           3  gui.o(.rodata.str1.1)
     .L.str.2                                 0x08011d98   Data           4  gui.o(.rodata.str1.1)
-    .L.str.10                                0x08011d9c   Data          10  gui.o(.rodata.str1.1)
-    .L.str.9                                 0x08011da6   Data           8  gui.o(.rodata.str1.1)
+    .L.str.10                                0x08011d9c   Data           9  gui.o(.rodata.str1.1)
+    .L.str.9                                 0x08011da5   Data           8  gui.o(.rodata.str1.1)
     [Anonymous Symbol]                       0x08011db0   Section        0  inv_mpu.o(.rodata.str1.16)
     .Lstr                                    0x08011db0   Data          76  inv_mpu.o(.rodata.str1.16)
     .data                                    0x20000000   Section        4  errno.o(.data)
@@ -5293,8 +5293,8 @@ Memory Map of the image
     0x08011d62   0x08011d62   0x0000000c   Data   RO         1622    .rodata.hw          inv_mpu.o
     0x08011d6e   0x08011d6e   0x0000000c   Data   RO          109    .rodata.mon_table   timebase.o
     0x08011d7a   0x08011d7a   0x0000001b   Data   RO         1621    .rodata.reg         inv_mpu.o
-    0x08011d95   0x08011d95   0x00000019   Data   RO           63    .rodata.str1.1      gui.o
-    0x08011dae   0x08011dae   0x00000002   PAD
+    0x08011d95   0x08011d95   0x00000018   Data   RO           63    .rodata.str1.1      gui.o
+    0x08011dad   0x08011dad   0x00000003   PAD
     0x08011db0   0x08011db0   0x0000004c   Data   RO         1625    .rodata.str1.16     inv_mpu.o
     0x08011dfc   0x08011dfc   0x00000028   Data   RO         1623    .rodata.test        inv_mpu.o
     0x08011e24   0x08011e24   0x00000020   Data   RO         2872    Region$$Table       anon$$obj.o
@@ -5513,7 +5513,7 @@ Image component sizes
        160          0          0          0          0      11459   drv_uart4.o
        908          0          0         20         40       6236   filter_1.o
          0          0      13316          0          0       7705   font.o
-      7806         62         25          0          0      42199   gui.o
+      7806         62         24          0          0      42199   gui.o
          0          0      10374          0          0       7823   gui_images.o
       7492        158        155         44          0      27100   inv_mpu.o
       2240          8       3080          0         15      10969   inv_mpu_dmp_motion_driver.o
@@ -5534,7 +5534,7 @@ Image component sizes
     ----------------------------------------------------------------------
      37800        276      27332        116       1608     415477   Object Totals
          0          0         32          0          0          0   (incl. Generated)
-       168          0          2          8         49          0   (incl. Padding)
+       168          0          3          8         49          0   (incl. Padding)
 
     ----------------------------------------------------------------------
 

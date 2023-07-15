@@ -336,9 +336,9 @@ void GUI_Server()
 	/*获取姿态*/
 		//获取姿态角
 		//roll
-		sprintf( str, "%d", CrossNum);
+		sprintf( str, "%d", IdentifiedNum);
 		LCD_ShowString(170,76,str,WHITE,BLACK,16,0);
-		sprintf( str, "%d", CrossFlag);
+		sprintf( str, "%d", TurnSignal);
 		LCD_ShowString(170,92,str,WHITE,BLACK,16,0);
 		//yaw
 		sprintf( str, "%3.1f", Yaw);
@@ -416,8 +416,8 @@ void init_GUI()
 	LCD_ShowString(135,24,Auther,BLACK,BLACK,16,0);
 	LCD_ShowPicture(0,0,91,57,gImage_Competition);
 	LCD_ShowString(94,60,VDDA,WHITE,BLACK,16,0);
-	LCD_ShowString(94,76,"CrosNum",WHITE,BLACK,16,0);
-	LCD_ShowString(94,92,"CrossFlag",WHITE,BLACK,16,0);
+	LCD_ShowString(94,76,"IdenNum",WHITE,BLACK,16,0);
+	LCD_ShowString(94,92,"TurnFlag",WHITE,BLACK,16,0);
 	LCD_ShowString(94,108,YaW,WHITE,BLACK,16,0);
 	LCD_ShowString(94,124,EnL,WHITE,BLACK,16,0);
 	LCD_ShowString(94,140,EnR,WHITE,BLACK,16,0);
