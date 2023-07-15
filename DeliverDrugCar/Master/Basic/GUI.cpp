@@ -417,7 +417,7 @@ void init_GUI()
 	LCD_ShowPicture(0,0,91,57,gImage_Competition);
 	LCD_ShowString(94,60,VDDA,WHITE,BLACK,16,0);
 	LCD_ShowString(94,76,"IdenNum",WHITE,BLACK,16,0);
-	LCD_ShowString(94,92,"TurnFlag",WHITE,BLACK,16,0);
+	LCD_ShowString(94,92,"TurnSig",WHITE,BLACK,16,0);
 	LCD_ShowString(94,108,YaW,WHITE,BLACK,16,0);
 	LCD_ShowString(94,124,EnL,WHITE,BLACK,16,0);
 	LCD_ShowString(94,140,EnR,WHITE,BLACK,16,0);

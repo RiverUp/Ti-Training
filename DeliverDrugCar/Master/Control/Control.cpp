@@ -16,14 +16,14 @@ using namespace std;
 #define LEFTTURN 1
 #define RIGHTTURN 2
 // 识别到路口至正好行驶到路口上进行旋转的延时时间
-#define StopDelayTimes 180
+#define StopDelayTimes 130
 
 // 在第几个路口停
-int StopCrossNum;
+int StopCrossNum=1;
 // 识别到的病房号
-int IdentifiedNum;
+int IdentifiedNum=1;
 // 是否为近端病房
-bool CloseWard;
+bool CloseWard=true;
 // 延时计数
 int StopDelayCount;
 // 标识开始延时
@@ -32,7 +32,7 @@ bool ReadyStopFlag;
 bool Mark180Flag;
 
 float TargetYaw;
-float TargetVelocity = 20;
+float TargetVelocity = 30;
 bool TrackFlag = true;
 bool Turn180Flag;
 bool TurnLeft90Flag;
@@ -122,7 +122,7 @@ extern "C" void TIM8_UP_IRQHandler(void)
 					JudgingCount++;
 					if(JudgingCount>=JudgingTimes)
 					{
-						TargetVelocity=20;
+						TargetVelocity=30;
 						if(CrossNum==2)
 						{
 							Flag_Stop=false;
@@ -261,7 +261,7 @@ extern "C" void TIM8_UP_IRQHandler(void)
                 Flag_Right = 0;
                 Track_Bias = 0;
                 Set_Pwm(0, 0);
-                TargetVelocity = 20;
+                TargetVelocity = 30;
                 TrackFlag = true;
                 if (ArrivedFlag)
                 {
@@ -476,7 +476,7 @@ void Key(void)
         if (ArrivedFlag)
         {
             ArrivedFlag = false;
-            TargetVelocity = 20;
+            TargetVelocity = 30;
         }
 				else
 				{
