@@ -29,10 +29,17 @@ extern bool Turn180Flag;
 extern bool TrackFlag;
 extern bool ReturnFlag;
 extern bool CloseWard;
-extern int CrossNum,ArrivedNum;
-extern int PassCrossTimes, PassCrossCount;
+extern bool JudgingFlag;
+extern bool GoBackFlag;
+extern int TurnSignal;
+extern int CrossNum,ArrivedNum,StopCrossNum;
+extern int PassCrossTimes, PassCrossCount,JudgingCount;
 extern float TargetVelocity;
 extern int IdentifiedNum;
+extern int StopDelayTimes;
+
+void GoBack();
+
 
 //获取角度的算法，1：四元数  2：卡尔曼  3：互补滤波
 extern u8 Way_Angle;                              

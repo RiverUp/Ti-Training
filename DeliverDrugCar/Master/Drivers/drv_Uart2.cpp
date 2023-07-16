@@ -81,7 +81,7 @@ extern "C" void USART2_IRQHandler(void)
 		{
 			RxBuffer1[RxCounter1++] = com_data;
 
-			if (RxCounter1 >= 10 || com_data == 0x5B) // RxBuffer1接受满了,接收数据结束
+			if (RxCounter1 >= 11 || com_data == 0x5B) // RxBuffer1接受满了,接收数据结束
 			{
 				RxState = 3;
 				RxFlag1 = 1;
@@ -135,6 +135,8 @@ extern "C" void USART2_IRQHandler(void)
 							Turn180Flag=true;
 							Track_Bias=0;
 							ReturnFlag=true;
+							if(ArrivedNum==2)
+								Flag_Stop=true;
 						}
 						break;
 					default:

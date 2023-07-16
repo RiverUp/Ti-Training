@@ -56,7 +56,6 @@ extern "C" void USART3_IRQHandler(void)
 {
 	u8 com_data;
 	u8 i;
-	char str[20];
 	static u8 RxCounter1 = 0;
 	static u16 RxBuffer1[10] = {0};
 	static u8 RxState = 0;
@@ -99,22 +98,39 @@ extern "C" void USART3_IRQHandler(void)
 				if (RxFlag1)
 				{
 					// 业务代码
-					IdentifiedNum = readNum;
+					//IdentifiedNum = readNum;
 					switch (readNum)
 					{
 					case 1:
 					case 2:
-						CloseWard=true;
+						StopCrossNum = 1;
+						CloseWard = true;
+						init_drv_Uart2(115200);
+						IdentifiedNum = readNum;
+						break;
 					case 3:
 					case 4:
 					case 5:
 					case 6:
 					case 7:
 					case 8:
+						StopCrossNum = 2;
+						CloseWard = false;
+						init_drv_Uart2(115200);
+						IdentifiedNum = readNum;
 						break;
 					case 11:
-						break;
 					case 12:
+						if (!ReturnFlag && JudgingFlag)
+						{
+							JudgingFlag = false;
+							JudgingCount = 0;
+							TurnSignal = readNum;
+							ReadyStopFlag = true;
+							TargetVelocity = 30;
+							StopDelayTimes = 185;
+						}
+
 						break;
 					default:
 						break;

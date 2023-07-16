@@ -19,11 +19,11 @@ using namespace std;
 int StopDelayTimes = 110;
 
 // 在第几个路口停
-int StopCrossNum = 2;
+int StopCrossNum;
 // 识别到的病房号
-int IdentifiedNum = 7;
+int IdentifiedNum;
 // 是否为近端病房
-bool CloseWard = false;
+bool CloseWard;
 // 延时计数
 int StopDelayCount;
 // 标识开始延时

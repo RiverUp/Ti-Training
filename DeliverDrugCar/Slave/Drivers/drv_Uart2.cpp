@@ -81,7 +81,7 @@ extern "C" void USART2_IRQHandler(void)
 		{
 			RxBuffer1[RxCounter1++] = com_data;
 
-			if (RxCounter1 >= 10 || com_data == 0x5B) // RxBuffer1接受满了,接收数据结束
+			if (RxCounter1 >= 11 || com_data == 0x5B) // RxBuffer1接受满了,接收数据结束
 			{
 				RxState = 3;
 				RxFlag1 = 1;
@@ -115,7 +115,7 @@ extern "C" void USART2_IRQHandler(void)
 					case 1:
 					case 2:
 					case 3:
-						if (!PassCrossFlag&&!Flag_Stop)
+						if (!PassCrossFlag&&!Flag_Stop&&!Flag_Right&&!Flag_Left)
 						{
 							CrossFlag = true;
 							PassCrossFlag = true;
@@ -126,7 +126,7 @@ extern "C" void USART2_IRQHandler(void)
 						CrossFlag = false;
 						break;
 					case 4:
-						if(!ArrivedFlag)
+						if(!ArrivedFlag&&!PassCrossFlag&&!GoBackFlag)
 						{
 							ArrivedFlag = true;
 							TrackFlag=false;
@@ -136,9 +136,7 @@ extern "C" void USART2_IRQHandler(void)
 							Track_Bias=0;
 							ReturnFlag=true;
 							if(ArrivedNum==2)
-							{
-								ArrivedNum=0;
-							}
+								Flag_Stop=true;
 						}
 						break;
 					default:
