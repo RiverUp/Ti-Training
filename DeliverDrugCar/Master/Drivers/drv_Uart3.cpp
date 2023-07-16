@@ -106,6 +106,9 @@ extern "C" void USART3_IRQHandler(void)
 					case 2:
 						StopCrossNum=1;
 						CloseWard=true;
+						init_drv_Uart2(115200);
+						IdentifiedNum = readNum;
+						break;
 					case 3:
 					case 4:
 					case 5:
@@ -114,16 +117,20 @@ extern "C" void USART3_IRQHandler(void)
 					case 8:
 						StopCrossNum=2;
 						CloseWard=false;
-						//init_drv_Uart2(115200);
+						init_drv_Uart2(115200);
 						IdentifiedNum = readNum;
 						break;
 					case 11:
 					case 12:
-						JudgingFlag=false;
+						if(!ReturnFlag&&JudgingFlag)
+						{JudgingFlag=false;
 						JudgingCount=0;
 						TurnSignal=readNum;
 						ReadyStopFlag=true;
-						TargetVelocity=20;
+						TargetVelocity=30;
+						StopDelayTimes=185;
+						}
+						
 						break;
 					default:
 						break;

@@ -30,11 +30,13 @@ extern bool TrackFlag;
 extern bool ReturnFlag;
 extern bool CloseWard;
 extern bool JudgingFlag;
+extern bool GoBackFlag;
 extern int TurnSignal;
 extern int CrossNum,ArrivedNum,StopCrossNum;
 extern int PassCrossTimes, PassCrossCount,JudgingCount;
 extern float TargetVelocity;
 extern int IdentifiedNum;
+extern int StopDelayTimes;
 
 void GoBack();
 

@@ -69,7 +69,7 @@ RCC_ClocksTypeDef RCC_CLK;
 // Z轴加速度计
 float Acceleration_Z;
 // PID参数（放大100倍）
-float Balance_Kp = 20500, Balance_Kd = 110, Velocity_Kp = 16000, Velocity_Ki = 80, Rotate_Turn_Kp = 6000, Rotate_Turn_Kd = 0,Track_Turn_Kp=2000,Track_Turn_Kd=0;
+float Balance_Kp = 20500, Balance_Kd = 110, Velocity_Kp = 16000, Velocity_Ki = 80, Rotate_Turn_Kp = 6000, Rotate_Turn_Kd = 0,Track_Turn_Kp=1400,Track_Turn_Kd=0;
 // 车轮速度(mm/s)
 float Velocity_Left, Velocity_Right;
 // 平衡环PWM变量，速度环PWM变量，转向环PWM变量

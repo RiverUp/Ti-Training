@@ -16,14 +16,14 @@ using namespace std;
 #define LEFTTURN 1
 #define RIGHTTURN 2
 // 识别到路口至正好行驶到路口上进行旋转的延时时间
-#define StopDelayTimes 130
+int StopDelayTimes = 110;
 
 // 在第几个路口停
-int StopCrossNum=1;
+int StopCrossNum = 2;
 // 识别到的病房号
-int IdentifiedNum=1;
+int IdentifiedNum = 7;
 // 是否为近端病房
-bool CloseWard=true;
+bool CloseWard = false;
 // 延时计数
 int StopDelayCount;
 // 标识开始延时
@@ -40,14 +40,14 @@ bool TurnRight90Flag;
 bool CrossFlag;
 bool GoBackFlag;
 int GoBackCount;
-int GoBackTimes=200;
+int GoBackTimes = 200;
 bool ArrivedFlag;
 bool ReturnFlag;
 bool JudgingFlag;
-//数字识别转向方向
+// 数字识别转向方向
 int TurnSignal;
 int JudgingCount;
-int JudgingTimes=300;
+int JudgingTimes = 400;
 int ArrivedNum;
 int CrossNum = 0;
 int ArrivedCount;
@@ -82,67 +82,59 @@ extern "C" void TIM8_UP_IRQHandler(void)
             Led_Flash(100);
         }
 
-
         // 路口判断
         if (CrossNum == StopCrossNum && CrossFlag && !ReturnFlag)
         {
-					// 不是近端病房就停下来识别,第三个路口也不不识别，直接左转
-            if (!CloseWard&&StopCrossNum!=3)
+            // 不是近端病房就停下来识别,第三个路口也不不识别，直接左转
+            if (!CloseWard && StopCrossNum != 3)
             {
-                //Flag_Stop = true;
-								GoBackFlag=true;
+                // Flag_Stop = true;
+                GoBackFlag = true;
             }
             // 是近端病房就开始停止延时
             else
             {
                 ReadyStopFlag = true;
             }
-						CrossFlag=false;
+            CrossFlag = false;
         }
-				GoBack();
+        GoBack();
         if (CrossFlag && ReturnFlag)
         {
-            //					TracePtr--;
-            //					if(TracePtr>=0)
-            //					{
-            //						ReadyStopFlag=true;
-            //						int direction=Trace[TracePtr];
-            //						if(direction==LEFTTURN)
-            //							TurnRight90Flag=true;
-            //						else
-            //							TurnLeft90Flag=true;
-            //					}
-            // LCD_Fill(0, 0, 240, 240, BLUE);
-            TrackFlag = false;
-            ReadyStopFlag = true;
+            if (TracePtr - 1 >= 0)
+            {
+                ReadyStopFlag = true;
+            }
         }
-				//openmv长时间识别不出就算直行
-				if(JudgingFlag)
-				{
-					JudgingCount++;
-					if(JudgingCount>=JudgingTimes)
-					{
-						TargetVelocity=30;
-						if(CrossNum==2)
-						{
-							Flag_Stop=false;
-							JudgingFlag=false;
-							JudgingCount=0;
-							StopCrossNum=3;
-							PassCrossFlag=true;
-						}
-						if(CrossNum==4)
-						{
-							Flag_Stop=false;
-							JudgingFlag=false;
-							JudgingCount=0;
-							StopCrossNum=6;
-							TargetVelocity=0;
-							Turn180Flag=true;
-							Trace[TracePtr-1]=RIGHTTURN;
-						}
-					}
-				}
+        // openmv长时间识别不出就算直行
+        if (JudgingFlag)
+        {
+            JudgingCount++;
+            if (JudgingCount >= JudgingTimes)
+            {
+                TargetVelocity = 30;
+                if (CrossNum == 2)
+                {
+                    Flag_Stop = false;
+                    JudgingFlag = false;
+                    JudgingCount = 0;
+                    StopCrossNum = 3;
+                    PassCrossCount = 0;
+                    PassCrossFlag = true;
+                    StopDelayTimes = 100;
+                }
+                if (CrossNum == 4)
+                {
+                    Flag_Stop = false;
+                    JudgingFlag = false;
+                    JudgingCount = 0;
+                    StopCrossNum = 6;
+                    TargetVelocity = 0;
+                    Turn180Flag = true;
+                    Trace[TracePtr - 1] = RIGHTTURN;
+                }
+            }
+        }
         // 识别路口的延时
         if (PassCrossFlag)
         {
@@ -176,49 +168,48 @@ extern "C" void TIM8_UP_IRQHandler(void)
                     if (IdentifiedNum == 2)
                         TurnRight90Flag = true;
                 }
-								else if(!ReturnFlag&&!CloseWard)
-								{
-									//判别左转或遇到第3个十字路口
-									if(TurnSignal==11)
-										TurnLeft90Flag=true;
-									if(StopCrossNum==3)
-									{
-										//下一个路口要判断数字
-										StopCrossNum=4;
-										TurnLeft90Flag=true;
-									}
-									if(TurnSignal==12)
-										TurnRight90Flag=true;
-									
-								}
+                else if (!ReturnFlag && !CloseWard)
+                {
+                    // 判别左转或遇到第3个十字路口
+                    if (TurnSignal == 11)
+                        TurnLeft90Flag = true;
+                    if (TurnSignal == 12)
+                        TurnRight90Flag = true;
+                    if (StopCrossNum == 3)
+                    {
+                        // 下一个路口要判断数字
+                        StopCrossNum = 4;
+                        TurnLeft90Flag = true;
+                    }
+                    TurnSignal = 0;
+                }
+                // 回程的转向控制
                 else if (ReturnFlag)
                 {
-                    int direction = Trace[--TracePtr];
-                    if (direction == LEFTTURN)
-                        TurnRight90Flag = true;
-                    else
+                    TracePtr--;
+                    if (TracePtr >= 0)
                     {
-                        // LCD_Fill(0, 0, 240, 240, BLUE);
-                        TurnLeft90Flag = true;
+                        int direction = Trace[TracePtr];
+                        if (direction == LEFTTURN)
+                            TurnRight90Flag = true;
+                        else
+                        {
+                            TurnLeft90Flag = true;
+                        }
                     }
                 }
             }
         }
-        //				if(ArrivedFlag)
-        //				{
-        //					ArrivedCount++;
-        //					if(ArrivedCount==50)
-        //					{
-        //						ArrivedCount=0;
-        //						ArrivedFlag=false;
-        //						TargetVelocity=0;
-        //						Turn180Flag=true;
-        //						Track_Bias=0;
-        //					}
-        //				}
         if (TurnLeft90Flag)
         {
-            TargetYaw = Yaw + 90;
+            if (Yaw > 170)
+            {
+                TargetYaw = -Yaw + 90;
+            }
+            else
+            {
+                TargetYaw = Yaw + 90;
+            }
             TurnLeft90Flag = false;
             Flag_Left = true;
             if (!ReturnFlag)
@@ -228,12 +219,19 @@ extern "C" void TIM8_UP_IRQHandler(void)
         }
         if (TurnRight90Flag)
         {
-            TargetYaw = Yaw - 90;
+            if (Yaw < -170)
+            {
+                TargetYaw = -Yaw - 90;
+            }
+            else
+            {
+                TargetYaw = Yaw - 90;
+            }
             TurnRight90Flag = false;
             Flag_Right = true;
             if (!ReturnFlag)
             {
-                Trace[TracePtr++]=RIGHTTURN;
+                Trace[TracePtr++] = RIGHTTURN;
             }
         }
         if (Turn180Flag)
@@ -242,14 +240,14 @@ extern "C" void TIM8_UP_IRQHandler(void)
             if (ArrivedCount == 50)
             {
                 TargetVelocity = 0;
-								if(Yaw<0)
-									TargetYaw = Yaw + 180;
-								else
-									TargetYaw=Yaw-180;
+                if (Yaw < 0)
+                    TargetYaw = Yaw + 180;
+                else
+                    TargetYaw = Yaw - 180;
                 Turn180Flag = false;
                 Flag_Left = true;
-								ArrivedCount=0;
-//								Mark180Flag=true;
+                ArrivedCount = 0;
+                //								Mark180Flag=true;
             }
         }
         if (Flag_Left == 1 || Flag_Right == 1)
@@ -267,11 +265,12 @@ extern "C" void TIM8_UP_IRQHandler(void)
                 {
                     TargetVelocity = 0;
                 }
-//								if(Mark180Flag)
-//								{
-//									Flag_Stop=true;
-//									Mark180Flag=false;
-//								}
+                StopDelayTimes = 110;
+                if (ArrivedNum == 2)
+                {
+                    ArrivedNum = 0;
+                    Flag_Stop = true;
+                }
             }
         }
 
@@ -300,21 +299,23 @@ extern "C" void TIM8_UP_IRQHandler(void)
 }
 void GoBack()
 {
-	if(GoBackFlag)
-	{
-		TargetVelocity=-20;
-		GoBackCount++;
-		if(GoBackCount>=GoBackTimes)
-		{
-			TargetVelocity=0;
-			GoBackCount=0;
-			GoBackFlag=false;
-			JudgingFlag=true;
-			//PassCrossFlag=true;
-		}
-	}
+    if (GoBackFlag)
+    {
+        TargetVelocity = -20;
+				TrackFlag=false;
+        GoBackCount++;
+        if (GoBackCount >= GoBackTimes)
+        {
+            TargetVelocity = 0;
+            GoBackCount = 0;
+            GoBackFlag = false;
+            JudgingFlag = true;
+            PassCrossCount = 0;
+            PassCrossFlag = true;
+						TrackFlag=true;
+        }
+    }
 }
-
 
 /*
  * 函数功能：直立PD控制
@@ -472,17 +473,20 @@ void Key(void)
     temp = click_N_Double(50);
     if (temp == 1)
     {
-				Track_Bias=0;
+        Track_Bias = 0;
         if (ArrivedFlag)
         {
             ArrivedFlag = false;
             TargetVelocity = 30;
         }
-				else
-				{
-					CrossNum=0;
-					Flag_Stop = !Flag_Stop;
-				}
+        else
+        {
+            TurnRight90Flag = TurnLeft90Flag = 0;
+            Flag_Right = false;
+            Flag_Left = false;
+            CrossNum = 0;
+            Flag_Stop = !Flag_Stop;
+        }
     }
 }
 /*
